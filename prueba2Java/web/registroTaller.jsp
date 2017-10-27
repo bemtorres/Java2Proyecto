@@ -12,12 +12,14 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <form action="ControladorCrudClientes" method="Post">
-            <input type="submit" value="Cerrar" name="opcion">    
+        <h1>REGISTRO TALLER</h1>
+        <form action="ControladorRegistro" method="Post">
+            <input type="submit" value="Cerrar" name="opcion"> 
+              <br>  <br>  <br>  <br>  <br>  <br>
             Patente: <input type="text" name="usuario"><br>
+            
             <input type="submit" value="Agregar" name="opcion">    
-            <br>
+            <br>  <br>  <br>  <br>  <br>  <br>
             Tipo de Vehiculo
             <input type="submit" value="Auto" name="opcion">    
             <input type="submit" value="Moto" name="opcion">           

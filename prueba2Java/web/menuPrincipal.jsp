@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-       <h1>Hello World!</h1>
+       <h1>MENU PRINCIPAL</h1>
         <form action="ControladorMenu" method="Post">
             
          <input type="submit" value="Cerrar" name="opcion">    

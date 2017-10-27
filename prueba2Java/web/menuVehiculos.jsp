@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>MENU VEHICULOS</h1>
         <form action="ControladorMenuVehiculo" method="Post">            
             Tipo de Vehiculo
             <input type="submit" value="Auto" name="opcion">    

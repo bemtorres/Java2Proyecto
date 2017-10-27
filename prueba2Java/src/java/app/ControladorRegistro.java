@@ -37,10 +37,10 @@ public class ControladorRegistro extends HttpServlet {
                 response.sendRedirect("index.jsp");
                 break;            
             case "Auto":
-               // response.sendRedirect("menuVehiculo.jsp");
+               response.sendRedirect("tallerAuto.jsp");
                 break;
             case "Moto":
-               // response.sendRedirect("reportes.jsp");
+                response.sendRedirect("tallerMoto.jsp");
                 break;
         }
         try {

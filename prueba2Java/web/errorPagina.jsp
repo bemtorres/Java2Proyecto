@@ -12,7 +12,7 @@
         <title>Se Ha producido un error</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>ERROR 404 PAGINA NO ENCONTRADA...</h1>
         <a href="index.jsp">Volver</a>
     </body>
 </html>

@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-            <h1>Hello World!</h1>
+            <h1>FORMULARIO AUTO</h1>
         <form action="ControladorCrudClientes" method="Post">
          <input type="submit" value="Cerrar" name="opcion">    
          Rut: <input type="number" name="usuario"><br>

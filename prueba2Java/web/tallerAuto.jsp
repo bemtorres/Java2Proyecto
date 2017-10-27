@@ -1,6 +1,6 @@
 <%-- 
-    Document   : formularioMoto
-    Created on : 27-oct-2017, 18:55:08
+    Document   : tallerAuto
+    Created on : 27-oct-2017, 20:19:37
     Author     : benja
 --%>
 
@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>FORMULARIO MOTO</h1>
+        <h1>Taller Auto</h1>
         <form action="ControladorCrudClientes" method="Post">
          <input type="submit" value="Cerrar" name="opcion">    
          Rut: <input type="number" name="usuario"><br>
@@ -33,5 +33,6 @@
          <input type="submit" value="Listar" name="opcion">                
          <input type="submit" value="Cancelar" name="opcion"> 
         </form>
+        
     </body>
 </html>
