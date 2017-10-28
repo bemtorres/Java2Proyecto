@@ -45,6 +45,8 @@ public class ControladorCrudClientes extends HttpServlet {
             out.println("<title>Servlet ControladorEstadoVehi</title>");            
             out.println("</head>");
             out.println("<body>");
+           
+            if(opcion.equals("Agregar")){
             String rutA = request.getParameter("rut");
             char dv = request.getParameter("dv").charAt(0);
             String pNombre = request.getParameter("pNombre");
@@ -59,7 +61,6 @@ public class ControladorCrudClientes extends HttpServlet {
             rut = Integer.parseInt(rutA);
             telefono = Integer.parseInt(telefono1);
                       
-            if(opcion.equals("Agregar")){
                 if (rut>0  && !pNombre.equals("") && !sNombre.equals("") && !apPaterno.equals("") && !apMaterno.equals("") 
                             && !direccion.equals("") && !comuna.equals("") && telefono>=0 && !email.equals("")) {
                     LocalDateTime ahora = LocalDateTime.now(); 
@@ -82,6 +83,12 @@ public class ControladorCrudClientes extends HttpServlet {
                 }
             }
                 if(opcion.equals("Buscar")){
+                     String rutA = request.getParameter("rut");
+            char dv = request.getParameter("dv").charAt(0);
+           
+
+            rut = Integer.parseInt(rutA);
+                      
                     if (rut>0) {
                         Cliente obj =new ClienteDAO().buscarDatos(rut,dv);                        
                         if (obj!=null) {
@@ -96,6 +103,20 @@ public class ControladorCrudClientes extends HttpServlet {
                     }
                 }
                 if (opcion.equals("Modificar")) {
+                     String rutA = request.getParameter("rut");
+            char dv = request.getParameter("dv").charAt(0);
+            String pNombre = request.getParameter("pNombre");
+            String sNombre = request.getParameter("sNombre");
+            String apPaterno = request.getParameter("apPaterno");
+            String apMaterno = request.getParameter("apMaterno");
+            String direccion = request.getParameter("direccion");
+            String comuna = request.getParameter("comuna");
+            String email = request.getParameter("email");        
+            String telefono1 = request.getParameter("telefono");
+
+            rut = Integer.parseInt(rutA);
+            telefono = Integer.parseInt(telefono1);
+                      
                 Cliente nuevoClient1 = new Cliente("", rut, dv, pNombre, sNombre, apPaterno, apMaterno, direccion, comuna, telefono,email);
 
                      int  estado2 =new ClienteDAO().actualizarDatosPersonaCliente(nuevoClient1);
@@ -107,6 +128,10 @@ public class ControladorCrudClientes extends HttpServlet {
                      }
                 }
                 if (opcion.equals("Eliminar")) {
+                     String rutA = request.getParameter("rut");
+                     char dv = request.getParameter("dv").charAt(0);
+            
+                      
                     int filas=new ClienteDAO().eliminarDatos(rut,dv);
                     if(filas==1)
                     {
@@ -124,6 +149,9 @@ public class ControladorCrudClientes extends HttpServlet {
              
             out.println("</body>");
             out.println("</html>");
+        }
+        catch(Exception ex){
+             response.sendRedirect("errorPagina.jsp");
         }
         finally {            
             out.close();
