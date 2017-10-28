@@ -55,11 +55,13 @@ public class ControladorCrudClientes extends HttpServlet {
                 break;  
            case "Agregar":
                 LocalDateTime ahora = LocalDateTime.now(); 
-                Cliente clie = new Cliente((ahora.getYear()+"-"+ahora.getMonth()+""+ahora.getDayOfMonth()),rut, dv, pNombre, sNombre, apPaterno, apMaterno, direccion);
-                int estado =new ClienteDAO().agregarDatos(clie);
+                String hoy = (ahora.getYear()+"-"+ahora.getMonth()+"-"+ahora.getDayOfMonth());                
+                Cliente nuevoCliente = new Cliente(hoy, rut, dv, pNombre, sNombre, apPaterno, apMaterno, direccion, comuna, telefono,email);
+                
+                int estado =new ClienteDAO().agregarDatosPersona(nuevoCliente);
                 if(estado>0)
                 {    
-                     //out.println("<h1>Usuario agregado...</h1>");
+                    int estado1 = new ClienteDAO().agregarDatosCliente(nuevoCliente);
                 }
                 else
                 {

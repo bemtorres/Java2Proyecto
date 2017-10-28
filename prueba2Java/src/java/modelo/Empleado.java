@@ -12,18 +12,18 @@ import java.util.Date;
  * @author carlos
  */
 public class Empleado extends Persona{
+
+  
+    
     private Date fechaContrato;
     private String usuario;
     private String clave;
     private int horaTrabajo;
     private int valorHora;
     private int sueldo;
-
-    public Empleado() {
-    }
-
-    public Empleado(Date fechaContrato, String usuario, String clave, int horaTrabajo, int valorHora, int sueldo, int rut, char dv, String primerNombre, String segundoNombre, String apellidoPaterno, String apellidoMaterno, String direccion) {
-        super(rut, dv, primerNombre, segundoNombre, apellidoPaterno, apellidoMaterno, direccion);
+    
+    public Empleado(Date fechaContrato, String usuario, String clave, int horaTrabajo, int valorHora, int sueldo, int rut, char dv, String primerNombre, String segundoNombre, String apellidoPaterno, String apellidoMaterno, String direccion, String comuna, int telefono, String email) {
+        super(rut, dv, primerNombre, segundoNombre, apellidoPaterno, apellidoMaterno, direccion, comuna, telefono, email);
         this.fechaContrato = fechaContrato;
         this.usuario = usuario;
         this.clave = clave;
@@ -31,7 +31,9 @@ public class Empleado extends Persona{
         this.valorHora = valorHora;
         this.sueldo = sueldo;
     }
-
+    public Empleado() {
+    }
+  
     public Date getFechaContrato() {
         return fechaContrato;
     }
@@ -82,7 +84,7 @@ public class Empleado extends Persona{
 
     @Override
     public String toString() {
-        return "Empleado{" + "fechaContrato=" + fechaContrato + ", usuario=" + usuario + ", clave=" + clave + ", horaTrabajo=" + horaTrabajo + ", valorHora=" + valorHora + ", sueldo=" + sueldo + '}';
+        return super.toString()+" Empleado{" + "fechaContrato=" + fechaContrato + ", usuario=" + usuario + ", clave=" + clave + ", horaTrabajo=" + horaTrabajo + ", valorHora=" + valorHora + ", sueldo=" + sueldo + '}';
     }
 
     

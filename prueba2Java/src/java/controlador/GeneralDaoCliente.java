@@ -15,7 +15,8 @@ import modelo.Cliente;
 public interface GeneralDaoCliente {
     public abstract ArrayList mostrarDatos();
     public abstract Cliente buscarDatos(int rut) ;
-    public abstract int agregarDatos(Cliente cliente);
+    public abstract int agregarDatosPersona(Cliente cliente);
+    public abstract int agregarDatosCliente(Cliente cliente);
     public abstract int eliminarDatos(String usuario);
     public abstract  int actualizarDatos(Cliente obj); 
 }

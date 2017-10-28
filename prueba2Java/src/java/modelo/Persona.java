@@ -10,6 +10,7 @@ package modelo;
  * @author carlos
  */
 public abstract class Persona {
+    
     private int rut;
     private char dv;
     private String primerNombre;
@@ -17,11 +18,13 @@ public abstract class Persona {
     private String apellidoPaterno;
     private String apellidoMaterno;
     private String direccion;
-
+    private String comuna;
+    private int telefono;
+    private String email;
+    
     public Persona() {
     }
-
-    public Persona(int rut, char dv, String primerNombre, String segundoNombre, String apellidoPaterno, String apellidoMaterno, String direccion) {
+    public Persona(int rut, char dv, String primerNombre, String segundoNombre, String apellidoPaterno, String apellidoMaterno, String direccion, String comuna, int telefono, String email) {
         this.rut = rut;
         this.dv = dv;
         this.primerNombre = primerNombre;
@@ -29,6 +32,9 @@ public abstract class Persona {
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno = apellidoMaterno;
         this.direccion = direccion;
+        this.comuna = comuna;
+        this.telefono = telefono;
+        this.email = email;
     }
 
     public int getRut() {
@@ -87,10 +93,37 @@ public abstract class Persona {
         this.direccion = direccion;
     }
 
+    public String getComuna() {
+        return comuna;
+    }
+
+    public void setComuna(String comuna) {
+        this.comuna = comuna;
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
-        return "Persona{" + "rut=" + rut + ", dv=" + dv + ", primerNombre=" + primerNombre + ", segundoNombre=" + segundoNombre + ", apellidoPaterno=" + apellidoPaterno + ", apellidoMaterno=" + apellidoMaterno + ", direccion=" + direccion + '}';
+        return "Persona{" + "rut=" + rut + ", dv=" + dv + ", primerNombre=" + primerNombre + ", segundoNombre=" + segundoNombre + ", apellidoPaterno=" + apellidoPaterno + ", apellidoMaterno=" + apellidoMaterno + ", direccion=" + direccion + ", comuna=" + comuna + ", telefono=" + telefono + ", email=" + email + '}';
     }
+   
+
+    
     
     
     

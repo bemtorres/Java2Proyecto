@@ -28,7 +28,7 @@ public class ClienteDAO implements GeneralDaoCliente{
     }
 
     @Override
-    public int agregarDatos(Cliente cliente) {
+    public int agregarDatosPersona(Cliente cliente) {
       try {
             //Constructor
            
@@ -38,14 +38,13 @@ public class ClienteDAO implements GeneralDaoCliente{
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa","root","");
         
             Statement statement = connection.createStatement();
-            
-            String agregarSql = "INSERT INTO persona (rut_persona,dv_per,p_nombre,s_nombre,ap_pater,ap_mater,direccion,comuna,telefono,email)"+
-                                "VALUE("+cliente.getRut()+",'"+cliente.getDv()+"','"+cliente.getPrimerNombre()+"','"+cliente.getSegundoNombre()+
-                                        "','"+cliente.getApellidoPaterno()+"','"+cliente.getApellidoMaterno()+"','"+cliente.getDireccion()+"','"+
-                                        cliente.get
-            String  agregarSQL = "INSERT INTO usuarios (username,password)"+
-                                 " VALUES('"+usuario.getUsuario()+"','"+usuario.getPassword()+"')";
-            
+            String dv = cliente.getDv()+"";
+            String agregarSQL = " INSERT INTO persona (rut_persona,dv_per,p_nombre,s_nombre,ap_pater,ap_mater,direccion,comuna,telefono,email) "
+                    + "VALUES ("+cliente.getRut()+",'"+dv+"','"+cliente.getPrimerNombre()
+                    +"','"+cliente.getSegundoNombre()+"','"+cliente.getApellidoPaterno()
+                    +"','"+cliente.getApellidoMaterno()+"','"+cliente.getDireccion()
+                    +"','"+cliente.getComuna()+"',"+cliente.getTelefono()
+                    +",'"+cliente.getEmail()+"')";   
             int results = statement.executeUpdate(agregarSQL);
             System.out.println(results);
             //Mostrar datos
@@ -75,6 +74,37 @@ public class ClienteDAO implements GeneralDaoCliente{
     @Override
     public int actualizarDatos(Cliente obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int agregarDatosCliente(Cliente cliente) {        
+        try {
+            //Constructor            
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa","root","");
+        
+            Statement statement = connection.createStatement();
+            
+            String  agregarSQL = "INSERT INTO cliente (rut_persona,fech_asociacion)"+
+                                 " VALUES("+cliente.getRut()+",'"+cliente.getFechaAsociacion()+"')";            
+            int results = statement.executeUpdate(agregarSQL);
+            System.out.println(results);
+            //Mostrar datos
+             //String campo1;
+             //String campo2;
+           /* while (results.next())
+                {
+                    
+                }
+             */
+             connection.close();
+             return results;   
+        } //catching excepcion
+        catch(java.lang.Exception ex){
+            System.out.println("Error: " + ex);
+            return 0;
+        }     
     }
     
 }
