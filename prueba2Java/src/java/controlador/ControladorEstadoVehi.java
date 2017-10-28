@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package app;
+package controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author benja
  */
-public class ControladorCrudMoto extends HttpServlet {
+public class ControladorEstadoVehi extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,28 +30,15 @@ public class ControladorCrudMoto extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         PrintWriter out = response.getWriter();
+        PrintWriter out = response.getWriter();
         String opcion = request.getParameter("opcion");
         switch(opcion){
-           case "Cerrar":
-                response.sendRedirect("index.jsp");
-                break;  
-           case "Agregar":
-                response.sendRedirect("index.jsp");
+            case "Ingresar":
+                //response.sendRedirect("menuPrincipal.jsp");
                 break;
-           case "Buscar":
+            case "Atras":
                 response.sendRedirect("index.jsp");
                 break;
-           case "Modificar":
-                response.sendRedirect("index.jsp");
-                break;
-            case "Listar":
-                response.sendRedirect("index.jsp");
-                break;
-            case "Cancelar":
-                response.sendRedirect("menuVehiculos.jsp");
-                break;
-               
         }
         try  {
             /* TODO output your page here. You may use following sample code. */

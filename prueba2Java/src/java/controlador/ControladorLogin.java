@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package app;
+package controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author benja
  */
-public class ControladorEstadoVehi extends HttpServlet {
+public class ControladorLogin extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,12 +32,21 @@ public class ControladorEstadoVehi extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String opcion = request.getParameter("opcion");
+        String usuario="", clave="";
         switch(opcion){
             case "Ingresar":
-                //response.sendRedirect("menuPrincipal.jsp");
+                usuario = request.getParameter("usuario");
+                clave = request.getParameter("clave");
+                boolean estado =new EmpleadoDAO().verificarDatos(usuario,clave);
+                if (estado) {
+                    response.sendRedirect("menuPrincipal.jsp");
+                }
+                else{
+                    response.sendRedirect("errorPagina.jsp");
+                }                
                 break;
-            case "Atras":
-                response.sendRedirect("index.jsp");
+            case "Estado Vehiculo":
+                response.sendRedirect("estadoVehiculo.jsp");
                 break;
         }
         try  {
@@ -45,14 +54,13 @@ public class ControladorEstadoVehi extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ControladorEstadoVehi</title>");            
+            out.println("<title>Servlet ControladorLogin</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ControladorEstadoVehi at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ControladorLogin at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
-        }
-        finally {            
+        } finally {            
             out.close();
         }
     }

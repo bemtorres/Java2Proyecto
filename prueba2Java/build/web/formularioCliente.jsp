@@ -16,8 +16,8 @@
         <form action="ControladorCrudClientes" method="Post">
          <input type="submit" value="Cerrar" name="opcion">    
          <br>
-         Rut: <input type="number" name="usuario"><br>
-         Dv: <input type="text" name="usuario"><br>
+         Rut: <input type="number" name="rut"><br>
+         Dv: <input type="text" name="dv"><br>
          Primero Nombre: <input type="text" name="pNombre"><br>
          Segundo Nombre: <input type="text" name="sNombre"><br>
          Apellido Paterno: <input type="text" name="apPaterno"><br>

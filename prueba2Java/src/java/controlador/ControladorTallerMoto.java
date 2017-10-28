@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package app;
+package controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author benja
  */
-public class ControladorMenuVehiculo extends HttpServlet {
+public class ControladorTallerMoto extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,29 +35,24 @@ public class ControladorMenuVehiculo extends HttpServlet {
         switch(opcion){
             case "Cerrar":
                 response.sendRedirect("index.jsp");
+                break;   
+                 case "Cancelar":
+                response.sendRedirect("registroTaller.jsp");
                 break;
-            case "Auto":
-                response.sendRedirect("formularioAuto.jsp");
-                break;
-            case "Moto":
-                response.sendRedirect("formularioMoto.jsp");
-                break;
-            case "Atras":
-                response.sendRedirect("menuPrincipal.jsp");
-                break;
+            
         }
-        try  {
+        try {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ControladorMenuVehiculo</title>");            
+            out.println("<title>Servlet ControladorRegistro</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ControladorMenuVehiculo at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ControladorRegistro at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
-        }        
+        }
         finally {            
             out.close();
         }

@@ -2,43 +2,43 @@
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <servlet>
         <servlet-name>ControladorLogin</servlet-name>
-        <servlet-class>app.ControladorLogin</servlet-class>
+        <servlet-class>controlador.ControladorLogin</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ControladorMenu</servlet-name>
-        <servlet-class>app.ControladorMenu</servlet-class>
+        <servlet-class>controlador.ControladorMenu</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ControladorCrudClientes</servlet-name>
-        <servlet-class>app.ControladorCrudClientes</servlet-class>
+        <servlet-class>controlador.ControladorCrudClientes</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ControladorEstadoVehi</servlet-name>
-        <servlet-class>app.ControladorEstadoVehi</servlet-class>
+        <servlet-class>controlador.ControladorEstadoVehi</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ControladorRegistro</servlet-name>
-        <servlet-class>app.ControladorRegistro</servlet-class>
+        <servlet-class>controlador.ControladorRegistro</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ControladorMenuVehiculo</servlet-name>
-        <servlet-class>app.ControladorMenuVehiculo</servlet-class>
+        <servlet-class>controlador.ControladorMenuVehiculo</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ControladorTallerAuto</servlet-name>
-        <servlet-class>app.ControladorTallerAuto</servlet-class>
+        <servlet-class>controlador.ControladorTallerAuto</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ControladorTallerMoto</servlet-name>
-        <servlet-class>app.ControladorTallerMoto</servlet-class>
+        <servlet-class>controlador.ControladorTallerMoto</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ControladorCrudAuto</servlet-name>
-        <servlet-class>app.ControladorCrudAuto</servlet-class>
+        <servlet-class>controlador.ControladorCrudAuto</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ControladorCrudMoto</servlet-name>
-        <servlet-class>app.ControladorCrudMoto</servlet-class>
+        <servlet-class>controlador.ControladorCrudMoto</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ControladorLogin</servlet-name>

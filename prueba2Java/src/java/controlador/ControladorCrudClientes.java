@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package app;
+package controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,12 +11,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Cliente;
+import  java.time.LocalDateTime;
 
 /**
  *
  * @author benja
  */
-public class ControladorMenu extends HttpServlet {
+public class ControladorCrudClientes extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,32 +34,62 @@ public class ControladorMenu extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String opcion = request.getParameter("opcion");
+        String pNombre="", sNombre="",apPaterno="", apMaterno="", direccion="",comuna="", email="";
+        char dv;
+        int rut=0,telefono=0;
+        
+        rut = Integer.parseInt(request.getParameter("rut"));
+        dv = request.getParameter("dv").charAt(0);
+        pNombre = request.getParameter("pNombre");
+        sNombre = request.getParameter("sNombre");
+        apPaterno = request.getParameter("apPaterno");
+        apMaterno = request.getParameter("apMaterno");
+        direccion = request.getParameter("direccion");
+        comuna = request.getParameter("comuna");
+        email = request.getParameter("email");
+        telefono = Integer.parseInt(request.getParameter("telefono"));
+        
         switch(opcion){
-            case "Cerrar":
+           case "Cerrar":
+                response.sendRedirect("index.jsp");
+                break;  
+           case "Agregar":
+                LocalDateTime ahora = LocalDateTime.now(); 
+                Cliente clie = new Cliente((ahora.getYear()+"-"+ahora.getMonth()+""+ahora.getDayOfMonth()),rut, dv, pNombre, sNombre, apPaterno, apMaterno, direccion);
+                int estado =new ClienteDAO().agregarDatos(clie);
+                if(estado>0)
+                {    
+                     //out.println("<h1>Usuario agregado...</h1>");
+                }
+                else
+                {
+                     //out.println("<h1>Usuario NO agregado...</h1>");
+                }
                 response.sendRedirect("index.jsp");
                 break;
-            case "Nueva Orden":
-                response.sendRedirect("registroTaller.jsp");
+           case "Buscar":
+                response.sendRedirect("index.jsp");
                 break;
-            case "Clientes":
-                response.sendRedirect("formularioCliente.jsp");
+           case "Modificar":
+                response.sendRedirect("index.jsp");
                 break;
-            case "Vehiculos":   
-                response.sendRedirect("menuVehiculos.jsp");
+            case "Listar":
+                response.sendRedirect("index.jsp");
                 break;
-            case "Reportes":
-                response.sendRedirect("reportes.jsp");
+            case "Cancelar":
+                response.sendRedirect("menuPrincipal.jsp");
                 break;
+               
         }
-        try{
+        try  {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ControladorMenu</title>");            
+            out.println("<title>Servlet ControladorEstadoVehi</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ControladorMenu at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ControladorEstadoVehi at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
