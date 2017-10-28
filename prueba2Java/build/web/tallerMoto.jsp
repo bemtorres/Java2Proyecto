@@ -17,7 +17,7 @@
             <input type="submit" value="Cerrar" name="opcion">    
         </form>
         <form action="ControladorTallerMoto" method="Post"> 
-            Rut: <input type="number" name="usuario">-<input type="text" name="usuario">
+            Rut: <input type="number" value="0" name="usuario">-<input type="text" name="usuario">
             <input type="submit" value="Buscar" name="opcion"> 
             <br>
             <br>
@@ -28,8 +28,8 @@
             Marca: <input type="text" name="sNombre"><br>
             Tipo de Moto: <input type="text" name="sNombre"><br>
             Foto: <input type="text" name="apPaterno"><br>
-            Año: <input type="text" name="apMaterno"><br>
-            Kilometraje: <input type="number" name="direccion"><br>
+            Año: <input type="number" value="0" name="apMaterno"><br>
+            Kilometraje: <input type="number" value="0" name="direccion"><br>
             Tipo de Bencina <input type="text" name="comuna"><br>
             <br>
             <br>
@@ -46,8 +46,8 @@
             Fecha Salida: <input type="date" name="sNombre"><br>
             Detalles: <input type="text" name="apPaterno"><br>
             Repuestos Utilizados: <input type="text" name="apMaterno"><br>
-            Total de horas de trabajo: <input type="number" name="direccion"><br>
-            Total <input type="number" name="comuna"><br>
+            Total de horas de trabajo: <input type="number" value="0" name="direccion"><br>
+            Total <input type="number" value="0" name="comuna"><br>
             <br>
             <br>
             <input type="submit" value="Guardar" name="opcion">    

@@ -28,16 +28,16 @@
             Marca: <input type="text" name="sNombre"><br>
             Tipo de Auto: <input type="text" name="sNombre"><br>
             Foto: <input type="text" name="apPaterno"><br>
-            Año: <input type="text" name="apMaterno"><br>
+            Año: <input type="number" value="2000" name="apMaterno"><br>
             Kilometraje: <input type="number" name="direccion"><br>
             Tipo de Bencina <input type="text" name="comuna"><br>
             <br>
-            Total asientos: <input type="text" name="pNombre"><br>
-            Total airbag: <input type="text" name="sNombre"><br>
+            Total asientos: <input type="number" value="0" name="pNombre"><br>
+            Total airbag: <input type="number" value="0" name="sNombre"><br>
             ¿Cambio automatico?: <input type="text" name="sNombre"><br>
             ¿Auto electrico? <input type="text" name="apPaterno"><br>
             ¿Direccion asistida? <input type="text" name="apMaterno"><br>
-            ¿Portaequipaje?: <input type="number" name="direccion"><br>
+            ¿Portaequipaje?: <input type="text" name="direccion"><br>
             <br>
             SERVICIO
             <br>            
@@ -52,8 +52,8 @@
             Fecha Salida: <input type="date" name="sNombre"><br>
             Detalles: <input type="text" name="apPaterno"><br>
             Repuestos Utilizados: <input type="text" name="apMaterno"><br>
-            Total de horas de trabajo: <input type="number" name="direccion"><br>
-            Total <input type="number" name="comuna"><br>
+            Total de horas de trabajo: <input type="number" value="0" name="direccion"><br>
+            Total <input type="number" value="0" name="comuna"><br>
             <br>
             <br>
             <input type="submit" value="Guardar" name="opcion">    

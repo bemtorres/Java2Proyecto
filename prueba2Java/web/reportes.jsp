@@ -21,13 +21,6 @@
                
            <br>  <br>  <br>  <br>  <br>  <br>
            <input type="submit" value="Atras" name="opcion">     
-        </form>
-        <form action='ControladorTallerAuto' method="Post">
-            <input type="submit" value="Cerrar" name="opcion"> 
-              <br>  <br>  <br>  <br>  <br>  <br>
-               
-           <br>  <br>  <br>  <br>  <br>  <br>
-           <input type="submit" value="Atras" name="opcion">     
-        </form>
+        </form>      
     </body>
 </html>

@@ -13,13 +13,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Cliente;
 import  java.time.LocalDateTime;
+import java.util.ArrayList;
 
 /**
  *
  * @author benja
  */
 public class ControladorCrudClientes extends HttpServlet {
-
+    private ArrayList<Cliente> arrayClientes =new ArrayList();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -57,36 +58,34 @@ public class ControladorCrudClientes extends HttpServlet {
 
             rut = Integer.parseInt(rutA);
             telefono = Integer.parseInt(telefono1);
-            switch(opcion){                
-                case "Agregar":
-                    if (rut>0  && !pNombre.equals("") && !sNombre.equals("") && !apPaterno.equals("") && !apMaterno.equals("") 
+                      
+            if(opcion.equals("Agregar")){
+                if (rut>0  && !pNombre.equals("") && !sNombre.equals("") && !apPaterno.equals("") && !apMaterno.equals("") 
                             && !direccion.equals("") && !comuna.equals("") && telefono>=0 && !email.equals("")) {
-                            LocalDateTime ahora = LocalDateTime.now(); 
-                         String hoy = (ahora.getYear()+"-"+ahora.getMonthValue()+"-"+ahora.getDayOfMonth());                
-                         Cliente nuevoCliente = new Cliente(hoy, rut, dv, pNombre, sNombre, apPaterno, apMaterno, direccion, comuna, telefono,email);
+                    LocalDateTime ahora = LocalDateTime.now(); 
+                    String hoy = (ahora.getYear()+"-"+ahora.getMonthValue()+"-"+ahora.getDayOfMonth());                
+                    Cliente nuevoCliente = new Cliente(hoy, rut, dv, pNombre, sNombre, apPaterno, apMaterno, direccion, comuna, telefono,email);
 
-                         int estado =new ClienteDAO().agregarDatosPersona(nuevoCliente);
-                         if(estado>0)
-                         {    
-                             int estado1 = new ClienteDAO().agregarDatosCliente(nuevoCliente);
-                              out.println("<h1>Cliente agregado...</h1>");
-                         }
-                         else
-                         {
-                              out.println("<h1>Cliente NO agregado...</h1>");
-                         }
+                    int estado =new ClienteDAO().agregarDatosPersona(nuevoCliente);
+                    if(estado>0)
+                    {    
+                        int estado1 = new ClienteDAO().agregarDatosCliente(nuevoCliente);
+                        out.println("<h1>Cliente agregado...</h1>");
                     }
-                    else{
-                         out.println("<h1>Ingrese datos...</h1>");
+                    else
+                    {
+                        out.println("<h1>Cliente NO agregado...</h1>"); 
                     }
-                     
-                   //  response.sendRedirect("index.jsp");
-                     break;
-                case "Buscar":
+                }
+                else{
+                    out.println("<h1>Ingrese datos...</h1>");
+                }
+            }
+                if(opcion.equals("Buscar")){
                     if (rut>0) {
                         Cliente obj =new ClienteDAO().buscarDatos(rut,dv);                        
                         if (obj!=null) {
-                            out.println("<h1>Cliente encontrado..</h1>");
+                            out.println("<h1>"+obj.toString()+"Cliente encontrado..</h1>");
                         }
                         else{
                             out.println("<h1>Cliente no encontrado..</h1>");
@@ -94,11 +93,10 @@ public class ControladorCrudClientes extends HttpServlet {
                     }
                      else{
                         out.println("<h1>Faltan parametros...</h1>");
-                     }
-
-                     break;
-                case "Modificar":
-                     Cliente nuevoClient1 = new Cliente("", rut, dv, pNombre, sNombre, apPaterno, apMaterno, direccion, comuna, telefono,email);
+                    }
+                }
+                if (opcion.equals("Modificar")) {
+                Cliente nuevoClient1 = new Cliente("", rut, dv, pNombre, sNombre, apPaterno, apMaterno, direccion, comuna, telefono,email);
 
                      int  estado2 =new ClienteDAO().actualizarDatosPersonaCliente(nuevoClient1);
                      if (estado2>0) {
@@ -107,26 +105,23 @@ public class ControladorCrudClientes extends HttpServlet {
                      else{
                           out.println("<h1>Cliente no encontrado...</h1>");
                      }
-                     //response.sendRedirect("index.jsp");
-                     break;
-                  case "Eliminar":
-                     int filas=new ClienteDAO().eliminarDatos(rut,dv);
-                     if(filas==1)
-                     {
-                         out.println("<h1>Cliente Eliminado...</h1>");
-                     }    
-                     else
-                     {
-                         out.println("<h1>Cliente no existe...</h1>");
-                     }  
-                  //   response.sendRedirect("index.jsp");
-                     break;    
-                 case "Listar":                
-                     response.sendRedirect("index.jsp");
-                     break;
-                
-
-             }
+                }
+                if (opcion.equals("Eliminar")) {
+                    int filas=new ClienteDAO().eliminarDatos(rut,dv);
+                    if(filas==1)
+                    {
+                        out.println("<h1>Cliente Eliminado...</h1>");
+                    }    
+                    else
+                    {
+                        out.println("<h1>Cliente no existe...</h1>");
+                    } 
+                }
+                 
+                if (opcion.equals("Listar")) {
+                   response.sendRedirect("listadoClientes.jsp");
+                }            
+             
             out.println("</body>");
             out.println("</html>");
         }
