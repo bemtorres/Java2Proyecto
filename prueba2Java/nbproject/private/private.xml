@@ -3,31 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/benja/Desktop/prueba2Java/src/java/app/ControladorMenu.java</file>
-            <file>file:/C:/Users/benja/Desktop/prueba2Java/web/menuVehiculos.jsp</file>
-            <file>file:/C:/Users/benja/Desktop/prueba2Java/web/menuPrincipal.jsp</file>
-            <file>file:/C:/Users/benja/Desktop/prueba2Java/web/errorPagina.jsp</file>
-            <file>file:/C:/Users/benja/Desktop/prueba2Java/src/java/modelo/Auto.java</file>
-            <file>file:/C:/Users/benja/Desktop/prueba2Java/src/java/app/ControladorMenuVehiculo.java</file>
-            <file>file:/C:/Users/benja/Desktop/prueba2Java/src/java/modelo/Cliente.java</file>
-            <file>file:/C:/Users/benja/Desktop/prueba2Java/web/index.jsp</file>
-            <file>file:/C:/Users/benja/Desktop/prueba2Java/src/java/modelo/FichaReparacion.java</file>
-            <file>file:/C:/Users/benja/Desktop/prueba2Java/src/java/app/ControladorCrudClientes.java</file>
-            <file>file:/C:/Users/benja/Desktop/prueba2Java/src/java/modelo/Repuesto.java</file>
-            <file>file:/C:/Users/benja/Desktop/prueba2Java/src/java/app/ControladorRegistro.java</file>
-            <file>file:/C:/Users/benja/Desktop/prueba2Java/src/java/modelo/Vehiculo.java</file>
-            <file>file:/C:/Users/benja/Desktop/prueba2Java/web/estadoVehiculo.jsp</file>
-            <file>file:/C:/Users/benja/Desktop/prueba2Java/web/formularioAuto.jsp</file>
-            <file>file:/C:/Users/benja/Desktop/prueba2Java/src/java/app/ControladorLogin.java</file>
-            <file>file:/C:/Users/benja/Desktop/prueba2Java/web/formularioCliente.jsp</file>
-            <file>file:/C:/Users/benja/Desktop/prueba2Java/src/java/app/ControladorEstadoVehi.java</file>
-            <file>file:/C:/Users/benja/Desktop/prueba2Java/src/java/modelo/EstadoFicha.java</file>
-            <file>file:/C:/Users/benja/Desktop/prueba2Java/src/java/modelo/DetalleFichaRepuesto.java</file>
-            <file>file:/C:/Users/benja/Desktop/prueba2Java/src/java/modelo/Persona.java</file>
-            <file>file:/C:/Users/benja/Desktop/prueba2Java/web/registroTaller.jsp</file>
-            <file>file:/C:/Users/benja/Desktop/prueba2Java/web/formularioMoto.jsp</file>
-            <file>file:/C:/Users/benja/Desktop/prueba2Java/src/java/modelo/Empleado.java</file>
-            <file>file:/C:/Users/benja/Desktop/prueba2Java/src/java/modelo/Moto.java</file>
+            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/src/java/app/ControladorCrudAuto.java</file>
+            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/src/java/app/ControladorRegistro.java</file>
+            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/src/java/app/ControladorMenuVehiculo.java</file>
+            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/web/reportes.jsp</file>
+            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/web/index.jsp</file>
+            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/web/registroTaller.jsp</file>
+            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/web/tallerAuto.jsp</file>
+            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/web/menuVehiculos.jsp</file>
         </group>
     </open-files>
 </project-private>

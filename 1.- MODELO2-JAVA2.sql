@@ -12,12 +12,12 @@ CREATE TABLE auto
     patente VARCHAR (10) NOT NULL ,
     cant_puertas INT NOT NULL ,
     asientos     INT NOT NULL ,
-    tipo_auto VARCHAR (1) NOT NULL ,
+    tipo_auto VARCHAR (30) NOT NULL ,
     cant_airbag INT NOT NULL ,
     camb_automatico VARCHAR (30) NOT NULL ,
     electrico VARCHAR (30) NOT NULL ,
     dire_asistid VARCHAR (30) NOT NULL ,
-    port_equip VARCHAR (1) NOT NULL
+    port_equip VARCHAR (30) NOT NULL
   ) ;
 
 
@@ -32,7 +32,7 @@ CREATE TABLE cliente
 
 CREATE TABLE det_fich_repuesto
   (
-    id_ficha    INT NOT NULL,
+    id_ficha    INT NOT NULL ,
     repuesto_id INT NOT NULL ,
     cantidad    INT NOT NULL ,
     total       INT NOT NULL
@@ -69,11 +69,11 @@ CREATE TABLE fich_reparacion
     id_est_fich  INT NOT NULL ,
     fech_ingreso DATE NOT NULL ,
     fech_salida  DATE NOT NULL ,
-    motivos VARCHAR (30) NOT NULL ,
-    detalles VARCHAR (30) NOT NULL ,
+    motivos VARCHAR (250) NOT NULL ,
+    detalles VARCHAR (250) NOT NULL ,
     hor_trabajo INT NOT NULL ,
     total       INT NOT NULL,
-     PRIMARY KEY (id_ficha)
+    PRIMARY KEY (id_ficha)
   ) ;
 
 
@@ -88,8 +88,7 @@ CREATE TABLE moto
 CREATE TABLE persona
   (
     rut_persona INT NOT NULL ,
-    nom_per VARCHAR (30) NOT NULL ,
-    dv_per INT NOT NULL ,
+    dv_per VARCHAR(1) NOT NULL ,
     p_nombre VARCHAR (30) NOT NULL ,
     s_nombre VARCHAR (30) NOT NULL ,
     ap_pater VARCHAR (30) NOT NULL ,
@@ -97,7 +96,7 @@ CREATE TABLE persona
     direccion VARCHAR (30) NOT NULL ,
     comuna VARCHAR (30) NOT NULL ,
     telefono INT NOT NULL ,
-    email VARCHAR (1) NOT NULL
+    email VARCHAR (30) NOT NULL
   ) ;
 
 
@@ -122,7 +121,7 @@ CREATE TABLE vehiculo
     foto VARCHAR (30) NOT NULL ,
     anyo        INT NOT NULL ,
     kilometraje INT NOT NULL ,
-    tip_bencina VARCHAR (1) NOT NULL
+    tip_bencina VARCHAR (30) NOT NULL
   ) ;
 
 ALTER TABLE auto ADD CONSTRAINT auto_PK PRIMARY KEY ( patente ) ;
