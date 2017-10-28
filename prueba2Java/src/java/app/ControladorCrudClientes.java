@@ -31,16 +31,37 @@ public class ControladorCrudClientes extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
+        String opcion = request.getParameter("opcion");
+        switch(opcion){
+           case "Cerrar":
+                response.sendRedirect("index.jsp");
+                break;  
+           case "Agregar":
+                response.sendRedirect("index.jsp");
+                break;
+           case "Buscar":
+                response.sendRedirect("index.jsp");
+                break;
+           case "Modificar":
+                response.sendRedirect("index.jsp");
+                break;
+            case "Listar":
+                response.sendRedirect("index.jsp");
+                break;
+            case "Cancelar":
+                response.sendRedirect("menuPrincipal.jsp");
+                break;
+               
+        }
         try  {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ControladorCrudClientes</title>");            
+            out.println("<title>Servlet ControladorEstadoVehi</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ControladorCrudClientes at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ControladorEstadoVehi at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

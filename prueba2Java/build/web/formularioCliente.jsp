@@ -15,6 +15,7 @@
         <h1>FORMULARIO CLIENTE</h1>
         <form action="ControladorCrudClientes" method="Post">
          <input type="submit" value="Cerrar" name="opcion">    
+         <br>
          Rut: <input type="number" name="usuario"><br>
          Dv: <input type="text" name="usuario"><br>
          Primero Nombre: <input type="text" name="pNombre"><br>

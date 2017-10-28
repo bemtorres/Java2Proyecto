@@ -36,12 +36,15 @@ public class ControladorMenuVehiculo extends HttpServlet {
             case "Cerrar":
                 response.sendRedirect("index.jsp");
                 break;
-            case "Registro Auto":
-                response.sendRedirect("registroTaller.jsp");
+            case "Auto":
+                response.sendRedirect("formularioAuto.jsp");
                 break;
-            case "Registro Motos":
-                response.sendRedirect("clientes.jsp");
-                break;          
+            case "Moto":
+                response.sendRedirect("formularioMoto.jsp");
+                break;
+            case "Atras":
+                response.sendRedirect("menuPrincipal.jsp");
+                break;
         }
         try  {
             /* TODO output your page here. You may use following sample code. */

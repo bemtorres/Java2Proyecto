@@ -12,26 +12,38 @@
         <title>JSP Page</title>
     </head>
     <body>
-            <h1>FORMULARIO AUTO</h1>
-        <form action="ControladorCrudClientes" method="Post">
-         <input type="submit" value="Cerrar" name="opcion">    
-         Rut: <input type="number" name="usuario"><br>
-         Dv: <input type="text" name="usuario"><br>
-         Primero Nombre: <input type="text" name="pNombre"><br>
-         Segundo Nombre: <input type="text" name="sNombre"><br>
-         Apellido Paterno: <input type="text" name="apPaterno"><br>
-         Apellido Materno: <input type="text" name="apMaterno"><br>
-         Dirección: <input type="text" name="direccion"><br>
-         Comuna: <input type="text" name="comuna"><br>
-         Telefono: <input type="tel" name="telefono"><br>
-         Email: <input type="email" name="email"><br>
-         
-         <input type="submit" value="Agregar" name="opcion">    
-         <input type="submit" value="Buscar" name="opcion">           
-         <input type="submit" value="Eliminar" name="opcion">    
-         <input type="submit" value="Modificar" name="opcion">          
-         <input type="submit" value="Listar" name="opcion">                
-         <input type="submit" value="Cancelar" name="opcion"> 
+         <h1>FORMULARIO AUTO</h1>
+         <form action="ControladorCrudAuto" method="Post">
+            <input type="submit" value="Cerrar" name="opcion"> <br>  
+            Rut: <input type="number" name="usuario">-<input type="text" name="usuario">
+            <input type="submit" value="Buscar" name="opcion"> 
+            <br>
+            <br>
+            <br>
+            AUTO
+            <br>
+            Patente: <input type="text" name="pNombre"><br>
+            Marca: <input type="text" name="sNombre"><br>
+            Tipo de Auto: <input type="text" name="sNombre"><br>
+            Foto: <input type="text" name="apPaterno"><br>
+            Año: <input type="text" name="apMaterno"><br>
+            Kilometraje: <input type="number" name="direccion"><br>
+            Tipo de Bencina <input type="text" name="comuna"><br>
+            <br>
+            Total asientos: <input type="text" name="pNombre"><br>
+            Total airbag: <input type="text" name="sNombre"><br>
+            ¿Cambio automatico?: <input type="text" name="sNombre"><br>
+            ¿Auto electrico? <input type="text" name="apPaterno"><br>
+            ¿Direccion asistida? <input type="text" name="apMaterno"><br>
+            ¿Portaequipaje?: <input type="number" name="direccion"><br>           
+            <br>
+            <br>
+            <input type="submit" value="Agregar" name="opcion">    
+            <input type="submit" value="Buscar" name="opcion">           
+            <input type="submit" value="Eliminar" name="opcion">    
+            <input type="submit" value="Modificar" name="opcion">          
+            <input type="submit" value="Listar" name="opcion">                
+            <input type="submit" value="Cancelar" name="opcion"> 
         </form>
     </body>
 </html>

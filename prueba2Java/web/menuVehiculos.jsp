@@ -13,11 +13,21 @@
     </head>
     <body>
         <h1>MENU VEHICULOS</h1>
-        <form action="ControladorMenuVehiculo" method="Post">            
+        <form action="ControladorMenuVehiculo" method="Post">    
+             <input type="submit" value="Cerrar" name="opcion">  
+            <br>
+            <br>
+            <br>
+            <br>
+
             Tipo de Vehiculo
             <input type="submit" value="Auto" name="opcion">    
-            <input type="submit" value="Moto" name="opcion">           
-          
+            <input type="submit" value="Moto" name="opcion">     
+            <br>       
+            
+            <br>
+
+           <input type="submit" value="Atras" name="opcion">   
         </form>
     </body>
 </html>

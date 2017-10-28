@@ -24,6 +24,22 @@
         <servlet-name>ControladorMenuVehiculo</servlet-name>
         <servlet-class>app.ControladorMenuVehiculo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorTallerAuto</servlet-name>
+        <servlet-class>app.ControladorTallerAuto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorTallerMoto</servlet-name>
+        <servlet-class>app.ControladorTallerMoto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorCrudAuto</servlet-name>
+        <servlet-class>app.ControladorCrudAuto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorCrudMoto</servlet-name>
+        <servlet-class>app.ControladorCrudMoto</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorLogin</servlet-name>
         <url-pattern>/ControladorLogin</url-pattern>
@@ -47,6 +63,22 @@
     <servlet-mapping>
         <servlet-name>ControladorMenuVehiculo</servlet-name>
         <url-pattern>/ControladorMenuVehiculo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorTallerAuto</servlet-name>
+        <url-pattern>/ControladorTallerAuto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorTallerMoto</servlet-name>
+        <url-pattern>/ControladorTallerMoto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorCrudAuto</servlet-name>
+        <url-pattern>/ControladorCrudAuto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorCrudMoto</servlet-name>
+        <url-pattern>/ControladorCrudMoto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

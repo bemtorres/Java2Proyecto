@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author benja
  */
-public class ControladorRegistro extends HttpServlet {
+public class ControladorTallerMoto extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,16 +35,11 @@ public class ControladorRegistro extends HttpServlet {
         switch(opcion){
             case "Cerrar":
                 response.sendRedirect("index.jsp");
-                break;            
-            case "Auto":
-               response.sendRedirect("tallerAuto.jsp");
+                break;   
+                 case "Cancelar":
+                response.sendRedirect("registroTaller.jsp");
                 break;
-            case "Moto":
-                response.sendRedirect("tallerMoto.jsp");
-                break;
-            case "Atras":
-                response.sendRedirect("menuPrincipal.jsp");
-                break;
+            
         }
         try {
             /* TODO output your page here. You may use following sample code. */

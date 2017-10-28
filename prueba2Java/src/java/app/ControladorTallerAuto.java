@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author benja
  */
-public class ControladorRegistro extends HttpServlet {
+public class ControladorTallerAuto extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,14 +36,8 @@ public class ControladorRegistro extends HttpServlet {
             case "Cerrar":
                 response.sendRedirect("index.jsp");
                 break;            
-            case "Auto":
-               response.sendRedirect("tallerAuto.jsp");
-                break;
-            case "Moto":
-                response.sendRedirect("tallerMoto.jsp");
-                break;
-            case "Atras":
-                response.sendRedirect("menuPrincipal.jsp");
+             case "Cancelar":
+                response.sendRedirect("registroTaller.jsp");
                 break;
         }
         try {

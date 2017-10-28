@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author benja
  */
-public class ControladorRegistro extends HttpServlet {
+public class ControladorCrudMoto extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,31 +30,38 @@ public class ControladorRegistro extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
+         PrintWriter out = response.getWriter();
         String opcion = request.getParameter("opcion");
         switch(opcion){
-            case "Cerrar":
+           case "Cerrar":
                 response.sendRedirect("index.jsp");
-                break;            
-            case "Auto":
-               response.sendRedirect("tallerAuto.jsp");
+                break;  
+           case "Agregar":
+                response.sendRedirect("index.jsp");
                 break;
-            case "Moto":
-                response.sendRedirect("tallerMoto.jsp");
+           case "Buscar":
+                response.sendRedirect("index.jsp");
                 break;
-            case "Atras":
-                response.sendRedirect("menuPrincipal.jsp");
+           case "Modificar":
+                response.sendRedirect("index.jsp");
                 break;
+            case "Listar":
+                response.sendRedirect("index.jsp");
+                break;
+            case "Cancelar":
+                response.sendRedirect("menuVehiculos.jsp");
+                break;
+               
         }
-        try {
+        try  {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ControladorRegistro</title>");            
+            out.println("<title>Servlet ControladorEstadoVehi</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ControladorRegistro at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ControladorEstadoVehi at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
