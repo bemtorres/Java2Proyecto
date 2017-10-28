@@ -13,8 +13,10 @@
     </head>
     <body>
         <h1>TALLER MOTO</h1>
-        <form action="ControladorTallerMoto" method="Post">
-            <input type="submit" value="Cerrar" name="opcion"> <br>  
+        <form action="ControladorCerrarSesion" method="POST">
+            <input type="submit" value="Cerrar" name="opcion">    
+        </form>
+        <form action="ControladorTallerMoto" method="Post"> 
             Rut: <input type="number" name="usuario">-<input type="text" name="usuario">
             <input type="submit" value="Buscar" name="opcion"> 
             <br>

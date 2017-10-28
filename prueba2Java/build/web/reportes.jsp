@@ -13,8 +13,10 @@
     </head>
     <body>
         <h1>REPORTES</h1>
+        <form action="ControladorCerrarSesion" method="POST">
+            <input type="submit" value="Cerrar" name="opcion">    
+        </form>
         <form action='ControladorRegistro' method="Post">
-            <input type="submit" value="Cerrar" name="opcion"> 
               <br>  <br>  <br>  <br>  <br>  <br>
                
            <br>  <br>  <br>  <br>  <br>  <br>

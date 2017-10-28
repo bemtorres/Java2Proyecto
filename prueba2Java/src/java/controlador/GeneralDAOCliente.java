@@ -12,11 +12,11 @@ import modelo.Cliente;
  *
  * @author benja
  */
-public interface GeneralDaoCliente {
+public interface GeneralDAOCliente {
     public abstract ArrayList mostrarDatos();
-    public abstract Cliente buscarDatos(int rut) ;
+    public abstract Cliente buscarDatos(int rut, char dv) ;
     public abstract int agregarDatosPersona(Cliente cliente);
     public abstract int agregarDatosCliente(Cliente cliente);
-    public abstract int eliminarDatos(String usuario);
-    public abstract  int actualizarDatos(Cliente obj); 
+    public abstract int eliminarDatos(int rut, char dv);
+    public abstract int actualizarDatosPersonaCliente(Cliente obj); 
 }

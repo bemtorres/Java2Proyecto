@@ -13,26 +13,28 @@
     </head>
     <body>
         <h1>FORMULARIO CLIENTE</h1>
-        <form action="ControladorCrudClientes" method="Post">
-         <input type="submit" value="Cerrar" name="opcion">    
+        <form action="ControladorCerrarSesion" method="POST">
+            <input type="submit" value="Cerrar" name="opcion">    
+        </form>
+         
          <br>
-         Rut: <input type="number" name="rut"><br>
-         Dv: <input type="text" name="dv"><br>
+         <form action="ControladorCrudClientes" method="Post">
+         Rut: <input type="number" value="0" name="rut">-<input type="text" name="dv"><br>
          Primero Nombre: <input type="text" name="pNombre"><br>
          Segundo Nombre: <input type="text" name="sNombre"><br>
          Apellido Paterno: <input type="text" name="apPaterno"><br>
          Apellido Materno: <input type="text" name="apMaterno"><br>
          Dirección: <input type="text" name="direccion"><br>
          Comuna: <input type="text" name="comuna"><br>
-         Telefono: <input type="tel" name="telefono"><br>
+         Telefono: <input type="number"  value="0" name="telefono"><br>
          Email: <input type="email" name="email"><br>
          
          <input type="submit" value="Agregar" name="opcion">    
          <input type="submit" value="Buscar" name="opcion">           
          <input type="submit" value="Eliminar" name="opcion">    
          <input type="submit" value="Modificar" name="opcion">          
-         <input type="submit" value="Listar" name="opcion">                
-         <input type="submit" value="Cancelar" name="opcion"> 
+         <input type="submit" value="Listar" name="opcion">     
         </form>
+        <a href='menuPrincipal.jsp'>volver</a>
     </body>
 </html>
