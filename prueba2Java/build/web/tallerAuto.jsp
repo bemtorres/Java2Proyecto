@@ -17,33 +17,47 @@
             <input type="submit" value="Cerrar" name="opcion">    
         </form>
         <form action="ControladorTallerAuto" method="Post">
-            <%
-            String rut =(String)request.getAttribute("rut");
-            String dv = (String)request.getAttribute("dv");
-            %>
-            Rut: <input type="number" name="usuario">-<input type="text" name="usuario">
-            <input type="submit" value="Buscar" name="opcion"> 
+            <%    
+              String marca = (String) request.getAttribute("marca");
+              String foto = (String) request.getAttribute("foto");
+              String anuo = (String) request.getAttribute("anyo");
+              String kilo = (String) request.getAttribute("kilometraje");
+              String tipoB = (String) request.getAttribute("tipo_bencina");
+              String canP = (String) request.getAttribute("cantPuertas");
+              String canA = (String) request.getAttribute("cantiAsientos");
+              String tipoA = (String) request.getAttribute("tipoAuto");
+              String canAir = (String) request.getAttribute("cantAirbags");
+              String cambi = (String) request.getAttribute("cambiosAutomaticos");
+              String elec = (String) request.getAttribute("electrico");
+              String dire = (String) request.getAttribute("direccionAsistida");
+              String porta = (String) request.getAttribute("portaEquipaje");
+              String patente = (String) request.getAttribute("patente");
+              String rut = (String) request.getAttribute("rut"); 
+              String dv = (String) request.getAttribute("dv");  %> 
+            
+            SERVICIO
+            <br>
+            Rut: <input type="text" name="usuario" value="<%= rut %>" readonly>-<input type="text" value="<%= dv %>" readonly name="usuario"> 
             <br>
             <br>
             <br>
             AUTO
             <br>
-            Patente: <input type="text" name="pNombre"><br>
-            Marca: <input type="text" name="sNombre"><br>
-            Tipo de Auto: <input type="text" name="sNombre"><br>
-            Foto: <input type="text" name="apPaterno"><br>
-            Año: <input type="number" value="2000" name="apMaterno"><br>
-            Kilometraje: <input type="number" name="direccion"><br>
-            Tipo de Bencina <input type="text" name="comuna"><br>
+            Patente: <input type="text" name="patente" value="<%= patente %>" readonly><br>
+            Marca: <input type="text" name="marca" value="<%= marca %>" readonly><br>
+            Tipo de Auto: <input type="text" name="tipoAuto" value="<%= tipoA %>" readonly><br>
+            Foto: <input type="text" name="foto" value="<%= foto %>" readonly  ><br>
+            Año: <input type="text" value="<%= anuo %>" readonly name="anyo"><br>
+            Kilometraje: <input type="text" value="<%= kilo %>" readonly name="kilometraje"><br>
+            Tipo de Bencina <input type="text" value="<%= tipoB %>" readonly name="tipo_bencina"><br>
             <br>
-            Total asientos: <input type="number" value="0" name="pNombre"><br>
-            Total airbag: <input type="number" value="0" name="sNombre"><br>
-            ¿Cambio automatico?: <input type="text" name="sNombre"><br>
-            ¿Auto electrico? <input type="text" name="apPaterno"><br>
-            ¿Direccion asistida? <input type="text" name="apMaterno"><br>
-            ¿Portaequipaje?: <input type="text" name="direccion"><br>
+            Total asientos: <input type="text" value="<%= canA %>" readonly name="asientos"><br>
+            Total airbag: <input type="text" value="<%= canAir %>" readonly name="air"><br>
+            ¿Cambio automatico?: <input type="text" value="<%= cambi %>" readonly name="cambioA"><br>
+            ¿Auto electrico? <input type="text" value="<%= elec %>" readonly name="electrico"><br>
+            ¿Direccion asistida? <input type="text" value="<%= dire %>" readonly name="asistida"><br>
+            ¿Portaequipaje?: <input type="text" value="<%= porta %>" readonly name="portaequipaje"><br>
             <br>
-            SERVICIO
             <br>            
             <br>
             Fecha Ingreso: <input type="date" name="pNombre"><br>         
@@ -61,8 +75,7 @@
             <br>
             <br>
             <input type="submit" value="Guardar" name="opcion">    
-            <input type="submit" value="Actualizar" name="opcion"> 
-            <input type="submit" value="Cancelar" name="opcion">   
-        </form>        
+        </form>      
+            <a href="registroTaller.jsp">volver</a>
     </body>
 </html>

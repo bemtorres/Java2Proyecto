@@ -31,7 +31,7 @@ public class Moto extends Vehiculo{
 
     @Override
     public String toString() {
-        return "Moto{" + "tipomoto=" + tipomoto + '}';
+        return super.toString()+" Moto{" + "tipomoto=" + tipomoto + '}';
     }
    
     

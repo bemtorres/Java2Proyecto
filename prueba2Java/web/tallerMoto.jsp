@@ -17,20 +17,30 @@
             <input type="submit" value="Cerrar" name="opcion">    
         </form>
         <form action="ControladorTallerMoto" method="Post"> 
-            Rut: <input type="number" value="0" name="usuario">-<input type="text" name="usuario">
-            <input type="submit" value="Buscar" name="opcion"> 
+            <%    
+              String marca = (String) request.getAttribute("marca");
+              String foto = (String) request.getAttribute("foto");
+              String anuo = (String) request.getAttribute("anyo");
+              String kilo = (String) request.getAttribute("kilometraje");
+              String tipoB = (String) request.getAttribute("tipo_bencina");
+              String tipoM = (String) request.getAttribute("tipo_moto");
+              String patente = (String) request.getAttribute("patente");
+              String rut = (String) request.getAttribute("rut"); 
+              String dv = (String) request.getAttribute("dv");  %> 
+             Rut: <input type="text" name="usuario" value="<%= rut %>" readonly>-<input type="text" value="<%= dv %>" readonly name="usuario"> 
             <br>
             <br>
             <br>
-            MOTO
+            Moto
             <br>
-            Patente: <input type="text" name="pNombre"><br>
-            Marca: <input type="text" name="sNombre"><br>
-            Tipo de Moto: <input type="text" name="sNombre"><br>
-            Foto: <input type="text" name="apPaterno"><br>
-            Año: <input type="number" value="0" name="apMaterno"><br>
-            Kilometraje: <input type="number" value="0" name="direccion"><br>
-            Tipo de Bencina <input type="text" name="comuna"><br>
+            Patente: <input type="text" name="patente" value="<%= patente %>" readonly><br>
+            Marca: <input type="text" name="marca" value="<%= marca %>" readonly><br>
+            Tipo de Moto: <input type="text" name="tipoAuto" value="<%= tipoM %>" readonly><br>
+            Foto: <input type="text" name="foto" value="<%= foto %>" readonly  ><br>
+            Año: <input type="text" value="<%= anuo %>" readonly name="anyo"><br>
+            Kilometraje: <input type="text" value="<%= kilo %>" readonly name="kilometraje"><br>
+            Tipo de Bencina <input type="text" value="<%= tipoB %>" readonly name="tipo_bencina"><br>
+            <br>
             <br>
             <br>
             SERVICIO

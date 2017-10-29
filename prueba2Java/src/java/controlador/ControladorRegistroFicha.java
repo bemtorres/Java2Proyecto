@@ -36,10 +36,6 @@ public class ControladorRegistroFicha extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String opcion = request.getParameter("opcion");
-        String patente = request.getParameter("pantente");
-        int rut = Integer.parseInt(request.getParameter("rut"));
-        char dv = request.getParameter("dv").charAt(0);
-
         try {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -49,62 +45,78 @@ public class ControladorRegistroFicha extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             if (opcion.equals("Agregar")) {
+                String patente = request.getParameter("patente");
+                int rut = Integer.parseInt(request.getParameter("rut"));
+                char dv = request.getParameter("dv").charAt(0);
                 Empleado obj = new EmpleadoDAO().buscarDatos(rut);
                 Auto auto = null;
                 Moto moto = null;
 
                 auto = new ControladorDAOTaller().buscarDatosAuto(patente, rut, dv);
-                moto = new ControladorDAOTaller().buscarDatosMoto(patente, rut, dv);
 
                 if (auto != null) {
-
+                    String rut0 = rut + "";
+                    String dv0 = dv + "";
                     String marca = auto.getMarca();
                     String foto = auto.getFoto();
-                    int anyo = auto.getAnyo();
-                    int kilometraje = auto.getKilometraje();
+                    String anyo = auto.getAnyo() + "";
+                    String kilometraje = auto.getKilometraje() + "";
                     String tipo_bencina = auto.getTipo_bencina();
-                    int cantPuertas = auto.getCantPuertas();
-                    int cantAsientos = auto.getCantAsientos();
+                    String cantPuertas = auto.getCantPuertas() + "";
+                    String cantAsientos = auto.getCantAsientos() + "";
                     String tipoAuto = auto.getTipoAuto();
-                    int cantAirbags = auto.getCantAirbags();
+                    String cantAirbags = auto.getCantAirbags() + "";
                     String cambiosAutomaticos = auto.getCambiosAutomaticos();
                     String electrico = auto.getElectrico();
                     String direccionAsistida = auto.getDireccionAsistida();
                     String portaEquipaje = auto.getPortaEquipaje();
 
-                    String rut0 = auto.getRut() + "";
-
-                    request.setAttribute("rut", rut0);
-                    request.setAttribute("rut", rut0);
-                    request.setAttribute("rut", rut0);
-                    request.setAttribute("rut", rut0);
-                    request.setAttribute("rut", rut0);
-                    request.setAttribute("rut", rut0);
-                    request.setAttribute("rut", rut0);
-                    request.setAttribute("rut", rut0);
-                    
-                    
-
-                    request.getRequestDispatcher("tallerAuto.jsp").forward(request, response);
-                }
-
-                if (moto != null) {
-                    request.getRequestDispatcher("tallerAuto.jsp").forward(request, response);
-                }
-
-                if (obj != null) {
-
-                    String rut0 = obj.getRut() + "";
-                    String dv0 = obj.getDv() + "";
+                    // out.println("<h1>"+auto.toString()+"</h1>");
+                    request.setAttribute("marca", marca);
+                    request.setAttribute("foto", foto);
+                    request.setAttribute("anyo", anyo);
+                    request.setAttribute("kilometraje", kilometraje);
+                    request.setAttribute("tipo_bencina", tipo_bencina);
+                    request.setAttribute("cantPuertas", cantPuertas);
+                    request.setAttribute("cantiAsientos", cantAsientos);
+                    request.setAttribute("tipoAuto", tipoAuto);
+                    request.setAttribute("cantAirbags", cantAirbags);
+                    request.setAttribute("cambiosAutomaticos", cambiosAutomaticos);
+                    request.setAttribute("electrico", electrico);
+                    request.setAttribute("direccionAsistida", direccionAsistida);
+                    request.setAttribute("portaEquipaje", portaEquipaje);
+                    request.setAttribute("patente", patente);
                     request.setAttribute("rut", rut0);
                     request.setAttribute("dv", dv0);
-                    request.getRequestDispatcher("formularioAuto.jsp").forward(request, response);
-                } else {
-                    out.println("<h1> Errror, no se ha encontrado el cliente.</h1>");
+                    request.getRequestDispatcher("tallerAuto.jsp").forward(request, response);
+
                 }
+                moto = new ControladorDAOTaller().buscarDatosMoto(patente, rut, dv);
+                if (moto != null) {
+                    String rut0 = rut + "";
+                    String dv0 = dv + "";
+                    String marca = moto.getMarca();
+                    String foto = moto.getFoto();
+                    String anyo = moto.getAnyo() + "";
+                    String kilometraje = moto.getKilometraje() + "";
+                    String tipo_bencina = moto.getTipo_bencina();
+                    String tipo_moto = moto.getTipomoto();
+
+                    //out.println("<h1>"+moto.toString()+"</h1>");
+                    request.setAttribute("marca", marca);
+                    request.setAttribute("foto", foto);
+                    request.setAttribute("anyo", anyo);
+                    request.setAttribute("kilometraje", kilometraje);
+                    request.setAttribute("tipo_bencina", tipo_bencina);
+                    request.setAttribute("tipo_moto", tipo_moto);
+                    request.setAttribute("patente", patente);
+                    request.setAttribute("rut", rut0);
+                    request.setAttribute("dv", dv0);
+                    request.getRequestDispatcher("tallerMoto.jsp").forward(request, response);
+                }
+                
 
             }
-
             out.println("</body>");
             out.println("</html>");
         } finally {

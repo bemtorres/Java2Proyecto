@@ -10,6 +10,8 @@ package modelo;
  * @author carlos
  */
 public abstract class Vehiculo {
+
+    
     private String patente;
     private String marca;
     private int rut;
@@ -89,7 +91,10 @@ public abstract class Vehiculo {
         this.tipo_bencina = tipo_bencina;
     }
 
-   
+   @Override
+    public String toString() {
+        return "Vehiculo{" + "patente=" + patente + ", marca=" + marca + ", rut=" + rut + ", foto=" + foto + ", anyo=" + anyo + ", kilometraje=" + kilometraje + ", tipo_bencina=" + tipo_bencina + '}';
+    }
   
     
    

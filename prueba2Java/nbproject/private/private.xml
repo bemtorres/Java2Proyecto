@@ -3,9 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/carlos/Desktop/prueba%20java2/Java2Proyecto/prueba2Java/src/java/controlador/GeneralDAOAuto.java</file>
             <file>file:/C:/Users/carlos/Desktop/prueba%20java2/Java2Proyecto/prueba2Java/src/java/modelo/Vehiculo.java</file>
             <file>file:/C:/Users/carlos/Desktop/prueba%20java2/Java2Proyecto/prueba2Java/src/java/controlador/AutoDAO.java</file>
+=======
+            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/src/java/controlador/ControladorRegistroFicha.java</file>
+            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/src/java/controlador/ControladorDAOTaller.java</file>
+            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/web/registroTaller.jsp</file>
+            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/web/formularioAuto.jsp</file>
+            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/web/tallerAuto.jsp</file>
+>>>>>>> dcccbea271b5c01ea1e3cf7e73c50ee6c16d6cb3
         </group>
     </open-files>
 </project-private>

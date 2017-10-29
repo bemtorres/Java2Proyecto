@@ -17,7 +17,8 @@ import java.sql.Statement;
  * @author carlos
  */
 public class AutoDAO implements GeneralDAOAuto{
-    private ArrayList<Auto> arrayAutos = new ArrayList<>();
+    private static ArrayList<Auto> arrayAutos = new ArrayList<Auto>();
+    
     @Override
     public ArrayList mostrarDatos() {
         
@@ -120,23 +121,7 @@ public class AutoDAO implements GeneralDAOAuto{
                         int campo13;
                         int campo14;
                         String campo15;  
-                        
-                        
-                        int rut_persona;
-                        int cantPuertas;
-                        int cantAsientos;
-                        String tipoAuto;
-                        int cantAirbags;
-                        String cambiosAutomaticos;
-                        String electrico;
-                        String direccionAsistida;
-                        String portaEquipaje;                       
-                        String marca;
-                        String foto;
-                        int anyo;
-                        int kilometraje;
-                        String tipo_bencina;
-                            
+                             
                             while (results.next())
                             {
                                 campo1 = results.getString("patente");
@@ -151,10 +136,12 @@ public class AutoDAO implements GeneralDAOAuto{
                                 campo10=results.getString("portaEquipaje");
                                 campo11=results.getString("marca");
                                 campo12=results.getString("foto");
+                                campo13=results.getInt("anyo");
+                                campo14=results.getInt("kilometraje");
                                 
                                 
-                                if(campo1.equals(usuario)){
-                                     obj=new Usuario(campo1,campo2);
+                                if(campo1.equals(patente)){
+                                     obj=new Auto(campo1,campo2,campo3,campo4,campo5,campo6,campo7,campo8, campo9,campo10,campo11,campo12,campo13,campo14);
                                      break;
                                 }
                             }
@@ -163,63 +150,8 @@ public class AutoDAO implements GeneralDAOAuto{
          catch(java.lang.Exception ex){
             System.out.println("Error: " + ex);
          }
-     
-          
-         return obj;
-        
-        
-        
-       Auto obj =null;
-          try {
-
-                      Class.forName("com.mysql.jdbc.Driver").newInstance();
-
-                        Connection connection = DriverManager.getConnection
-                                               ("jdbc:mysql://localhost:3306/empresa","root","");
-
-
-                        Statement statement = connection.createStatement();
-
-                        String query = "SELECT * from auto where patente='"+patente+"';" ;
-
-
-                         ResultSet results = statement.executeQuery(query);
  
-                        int rut_persona;
-                        int cantPuertas;
-                        int cantAsientos;
-                        String tipoAuto;
-                        int cantAirbags;
-                        String cambiosAutomaticos;
-                        String electrico;
-                        String direccionAsistida;
-                        String portaEquipaje;                       
-                        String marca;
-                        String foto;
-                        int anyo;
-                        int kilometraje;
-                        String tipo_bencina;
-                            
-                            while (results.next())
-                            {
-                                //todos los datos vehiculo y auto 
-                                
-                                
-                                
-                                if(patente.equals(patente)){
-                                     obj = new Auto( rut_persona,cantPuertas,cantAsientos,tipoAuto,cantAirbags,cambiosAutomaticos,electrico,direccionAsistida,portaEquipaje,marca,foto,anyo,kilometraje,tipo_bencina);
-                                     break;
-                                }
-                            }
-                  connection.close();
-         }
-         catch(java.lang.Exception ex){
-            System.out.println("Error: " + ex);
-         }
-     
-          
          return obj;
-    
     }
 
     @Override
@@ -262,9 +194,6 @@ public class AutoDAO implements GeneralDAOAuto{
             System.out.println("Error: " + ex);
             return 0;
         }
-        
-        
-        
     }
 
     @Override
