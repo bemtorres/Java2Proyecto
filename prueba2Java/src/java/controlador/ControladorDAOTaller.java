@@ -83,7 +83,7 @@ public class ControladorDAOTaller implements GeneralDaoTaller{
 
                         Statement statement = connection.createStatement();
                        String dv1 = dv+ "";
-                        String query = "Select * FROM vehiculo JOIN moto using(patente) WHERE patente='"+patente+"' and rut_persona="+rut+" and dv='"+dv1+"';" ;
+                        String query = "Select * FROM vehiculo JOIN moto on(vehiculo.patente = moto.vehiculo_patente)  WHERE vehiculo_patente='"+patente+"' and rut_persona="+rut+";" ;
                                 
                         ResultSet results = statement.executeQuery(query);
                         
@@ -93,20 +93,18 @@ public class ControladorDAOTaller implements GeneralDaoTaller{
                         int anyo;
                         int kilometraje;
                         String tipo_bencina;
-                        
-                        
-                        
                         String tipomoto;
+                        
                         while (results.next())
-                        {
-                                rut_persona = results.getInt("rut_persona");                                
-                                patente = results.getString("patente");                               
+                        {                                                           
                                 marca = results.getString("marca");
                                 foto= results.getString("foto");
                                 anyo= results.getInt("anyo");
+                                tipomoto = results.getString("tip_moto");
                                 kilometraje = results.getInt("kilometraje");
                                 tipo_bencina = results.getString("tip_bencina");
                                 
+                                obj = new Moto(tipomoto, patente, marca, rut, foto, anyo, kilometraje, tipo_bencina);
                                 break;                                
                        }
                   connection.close();

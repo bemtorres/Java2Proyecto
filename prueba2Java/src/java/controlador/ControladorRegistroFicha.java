@@ -55,25 +55,23 @@ public class ControladorRegistroFicha extends HttpServlet {
                 auto = new ControladorDAOTaller().buscarDatosAuto(patente, rut, dv);
 
                 if (auto != null) {
-                        
                     String rut0 = rut + "";
-                    String dv0 = dv +"";
+                    String dv0 = dv + "";
                     String marca = auto.getMarca();
                     String foto = auto.getFoto();
-                    String anyo = auto.getAnyo()+"";
-                    String kilometraje = auto.getKilometraje()+"";
+                    String anyo = auto.getAnyo() + "";
+                    String kilometraje = auto.getKilometraje() + "";
                     String tipo_bencina = auto.getTipo_bencina();
-                    String cantPuertas = auto.getCantPuertas()+ "";
-                    String cantAsientos = auto.getCantAsientos()+ "";
+                    String cantPuertas = auto.getCantPuertas() + "";
+                    String cantAsientos = auto.getCantAsientos() + "";
                     String tipoAuto = auto.getTipoAuto();
-                    String cantAirbags = auto.getCantAirbags()+ "";
+                    String cantAirbags = auto.getCantAirbags() + "";
                     String cambiosAutomaticos = auto.getCambiosAutomaticos();
                     String electrico = auto.getElectrico();
                     String direccionAsistida = auto.getDireccionAsistida();
                     String portaEquipaje = auto.getPortaEquipaje();
-                 
-                 // out.println("<h1>"+auto.toString()+"</h1>");
-                   
+
+                    // out.println("<h1>"+auto.toString()+"</h1>");
                     request.setAttribute("marca", marca);
                     request.setAttribute("foto", foto);
                     request.setAttribute("anyo", anyo);
@@ -91,12 +89,32 @@ public class ControladorRegistroFicha extends HttpServlet {
                     request.setAttribute("rut", rut0);
                     request.setAttribute("dv", dv0);
                     request.getRequestDispatcher("tallerAuto.jsp").forward(request, response);
-                  
+
                 }
                 moto = new ControladorDAOTaller().buscarDatosMoto(patente, rut, dv);
                 if (moto != null) {
-                    request.getRequestDispatcher("tallerAuto.jsp").forward(request, response);
+                    String rut0 = rut + "";
+                    String dv0 = dv + "";
+                    String marca = moto.getMarca();
+                    String foto = moto.getFoto();
+                    String anyo = moto.getAnyo() + "";
+                    String kilometraje = moto.getKilometraje() + "";
+                    String tipo_bencina = moto.getTipo_bencina();
+                    String tipo_moto = moto.getTipomoto();
+
+                    //out.println("<h1>"+moto.toString()+"</h1>");
+                    request.setAttribute("marca", marca);
+                    request.setAttribute("foto", foto);
+                    request.setAttribute("anyo", anyo);
+                    request.setAttribute("kilometraje", kilometraje);
+                    request.setAttribute("tipo_bencina", tipo_bencina);
+                    request.setAttribute("tipo_moto", tipo_moto);
+                    request.setAttribute("patente", patente);
+                    request.setAttribute("rut", rut0);
+                    request.setAttribute("dv", dv0);
+                    request.getRequestDispatcher("tallerMoto.jsp").forward(request, response);
                 }
+                
 
             }
             out.println("</body>");
