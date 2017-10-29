@@ -19,7 +19,7 @@
          
          <br>
          <form action="ControladorCrudClientes" method="Post">
-         Rut: <input type="number" value="0" name="rut">-<input type="text" value="" name="dv"><br>
+         Rut: <input type="number" value="0" name="rut">-<input type="text" maxlength="1" value="" name="dv"><br>
          Primero Nombre: <input type="text" value="" name="pNombre"><br>
          Segundo Nombre: <input type="text" value="" name="sNombre"><br>
          Apellido Paterno: <input type="text" value="" name="apPaterno"><br>
@@ -27,7 +27,7 @@
          Dirección: <input type="text" value="" name="direccion"><br>
          Comuna: <input type="text" value="" name="comuna"><br>
          Telefono: <input type="number"  value="0" name="telefono"><br>
-         Email: <input type="email" value="" name="email"><br>
+         Email: <input type="email" value=""  name="email"><br>
          
          <input type="submit" value="Agregar" name="opcion">    
          <input type="submit" value="Buscar" name="opcion">           

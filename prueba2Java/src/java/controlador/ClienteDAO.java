@@ -121,6 +121,7 @@ public class ClienteDAO implements GeneralDAOCliente{
         
             Statement statement = connection.createStatement();
             String dv = cliente.getDv()+"";
+            
             String agregarSQL = " INSERT INTO persona (rut_persona,dv_per,p_nombre,s_nombre,ap_pater,ap_mater,direccion,comuna,telefono,email) "
                     + "VALUES ("+cliente.getRut()+",'"+dv+"','"+cliente.getPrimerNombre()
                     +"','"+cliente.getSegundoNombre()+"','"+cliente.getApellidoPaterno()

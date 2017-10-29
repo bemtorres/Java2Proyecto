@@ -36,7 +36,7 @@ public class ControladorLogin extends HttpServlet {
         switch(opcion){
             case "Ingresar":
                 usuario = request.getParameter("usuario");
-                clave = request.getParameter("clave");
+                clave = request.getParameter("clave");                
                 boolean estado =new EmpleadoDAO().verificarDatos(usuario,clave);
                 if (estado) {
                     response.sendRedirect("menuPrincipal.jsp");
