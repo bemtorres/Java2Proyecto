@@ -32,11 +32,15 @@ public class ControladorTallerAuto extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String opcion = request.getParameter("opcion");
-        switch(opcion){
-            case "Cerrar":
-                response.sendRedirect("index.jsp");
-                break;            
-             case "Cancelar":
+        switch (opcion) {
+
+            case "Guardar":
+                
+                
+                
+                
+                
+                
                 response.sendRedirect("registroTaller.jsp");
                 break;
         }
@@ -45,14 +49,13 @@ public class ControladorTallerAuto extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ControladorRegistro</title>");            
+            out.println("<title>Servlet ControladorRegistro</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ControladorRegistro at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
-        }
-        finally {            
+        } finally {
             out.close();
         }
     }

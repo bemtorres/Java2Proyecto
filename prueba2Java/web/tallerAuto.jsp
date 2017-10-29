@@ -38,7 +38,7 @@
             
             SERVICIO
             <br>
-            Rut: <input type="text" name="usuario" value="<%= rut %>" readonly>-<input type="text" value="<%= dv %>" readonly name="usuario"> 
+            Rut: <input type="text" name="rut" value="<%= rut %>" readonly>-<input type="text" value="<%= dv %>" readonly name="dv"> 
             <br>
             <br>
             <br>
@@ -49,15 +49,15 @@
             Tipo de Auto: <input type="text" name="tipoAuto" value="<%= tipoA %>" readonly><br>
             Foto: <input type="text" name="foto" value="<%= foto %>" readonly  ><br>
             Año: <input type="text" value="<%= anuo %>" readonly name="anyo"><br>
-            Kilometraje: <input type="text" value="<%= kilo %>" readonly name="kilometraje"><br>
-            Tipo de Bencina <input type="text" value="<%= tipoB %>" readonly name="tipo_bencina"><br>
+            Kilometraje: <input type="text" value="<%= kilo %>" name="kilometraje"><br>
+            Tipo de Bencina <input type="text" value="<%= tipoB %>" readonly name="tipoB"><br>
             <br>
             Total asientos: <input type="text" value="<%= canA %>" readonly name="asientos"><br>
             Total airbag: <input type="text" value="<%= canAir %>" readonly name="air"><br>
             ¿Cambio automatico?: <input type="text" value="<%= cambi %>" readonly name="cambioA"><br>
             ¿Auto electrico? <input type="text" value="<%= elec %>" readonly name="electrico"><br>
             ¿Direccion asistida? <input type="text" value="<%= dire %>" readonly name="asistida"><br>
-            ¿Portaequipaje?: <input type="text" value="<%= porta %>" readonly name="portaequipaje"><br>
+            ¿Portaequipaje?: <input type="text" value="<%= porta %>" readonly name="porta"><br>
             <br>
             <br>            
             <br>
