@@ -13,7 +13,7 @@ public class Moto extends Vehiculo{
     private String tipomoto;
     
     public Moto(String tipomoto, int rutCliente, String marca, int rut, String foto, int anyo, int kilometraje, String tipo_bencina) {
-        super(rutCliente, marca, rut, foto, anyo, kilometraje, tipo_bencina);
+        super( marca, rut, foto, anyo, kilometraje, tipo_bencina);
         this.tipomoto = tipomoto;
     }
 

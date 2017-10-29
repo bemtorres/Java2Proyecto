@@ -12,7 +12,7 @@ package modelo;
 public abstract class Vehiculo {
 
    
-    private int rutCliente;
+   
     private String marca;
     private int rut;
     private String foto;
@@ -20,8 +20,8 @@ public abstract class Vehiculo {
     private int kilometraje;
     private String tipo_bencina;
     
-    public Vehiculo(int rutCliente, String marca, int rut, String foto, int anyo, int kilometraje, String tipo_bencina) {
-        this.rutCliente = rutCliente;
+    public Vehiculo( String marca, int rut, String foto, int anyo, int kilometraje, String tipo_bencina) {
+       
         this.marca = marca;
         this.rut = rut;
         this.foto = foto;
@@ -35,16 +35,10 @@ public abstract class Vehiculo {
     
     @Override
     public String toString() {
-        return "Vehiculo{" + "rutCliente=" + rutCliente + ", marca=" + marca + ", rut=" + rut + ", foto=" + foto + ", anyo=" + anyo + ", kilometraje=" + kilometraje + ", tipo_bencina=" + tipo_bencina + '}';
+        return "Vehiculo{" + "rutCliente=" +  ", marca=" + marca + ", rut=" + rut + ", foto=" + foto + ", anyo=" + anyo + ", kilometraje=" + kilometraje + ", tipo_bencina=" + tipo_bencina + '}';
     }
 
-    public int getRutCliente() {
-        return rutCliente;
-    }
-
-    public void setRutCliente(int rutCliente) {
-        this.rutCliente = rutCliente;
-    }
+  
 
     public String getMarca() {
         return marca;
