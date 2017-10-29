@@ -20,7 +20,11 @@ public class AutoDAO implements GeneralDAOAuto{
     private ArrayList<Auto> arrayAutos = new ArrayList<>();
     @Override
     public ArrayList mostrarDatos() {
+        
+        Auto obj = null;
         try {
+            
+            
             Class.forName("com.mysql.jdbc.Driver").newInstance();            
             Connection connection = DriverManager.getConnection
                           ("jdbc:mysql://localhost:3306/empresa","root","");
@@ -30,47 +34,45 @@ public class AutoDAO implements GeneralDAOAuto{
             String consultaSQL = "Select * from vehiculo join auto using(patente);" ;
                                  
             ResultSet results = statement.executeQuery(consultaSQL);
-            /*
-            private String patente;
-            private String marca;
-            private String foto;
-            private int anyo;
-            private int kilometraje;
-            private String tipo_bencina;
-            private int cantPuertas;
-            private int cantAsientos;
-            private String tipoAuto;
-            private int cantAirbags;
-            private String cambiosAutomaticos;
-            private String electrico;
-            private String direccionAsistida;
-            private String portaEquipaje;*/
-            
-            String campo1, campo2, campo3, campo6, campo9, campo11, campo12, campo13, campo14;
-            int campo4, campo5, campo7, campo8, campo10;
-                           
-            
+                        String patente;
+                        int rut_persona;
+                        int cantPuertas;
+                        int cantAsientos;
+                        String tipoAuto;
+                        int cantAirbags;
+                        String cambiosAutomaticos;
+                        String electrico;
+                        String direccionAsistida;
+                        String portaEquipaje;                       
+                        String marca;
+                        String foto;
+                        int anyo;
+                        int kilometraje;
+                        String tipo_bencina;
+
             arrayAutos.removeAll(arrayAutos);
             while (results.next())
             {
-                campo1 =  results.getString("patente");
-                campo2 =  results.getString("marca");
-                campo3 =  results.getString("p_nombre");
-                campo4 =  results.getInt("anyo");
-                campo5 =  results.getInt("");
-                campo6 =  results.getString("");
-                campo7 =  results.getInt("");
-                campo8 =  results.getInt("");
-                campo9 =  results.getInt("telefono");
-                campo10 = results.getString("email");
-                campo11 = results.getString("fech_asociacion");
-                campo12 = 
-                campo13 =
-                campo14 =
-                        
-                char dvNuevo = campo2.charAt(0);
-                //System.out.println(campo1 +"   "+campo2 +"\n");
-                arrayClientes.add(new Cliente(campo11,campo1, dvNuevo,campo3,campo4,campo5,campo6,campo7,campo8,campo9,campo10));
+                rut_persona = results.getInt("rut_persona");                                
+                                patente = results.getString("patente");
+                                cantPuertas = results.getInt("cant_puertas");
+                                cantAsientos = results.getInt("asientos");
+                                tipoAuto = results.getString("tipo_auto");
+                                cantAirbags = results.getInt("canti_aitbag");
+                                cambiosAutomaticos = results.getString("camb_automatico");
+                                electrico = results.getString("electrico");
+                                direccionAsistida = results.getString("dire_asistid");
+                                portaEquipaje = results.getString("port_equip");
+                                marca = results.getString("marca");
+                                rut_persona = results.getInt("rut_persona");
+                                foto= results.getString("foto");
+                                anyo= results.getInt("anyo");
+                                kilometraje = results.getInt("kilometraje");
+                                tipo_bencina = results.getString("tip_bencina");
+                                
+                                obj = new Auto(cantPuertas, cantAsientos, tipoAuto, cantAirbags, cambiosAutomaticos, electrico, direccionAsistida, portaEquipaje, cantAsientos, marca, rut_persona, foto, anyo, kilometraje, tipo_bencina);
+                                arrayAutos.add(obj);
+                                break;                                
             }
           
             // Fin de conexi�n
@@ -81,7 +83,7 @@ public class AutoDAO implements GeneralDAOAuto{
         catch(java.lang.Exception ex){
             System.out.println("Error: " + ex);
         }   
-        return arrayClientes;
+        return arrayAutos;
     }
 
     @Override

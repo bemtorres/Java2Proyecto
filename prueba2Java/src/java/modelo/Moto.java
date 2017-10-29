@@ -11,14 +11,16 @@ package modelo;
  */
 public class Moto extends Vehiculo{
     private String tipomoto;
-
-    public Moto() {
-    }
-
-    public Moto(String tipomoto, String patente, String marca, String foto, int anyo, int kilometraje, String tipo_bencina) {
-        super(patente, marca, foto, anyo, kilometraje, tipo_bencina);
+    
+    public Moto(String tipomoto, int rutCliente, String marca, int rut, String foto, int anyo, int kilometraje, String tipo_bencina) {
+        super(rutCliente, marca, rut, foto, anyo, kilometraje, tipo_bencina);
         this.tipomoto = tipomoto;
     }
+
+    public Moto(String tipomoto) {
+        this.tipomoto = tipomoto;
+    }
+        
 
     public String getTipomoto() {
         return tipomoto;
@@ -32,6 +34,7 @@ public class Moto extends Vehiculo{
     public String toString() {
         return "Moto{" + "tipomoto=" + tipomoto + '}';
     }
+
 
     
     
