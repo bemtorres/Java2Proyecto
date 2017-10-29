@@ -16,7 +16,7 @@
         <form action="ControladorCerrarSesion" method="POST">
             <input type="submit" value="Cerrar" name="opcion">    
         </form>
-        <form action="" method="Post">            
+        <form action="ControladorStatus" method="Post">            
             Patente: <input type="text" maxlength="6" name="patente">
             <input type="submit" value="Buscar" name="opcion">        
         </form>

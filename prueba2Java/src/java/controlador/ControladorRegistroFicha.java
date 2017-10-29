@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Auto;
+import modelo.Cliente;
 import modelo.Empleado;
 import modelo.Moto;
 import org.hibernate.validator.constraints.EAN;
@@ -48,7 +49,7 @@ public class ControladorRegistroFicha extends HttpServlet {
                 String patente = request.getParameter("patente");
                 int rut = Integer.parseInt(request.getParameter("rut"));
                 char dv = request.getParameter("dv").charAt(0);
-                Empleado obj = new EmpleadoDAO().buscarDatos(rut);
+                Cliente obj = new ClienteDAO().buscarDatos(rut);
                 Auto auto = null;
                 Moto moto = null;
 
@@ -113,8 +114,7 @@ public class ControladorRegistroFicha extends HttpServlet {
                     request.setAttribute("rut", rut0);
                     request.setAttribute("dv", dv0);
                     request.getRequestDispatcher("tallerMoto.jsp").forward(request, response);
-                }
-                
+                }         
 
             }
             out.println("</body>");
