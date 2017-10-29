@@ -20,7 +20,7 @@ public class MotoDAO implements GeneralDAOMoto{
 
     @Override
     public ArrayList mostrarDatos() {
-        Auto obj = null;
+        Moto obj = null;
         try {
             
             
@@ -30,6 +30,7 @@ public class MotoDAO implements GeneralDAOMoto{
         
             Statement statement = connection.createStatement();
             
+            //select * from moto join vehiculo on (moto.vehiculo_patente = vehiculo.patente);
             String consultaSQL = "Select * from vehiculo join moto using(patente);" ;
                                  
             ResultSet results = statement.executeQuery(consultaSQL);
@@ -62,7 +63,7 @@ public class MotoDAO implements GeneralDAOMoto{
                                 tipo_bencina = results.getString("tip_bencina");
                                 tipoAuto = results.getString("tipo_moto");
    
-                                obj = new Moto(patente, marca, anyo, foto,kilometraje, tipo_bencina,tipo_moto);
+                               // obj = new Moto(patente, marca, anyo, foto,kilometraje, tipo_bencina,tipo_moto);
                                 arrayMotos.add(obj);
                                 break;                                
             }
@@ -78,50 +79,53 @@ public class MotoDAO implements GeneralDAOMoto{
         return arrayMotos;
    
     }
-
-    
-    
     @Override
     public Moto buscarDatos(String patente) {
         Moto obj =null;
           try {
 
-                      Class.forName("com.mysql.jdbc.Driver").newInstance();
+                    Class.forName("com.mysql.jdbc.Driver").newInstance();
 
-                        Connection connection = DriverManager.getConnection
+                    Connection connection = DriverManager.getConnection
                                                ("jdbc:mysql://localhost:3306/empresa","root","");
 
 
-                        Statement statement = connection.createStatement();
+                    Statement statement = connection.createStatement();
 
-                        String query = "SELECT * from moto where patente='"+patente+"';" ;
+                       
+                    String query = "SELECT * from moto join vehiculo on(vehiculo.patente = moto.vehiculo_patente) where vehiculo_patente='"+patente+"';" ;
 
 
-                         ResultSet results = statement.executeQuery(query);
+                    ResultSet results = statement.executeQuery(query);
                         
-                        String campo1; 
-                        int campo2;                     
-                        String campo3;
-                        String campo4;
-                        int campo5;
-                        int campo6;
-                        String campo7;  
+
+                    String tipomoto;
+                    String vehiculo_patente;
+                    String marca;
+                    int rut_persona;
+                    String foto;
+                    int anyo;
+                    int kilometraje;
+                    String tipo_bencina;
+                    /*
+                               
+                    */
+                    
                              
                             while (results.next())
                             {
-                                campo1 = results.getString("patente");
-                                campo2=results.getInt("rut_persona");
-                                campo3=results.getString("marca");
-                                campo4=results.getString("foto");
-                                campo5=results.getInt("anyo");
-                                campo6=results.getInt("kilometraje");
-                                campo7=results.getString("tipo_moto");
+                                patente = results.getString("vehiculo_patente");
+                                marca = results.getString("marca");
+                                rut_persona = results.getInt("rut_persona");
+                                foto = results.getString("foto");
+                                anyo = results.getInt("anyo");
+                                kilometraje = results.getInt("kilometraje");
+                                tipo_bencina = results.getString("tipo_bencina");
+                                tipomoto = results.getString("tipo_moto");
                                 
-                                
-                                if(campo1.equals(patente)){
-                                     obj=new Moto(campo1,campo2,campo3,campo4,campo5,campo6,campo7);
-                                     break;
-                                }
+                                obj = new Moto(patente, marca, 
+                                        rut_persona, 
+                                        foto, anyo, kilometraje, tipo_bencina,tipomoto);
                             }
                   connection.close();
          }
@@ -134,9 +138,10 @@ public class MotoDAO implements GeneralDAOMoto{
 
     @Override
     public int agregarDatosVehiculo(Moto moto) {
-        try
+         try
         {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();            
+            Class.forName("com.mysql.jdbc.Driver").newInstance(); 
+            
             Connection connection = DriverManager.getConnection
                           ("jdbc:mysql://localhost:3306/empresa","root","");
         
@@ -144,7 +149,10 @@ public class MotoDAO implements GeneralDAOMoto{
                           
            String  agregarSQL = "INSERT INTO vehiculos (marca,rut_persona,foto,anyo,kilometraje,tip_bencina)"+
                                  " VALUES('"+moto.getMarca()+"',"+moto.getRut()+",'"+moto.getFoto()+"',"+moto.getAnyo()+","+moto.getKilometraje()+",'"+moto.getTipo_bencina()+"')";
-            
+             int results = statement.executeUpdate(agregarSQL);
+            //System.out.println(results);           
+            connection.close();
+            return results;   
         }
         catch(java.lang.Exception ex)
         {
@@ -155,17 +163,82 @@ public class MotoDAO implements GeneralDAOMoto{
 
     @Override
     public int agregarDatosMoto(Moto moto) {
+        try
+        {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();            
+            Connection connection = DriverManager.getConnection
+                          ("jdbc:mysql://localhost:3306/empresa","root","");
         
+            Statement statement = connection.createStatement();
+                          
+           String  agregarSQL = "INSERT INTO auto(cantPuertas,cantAsientos,tipoAuto,cantAirbags,cambiosAutomaticos,electrico,direccionAsistida,portaEqipaje)"+
+            " VALUES('"+moto.getTipomoto()+"')";
+              int results = statement.executeUpdate(agregarSQL);
+            //System.out.println(results);           
+            connection.close();
+            return results; 
+        }
+        catch(java.lang.Exception ex)
+        {
+            System.out.println("Error: " + ex);
+            return 0;
+        }
     }
 
     @Override
     public int eliminarDatos(String patente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try
+        {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();  
+            
+            Connection connection = DriverManager.getConnection
+                          ("jdbc:mysql://localhost:3306/empresa","root","");
+        
+            Statement statement = connection.createStatement();
+            
+            //String  query="DELETE FROM usuarios WHERE username='"+usuario+"'";
+            String  query="DELETE FROM moto WHERE patente='"+patente+"'";
+            
+            int results = statement.executeUpdate(query);
+            
+            connection.close();
+            System.out.println("valor---> " + results);
+            return results;
+           
+        }
+        catch(java.lang.Exception ex)
+        {
+            System.out.println("Error: " + ex);
+            return 2;
+        }  
     }
 
     @Override
-    public int actualizarDatosPersonaCliente(Moto obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public int actualizarDatosMoto(Moto obj) {
+        int results=0;
+        
+        try {
+                   
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa","root","");
+        
+            Statement statement = connection.createStatement();
+
+            String  agregarSQL = "UPDATE moto SET  patente='"+
+                                 obj.getPatente()+"' where rut_persona='"+obj.getRut()+"'";
+            
+            results = statement.executeUpdate(agregarSQL);
+                  
+            connection.close();
+            
+                
+        } //catching excepcion
+        catch(java.lang.Exception ex){
+            System.out.println("Error: " + ex);
+        }
+        
+      return results;  
     }
     
 }

@@ -100,7 +100,7 @@ public class AutoDAO implements GeneralDAOAuto{
 
 
                         Statement statement = connection.createStatement();
-
+                        
                         String query = "Select * from vehiculo join auto WHERE patente='"+patente+"';" ;
 
 
@@ -124,7 +124,7 @@ public class AutoDAO implements GeneralDAOAuto{
                             while (results.next())
                             {
                              
-                                 patente = results.getString("patente");
+                                patente = results.getString("patente");
                                 cantPuertas = results.getInt("cant_puertas");
                                 cantAsientos = results.getInt("asientos");
                                 tipoAuto = results.getString("tipo_auto");
