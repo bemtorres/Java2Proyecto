@@ -46,10 +46,9 @@ public class MotoDAO implements GeneralDAOMoto{
             arrayMotos.removeAll(arrayMotos);
             while (results.next())
             {
-                rut_persona = results.getInt("rut_persona");                                
+                                rut_persona = results.getInt("rut_persona");                                
                                 patente = results.getString("patente");
                                 marca = results.getString("marca");
-                                rut_persona = results.getInt("rut_persona");
                                 foto= results.getString("foto");
                                 anyo= results.getInt("anyo");
                                 kilometraje = results.getInt("kilometraje");
