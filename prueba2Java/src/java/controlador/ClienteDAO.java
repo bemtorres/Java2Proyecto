@@ -191,44 +191,35 @@ public class ClienteDAO implements GeneralDAOCliente{
     }
 
     @Override
-    public int agregarDatosCliente(Cliente cliente) {        
-        try {
-            //Constructor            
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-            
-<<<<<<< HEAD
-            String agregarSql = "INSERT INTO persona (rut_persona,dv_per,p_nombre,s_nombre,ap_pater,ap_mater,direccion,comuna,telefono,email)"+
-                                "VALUES("+cliente.getRut()+",'"+cliente.getDv()+"','"+cliente.getPrimerNombre()+"','"+cliente.getSegundoNombre()+
-                                        "','"+cliente.getApellidoPaterno()+"','"+cliente.getApellidoMaterno()+"','"+cliente.getDireccion()+"','"+
-                                        cliente.get
-            String  agregarSQL = "INSERT INTO usuarios (username,password)"+
-                                 " VALUES('"+usuario.getUsuario()+"','"+usuario.getPassword()+"')";
-=======
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa","root","");
-        
-            Statement statement = connection.createStatement();
->>>>>>> 03366befd98281180ea7df97ec73d23b45b5ebc9
-            
-            String  agregarSQL = "INSERT INTO cliente (rut_persona,fech_asociacion)"+
-                                 " VALUES("+cliente.getRut()+",'"+cliente.getFechaAsociacion()+"')";            
-            int results = statement.executeUpdate(agregarSQL);
-            System.out.println(results);
-            //Mostrar datos
-             //String campo1;
-             //String campo2;
-           /* while (results.next())
-                {
-                    
-                }
-             */
-             connection.close();
-             return results;   
-        } //catching excepcion
-        catch(java.lang.Exception ex){
-            System.out.println("Error: " + ex);
-            return 0;
-        }     
-    }
+     public int agregarDatosCliente(Cliente cliente) {        
+         try {
+             //Constructor            
+             Class.forName("com.mysql.jdbc.Driver").newInstance();
+             
+             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa","root","");
+         
+             Statement statement = connection.createStatement();
+             
+             String  agregarSQL = "INSERT INTO cliente (rut_persona,fech_asociacion)"+
+                                  " VALUES("+cliente.getRut()+",'"+cliente.getFechaAsociacion()+"')";            
+             int results = statement.executeUpdate(agregarSQL);
+             System.out.println(results);
+             //Mostrar datos
+              //String campo1;
+              //String campo2;
+            /* while (results.next())
+                 {
+                     
+                 }
+              */
+              connection.close();
+              return results;   
+         } //catching excepcion
+         catch(java.lang.Exception ex){
+             System.out.println("Error: " + ex);
+              return 0;
+          }     
+      }
 
   
     
