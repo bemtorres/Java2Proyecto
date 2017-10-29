@@ -101,49 +101,46 @@ public class AutoDAO implements GeneralDAOAuto{
 
                         Statement statement = connection.createStatement();
 
-                        String query = "SELECT * from auto where patente='"+patente+"';" ;
+                        String query = "Select * from vehiculo join auto WHERE patente='"+patente+"';" ;
 
 
-                         ResultSet results = statement.executeQuery(query);
+                        ResultSet results = statement.executeQuery(query);                       
                         
-                        String campo1; 
-                        int campo2;
-                        int campo3;
-                        int campo4;
-                        String campo5;
-                        int campo6;
-                        String campo7;
-                        String campo8;
-                        String campo9;
-                        String campo10;                       
-                        String campo11;
-                        String campo12;
-                        int campo13;
-                        int campo14;
-                        String campo15;  
+                        int rut_persona;
+                        int cantPuertas;
+                        int cantAsientos;
+                        String tipoAuto;
+                        int cantAirbags;
+                        String cambiosAutomaticos;
+                        String electrico;
+                        String direccionAsistida;
+                        String portaEquipaje;                       
+                        String marca;
+                        String foto;
+                        int anyo;
+                        int kilometraje;
+                        String tipo_bencina;
                              
                             while (results.next())
                             {
-                                campo1 = results.getString("patente");
-                                campo2=results.getInt("rut_persona");
-                                campo3=results.getInt("canPuertas");
-                                campo4=results.getInt("cantAsientos");
-                                campo5=results.getString("tipoAuto");
-                                campo6=results.getInt("cantAirbags");
-                                campo7=results.getString("cambiosAutomaticos");
-                                campo8=results.getString("electrico");
-                                campo9=results.getString("direccionAsistida");
-                                campo10=results.getString("portaEquipaje");
-                                campo11=results.getString("marca");
-                                campo12=results.getString("foto");
-                                campo13=results.getInt("anyo");
-                                campo14=results.getInt("kilometraje");
+                             
+                                 patente = results.getString("patente");
+                                cantPuertas = results.getInt("cant_puertas");
+                                cantAsientos = results.getInt("asientos");
+                                tipoAuto = results.getString("tipo_auto");
+                                cantAirbags = results.getInt("canti_aitbag");
+                                cambiosAutomaticos = results.getString("camb_automatico");
+                                electrico = results.getString("electrico");
+                                direccionAsistida = results.getString("dire_asistid");
+                                portaEquipaje = results.getString("port_equip");
+                                marca = results.getString("marca");
+                                rut_persona = results.getInt("rut_persona");
+                                foto= results.getString("foto");
+                                anyo= results.getInt("anyo");
+                                kilometraje = results.getInt("kilometraje");
+                                tipo_bencina = results.getString("tip_bencina");
                                 
-                                
-                                if(campo1.equals(patente)){
-                                     obj=new Auto(campo1,campo2,campo3,campo4,campo5,campo6,campo7,campo8, campo9,campo10,campo11,campo12,campo13,campo14);
-                                     break;
-                                }
+                                obj = new Auto(cantPuertas, cantAsientos, tipoAuto, cantAirbags, cambiosAutomaticos, electrico, direccionAsistida, portaEquipaje, patente, marca, anyo, foto, anyo, kilometraje, tipo_bencina);
                             }
                   connection.close();
          }
@@ -166,7 +163,10 @@ public class AutoDAO implements GeneralDAOAuto{
                           
            String  agregarSQL = "INSERT INTO vehiculos (marca,rut_persona,foto,anyo,kilometraje,tip_bencina)"+
                                  " VALUES('"+auto.getMarca()+"',"+auto.getRut()+",'"+auto.getFoto()+"',"+auto.getAnyo()+","+auto.getKilometraje()+",'"+auto.getTipo_bencina()+"')";
-            
+             int results = statement.executeUpdate(agregarSQL);
+            //System.out.println(results);           
+            connection.close();
+            return results;   
         }
         catch(java.lang.Exception ex)
         {
@@ -187,7 +187,10 @@ public class AutoDAO implements GeneralDAOAuto{
                           
            String  agregarSQL = "INSERT INTO auto(cantPuertas,cantAsientos,tipoAuto,cantAirbags,cambiosAutomaticos,electrico,direccionAsistida,portaEqipaje)"+
     " VALUES('"+auto.getCantPuertas()+"','"+auto.getCantAsientos()+"','"+auto.getTipoAuto()+"','"+auto.getCantAirbags()+"','"+auto.getCambiosAutomaticos()+"','"+auto.getElectrico()+"','"+auto.getDireccionAsistida()+"','"+auto.getPortaEquipaje()+"')";
-            
+              int results = statement.executeUpdate(agregarSQL);
+            //System.out.println(results);           
+            connection.close();
+            return results; 
         }
         catch(java.lang.Exception ex)
         {
@@ -240,7 +243,8 @@ public class AutoDAO implements GeneralDAOAuto{
             
             results = statement.executeUpdate(agregarSQL);
                   
-             connection.close();
+            connection.close();
+            
                 
         } //catching excepcion
         catch(java.lang.Exception ex){

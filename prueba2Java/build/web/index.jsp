@@ -20,7 +20,6 @@
         <title>La Tuerca</title>
     </head>
     <body>      
-
         <nav class="teal darken-3" role="navigation">
             <div class="nav-wrapper container">
                 <a id="logo-container" href="index.jsp" class="brand-logo">La Tuerca</a>                
