@@ -17,6 +17,16 @@
             <input type="submit" value="Cerrar" name="opcion">    
         </form>
         <form action="ControladorTallerMoto" method="Post"> 
+            <%    
+              String marca = (String) request.getAttribute("marca");
+              String foto = (String) request.getAttribute("foto");
+              String anuo = (String) request.getAttribute("anyo");
+              String kilo = (String) request.getAttribute("kilometraje");
+              String tipoB = (String) request.getAttribute("tipo_bencina");
+            
+              String patente = (String) request.getAttribute("patente");
+              String rut = (String) request.getAttribute("rut"); 
+              String dv = (String) request.getAttribute("dv");  %> 
             Rut: <input type="number" value="0" name="usuario">-<input type="text" name="usuario">
             <input type="submit" value="Buscar" name="opcion"> 
             <br>
@@ -24,13 +34,13 @@
             <br>
             MOTO
             <br>
-            Patente: <input type="text" name="pNombre"><br>
-            Marca: <input type="text" name="sNombre"><br>
-            Tipo de Moto: <input type="text" name="sNombre"><br>
-            Foto: <input type="text" name="apPaterno"><br>
-            Año: <input type="number" value="0" name="apMaterno"><br>
-            Kilometraje: <input type="number" value="0" name="direccion"><br>
-            Tipo de Bencina <input type="text" name="comuna"><br>
+            Patente: <input type="text" name="patentee"><br>
+            Marca: <input type="text" name="marca"><br>
+            Tipo de Moto: <input type="text" name="tipomoto"><br>
+            Foto: <input type="text" name="foto"><br>
+            Año: <input type="number" value="0" name="anyo"><br>
+            Kilometraje: <input type="number" value="0" name="kilometraje"><br>
+            Tipo de Bencina <input type="text" name="tipoBencina"><br>
             <br>
             <br>
             SERVICIO

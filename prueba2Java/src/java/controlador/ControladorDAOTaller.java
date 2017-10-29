@@ -27,12 +27,12 @@ public class ControladorDAOTaller implements GeneralDaoTaller{
                                                ("jdbc:mysql://localhost:3306/empresa","root","");
 
                         Statement statement = connection.createStatement();
-                       String dv1 = dv+ "";
-                        String query = "Select * FROM vehiculo JOIN auto using(patente) WHERE patente='"+patente+"' and rut_persona="+rut+" and dv='"+dv1+"';" ;
+                       
+                        String query = "Select * FROM vehiculo JOIN auto using(patente) WHERE patente='"+patente+"' and rut_persona="+rut+";" ;
                                 
                         ResultSet results = statement.executeQuery(query);
                         
-                        int rut_persona;
+                        
                         int cantPuertas;
                         int cantAsientos;
                         String tipoAuto;
@@ -48,12 +48,10 @@ public class ControladorDAOTaller implements GeneralDaoTaller{
                         String tipo_bencina;
                         while (results.next())
                         {
-                                rut_persona = results.getInt("rut_persona");                                
-                                patente = results.getString("patente");
                                 cantPuertas = results.getInt("cant_puertas");
                                 cantAsientos = results.getInt("asientos");
                                 tipoAuto = results.getString("tipo_auto");
-                                cantAirbags = results.getInt("canti_aitbag");
+                                cantAirbags = results.getInt("cant_airbag");
                                 cambiosAutomaticos = results.getString("camb_automatico");
                                 electrico = results.getString("electrico");
                                 direccionAsistida = results.getString("dire_asistid");

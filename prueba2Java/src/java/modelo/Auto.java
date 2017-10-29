@@ -9,9 +9,7 @@ package modelo;
  *
  * @author carlos
  */
-public class Auto extends Vehiculo{
-
-   
+public class Auto extends Vehiculo {
 
     private int cantPuertas;
     private int cantAsientos;
@@ -21,7 +19,7 @@ public class Auto extends Vehiculo{
     private String electrico;
     private String direccionAsistida;
     private String portaEquipaje;
-    
+
     public Auto() {
     }
 
@@ -101,7 +99,9 @@ public class Auto extends Vehiculo{
         this.portaEquipaje = portaEquipaje;
     }
 
-   
-   
-    
+    @Override
+    public String toString() {
+        return super.toString()+" Auto{" + "cantPuertas=" + cantPuertas + ", cantAsientos=" + cantAsientos + ", tipoAuto=" + tipoAuto + ", cantAirbags=" + cantAirbags + ", cambiosAutomaticos=" + cambiosAutomaticos + ", electrico=" + electrico + ", direccionAsistida=" + direccionAsistida + ", portaEquipaje=" + portaEquipaje + '}';
+    }
+
 }
