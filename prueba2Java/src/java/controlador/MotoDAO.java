@@ -69,7 +69,7 @@ public class MotoDAO implements GeneralDAOMoto{
                                 kilometraje = results.getInt("kilometraje");
                                 tipo_bencina = results.getString("tip_bencina");
                                 
-                                obj = new Moto(cantPuertas, cantAsientos, tipoAuto, cantAirbags, cambiosAutomaticos, electrico, direccionAsistida, portaEquipaje, patente, marca, anyo, foto, anyo, kilometraje, tipo_bencina);
+                               // obj = new Moto(cantPuertas, cantAsientos, tipoAuto, cantAirbags, cambiosAutomaticos, electrico, direccionAsistida, portaEquipaje, patente, marca, anyo, foto, anyo, kilometraje, tipo_bencina);
                                 arrayMotos.add(obj);
                                 break;                                
             }
