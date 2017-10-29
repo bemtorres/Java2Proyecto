@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author benja
  */
-public class ControladorMenu extends HttpServlet {
+public class ControladorStatus extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,42 +30,17 @@ public class ControladorMenu extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        String opcion = request.getParameter("opcion");
-        switch(opcion){
-            case "Cerrar":
-                response.sendRedirect("index.jsp");
-                break;
-            case "Nueva Orden":
-                response.sendRedirect("registroTaller.jsp");
-                break;
-             case "Orden Status":
-                response.sendRedirect("registroStatus.jsp");
-                break;    
-            case "Clientes":
-                response.sendRedirect("formularioCliente.jsp");
-                break;
-            case "Vehiculos":   
-                response.sendRedirect("menuVehiculos.jsp");
-                break;
-            case "Reportes":
-                response.sendRedirect("reportes.jsp");
-                break;
-        }
-        try{
+        try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ControladorMenu</title>");            
+            out.println("<title>Servlet ControladorStatus</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ControladorMenu at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ControladorStatus at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
-        }
-        finally {            
-            out.close();
         }
     }
 
