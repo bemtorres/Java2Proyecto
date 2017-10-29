@@ -42,12 +42,8 @@ public class ControladorLogin extends HttpServlet {
                     response.sendRedirect("menuPrincipal.jsp");
                 }
                 else{
-                    response.sendRedirect("errorPagina.jsp");
-                }                
-                break;
-            case "Estado Vehiculo":
-                response.sendRedirect("estadoVehiculo.jsp");
-                break;
+                    response.sendRedirect("errorLogin.jsp");
+                }     
         }
         try  {
             /* TODO output your page here. You may use following sample code. */
