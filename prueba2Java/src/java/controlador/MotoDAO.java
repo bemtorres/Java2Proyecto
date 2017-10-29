@@ -35,20 +35,13 @@ public class MotoDAO implements GeneralDAOMoto{
                                  
             ResultSet results = statement.executeQuery(consultaSQL);
                         String patente;
-                        int rut_persona;
-                        int cantPuertas;
-                        int cantAsientos;
-                        String tipoAuto;
-                        int cantAirbags;
-                        String cambiosAutomaticos;
-                        String electrico;
-                        String direccionAsistida;
-                        String portaEquipaje;                       
+                        int rut_persona;                     
                         String marca;
                         String foto;
                         int anyo;
                         int kilometraje;
                         String tipo_bencina;
+                        String tipo_moto;
 
             arrayMotos.removeAll(arrayMotos);
             while (results.next())
@@ -61,7 +54,7 @@ public class MotoDAO implements GeneralDAOMoto{
                                 anyo= results.getInt("anyo");
                                 kilometraje = results.getInt("kilometraje");
                                 tipo_bencina = results.getString("tip_bencina");
-                                tipoAuto = results.getString("tipo_moto");
+                                tipo_moto = results.getString("tipo_moto");
    
                                // obj = new Moto(patente, marca, anyo, foto,kilometraje, tipo_bencina,tipo_moto);
                                 arrayMotos.add(obj);
@@ -169,8 +162,10 @@ public class MotoDAO implements GeneralDAOMoto{
                           ("jdbc:mysql://localhost:3306/empresa","root","");
         
             Statement statement = connection.createStatement();
-                          
-           String  agregarSQL = "INSERT INTO auto(cantPuertas,cantAsientos,tipoAuto,cantAirbags,cambiosAutomaticos,electrico,direccionAsistida,portaEqipaje)"+
+
+            
+            
+           String  agregarSQL = "INSERT INTO moto(tipo_moto)"+
             " VALUES('"+moto.getTipomoto()+"')";
               int results = statement.executeUpdate(agregarSQL);
             //System.out.println(results);           
