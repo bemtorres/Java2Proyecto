@@ -77,7 +77,46 @@ public class ControladorTaller implements GeneralDaoTaller{
 
     @Override
     public Moto buscarDatosMoto(String patente, int rut, char dv) {
-      return null;
+       Moto obj = null;
+        try {
+                      Class.forName("com.mysql.jdbc.Driver").newInstance();
+                        Connection connection = DriverManager.getConnection
+                                               ("jdbc:mysql://localhost:3306/empresa","root","");
+
+                        Statement statement = connection.createStatement();
+                       String dv1 = dv+ "";
+                        String query = "Select * FROM vehiculo JOIN moto using(patente) WHERE patente='"+patente+"' and rut_persona="+rut+" and dv='"+dv1+"';" ;
+                                
+                        ResultSet results = statement.executeQuery(query);
+                        
+                        int rut_persona;                
+                        String marca;
+                        String foto;
+                        int anyo;
+                        int kilometraje;
+                        String tipo_bencina;
+                        
+                        
+                        
+                        String tipomoto;
+                        while (results.next())
+                        {
+                                rut_persona = results.getInt("rut_persona");                                
+                                patente = results.getString("patente");                               
+                                marca = results.getString("marca");
+                                foto= results.getString("foto");
+                                anyo= results.getInt("anyo");
+                                kilometraje = results.getInt("kilometraje");
+                                tipo_bencina = results.getString("tip_bencina");
+                                
+                                break;                                
+                       }
+                  connection.close();
+         }
+         catch(java.lang.Exception ex){
+            System.out.println("Error: " + ex);
+         }
+       return obj;
     }
     
 }
