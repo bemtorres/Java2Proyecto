@@ -21,7 +21,7 @@ public class Auto extends Vehiculo{
     private String portaEquipaje;
     
     public Auto(int cantPuertas, int cantAsientos, String tipoAuto, int cantAirbags, String cambiosAutomaticos, String electrico, String direccionAsistida, String portaEquipaje, int rutCliente, String marca, int rut, String foto, int anyo, int kilometraje, String tipo_bencina) {
-        super(rutCliente, marca, rut, foto, anyo, kilometraje, tipo_bencina);
+        super(marca, rut, foto, anyo, kilometraje, tipo_bencina);
         this.cantPuertas = cantPuertas;
         this.cantAsientos = cantAsientos;
         this.tipoAuto = tipoAuto;
