@@ -12,10 +12,10 @@ import java.util.ArrayList;
  * @author carlos
  */
 public interface GeneralDAOAuto {
-   public abstract ArrayList mostrarDatos();
-    public abstract Auto buscarDatos(int rut, char dv) ;
-    public abstract int agregarDatosPersona(Auto auto);
-    public abstract int agregarDatosCliente(Auto auto);
-    public abstract int eliminarDatos(int rut, char dv);
-    public abstract int actualizarDatosPersonaCliente(Auto obj); 
+    public abstract ArrayList mostrarDatos();
+    public abstract Auto buscarDatos(String patente) ;
+    public abstract int agregarDatosVehiculo(Auto auto);
+    public abstract int agregarDatosAuto(Auto auto);
+    public abstract int eliminarDatos(String patente);
+    public abstract int actualizarDatosPersonaAuto(Auto obj); 
 }

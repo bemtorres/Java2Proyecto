@@ -17,9 +17,12 @@
             <input type="submit" value="Cerrar" name="opcion">    
         </form>
          <form action="ControladorCrudAuto" method="Post">
-            
-            Rut: <input type="number" name="usuario" maxlength="8">-<input type="text" name="usuario" maxlength="1">
-            <input type="submit" value="Buscar" name="opcion"> 
+            <%
+            String rut =(String)request.getAttribute("rut");
+            String dv = (String)request.getAttribute("dv");
+            %>
+            <h1> el rut es: <%= rut %> - <%= dv %> </h1>
+            Rut: <input type="text" name="usuario" maxlength="8" readonly value="<%= rut %>">-<input type="text" name="usuario" maxlength="1" readonly value="<%= dv %>" >
             <br>
             <br>
             <br>
