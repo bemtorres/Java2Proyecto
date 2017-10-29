@@ -88,6 +88,8 @@ public class AutoDAO implements GeneralDAOAuto{
 
     @Override
     public Auto buscarDatos(String patente) {
+        
+        
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     
     }

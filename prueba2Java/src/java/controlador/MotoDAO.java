@@ -15,9 +15,38 @@ import java.sql.Statement;
  *
  * @author carlos
  */
-public interface MotoDAO {
-    public abstract boolean Agregar();
-    public abstract Moto Buscar();
-    public abstract boolean Modificar();
-    public abstract ArrayList Listar();
+public class MotoDAO implements GeneralDAOMoto{
+
+    @Override
+    public ArrayList mostrarDatos() {
+        
+        
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Moto buscarDatos(String patente) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int agregarDatosVehiculo(Moto moto) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int agregarDatosMoto(Moto moto) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int eliminarDatos(String patente) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int actualizarDatosPersonaCliente(Moto obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }
