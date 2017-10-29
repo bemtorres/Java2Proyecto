@@ -12,8 +12,10 @@ import java.util.ArrayList;
  * @author carlos
  */
 public interface GeneralDAOAuto {
-    public abstract boolean Agregar();
-    public abstract Auto Buscar();
-    public abstract boolean Modificar();
-    public abstract ArrayList Listar();
+   public abstract ArrayList mostrarDatos();
+    public abstract Auto buscarDatos(int rut, char dv) ;
+    public abstract int agregarDatosPersona(Auto auto);
+    public abstract int agregarDatosCliente(Auto auto);
+    public abstract int eliminarDatos(int rut, char dv);
+    public abstract int actualizarDatosPersonaCliente(Auto obj); 
 }

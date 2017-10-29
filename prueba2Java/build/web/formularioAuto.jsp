@@ -18,28 +18,28 @@
         </form>
          <form action="ControladorCrudAuto" method="Post">
             
-            Rut: <input type="number" name="usuario">-<input type="text" name="usuario">
+            Rut: <input type="number" name="usuario" maxlength="8">-<input type="text" name="usuario" maxlength="1">
             <input type="submit" value="Buscar" name="opcion"> 
             <br>
             <br>
             <br>
             AUTO
             <br>
-            Patente: <input type="text" name="patente"><br>
+            Patente: <input type="text" name="patente" maxlength="6"><br>
             Marca: <input type="text" name="marca"><br>
             Tipo de Auto: <input type="text" name="tipoAuto"><br>
             Foto: <input type="text" name="foto"><br>
-            Año: <input type="text" name="anyo"><br>
+            Año: <input type="number" name="anyo" value="2000" maxlength="4"><br>
             Kilometraje: <input type="number" name="kilometraje"><br>
             Tipo de Bencina <input type="text" name="tipoBencina"><br>
             <br>
-            Cantidad Puertas: <input type="text" name="cantPuertas"><br>
-            Total asientos: <input type="text" name="totalAsientos"><br>
-            Total airbag: <input type="text" name="totalAirbag"><br>
-            ¿Cambio automatico?: <input type="text" name="cambioAutomatico"><br>
+            Cantidad Puertas: <input type="text" name="cantPuertas" max="5"><br>
+            Total asientos: <input type="text" name="totalAsientos" max="8"><br>
+            Total airbag: <input type="text" name="totalAirbag" max="2"><br>
+            ¿Cambio automatico?: <input type="text" name="cambioAutomatico" ><br>
             ¿Auto electrico? <input type="text" name="autoElectrico"><br>
             ¿Direccion asistida? <input type="text" name="direccionAsistida"><br>
-            ¿Portaequipaje?: <input type="number" name="portaEquipaje"><br>           
+            ¿Portaequipaje?: <input type="text" name="portaEquipaje"><br>           
             <br>
             <br>
             <input type="submit" value="Agregar" name="opcion">    

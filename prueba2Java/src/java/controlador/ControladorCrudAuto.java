@@ -33,8 +33,11 @@ public class ControladorCrudAuto extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String opcion = request.getParameter("opcion");
+        int anyo = 0, kilometraje = 0, cantPuertas = 0, cantAsientos = 0, cantAirbags = 0;
+        
         
         switch(opcion){
+            
            case "Cerrar":
                //editar
                 response.sendRedirect("index.jsp");
@@ -44,13 +47,13 @@ public class ControladorCrudAuto extends HttpServlet {
                String patente = request.getParameter("patente");
                String marca = request.getParameter("marca");
                String foto = request.getParameter("foto");
-               int anyo = Integer.parseInt(request.getParameter("anyo"));
-               int kilometraje = Integer.parseInt(request.getParameter("kilometraje"));
+               anyo = Integer.parseInt(request.getParameter("anyo"));
+               kilometraje = Integer.parseInt(request.getParameter("kilometraje"));
                String tipo_bencina = request.getParameter("tipoBencina");
-               int cantPuertas = Integer.parseInt(request.getParameter("cantPuertas"));
-               int cantAsientos = Integer.parseInt(request.getParameter("totalAsiento"));
+               cantPuertas = Integer.parseInt(request.getParameter("cantPuertas"));
+               cantAsientos = Integer.parseInt(request.getParameter("totalAsiento"));
                String tipoAuto = request.getParameter("tipoAuto");
-               int cantAirbags = Integer.parseInt(request.getParameter("totalAirbag"));
+               cantAirbags = Integer.parseInt(request.getParameter("totalAirbag"));
                String cambiosAutomaticos = request.getParameter("cambioAutomatico");
                String electrico = request.getParameter("autoElectrico");
                String direccionAsistida = request.getParameter("direccionAsistida");
