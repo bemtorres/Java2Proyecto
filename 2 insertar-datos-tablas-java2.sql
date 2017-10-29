@@ -43,11 +43,9 @@ INSERT INTO repuesto VALUES (90912,'frenos de aire',37950,100,100,'Auto');
 INSERT INTO repuesto VALUES (33064,'luz delantera ',13500,100,100,'Moto');
 INSERT INTO repuesto VALUES (16738,'bateria de alta duracion',80990,100,100,'Auto');
 
-INSERT INTO estado_ficha VALUES ('1115','auto 1');
-INSERT INTO estado_ficha VALUES ('1213','auto 2');  
-INSERT INTO estado_ficha VALUES ('1328','auto 3');  
-INSERT INTO estado_ficha VALUES ('1415','moto 1');  
-INSERT INTO estado_ficha VALUES ('1519','moto 2');
+INSERT INTO estado_ficha VALUES ('0','Terminado');
+INSERT INTO estado_ficha VALUES ('1','Ingresado');  
+INSERT INTO estado_ficha VALUES ('2','En Espera');  
 
 INSERT INTO fich_reparacion (rut_persona,patente,id_est_fich,fech_ingreso,fech_salida,motivos,detalles,hor_trabajo,total) VALUES (18763311,'TH1138','1115','2017-04-04','2017-04-09','problemas de motor','bateria dañada',2,102000);
 INSERT INTO fich_reparacion (rut_persona,patente,id_est_fich,fech_ingreso,fech_salida,motivos,detalles,hor_trabajo,total) VALUES (18875413,'RH4536','1213','2017-03-03','2017-04-09','la caja de cambios no responde','la caja de cambios estaba rota',2,102500);

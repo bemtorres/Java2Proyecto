@@ -63,8 +63,10 @@ public class ControladorCrudClientes extends HttpServlet {
                       
                 if (rut>0  && !pNombre.equals("") && !sNombre.equals("") && !apPaterno.equals("") && !apMaterno.equals("") 
                             && !direccion.equals("") && !comuna.equals("") && telefono>=0 && !email.equals("")) {
-                    LocalDateTime ahora = LocalDateTime.now(); 
+                    LocalDateTime ahora = LocalDateTime.now();
+                    
                     String hoy = (ahora.getYear()+"-"+ahora.getMonthValue()+"-"+ahora.getDayOfMonth());                
+                    //Modelo Cliente
                     Cliente nuevoCliente = new Cliente(hoy, rut, dv, pNombre, sNombre, apPaterno, apMaterno, direccion, comuna, telefono,email);
 
                     int estado =new ClienteDAO().agregarDatosPersona(nuevoCliente);
@@ -85,7 +87,6 @@ public class ControladorCrudClientes extends HttpServlet {
                 if(opcion.equals("Buscar")){
                      String rutA = request.getParameter("rut");
             char dv = request.getParameter("dv").charAt(0);
-           
 
             rut = Integer.parseInt(rutA);
                       
