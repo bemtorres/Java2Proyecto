@@ -17,16 +17,12 @@
             <input type="submit" value="Cerrar" name="opcion">    
         </form>
         <form action="ControladorRegistro" method="Post">
-              <br>  <br>  <br>  <br>  <br>  <br>
-            Patente: <input type="text" name="usuario"><br>
-            
-            <input type="submit" value="Agregar" name="opcion">    
             <br>  <br>  <br>  <br>  <br>  <br>
-            Tipo de Vehiculo
-            <input type="submit" value="Auto" name="opcion">    
-            <input type="submit" value="Moto" name="opcion">           
-           <br>  <br>  <br>  <br>  <br>  <br>
-           <input type="submit" value="Atras" name="opcion">     
+            Rut: <input type="number" name="usuario" maxlength="8">-<input type="text" name="usuario" maxlength="1">
+            <br>
+            Patente: <input type="text" name="usuario"><br>
+            <input type="submit" value="Agregar" name="opcion">        
         </form>
+        <a href='menuPrincipal.jsp'>volver</a>
     </body>
 </html>
