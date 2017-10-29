@@ -38,33 +38,37 @@
             </div>
         </nav>  
 
-        <h1>Resumen de Ventas</h1>
+        <h1>Listado de Clientes</h1>
         <table id="listadoClientres" class="striped">
-            <tr>
-                <td>Fecha Asociacion </td>            
-                <td>Rut</td>
-                <td>Nombre Completo</td>
-                <td>Direccion</td>
-                <td>Comuna</td>
-                <td>Telefono</td>
-                <td>Email</td>
-            </tr>
-            <% ArrayList<Cliente> arrayClientes = new ArrayList(); %>
-            <% arrayClientes = new ClienteDAO().mostrarDatos();
+            <thead>
+                <tr>
+                    <th>Fecha Asociacion </th>            
+                    <th>Rut</th>
+                    <th>Nombre Completo</th>
+                    <th>Direccion</th>
+                    <th>Comuna</th>
+                    <th>Telefono</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% ArrayList<Cliente> arrayClientes = new ArrayList(); %>
+                <% arrayClientes = new ClienteDAO().mostrarDatos();
 
-                for (Cliente cli : arrayClientes) {%>
-            <tr>                 
-                <% String rut = cli.getRut() + "-" + cli.getDv();
-                    String nombreCompleto = cli.getPrimerNombre() + " " + cli.getSegundoNombre() + " " + cli.getApellidoPaterno() + " " + cli.getApellidoMaterno();
-                %>
-                <td><%=cli.getFechaAsociacion()%></td>
-                <td><%=rut%></td>
-                <td><%=nombreCompleto%></td>
-                <td><%=cli.getDireccion()%></td>
-                <td><%=cli.getComuna()%></td>
-                <td><%=cli.getTelefono()%></td>
-                <td><%=cli.getEmail()%></td>
-            </tr>
+                    for (Cliente cli : arrayClientes) {%>
+                <tr>                 
+                    <% String rut = cli.getRut() + "-" + cli.getDv();
+                        String nombreCompleto = cli.getPrimerNombre() + " " + cli.getSegundoNombre() + " " + cli.getApellidoPaterno() + " " + cli.getApellidoMaterno();
+                    %>
+                    <td><%=cli.getFechaAsociacion()%></td>
+                    <td><%=rut%></td>
+                    <td><%=nombreCompleto%></td>
+                    <td><%=cli.getDireccion()%></td>
+                    <td><%=cli.getComuna()%></td>
+                    <td><%=cli.getTelefono()%></td>
+                    <td><%=cli.getEmail()%></td>
+                </tr>
+            </tbody>
             <%
                 }
             %>         
