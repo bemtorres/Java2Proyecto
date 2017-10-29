@@ -39,6 +39,9 @@ public class ControladorMenu extends HttpServlet {
             case "Nueva Orden":
                 response.sendRedirect("registroTaller.jsp");
                 break;
+             case "Orden Status":
+                response.sendRedirect("registroStatus.jsp");
+                break;    
             case "Clientes":
                 response.sendRedirect("formularioCliente.jsp");
                 break;

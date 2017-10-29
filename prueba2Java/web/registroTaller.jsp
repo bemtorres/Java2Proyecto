@@ -18,7 +18,7 @@
         </form>
         <form action="ControladorRegistroFicha" method="Post">
             <br>  <br>  <br>  <br>  <br>  <br>
-            Rut: <input type="number" value="0" name="rut" maxlength="8">-<input type="text" name="dv" maxlength="1">
+            Rut: <input type="number" value="0" name="rut" min="1111111" max="99999999">-<input type="text" name="dv" maxlength="1">
             <br>
             Patente: <input type="text" maxlength="6" name="patente"><br>
             <input type="submit" value="Agregar" name="opcion">        

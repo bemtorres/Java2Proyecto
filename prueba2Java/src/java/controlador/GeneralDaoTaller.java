@@ -15,4 +15,6 @@ import modelo.Moto;
 public interface GeneralDaoTaller {
     public abstract Auto buscarDatosAuto(String patente,int rut,char dv) ;
     public abstract Moto buscarDatosMoto(String patente,int rut, char dv) ;
+     public abstract Auto buscarDatosAuto(String patente) ;
+    public abstract Moto buscarDatosMoto(String patente) ;
 }

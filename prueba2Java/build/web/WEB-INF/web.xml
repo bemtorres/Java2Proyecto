@@ -48,6 +48,10 @@
         <servlet-name>ControladorRegistroFicha</servlet-name>
         <servlet-class>controlador.ControladorRegistroFicha</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorStatus</servlet-name>
+        <servlet-class>controlador.ControladorStatus</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorLogin</servlet-name>
         <url-pattern>/ControladorLogin</url-pattern>
@@ -95,6 +99,10 @@
     <servlet-mapping>
         <servlet-name>ControladorRegistroFicha</servlet-name>
         <url-pattern>/ControladorRegistroFicha</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorStatus</servlet-name>
+        <url-pattern>/ControladorStatus</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
