@@ -96,20 +96,82 @@ public class AutoDAO implements GeneralDAOAuto{
 
     @Override
     public int agregarDatosVehiculo(Auto auto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    
+        try
+        {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();            
+            Connection connection = DriverManager.getConnection
+                          ("jdbc:mysql://localhost:3306/empresa","root","");
+        
+            Statement statement = connection.createStatement();
+                          
+           String  agregarSQL = "INSERT INTO vehiculos (marca,rut,foto,anyo,kilometraje,tip_bencina)"+
+                                 " VALUES('"+auto.getMarca()+"','"+auto.getRut()+"','"+auto.getFoto()+"','"+auto.getAnyo()+"','"+auto.getKilometraje()+"','"+auto.getTipo_bencina()+"')";
+            
+        }
+        catch(java.lang.Exception ex)
+        {
+            System.out.println("Error: " + ex);
+            return 0;
+        }
     }
 
     @Override
     public int agregarDatosAuto(Auto auto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    
+        try
+        {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();            
+            Connection connection = DriverManager.getConnection
+                          ("jdbc:mysql://localhost:3306/empresa","root","");
+        
+            Statement statement = connection.createStatement();
+            
+            /*
+            private int cantPuertas;
+            private int cantAsientos;
+            private String tipoAuto;
+            private int cantAirbags;
+            private String cambiosAutomaticos;
+            private String electrico;
+            private String direccionAsistida;
+            private String portaEquipaje;
+            */
+                          
+           String  agregarSQL = "INSERT INTO auto(cantPuertas,cantAsientos,tipoAuto,cantAirbags,cambiosAutomaticos,electrico,direccionAsistida,portaEqipaje)"+
+    " VALUES('"+auto.getCantPuertas()+"','"+auto.getCantAsientos()+"','"+auto.getTipoAuto()+"','"+auto.getCantAirbags()+"','"+auto.getCambiosAutomaticos()+"','"+auto.getElectrico()+"','"+auto.getDireccionAsistida()+"','"+auto.getPortaEquipaje()+"')";
+            
+        }
+        catch(java.lang.Exception ex)
+        {
+            System.out.println("Error: " + ex);
+            return 0;
+        }
     }
 
     @Override
     public int eliminarDatos(String patente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    
+        try
+        {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();            
+            Connection connection = DriverManager.getConnection
+                          ("jdbc:mysql://localhost:3306/empresa","root","");
+        
+            Statement statement = connection.createStatement();
+            
+            //String  query="DELETE FROM usuarios WHERE username='"+usuario+"'";
+            String  query="DELETE FROM autos WHERE patente='"+patente+"'";
+            
+            int results = statement.executeUpdate(query);
+            
+             connection.close();
+            System.out.println("valor---> " + results);
+             return results;
+           
+        }
+        catch(java.lang.Exception ex)
+        {
+            System.out.println("Error: " + ex);
+            return 2;
+        }  
     }
 
     @Override
