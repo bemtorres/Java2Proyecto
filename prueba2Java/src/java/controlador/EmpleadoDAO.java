@@ -24,25 +24,7 @@ public class EmpleadoDAO implements GeneralDAOEmpleado {
 
     @Override
     public ArrayList mostrarDatos() {
-        try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa", "root", "");
-            Statement statement = connection.createStatement();
-            String consultaSQL = "SELECT * from empleado join persona using(rut_persona)";
-            ResultSet results = statement.executeQuery(consultaSQL);
-            String campo1;
-            String campo2;
-            arrayEmpleados.removeAll(arrayEmpleados);
-            while (results.next()) {
-                campo1 = results.getString("username");
-                campo2 = results.getString("password");
-                //  arrayEmpleados.add(new Empleado(campo1,campo2));
-            }
-            connection.close();
-        } catch (java.lang.Exception ex) {
-            System.out.println("Error: " + ex);
-        }
-        return arrayEmpleados;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

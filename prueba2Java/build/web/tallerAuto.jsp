@@ -63,8 +63,8 @@
             <br>
             <% LocalDateTime ahora = LocalDateTime.now();                    
                     String hoy = (ahora.getYear()+"-"+ahora.getMonthValue()+"-"+ahora.getDayOfMonth());   %>
-            Fecha Ingreso: <input type="date" value="<%= hoy  %>" readonly name="pNombre"><br>         
-            Motivos: <input type="text" name="sNombre"><br>
+            Fecha Ingreso: <input type="date" value="<%= hoy  %>" readonly name="fechaIngreso"><br>         
+            Motivos: <input type="text" name="motivos"><br>
             <br>
             <br>
             <br>          

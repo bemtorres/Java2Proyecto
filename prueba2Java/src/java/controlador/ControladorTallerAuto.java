@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.FichaReparacion;
 
 /**
  *
@@ -35,13 +36,35 @@ public class ControladorTallerAuto extends HttpServlet {
         switch (opcion) {
 
             case "Guardar":
-                
-                
-                
-                
-                
-                
-                response.sendRedirect("registroTaller.jsp");
+                /* id_ficha    INT NOT NULL AUTO_INCREMENT,
+                 rut_persona INT NOT NULL ,
+                 patente VARCHAR (10) NOT NULL ,
+                 id_est_fich  INT NOT NULL ,
+                 fech_ingreso DATE NOT NULL ,
+                 fech_salida  DATE NOT NULL ,
+                 motivos VARCHAR (250) NOT NULL ,
+                 detalles VARCHAR (250) NOT NULL ,
+                 hor_trabajo INT NOT NULL ,
+                 total       INT NOT NULL,
+                 PRIMARY KEY (id_ficha)*/
+                int rut_persona = Integer.parseInt(request.getParameter("rut"));
+                String patente = request.getParameter("patente");
+                int id_est_fich = 1;
+                String fechaIngreso = request.getParameter("fechaIngreso");
+
+                String motivo = request.getParameter("motivos");
+                String detalles = "Cero Observaciones ... ";
+                int hor_trabajo = 0;
+                int total = 0;
+
+                FichaReparacion ficha = new FichaReparacion(0, rut_persona, patente, id_est_fich, fechaIngreso, fechaIngreso,motivo ,detalles, hor_trabajo, total);
+
+                int estado = new RegistroTallerDAO().agregarDatos(ficha);
+                if (estado > 0) {
+                    out.println("<h1>Datos Agregado agregado...</h1>");
+                } else {
+                    out.println("<h1>No Agregado NO agregado...</h1>");
+                }
                 break;
         }
         try {

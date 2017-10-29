@@ -12,26 +12,26 @@ import java.util.Date;
  * @author carlos
  */
 public class FichaReparacion {
+
     private int idFicha;
-    private Empleado rutPersona;
-    private Vehiculo patente;
-    private EstadoFicha idEstado;
-    private Date fechaIngreso;
-    private Date fechaSalida;
+    private int rutPersona;
+    private String patente;
+    private int idEstadoFicha;
+    private String fechaIngreso;
+    private String fechaSalida;
+    private String motivos;
     private String detalles;
     private int horasTrabajo;
     private int total;
 
-    public FichaReparacion() {
-    }
-
-    public FichaReparacion(int idFicha, Empleado rutPersona, Vehiculo patente, EstadoFicha idEstado, Date fechaIngreso, Date fechaSalida, String detalles, int horasTrabajo, int total) {
+    public FichaReparacion(int idFicha, int rutPersona, String patente, int idEstadoFicha, String fechaIngreso, String fechaSalida, String motivos, String detalles, int horasTrabajo, int total) {
         this.idFicha = idFicha;
         this.rutPersona = rutPersona;
         this.patente = patente;
-        this.idEstado = idEstado;
+        this.idEstadoFicha = idEstadoFicha;
         this.fechaIngreso = fechaIngreso;
         this.fechaSalida = fechaSalida;
+        this.motivos = motivos;
         this.detalles = detalles;
         this.horasTrabajo = horasTrabajo;
         this.total = total;
@@ -45,44 +45,52 @@ public class FichaReparacion {
         this.idFicha = idFicha;
     }
 
-    public Empleado getRutPersona() {
+    public int getRutPersona() {
         return rutPersona;
     }
 
-    public void setRutPersona(Empleado rutPersona) {
+    public void setRutPersona(int rutPersona) {
         this.rutPersona = rutPersona;
     }
 
-    public Vehiculo getPatente() {
+    public String getPatente() {
         return patente;
     }
 
-    public void setPatente(Vehiculo patente) {
+    public void setPatente(String patente) {
         this.patente = patente;
     }
 
-    public EstadoFicha getIdEstado() {
-        return idEstado;
+    public int getIdEstadoFicha() {
+        return idEstadoFicha;
     }
 
-    public void setIdEstado(EstadoFicha idEstado) {
-        this.idEstado = idEstado;
+    public void setIdEstadoFicha(int idEstadoFicha) {
+        this.idEstadoFicha = idEstadoFicha;
     }
 
-    public Date getFechaIngreso() {
+    public String getFechaIngreso() {
         return fechaIngreso;
     }
 
-    public void setFechaIngreso(Date fechaIngreso) {
+    public void setFechaIngreso(String fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }
 
-    public Date getFechaSalida() {
+    public String getFechaSalida() {
         return fechaSalida;
     }
 
-    public void setFechaSalida(Date fechaSalida) {
+    public void setFechaSalida(String fechaSalida) {
         this.fechaSalida = fechaSalida;
+    }
+
+    public String getMotivos() {
+        return motivos;
+    }
+
+    public void setMotivos(String motivos) {
+        this.motivos = motivos;
     }
 
     public String getDetalles() {
@@ -111,8 +119,10 @@ public class FichaReparacion {
 
     @Override
     public String toString() {
-        return "fichaReparacion{" + "idFicha=" + idFicha + ", rutPersona=" + rutPersona + ", patente=" + patente + ", idEstado=" + idEstado + ", fechaIngreso=" + fechaIngreso + ", fechaSalida=" + fechaSalida + ", detalles=" + detalles + ", horasTrabajo=" + horasTrabajo + ", total=" + total + '}';
+        return "FichaReparacion{" + "idFicha=" + idFicha + ", rutPersona=" + rutPersona + ", patente=" + patente + ", idEstadoFicha=" + idEstadoFicha + ", fechaIngreso=" + fechaIngreso + ", fechaSalida=" + fechaSalida + ", motivos=" + motivos + ", detalles=" + detalles + ", horasTrabajo=" + horasTrabajo + ", total=" + total + '}';
     }
-    
-    
+
+    public FichaReparacion() {
+    }
+
 }
