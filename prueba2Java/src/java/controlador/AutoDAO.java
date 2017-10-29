@@ -16,6 +16,7 @@ import java.sql.Statement;
  *
  * @author carlos
  */
-public class AutoDAO {
+public class AutoDAO implements GeneralDAOAuto{
+    
    
 }

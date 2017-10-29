@@ -14,10 +14,14 @@
     <body>
         <h1>MENU VEHICULOS</h1>
         <form action="ControladorCerrarSesion" method="POST">
+
             <input type="submit" value="Cerrar" name="opcion">    
         </form>
         <form action="ControladorMenuVehiculo" method="Post">   
-            
+        <br>
+            Ingrese Cliente
+        </br>    
+            Rut: <input type="number" name="usuario" maxlength="8">-<input type="text" name="usuario" maxlength="1">
             <br>
             <br>
             <br>
