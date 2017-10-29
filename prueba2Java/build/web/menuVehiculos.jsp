@@ -21,7 +21,7 @@
         <br>
             Ingrese Cliente
         </br>    
-            Rut: <input type="number" name="usuario" maxlength="8">-<input type="text" name="usuario" maxlength="1">
+            Rut: <input type="number" name="rut" maxlength="8">-<input type="text" name="dv" maxlength="1">
             <br>
             <br>
             <br>

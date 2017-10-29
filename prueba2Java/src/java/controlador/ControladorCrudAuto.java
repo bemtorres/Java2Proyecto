@@ -59,7 +59,8 @@ public class ControladorCrudAuto extends HttpServlet {
                String direccionAsistida = request.getParameter("direccionAsistida");
                String portaEquipaje = request.getParameter("portaEquipaje");
                
-               Auto autito = new Auto(cantPuertas, cantAsientos, tipoAuto, cantAirbags, cambiosAutomaticos, electrico, direccionAsistida, portaEquipaje, patente, marca, foto, anyo, kilometraje, tipo_bencina);
+               
+               Auto autito = new Auto(cantPuertas, cantAsientos, tipoAuto, cantAirbags, cambiosAutomaticos, electrico, direccionAsistida, portaEquipaje, cantAsientos, marca, anyo, foto, anyo, kilometraje, tipo_bencina);
                //agregarlo a "AutoDAO"
                //AutoDAO.Agregar(autito); 
                 response.sendRedirect("index.jsp");

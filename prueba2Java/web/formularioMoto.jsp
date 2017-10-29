@@ -14,10 +14,15 @@
     <body>
         <h1>FORMULARIO MOTO</h1>
         <form action="ControladorCerrarSesion" method="POST">
+            <%
+            String rut =(String)request.getAttribute("rut");
+            String dv = (String)request.getAttribute("dv");
+            %>
+            <h1> el rut es: <%= rut %> - <%= dv %> </h1>
             <input type="submit" value="Cerrar" name="opcion">    
         </form>
         <form action="ControladorCrudMoto" method="Post">            
-            Rut: <input type="number" name="usuario">-<input type="text" name="usuario">
+            Rut: <input type="text" name="usuario" maxlength="8" readonly value="<%= rut %>">-<input type="text" name="usuario" maxlength="1" readonly value="<%= dv %>" >
             <input type="submit" value="Buscar" name="opcion"> 
             <br>
             <br>

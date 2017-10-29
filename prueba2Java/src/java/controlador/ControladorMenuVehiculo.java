@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Cliente;
 
 /**
  *
@@ -32,20 +33,11 @@ public class ControladorMenuVehiculo extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String opcion = request.getParameter("opcion");
-        switch(opcion){
-            case "Cerrar":
-                response.sendRedirect("index.jsp");
-                break;
-            case "Auto":
-                response.sendRedirect("formularioAuto.jsp");
-                break;
-            case "Moto":
-                response.sendRedirect("formularioMoto.jsp");
-                break;
-            case "Atras":
-                response.sendRedirect("menuPrincipal.jsp");
-                break;
-        }
+        int rut =  Integer.parseInt(request.getParameter("rut"));
+        char dv = request.getParameter("dv").charAt(0);
+        
+        
+        
         try  {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -54,9 +46,42 @@ public class ControladorMenuVehiculo extends HttpServlet {
             out.println("<title>Servlet ControladorMenuVehiculo</title>");            
             out.println("</head>");
             out.println("<body>");
+            
+            switch(opcion){
+            case "Auto":
+                Cliente obj = new ClienteDAO().buscarDatos(rut,dv);
+                if(obj != null){
+                    String rut0 = obj.getRut() +"";
+                    String dv0 = obj.getDv() +"";
+                    request.setAttribute("rut", rut0);
+                    request.setAttribute("dv", dv0);
+                    request.getRequestDispatcher("formularioAuto.jsp").forward(request, response);
+                }else{
+                    out.println("<h1> Errror, no se ha encontrado el cliente.</h1>" );
+                }
+                break;  
+               // out.println("<h1> "+obj.toString()+" </h1>");
+               //break;
+            case "Moto":
+                Cliente obj1 = new ClienteDAO().buscarDatos(rut,dv);
+                
+                if(obj1 != null){
+                    String rut1 = obj1.getRut() +"";
+                    String dv1 = obj1.getDv() +"";
+                    request.setAttribute("rut", rut1);
+                    request.setAttribute("dv", dv1);
+                    request.getRequestDispatcher("formularioMoto.jsp").forward(request, response);
+                }else{
+                    out.println("<h1> Errror, no se ha encontrado el cliente.</h1>" );
+                    
+                }
+                break;
+        }
+                        
             out.println("<h1>Servlet ControladorMenuVehiculo at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
+            
         }        
         finally {            
             out.close();

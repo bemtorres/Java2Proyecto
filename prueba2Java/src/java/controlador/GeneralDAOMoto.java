@@ -5,10 +5,17 @@
  */
 package controlador;
 import modelo.Moto;
+import java.util.ArrayList;
+
 /**
  *
  * @author carlos
  */
-public class GeneralDAOMoto {
-    
+public interface GeneralDAOMoto {
+    public abstract ArrayList mostrarDatos();
+    public abstract Moto buscarDatos(String patente) ;
+    public abstract int agregarDatosVehiculo(Moto moto);
+    public abstract int agregarDatosMoto(Moto moto);
+    public abstract int eliminarDatos(String patente);
+    public abstract int actualizarDatosPersonaCliente(Moto obj); 
 }
