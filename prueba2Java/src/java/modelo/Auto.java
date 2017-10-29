@@ -21,8 +21,15 @@ public class Auto extends Vehiculo{
 
     public Auto() {
     }
+    
+    //para buscar por patente
+    public Auto(String patente)
+    {
+        super(patente);
+    }
 
-    public Auto(int cantPuertas, int cantAsientos, String tipoAuto, int cantAirbags, String cambiosAutomaticos, String electrico, String direccionAsistida, String portaEquipaje) {
+    public Auto(int cantPuertas, int cantAsientos, String tipoAuto, int cantAirbags, String cambiosAutomaticos, String electrico, String direccionAsistida, String portaEquipaje, String patente, String marca, String foto, int anyo, int kilometraje, String tipo_bencina) {
+        super(patente, marca, foto, anyo, kilometraje, tipo_bencina);
         this.cantPuertas = cantPuertas;
         this.cantAsientos = cantAsientos;
         this.tipoAuto = tipoAuto;
@@ -31,7 +38,7 @@ public class Auto extends Vehiculo{
         this.electrico = electrico;
         this.direccionAsistida = direccionAsistida;
         this.portaEquipaje = portaEquipaje;
-    }
+    }    
 
     public int getCantPuertas() {
         return cantPuertas;

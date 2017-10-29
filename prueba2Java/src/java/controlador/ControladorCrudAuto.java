@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Auto;
 
 /**
  *
@@ -32,23 +33,62 @@ public class ControladorCrudAuto extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String opcion = request.getParameter("opcion");
+        
         switch(opcion){
            case "Cerrar":
+               //editar
                 response.sendRedirect("index.jsp");
                 break;  
            case "Agregar":
+               //editar
+               String patente = request.getParameter("patente");
+               String marca = request.getParameter("marca");
+               String foto = request.getParameter("foto");
+               int anyo = Integer.parseInt(request.getParameter("anyo"));
+               int kilometraje = Integer.parseInt(request.getParameter("kilometraje"));
+               String tipo_bencina = request.getParameter("tipoBencina");
+               int cantPuertas = Integer.parseInt(request.getParameter("cantPuertas"));
+               int cantAsientos = Integer.parseInt(request.getParameter("totalAsiento"));
+               String tipoAuto = request.getParameter("tipoAuto");
+               int cantAirbags = Integer.parseInt(request.getParameter("totalAirbag"));
+               String cambiosAutomaticos = request.getParameter("cambioAutomatico");
+               String electrico = request.getParameter("autoElectrico");
+               String direccionAsistida = request.getParameter("direccionAsistida");
+               String portaEquipaje = request.getParameter("portaEquipaje");
+               
+               Auto autito = new Auto(cantPuertas, cantAsientos, tipoAuto, cantAirbags, cambiosAutomaticos, electrico, direccionAsistida, portaEquipaje, patente, marca, foto, anyo, kilometraje, tipo_bencina);
+               //agregarlo a "AutoDAO"
+               //AutoDAO.Agregar(autito); 
                 response.sendRedirect("index.jsp");
                 break;
            case "Buscar":
+               //editar
+               String patenteB= request.getParameter("patente");
+               
+               //AutoDAO.Buscar(patenteB);//se pierde
+               //Auto autoB ;//se declara el "autoB" que es temporal, solo para la accion
+               //Auto autoB = AutoDAO.Buscar(patenteB);//capta en "autoB"
+               
+               
                 response.sendRedirect("index.jsp");
                 break;
            case "Modificar":
+               //editar
+               String patenteM = request.getParameter("patente");
+               //Auto autoM = AutoDao.Modificar(patenteM);
+               
                 response.sendRedirect("index.jsp");
                 break;
             case "Listar":
+                //editar
+                //AutoDAo.Listar();
+                
+                
+                
                 response.sendRedirect("index.jsp");
                 break;
             case "Cancelar":
+                //editar
                 response.sendRedirect("menuVehiculos.jsp");
                 break;
                

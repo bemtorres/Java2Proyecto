@@ -19,6 +19,11 @@ public abstract class Vehiculo {
 
     public Vehiculo() {
     }
+
+    public Vehiculo(String patente) {
+        this.patente = patente;
+    }
+    
     
     public Vehiculo(String patente, String marca, String foto, int anyo, int kilometraje, String tipo_bencina) {
         this.patente = patente;

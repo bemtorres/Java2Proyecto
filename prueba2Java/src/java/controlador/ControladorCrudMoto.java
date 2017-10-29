@@ -34,21 +34,42 @@ public class ControladorCrudMoto extends HttpServlet {
         String opcion = request.getParameter("opcion");
         switch(opcion){
            case "Cerrar":
+               //editar
                 response.sendRedirect("index.jsp");
                 break;  
            case "Agregar":
+               //editar
+                String patente = request.getParameter("patente");
+                String marca = request.getParameter("marca");
+                String foto = request.getParameter("");
+                int anyo = Integer.parseInt(request.getParameter(""));
+                int kilometraje = Integer.parseInt(request.getParameter("kilometraje"));
+                String tipo_bencina = request.getParameter("tipoBencina");
+                String tipomoto =  request.getParameter("tipoMoto");
+                  
                 response.sendRedirect("index.jsp");
                 break;
            case "Buscar":
+               //editar
+               
+                //Mato motoB = MotoDAO.Buscar(patenteB);//capta en "motoB"
+               
                 response.sendRedirect("index.jsp");
                 break;
            case "Modificar":
+               //editar
+               
+               String patenteM = request.getParameter("patente");
+               //Moto motoM = MotoDao.Modificar(patenteM);
+               
                 response.sendRedirect("index.jsp");
                 break;
             case "Listar":
+                //editar
                 response.sendRedirect("index.jsp");
                 break;
             case "Cancelar":
+                //editar
                 response.sendRedirect("menuVehiculos.jsp");
                 break;
                

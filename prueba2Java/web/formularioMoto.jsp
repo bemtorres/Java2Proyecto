@@ -22,13 +22,13 @@
             <br>
             MOTO
             <br>
-            Patente: <input type="text" name="pNombre"><br>
-            Marca: <input type="text" name="sNombre"><br>
-            Tipo de Moto: <input type="text" name="sNombre"><br>
-            Foto: <input type="text" name="apPaterno"><br>
-            Año: <input type="text" name="apMaterno"><br>
-            Kilometraje: <input type="number" name="direccion"><br>
-            Tipo de Bencina <input type="text" name="comuna"><br>
+            Patente: <input type="text" name="patente"><br>
+            Marca: <input type="text" name="marca"><br>
+            Tipo de Moto: <input type="text" name="tipoMoto"><br>
+            Foto: <input type="text" name="foto"><br>
+            Año: <input type="text" name="anyo"><br>
+            Kilometraje: <input type="number" name="kilometraje"><br>
+            Tipo de Bencina <input type="text" name="tipoBencina"><br>
             <br>
             <br> 
             <input type="submit" value="Agregar" name="opcion">    

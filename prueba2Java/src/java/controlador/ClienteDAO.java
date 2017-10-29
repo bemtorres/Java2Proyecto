@@ -40,7 +40,7 @@ public class ClienteDAO implements GeneralDaoCliente{
             Statement statement = connection.createStatement();
             
             String agregarSql = "INSERT INTO persona (rut_persona,dv_per,p_nombre,s_nombre,ap_pater,ap_mater,direccion,comuna,telefono,email)"+
-                                "VALUE("+cliente.getRut()+",'"+cliente.getDv()+"','"+cliente.getPrimerNombre()+"','"+cliente.getSegundoNombre()+
+                                "VALUES("+cliente.getRut()+",'"+cliente.getDv()+"','"+cliente.getPrimerNombre()+"','"+cliente.getSegundoNombre()+
                                         "','"+cliente.getApellidoPaterno()+"','"+cliente.getApellidoMaterno()+"','"+cliente.getDireccion()+"','"+
                                         cliente.get
             String  agregarSQL = "INSERT INTO usuarios (username,password)"+
