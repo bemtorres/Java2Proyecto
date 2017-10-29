@@ -75,6 +75,9 @@ public class ControladorStatus extends HttpServlet {
                     }
 
                 }
+                else{
+                    //errores
+                }
                 try {
                     /* TODO output your page here. You may use following sample code. */
                     out.println("<!DOCTYPE html>");

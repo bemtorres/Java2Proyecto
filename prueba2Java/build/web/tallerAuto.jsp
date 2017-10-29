@@ -4,6 +4,7 @@
     Author     : benja
 --%>
 
+<%@page import="java.time.LocalDateTime"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -60,18 +61,13 @@
             <br>
             <br>            
             <br>
-            Fecha Ingreso: <input type="date" name="pNombre"><br>         
+            <% LocalDateTime ahora = LocalDateTime.now();                    
+                    String hoy = (ahora.getYear()+"-"+ahora.getMonthValue()+"-"+ahora.getDayOfMonth());   %>
+            Fecha Ingreso: <input type="date" value="<%= hoy  %>" readonly name="pNombre"><br>         
             Motivos: <input type="text" name="sNombre"><br>
             <br>
             <br>
-            <br>
-            Detalles tecnicos
-            <br>
-            Fecha Salida: <input type="date" name="sNombre"><br>
-            Detalles: <input type="text" name="apPaterno"><br>
-            Repuestos Utilizados: <input type="text" name="apMaterno"><br>
-            Total de horas de trabajo: <input type="number" value="0" name="direccion"><br>
-            Total <input type="number" value="0" name="comuna"><br>
+            <br>          
             <br>
             <br>
             <input type="submit" value="Guardar" name="opcion">    
