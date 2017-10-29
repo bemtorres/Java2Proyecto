@@ -15,6 +15,6 @@ import modelo.Empleado;
 public interface GeneralDAOEmpleado {
     public abstract ArrayList mostrarDatos();
     public abstract boolean verificarDatos(String usuario, String password);
-    public abstract Empleado buscarDatos(String usuario) ;
+    public abstract Empleado buscarDatos(int Rut) ;
     public abstract  int actualizarDatos(Empleado obj);
 }

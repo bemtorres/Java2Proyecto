@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import modelo.Cliente;
 import modelo.Empleado;
 
 /**
@@ -78,8 +79,31 @@ public ArrayList mostrarDatos() {
     }
 
     @Override
-    public Empleado buscarDatos(String usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Empleado buscarDatos(int rut) {
+        Empleado obj =null;
+          try {
+                      Class.forName("com.mysql.jdbc.Driver").newInstance();
+                        Connection connection = DriverManager.getConnection
+                                               ("jdbc:mysql://localhost:3306/empresa","root","");
+
+                        Statement statement = connection.createStatement();
+                        
+                        String query = "Select * from persona join emplado using(rut_persona) where rut_persona="+rut+"';" ;
+                                
+                         ResultSet results = statement.executeQuery(query);
+
+                            
+                            
+                        while (results.next())
+                        {
+                            
+                        }
+                  connection.close();
+         }
+         catch(java.lang.Exception ex){
+            System.out.println("Error: " + ex);
+         }
+       return obj;
     }
 
     @Override
