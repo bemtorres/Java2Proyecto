@@ -11,6 +11,8 @@ package modelo;
  */
 public class Auto extends Vehiculo{
 
+   
+
     private int cantPuertas;
     private int cantAsientos;
     private String tipoAuto;
@@ -20,8 +22,11 @@ public class Auto extends Vehiculo{
     private String direccionAsistida;
     private String portaEquipaje;
     
-    public Auto(int cantPuertas, int cantAsientos, String tipoAuto, int cantAirbags, String cambiosAutomaticos, String electrico, String direccionAsistida, String portaEquipaje, int rutCliente, String marca, int rut, String foto, int anyo, int kilometraje, String tipo_bencina) {
-        super(marca, rut, foto, anyo, kilometraje, tipo_bencina);
+    public Auto() {
+    }
+
+    public Auto(int cantPuertas, int cantAsientos, String tipoAuto, int cantAirbags, String cambiosAutomaticos, String electrico, String direccionAsistida, String portaEquipaje, String patente, String marca, int rut, String foto, int anyo, int kilometraje, String tipo_bencina) {
+        super(patente, marca, rut, foto, anyo, kilometraje, tipo_bencina);
         this.cantPuertas = cantPuertas;
         this.cantAsientos = cantAsientos;
         this.tipoAuto = tipoAuto;
@@ -31,13 +36,6 @@ public class Auto extends Vehiculo{
         this.direccionAsistida = direccionAsistida;
         this.portaEquipaje = portaEquipaje;
     }
-
-     
-
-    public Auto() {
-    }
-    
-   
 
     public int getCantPuertas() {
         return cantPuertas;
@@ -104,10 +102,6 @@ public class Auto extends Vehiculo{
     }
 
    
-    @Override
-    public String toString() {
-        return "Auto{" + "cantPuertas=" + cantPuertas + ", cantAsientos=" + cantAsientos + ", tipoAuto=" + tipoAuto + ", cantAirbags=" + cantAirbags + ", cambiosAutomaticos=" + cambiosAutomaticos + ", electrico=" + electrico + ", direccionAsistida=" + direccionAsistida + ", portaEquipaje=" + portaEquipaje + '}';
-    }
-
+   
     
 }

@@ -16,7 +16,7 @@ import modelo.Moto;
  *
  * @author benja
  */
-public class ControladorTaller implements GeneralDaoTaller{
+public class ControladorDAOTaller implements GeneralDaoTaller{
     
     @Override
     public Auto buscarDatosAuto(String patente, int rut, char dv) {
@@ -64,7 +64,7 @@ public class ControladorTaller implements GeneralDaoTaller{
                                 kilometraje = results.getInt("kilometraje");
                                 tipo_bencina = results.getString("tip_bencina");
                                 
-                                obj = new Auto(cantPuertas, cantAsientos, tipoAuto, cantAirbags, cambiosAutomaticos, electrico, direccionAsistida, portaEquipaje, cantAsientos, marca, rut, foto, anyo, kilometraje, tipo_bencina);
+                                obj = new Auto(cantPuertas, cantAsientos, tipoAuto, cantAirbags, cambiosAutomaticos, electrico, direccionAsistida, portaEquipaje, patente, marca, rut, foto, anyo, kilometraje, tipo_bencina);
                                 break;                                
                        }
                   connection.close();

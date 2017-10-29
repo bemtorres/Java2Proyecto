@@ -17,6 +17,10 @@
             <input type="submit" value="Cerrar" name="opcion">    
         </form>
         <form action="ControladorTallerAuto" method="Post">
+            <%
+            String rut =(String)request.getAttribute("rut");
+            String dv = (String)request.getAttribute("dv");
+            %>
             Rut: <input type="number" name="usuario">-<input type="text" name="usuario">
             <input type="submit" value="Buscar" name="opcion"> 
             <br>

@@ -16,7 +16,7 @@
         <form action="ControladorCerrarSesion" method="POST">
             <input type="submit" value="Cerrar" name="opcion">    
         </form>
-        <form action="ControladorRegistro" method="Post">
+        <form action="ControladorRegistroFicha" method="Post">
             <br>  <br>  <br>  <br>  <br>  <br>
             Rut: <input type="number" name="usuario" maxlength="8">-<input type="text" name="usuario" maxlength="1">
             <br>

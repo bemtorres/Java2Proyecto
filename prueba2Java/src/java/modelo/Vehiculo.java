@@ -10,9 +10,7 @@ package modelo;
  * @author carlos
  */
 public abstract class Vehiculo {
-
-   
-   
+    private String patente;
     private String marca;
     private int rut;
     private String foto;
@@ -20,8 +18,11 @@ public abstract class Vehiculo {
     private int kilometraje;
     private String tipo_bencina;
     
-    public Vehiculo( String marca, int rut, String foto, int anyo, int kilometraje, String tipo_bencina) {
-       
+    public Vehiculo() {
+    }
+
+    public Vehiculo(String patente, String marca, int rut, String foto, int anyo, int kilometraje, String tipo_bencina) {
+        this.patente = patente;
         this.marca = marca;
         this.rut = rut;
         this.foto = foto;
@@ -30,15 +31,15 @@ public abstract class Vehiculo {
         this.tipo_bencina = tipo_bencina;
     }
 
-    public Vehiculo() {
-    }
+   
     
-    @Override
-    public String toString() {
-        return "Vehiculo{" + "rutCliente=" +  ", marca=" + marca + ", rut=" + rut + ", foto=" + foto + ", anyo=" + anyo + ", kilometraje=" + kilometraje + ", tipo_bencina=" + tipo_bencina + '}';
+    public String getPatente() {
+        return patente;
     }
 
-  
+    public void setPatente(String patente) {
+        this.patente = patente;
+    }
 
     public String getMarca() {
         return marca;
@@ -88,6 +89,10 @@ public abstract class Vehiculo {
         this.tipo_bencina = tipo_bencina;
     }
 
+   
+  
+    
+   
 
     
    

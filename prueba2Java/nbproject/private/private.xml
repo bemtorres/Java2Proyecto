@@ -3,7 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/carlos/Desktop/prueba%20java2/Java2Proyecto/prueba2Java/src/java/controlador/AutoDAO.java</file>
+            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/web/registroTaller.jsp</file>
+            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/src/java/controlador/ControladorTallerAuto.java</file>
+            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/src/java/controlador/GeneralDAOAuto.java</file>
+            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/src/java/controlador/ControladorMenuVehiculo.java</file>
+            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/src/java/controlador/EmpleadoDAO.java</file>
+            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/src/java/controlador/ControladorTaller.java</file>
+            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/src/java/controlador/ControladorTallerMoto.java</file>
+            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/src/java/controlador/ControladorLogin.java</file>
+            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/src/java/controlador/MotoDAO.java</file>
+            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/src/java/controlador/ControladorDAORegistro.java</file>
+            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/src/java/controlador/RegistroTallerDAO.java</file>
+            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/src/java/controlador/ControladorMenu.java</file>
+            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/src/java/controlador/ControladorEstadoVehi.java</file>
         </group>
     </open-files>
 </project-private>

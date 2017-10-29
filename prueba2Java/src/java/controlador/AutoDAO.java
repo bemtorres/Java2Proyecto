@@ -70,7 +70,7 @@ public class AutoDAO implements GeneralDAOAuto{
                                 kilometraje = results.getInt("kilometraje");
                                 tipo_bencina = results.getString("tip_bencina");
                                 
-                                obj = new Auto(cantPuertas, cantAsientos, tipoAuto, cantAirbags, cambiosAutomaticos, electrico, direccionAsistida, portaEquipaje, cantAsientos, marca, rut_persona, foto, anyo, kilometraje, tipo_bencina);
+                                obj = new Auto(cantPuertas, cantAsientos, tipoAuto, cantAirbags, cambiosAutomaticos, electrico, direccionAsistida, portaEquipaje, patente, marca, anyo, foto, anyo, kilometraje, tipo_bencina);
                                 arrayAutos.add(obj);
                                 break;                                
             }

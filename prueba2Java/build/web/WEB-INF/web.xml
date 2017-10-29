@@ -44,6 +44,10 @@
         <servlet-name>ControladorCerrarSesion</servlet-name>
         <servlet-class>controlador.ControladorCerrarSesion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorRegistroFicha</servlet-name>
+        <servlet-class>controlador.ControladorRegistroFicha</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorLogin</servlet-name>
         <url-pattern>/ControladorLogin</url-pattern>
@@ -87,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>ControladorCerrarSesion</servlet-name>
         <url-pattern>/ControladorCerrarSesion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorRegistroFicha</servlet-name>
+        <url-pattern>/ControladorRegistroFicha</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
