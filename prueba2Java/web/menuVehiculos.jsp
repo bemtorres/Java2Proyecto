@@ -13,8 +13,11 @@
     </head>
     <body>
         <h1>MENU VEHICULOS</h1>
-        <form action="ControladorMenuVehiculo" method="Post">    
-             <input type="submit" value="Cerrar" name="opcion">  
+        <form action="ControladorCerrarSesion" method="POST">
+            <input type="submit" value="Cerrar" name="opcion">    
+        </form>
+        <form action="ControladorMenuVehiculo" method="Post">   
+            
             <br>
             <br>
             <br>

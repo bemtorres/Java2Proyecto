@@ -13,9 +13,10 @@
     </head>
     <body>
        <h1>MENU PRINCIPAL</h1>
-        <form action="ControladorMenu" method="Post">
-            
-         <input type="submit" value="Cerrar" name="opcion">    
+       <form action="ControladorCerrarSesion" method="POST">
+            <input type="submit" value="Cerrar" name="opcion">    
+        </form>
+        <form action="ControladorMenu" method="Post">               
          <input type="submit" value="Nueva Orden" name="opcion">   
          <input type="submit" value="Clientes" name="opcion">    
          <input type="submit" value="Vehiculos" name="opcion">           

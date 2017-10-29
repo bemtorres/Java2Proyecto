@@ -13,13 +13,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Cliente;
 import  java.time.LocalDateTime;
+import java.util.ArrayList;
 
 /**
  *
  * @author benja
  */
 public class ControladorCrudClientes extends HttpServlet {
-
+    private ArrayList<Cliente> arrayClientes =new ArrayList();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -34,53 +35,8 @@ public class ControladorCrudClientes extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String opcion = request.getParameter("opcion");
-        String pNombre="", sNombre="",apPaterno="", apMaterno="", direccion="",comuna="", email="";
-        char dv;
-        int rut=0,telefono=0;
-        
-        rut = Integer.parseInt(request.getParameter("rut"));
-        dv = request.getParameter("dv").charAt(0);
-        pNombre = request.getParameter("pNombre");
-        sNombre = request.getParameter("sNombre");
-        apPaterno = request.getParameter("apPaterno");
-        apMaterno = request.getParameter("apMaterno");
-        direccion = request.getParameter("direccion");
-        comuna = request.getParameter("comuna");
-        email = request.getParameter("email");
-        telefono = Integer.parseInt(request.getParameter("telefono"));
-        
-        switch(opcion){
-           case "Cerrar":
-                response.sendRedirect("index.jsp");
-                break;  
-           case "Agregar":
-                LocalDateTime ahora = LocalDateTime.now(); 
-                Cliente clie = new Cliente((ahora.getYear()+"-"+ahora.getMonth()+""+ahora.getDayOfMonth()),rut, dv, pNombre, sNombre, apPaterno, apMaterno, direccion);
-                int estado =new ClienteDAO().agregarDatos(clie);
-                if(estado>0)
-                {    
-                     //out.println("<h1>Usuario agregado...</h1>");
-                }
-                else
-                {
-                     //out.println("<h1>Usuario NO agregado...</h1>");
-                }
-                response.sendRedirect("index.jsp");
-                break;
-           case "Buscar":
-                response.sendRedirect("index.jsp");
-                break;
-           case "Modificar":
-                response.sendRedirect("index.jsp");
-                break;
-            case "Listar":
-                response.sendRedirect("index.jsp");
-                break;
-            case "Cancelar":
-                response.sendRedirect("menuPrincipal.jsp");
-                break;
-               
-        }
+        int rut =0, telefono=0;
+       
         try  {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -89,9 +45,113 @@ public class ControladorCrudClientes extends HttpServlet {
             out.println("<title>Servlet ControladorEstadoVehi</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ControladorEstadoVehi at " + request.getContextPath() + "</h1>");
+           
+            if(opcion.equals("Agregar")){
+            String rutA = request.getParameter("rut");
+            char dv = request.getParameter("dv").charAt(0);
+            String pNombre = request.getParameter("pNombre");
+            String sNombre = request.getParameter("sNombre");
+            String apPaterno = request.getParameter("apPaterno");
+            String apMaterno = request.getParameter("apMaterno");
+            String direccion = request.getParameter("direccion");
+            String comuna = request.getParameter("comuna");
+            String email = request.getParameter("email");        
+            String telefono1 = request.getParameter("telefono");
+
+            rut = Integer.parseInt(rutA);
+            telefono = Integer.parseInt(telefono1);
+                      
+                if (rut>0  && !pNombre.equals("") && !sNombre.equals("") && !apPaterno.equals("") && !apMaterno.equals("") 
+                            && !direccion.equals("") && !comuna.equals("") && telefono>=0 && !email.equals("")) {
+                    LocalDateTime ahora = LocalDateTime.now(); 
+                    String hoy = (ahora.getYear()+"-"+ahora.getMonthValue()+"-"+ahora.getDayOfMonth());                
+                    Cliente nuevoCliente = new Cliente(hoy, rut, dv, pNombre, sNombre, apPaterno, apMaterno, direccion, comuna, telefono,email);
+
+                    int estado =new ClienteDAO().agregarDatosPersona(nuevoCliente);
+                    if(estado>0)
+                    {    
+                        int estado1 = new ClienteDAO().agregarDatosCliente(nuevoCliente);
+                        out.println("<h1>Cliente agregado...</h1>");
+                    }
+                    else
+                    {
+                        out.println("<h1>Cliente NO agregado...</h1>"); 
+                    }
+                }
+                else{
+                    out.println("<h1>Ingrese datos...</h1>");
+                }
+            }
+                if(opcion.equals("Buscar")){
+                     String rutA = request.getParameter("rut");
+            char dv = request.getParameter("dv").charAt(0);
+           
+
+            rut = Integer.parseInt(rutA);
+                      
+                    if (rut>0) {
+                        Cliente obj =new ClienteDAO().buscarDatos(rut,dv);                        
+                        if (obj!=null) {
+                            out.println("<h1>"+obj.toString()+"Cliente encontrado..</h1>");
+                        }
+                        else{
+                            out.println("<h1>Cliente no encontrado..</h1>");
+                        }                        
+                    }
+                     else{
+                        out.println("<h1>Faltan parametros...</h1>");
+                    }
+                }
+                if (opcion.equals("Modificar")) {
+                     String rutA = request.getParameter("rut");
+            char dv = request.getParameter("dv").charAt(0);
+            String pNombre = request.getParameter("pNombre");
+            String sNombre = request.getParameter("sNombre");
+            String apPaterno = request.getParameter("apPaterno");
+            String apMaterno = request.getParameter("apMaterno");
+            String direccion = request.getParameter("direccion");
+            String comuna = request.getParameter("comuna");
+            String email = request.getParameter("email");        
+            String telefono1 = request.getParameter("telefono");
+
+            rut = Integer.parseInt(rutA);
+            telefono = Integer.parseInt(telefono1);
+                      
+                Cliente nuevoClient1 = new Cliente("", rut, dv, pNombre, sNombre, apPaterno, apMaterno, direccion, comuna, telefono,email);
+
+                     int  estado2 =new ClienteDAO().actualizarDatosPersonaCliente(nuevoClient1);
+                     if (estado2>0) {
+                         out.println("<h1>Cliente modificado...</h1>");
+                    }
+                     else{
+                          out.println("<h1>Cliente no encontrado...</h1>");
+                     }
+                }
+                if (opcion.equals("Eliminar")) {
+                     String rutA = request.getParameter("rut");
+                     char dv = request.getParameter("dv").charAt(0);
+            
+                      
+                    int filas=new ClienteDAO().eliminarDatos(rut,dv);
+                    if(filas==1)
+                    {
+                        out.println("<h1>Cliente Eliminado...</h1>");
+                    }    
+                    else
+                    {
+                        out.println("<h1>Cliente no existe...</h1>");
+                    } 
+                }
+                 
+                if (opcion.equals("Listar")) {
+                   response.sendRedirect("listadoClientes.jsp");
+                }            
+             
             out.println("</body>");
             out.println("</html>");
+        }
+        catch(Exception ex){
+             response.sendRedirect("errorPagina.jsp");
         }
         finally {            
             out.close();

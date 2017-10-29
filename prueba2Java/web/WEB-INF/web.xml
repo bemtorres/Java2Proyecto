@@ -40,6 +40,10 @@
         <servlet-name>ControladorCrudMoto</servlet-name>
         <servlet-class>controlador.ControladorCrudMoto</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorCerrarSesion</servlet-name>
+        <servlet-class>controlador.ControladorCerrarSesion</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorLogin</servlet-name>
         <url-pattern>/ControladorLogin</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>ControladorCrudMoto</servlet-name>
         <url-pattern>/ControladorCrudMoto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorCerrarSesion</servlet-name>
+        <url-pattern>/ControladorCerrarSesion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

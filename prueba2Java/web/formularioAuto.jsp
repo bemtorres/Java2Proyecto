@@ -13,8 +13,11 @@
     </head>
     <body>
          <h1>FORMULARIO AUTO</h1>
+         <form action="ControladorCerrarSesion" method="POST">
+            <input type="submit" value="Cerrar" name="opcion">    
+        </form>
          <form action="ControladorCrudAuto" method="Post">
-            <input type="submit" value="Cerrar" name="opcion"> <br>  
+            
             Rut: <input type="number" name="usuario">-<input type="text" name="usuario">
             <input type="submit" value="Buscar" name="opcion"> 
             <br>
