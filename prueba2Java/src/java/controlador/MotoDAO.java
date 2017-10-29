@@ -35,32 +35,31 @@ public class MotoDAO implements GeneralDAOMoto {
             String consultaSQL = "Select * from vehiculo join moto on(vehiculo.patente= moto.vehiculo_patente);";
 
             ResultSet results = statement.executeQuery(consultaSQL);
-            String patente;
-            int rut_persona;
-            String tipoMoto;
-            String marca;
-            String foto;
-            int anyo;
-            int kilometraje;
-            String tipo_bencina;
+                        String patente;
+                        int rut_persona;                     
+                        String marca;
+                        String foto;
+                        int anyo;
+                        int kilometraje;
+                        String tipo_bencina;
+                        String tipo_moto;
 
             arrayMotos.removeAll(arrayMotos);
-            while (results.next()) {
-                patente = results.getString("vehiculo_patente");
-                marca = results.getString("marca");
-                rut_persona = results.getInt("rut_persona");
-                foto = results.getString("foto");
-                anyo = results.getInt("anyo");
-                kilometraje = results.getInt("kilometraje");
-                tipo_bencina = results.getString("tip_bencina");
-
-                tipoMoto = results.getString("tipo_moto");
-
-                obj = new Moto(tipoMoto, patente, marca, anyo, foto, anyo, kilometraje, tipo_bencina);
-                arrayMotos.add(obj);
-
+            while (results.next())
+            {
+                                rut_persona = results.getInt("rut_persona");                                
+                                patente = results.getString("patente");
+                                marca = results.getString("marca");
+                                foto= results.getString("foto");
+                                anyo= results.getInt("anyo");
+                                kilometraje = results.getInt("kilometraje");
+                                tipo_bencina = results.getString("tip_bencina");
+                                tipo_moto = results.getString("tipo_moto");
+   
+                               // obj = new Moto(patente, marca, anyo, foto,kilometraje, tipo_bencina,tipo_moto);
+                                arrayMotos.add(obj);
+                                break;    
             }
-
             connection.close();
 
         } //catching excepcion
@@ -94,9 +93,6 @@ public class MotoDAO implements GeneralDAOMoto {
             int anyo;
             int kilometraje;
             String tipo_bencina;
-            /*
-                               
-             */
 
             while (results.next()) {
                 patente = results.getString("vehiculo_patente");
@@ -147,11 +143,11 @@ public class MotoDAO implements GeneralDAOMoto {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa", "root", "");
 
             Statement statement = connection.createStatement();
+            
+           String  agregarSQL = "INSERT INTO moto(tipo_moto)"+
+            " VALUES('"+moto.getTipomoto()+"')";
+              int results = statement.executeUpdate(agregarSQL);
 
-            String agregarSQL = "INSERT INTO moto(cantPuertas,cantAsientos,tipoAuto,cantAirbags,cambiosAutomaticos,electrico,direccionAsistida,portaEqipaje)"
-                    + " VALUES('" + moto.getTipomoto() + "')";
-            int results = statement.executeUpdate(agregarSQL);
-            //System.out.println(results);           
             connection.close();
             return results;
         } catch (java.lang.Exception ex) {
