@@ -34,8 +34,7 @@ public class ControladorCrudAuto extends HttpServlet {
         PrintWriter out = response.getWriter();
         String opcion = request.getParameter("opcion");
         int anyo = 0, kilometraje = 0, cantPuertas = 0, cantAsientos = 0, cantAirbags = 0;
-        
-        
+
         switch(opcion){
             
            case "Cerrar":
@@ -44,6 +43,7 @@ public class ControladorCrudAuto extends HttpServlet {
                 break;  
            case "Agregar":
                //editar
+               
                String patente = request.getParameter("patente");
                String marca = request.getParameter("marca");
                String foto = request.getParameter("foto");
@@ -68,6 +68,34 @@ public class ControladorCrudAuto extends HttpServlet {
            case "Buscar":
                //editar
                String patenteB= request.getParameter("patente");
+               /*
+                if(opcion.equals("Buscar")){
+                     String rutA = request.getParameter("rut");
+                    char dv = request.getParameter("dv").charAt(0);
+
+                    rut = Integer.parseInt(rutA);
+                      
+                    if (rut>0) {
+                        Cliente obj =new ClienteDAO().buscarDatos(rut,dv);                        
+                        if (obj!=null) {
+                            out.println("<h1>"+obj.toString()+"Cliente encontrado..</h1>");
+                        }
+                        else{
+                            out.println("<h1>Cliente no encontrado..</h1>");
+                        }                        
+                    }
+                     else{
+                        out.println("<h1>Faltan parametros...</h1>");
+                    }
+                }
+               
+               */
+              
+                   
+                 
+                   
+               
+               
                
                //AutoDAO.Buscar(patenteB);//se pierde
                //Auto autoB ;//se declara el "autoB" que es temporal, solo para la accion
@@ -76,6 +104,8 @@ public class ControladorCrudAuto extends HttpServlet {
                
                 response.sendRedirect("index.jsp");
                 break;
+                
+                
            case "Modificar":
                //editar
                String patenteM = request.getParameter("patente");
@@ -84,10 +114,8 @@ public class ControladorCrudAuto extends HttpServlet {
                 response.sendRedirect("index.jsp");
                 break;
             case "Listar":
-                //editar
-                //AutoDAo.Listar();
-                
-                
+                //CREAR  "listadoAutos.jsp"
+                response.sendRedirect("listadoAutos.jsp");
                 
                 response.sendRedirect("index.jsp");
                 break;
