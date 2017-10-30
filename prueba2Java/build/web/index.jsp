@@ -28,12 +28,12 @@
                     <form action="ControladorLogin" method="POST">    
                         <li class="input-field col s5">
                             <i class="material-icons prefix">account_circle</i>
-                            <input id="icon_prefix" type="text" name="usuario">
+                            <input id="icon_prefix" value=" " type="text" name="usuario">
                             <label for="icon_prefix">Usuario</label>
                         </li>
                         <li class="input-field col s4">                                                       
                             <i class="material-icons prefix">vpn_key</i>
-                            <input id="icon_prefix"  type="password" name="clave" >
+                            <input id="icon_prefix" value=" "  type="password" name="clave" >
                             <label for="icon_prefix">Contraseña</label>
                         </li>        
                         <li class="input-field col s4">

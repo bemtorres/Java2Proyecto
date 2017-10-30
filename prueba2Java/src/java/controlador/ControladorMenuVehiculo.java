@@ -33,62 +33,64 @@ public class ControladorMenuVehiculo extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String opcion = request.getParameter("opcion");
-        int rut =  Integer.parseInt(request.getParameter("rut"));
-        char dv = request.getParameter("dv").charAt(0);
-        
-        
-        
-        try  {
+
+        try {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ControladorMenuVehiculo</title>");            
+            out.println("<title>Servlet ControladorMenuVehiculo</title>");
             out.println("</head>");
             out.println("<body>");
-            
-            switch(opcion){
-            case "Auto":
-                Cliente obj = new ClienteDAO().buscarDatos(rut,dv);
-                if(obj != null){
-                    String rut0 = obj.getRut() +"";
-                    String dv0 = obj.getDv() +"";
+
+            if (opcion.equals("Moto")) {
+                int rut = Integer.parseInt(request.getParameter("rut"));
+                char dv = request.getParameter("dv").charAt(0);
+
+                Cliente obj = new ClienteDAO().buscarDatos(rut, dv);
+                if (obj != null) {
+                    String rut0 = obj.getRut() + "";
+                    String dv0 = obj.getDv() + "";
                     request.setAttribute("rut", rut0);
                     request.setAttribute("dv", dv0);
                     request.getRequestDispatcher("formularioAuto.jsp").forward(request, response);
-                }else{
-                    out.println("<h1> Errror, no se ha encontrado el cliente.</h1>" );
+                } else {
+                    out.println("<h1> Errror, no se ha encontrado el cliente.</h1>");
                 }
-                break;  
-               // out.println("<h1> "+obj.toString()+" </h1>");
-               //break;
-            case "Moto":
-                Cliente obj1 = new ClienteDAO().buscarDatos(rut,dv);
-                
-                if(obj1 != null){
-                    String rut1 = obj1.getRut() +"";
-                    String dv1 = obj1.getDv() +"";
+            }
+            // out.println("<h1> "+obj.toString()+" </h1>");
+            //break;
+            if (opcion.equals("Moto")) {
+                int rut = Integer.parseInt(request.getParameter("rut"));
+                char dv = request.getParameter("dv").charAt(0);
+
+                Cliente obj1 = new ClienteDAO().buscarDatos(rut, dv);
+
+                if (obj1 != null) {
+                    String rut1 = obj1.getRut() + "";
+                    String dv1 = obj1.getDv() + "";
                     request.setAttribute("rut", rut1);
                     request.setAttribute("dv", dv1);
                     request.getRequestDispatcher("formularioMoto.jsp").forward(request, response);
-                }else{
-                    out.println("<h1> Errror, no se ha encontrado el cliente.</h1>" );
-                    
+                } else {
+                    out.println("<h1> Errror, no se ha encontrado el cliente.</h1>");
+
                 }
-                break;
-        }
-                        
-            out.println("<h1>Servlet ControladorMenuVehiculo at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-            
-        }        
-        finally {            
+            }
+
+            out.println(
+                    "<h1>Servlet ControladorMenuVehiculo at " + request.getContextPath() + "</h1>");
+            out.println(
+                    "</body>");
+            out.println(
+                    "</html>");
+
+        } finally {
             out.close();
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

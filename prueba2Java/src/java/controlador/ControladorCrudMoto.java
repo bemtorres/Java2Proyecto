@@ -104,30 +104,6 @@ public class ControladorCrudMoto extends HttpServlet {
             
             if(opcion.equals("Modificar"))
             {
-                /*
-                String rutA = request.getParameter("rut");
-                char dv = request.getParameter("dv").charAt(0);
-                String pNombre = request.getParameter("pNombre");
-                String sNombre = request.getParameter("sNombre");
-                String apPaterno = request.getParameter("apPaterno");
-                String apMaterno = request.getParameter("apMaterno");
-                String direccion = request.getParameter("direccion");
-                String comuna = request.getParameter("comuna");
-                String email = request.getParameter("email");
-                String telefono1 = request.getParameter("telefono");
-
-                rut = Integer.parseInt(rutA);
-                telefono = Integer.parseInt(telefono1);
-
-                Cliente nuevoClient1 = new Cliente("", rut, dv, pNombre, sNombre, apPaterno, apMaterno, direccion, comuna, telefono, email);
-
-                int estado2 = new ClienteDAO().actualizarDatosPersonaCliente(nuevoClient1);
-                if (estado2 > 0) {
-                    out.println("<h1>Cliente modificado...</h1>");
-                } else {
-                    out.println("<h1>Cliente no encontrado...</h1>");
-                }
-                */
                 int rut = Integer.parseInt(request.getParameter("rut"));
                 String patente = request.getParameter("patente");
                 String marca = request.getParameter("marca");
@@ -139,9 +115,11 @@ public class ControladorCrudMoto extends HttpServlet {
                 
                 Moto moto = new Moto(tipomoto, patente, marca, rut, foto, anyo, kilometraje, tipo_bencina);
                 int estado2 = MotoDAO().actualizarDatosMoto(moto);
-                if(estado1 > 0)
+                if(estado2 > 0)
                 {
-                    
+                    out.println("<h1>Moto modificado...</h1>");
+                }else {
+                    out.println("<h1>Cliente no encontrado...</h1>");
                 }
                 
             }
