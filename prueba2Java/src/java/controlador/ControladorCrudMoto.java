@@ -11,7 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import modelo.Moto;
 /**
  *
  * @author benja
@@ -30,57 +30,10 @@ public class ControladorCrudMoto extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         PrintWriter out = response.getWriter();
+        PrintWriter out = response.getWriter();
         String opcion = request.getParameter("opcion");
-        switch(opcion){
-           case "Cerrar":
-               //editar
-                response.sendRedirect("index.jsp");
-                break;  
-           case "Agregar":
-               //editar
-                String patente = request.getParameter("patente");
-                String marca = request.getParameter("marca");
-                String foto = request.getParameter("");
-                int anyo = Integer.parseInt(request.getParameter(""));
-                int kilometraje = Integer.parseInt(request.getParameter("kilometraje"));
-                String tipo_bencina = request.getParameter("tipoBencina");
-                String tipomoto =  request.getParameter("tipoMoto");
-                  
-                response.sendRedirect("index.jsp");
-                break;
-           case "Buscar":
-               //editar
-               
-               
-               
-               
-               
-             
-               
-                response.sendRedirect("index.jsp");
-                break;
-           case "Eliminar":
-               
-               break;
-           case "Modificar":
-               //editar
-               
-               String patenteM = request.getParameter("patente");
-               //Moto motoM = MotoDao.Modificar(patenteM);
-               
-                response.sendRedirect("index.jsp");
-                break;
-            case "Listar":
-                //editar
-                response.sendRedirect("index.jsp");
-                break;
-            case "Cancelar":
-                //editar
-                response.sendRedirect("menuVehiculos.jsp");
-                break;
-               
-        }
+        
+        
         try  {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -89,7 +42,124 @@ public class ControladorCrudMoto extends HttpServlet {
             out.println("<title>Servlet ControladorEstadoVehi</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ControladorEstadoVehi at " + request.getContextPath() + "</h1>");
+            
+            if(opcion.equals("Agregar")){
+                int rut = Integer.parseInt(request.getParameter("rut"));
+                String patente = request.getParameter("patente");
+                String marca = request.getParameter("marca");
+                String foto = request.getParameter("foto");
+                int anyo = Integer.parseInt(request.getParameter("anyo"));
+                int kilometraje = Integer.parseInt(request.getParameter("kilometraje"));
+                String tipo_bencina = request.getParameter("tipoBencina");
+                String tipomoto =  request.getParameter("tipoMoto");
+                
+                Moto motito= new Moto(tipomoto, patente, marca, rut, foto, anyo, kilometraje, tipo_bencina);
+                
+                int estado = new MotoDAO().agregarDatosVehiculo(motito);
+                
+                if (estado > 0) {
+                        int estado1 = new MotoDAO().agregarDatosMoto(motito);
+                        out.println("<h1>Auto agregado...</h1>");
+                    } else {
+                        out.println("<h1>Auto NO agregado...</h1>");
+                    }
+            }
+            
+            if(opcion.equals("Eliminar"))
+            {
+                String patenteE = request.getParameter("patente");
+                int filas1 = new MotoDAO().eliminarDatosVehiculo(patenteE);
+
+                if (filas1 == 1) {
+                    int filas2 = new MotoDAO().eliminarDatos(patenteE);
+                    if (filas2 == 1) {
+                        out.println("<h1>Moto Eliminado existe...</h1>");
+
+                    } else {
+                        out.println("<h1>Moto NO existe 2...</h1>");
+                    }
+                } else {
+                    out.println("<h1>Usuario NO existe " + patenteE + "...</h1>");
+                }
+            }
+            
+            if(opcion.equals("Buscar"))
+            {
+                String patenteB = request.getParameter("patente");
+                
+                if(!patenteB.equals(""))
+                {
+                    Moto obj = new MotoDAO().buscarDatos(patenteB);
+                    if(obj != null)
+                    {
+                        out.println("<h1>" + obj.toString() + "Moto encontrado..</h1>");
+                    }else
+                    {
+                        out.println("<h1>Moto no encontrado..</h1>");
+                    }  
+                }else{
+                    out.println("<h1>Faltan parametros...</h1>");
+                }
+            }
+            
+            if(opcion.equals("Modificar"))
+            {
+                /*
+                String rutA = request.getParameter("rut");
+                char dv = request.getParameter("dv").charAt(0);
+                String pNombre = request.getParameter("pNombre");
+                String sNombre = request.getParameter("sNombre");
+                String apPaterno = request.getParameter("apPaterno");
+                String apMaterno = request.getParameter("apMaterno");
+                String direccion = request.getParameter("direccion");
+                String comuna = request.getParameter("comuna");
+                String email = request.getParameter("email");
+                String telefono1 = request.getParameter("telefono");
+
+                rut = Integer.parseInt(rutA);
+                telefono = Integer.parseInt(telefono1);
+
+                Cliente nuevoClient1 = new Cliente("", rut, dv, pNombre, sNombre, apPaterno, apMaterno, direccion, comuna, telefono, email);
+
+                int estado2 = new ClienteDAO().actualizarDatosPersonaCliente(nuevoClient1);
+                if (estado2 > 0) {
+                    out.println("<h1>Cliente modificado...</h1>");
+                } else {
+                    out.println("<h1>Cliente no encontrado...</h1>");
+                }
+                */
+                int rut = Integer.parseInt(request.getParameter("rut"));
+                String patente = request.getParameter("patente");
+                String marca = request.getParameter("marca");
+                String foto = request.getParameter("foto");
+                int anyo = Integer.parseInt(request.getParameter("anyo"));
+                int kilometraje = Integer.parseInt(request.getParameter("kilometraje"));
+                String tipo_bencina = request.getParameter("tipoBencina");
+                String tipomoto =  request.getParameter("tipoMoto");
+                
+                Moto moto = new Moto(tipomoto, patente, marca, rut, foto, anyo, kilometraje, tipo_bencina);
+                int estado2 = MotoDAO().actualizarDatosMoto(moto);
+                if(estado1 > 0)
+                {
+                    
+                }
+                
+            }
+            
+            if(opcion.equals("Cerrar"))
+            {
+                response.sendRedirect("index.jsp");
+            }
+            
+            if(opcion.equals("Listor"))
+            {
+                
+            }
+            
+            if(opcion.equals("Cancelar"))
+            {
+                
+            }
             out.println("</body>");
             out.println("</html>");
         }

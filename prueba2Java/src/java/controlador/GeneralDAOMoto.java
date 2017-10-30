@@ -17,5 +17,6 @@ public interface GeneralDAOMoto {
     public abstract int agregarDatosVehiculo(Moto moto);
     public abstract int agregarDatosMoto(Moto moto);
     public abstract int eliminarDatos(String patente);
-    public abstract int actualizarDatosMoto(Moto obj); 
+    public abstract int actualizarDatosMoto(Moto obj);
+    public abstract int eliminarDatosVehiculo(String patente);
 }

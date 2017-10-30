@@ -63,6 +63,7 @@ public class ControladorCrudAuto extends HttpServlet {
                 Auto autito = new Auto(cantPuertas, cantAsientos, tipoAuto, cantAirbags, cambiosAutomaticos, electrico, direccionAsistida, portaEquipaje, patente, marca, rut, foto, anyo, kilometraje, tipo_bencina);
 
                 int estado = new AutoDAO().agregarDatosVehiculo(autito);
+
                 if (estado > 0) {
                     int estado1 = new AutoDAO().agregarDatosAuto(autito);
                     out.println("<h1>Auto agregado...</h1>");
@@ -72,6 +73,7 @@ public class ControladorCrudAuto extends HttpServlet {
             }
 
             if (opcion.equals("Elimnar")) {
+
                 String patenteE = request.getParameter("patente");
                 int filas1 = new AutoDAO().eliminarDatosVehiculo(patenteE);
 
@@ -86,8 +88,10 @@ public class ControladorCrudAuto extends HttpServlet {
                 } else {
                     out.println("<h1>Usuario NO existe " + patenteE + "...</h1>");
                 }
+
             }
             if (opcion.equals("Modificar")) {
+
                 String patenteM = request.getParameter("patente");
 
                 if (!patenteM.equals("")) {
@@ -99,8 +103,10 @@ public class ControladorCrudAuto extends HttpServlet {
                     }
                 }
 
+
             }
             if (opcion.equals("Buscar")) {
+
                 String patenteB = request.getParameter("patente");
 
                 if (!patenteB.equals("")) {

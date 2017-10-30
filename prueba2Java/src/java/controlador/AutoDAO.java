@@ -252,9 +252,11 @@ public class AutoDAO implements GeneralDAOAuto {
 
     @Override
     public int eliminarDatosVehiculo(String patente) {
+
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa", "root", "");
+
 
             Statement statement = connection.createStatement();
 
