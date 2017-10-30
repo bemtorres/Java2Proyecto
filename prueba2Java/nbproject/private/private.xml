@@ -4,10 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/carlos/Desktop/prueba%20java2/Java2Proyecto/prueba2Java/src/java/controlador/AutoDAO.java</file>
-            <file>file:/C:/Users/carlos/Desktop/prueba%20java2/Java2Proyecto/prueba2Java/src/java/controlador/ControladorCerrarSesion.java</file>
-            <file>file:/C:/Users/carlos/Desktop/prueba%20java2/Java2Proyecto/prueba2Java/src/java/controlador/MotoDAO.java</file>
-            <file>file:/C:/Users/carlos/Desktop/prueba%20java2/Java2Proyecto/prueba2Java/src/java/controlador/ControladorTallerAuto.java</file>
-            <file>file:/C:/Users/carlos/Desktop/prueba%20java2/Java2Proyecto/prueba2Java/src/java/controlador/GeneralDAORegistroTaller.java</file>
+            <file>file:/C:/Users/carlos/Desktop/prueba%20java2/Java2Proyecto/prueba2Java/src/java/controlador/ControladorCrudMoto.java</file>
+            <file>file:/C:/Users/carlos/Desktop/prueba%20java2/Java2Proyecto/prueba2Java/src/java/controlador/ControladorCrudAuto.java</file>
+            <file>file:/C:/Users/carlos/Desktop/prueba%20java2/Java2Proyecto/prueba2Java/src/java/controlador/ControladorCrudClientes.java</file>
         </group>
     </open-files>
 </project-private>

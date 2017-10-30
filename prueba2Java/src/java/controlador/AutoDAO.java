@@ -53,8 +53,8 @@ public class AutoDAO implements GeneralDAOAuto{
 
             arrayAutos.removeAll(arrayAutos);
             while (results.next())
-            {
-                rut_persona = results.getInt("rut_persona");                                
+            { 
+                                rut_persona = results.getInt("rut_persona");                                
                                 patente = results.getString("patente");
                                 cantPuertas = results.getInt("cant_puertas");
                                 cantAsientos = results.getInt("asientos");
