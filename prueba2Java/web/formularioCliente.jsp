@@ -74,14 +74,14 @@
                                             <div class="input-field col s12">
                                                 <select name="comuna">
                                                     <option value="" disabled selected>Elija la comuna</option>
-                                                    <option value="1">Calera de tango</option>
-                                                    <option value="2">San Bernardo</option>
-                                                    <option value="3">Santiago</option>
-                                                    <option value="4">Rancagua</option>
-                                                    <option value="5">La  Pitanta</option>
-                                                    <option value="6">Puente alto</option>
-                                                    <option value="7">Cerrillos</option>
-                                                    <option value="8">Maipu</option>
+                                                    <option value="Calera de Tango">Calera de Tango</option>
+                                                    <option value="San Bernardo">San Bernardo</option>
+                                                    <option value="Santiago">Santiago</option>
+                                                    <option value="Rancagua">Rancagua</option>
+                                                    <option value="La Pintana">La  Pitanta</option>
+                                                    <option value="Puente ALto">Puente alto</option>
+                                                    <option value="Cerrillos">Cerrillos</option>
+                                                    <option value="Maipu">Maipu</option>
                                                 </select>
                                                 <label>Comuna</label>
                                             </div>

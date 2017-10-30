@@ -32,12 +32,8 @@ public class ControladorMenuVehiculo extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        String rut = request.getParameter("rut");
-        String dv = request.getParameter("dv");
+        int rut = 0;
         String opcion = request.getParameter("opcion");
-
-        int rut1 = Integer.parseInt(rut);
-        char dv2 = dv.charAt(0);
         try {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -47,27 +43,43 @@ public class ControladorMenuVehiculo extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
 
-            switch (opcion) {
-                case "Moto":
-                    Cliente obj1 = new ClienteDAO().buscarDatos(rut1, dv2);
-                    if (obj1 != null) {
+            if (opcion.equals("MOTO")) {
+                String rutA = request.getParameter("rut");
+                char dv = request.getParameter("dv").charAt(0);
+                rut = Integer.parseInt(rutA);
+
+                if (rut > 0) {
+                    Cliente obj = new ClienteDAO().buscarDatos(rut, dv);
+                    if (obj != null) {
+                        out.println("<h1>" + obj.toString() + "Cliente encontrado..</h1>");
+                    } else {
+                        //  out.println("<h1>Cliente no encontrado..</h1>");
+
                         request.setAttribute("rut", rut);
                         request.setAttribute("dv", dv);
                         request.getRequestDispatcher("formularioMoto.jsp").forward(request, response);
-                    } else {
-                        out.println("<h1> Errror, no se ha encontrado el cliente 123 " + obj1.toString() + "</h1>");
                     }
-                    break;
-                case "Auto":
-                    Cliente obj = new ClienteDAO().buscarDatos(rut1, dv2);
+                } else {
+                    out.println("<h1>Faltan parametros...</h1>");
+                }
+            } else {
+                String rutA = request.getParameter("rut");
+                char dv = request.getParameter("dv").charAt(0);
+                rut = Integer.parseInt(rutA);
+
+                if (rut > 0) {
+                    Cliente obj = new ClienteDAO().buscarDatos(rut, dv);
                     if (obj != null) {
+                        // out.println("<h1>" + obj.toString() + "Cliente encontrado..</h1>");
                         request.setAttribute("rut", rut);
                         request.setAttribute("dv", dv);
                         request.getRequestDispatcher("formularioAuto.jsp").forward(request, response);
                     } else {
-                        out.println("<h1> Errror, no se ha encontrado el cliente. 123</h1>");
+                        out.println("<h1>Cliente no encontrado..</h1>");
                     }
-                    break;
+                } else {
+                    out.println("<h1>Faltan parametros...</h1>");
+                }
 
             }
 
