@@ -59,9 +59,9 @@ public class ControladorCrudMoto extends HttpServlet {
                 
                 if (estado > 0) {
                         int estado1 = new MotoDAO().agregarDatosMoto(motito);
-                        out.println("<h1>Auto agregado...</h1>");
+                        out.println("<h1>Moto agregada...</h1>");
                     } else {
-                        out.println("<h1>Auto NO agregado...</h1>");
+                        out.println("<h1>Moto no agregada...</h1>");
                     }
             }
             
