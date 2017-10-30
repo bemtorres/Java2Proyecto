@@ -32,33 +32,31 @@ public class MotoDAO implements GeneralDAOMoto {
             Statement statement = connection.createStatement();
 
             //select * from moto join vehiculo on (moto.vehiculo_patente = vehiculo.patente);
-            String consultaSQL = "Select * from vehiculo join moto on(vehiculo.patente= moto.vehiculo_patente);";
+            String query = "Select * from vehiculo join moto on(vehiculo.patente = moto.vehiculo_patente);";
 
-            ResultSet results = statement.executeQuery(consultaSQL);
-                        String patente;
-                        int rut_persona;                     
-                        String marca;
-                        String foto;
-                        int anyo;
-                        int kilometraje;
-                        String tipo_bencina;
-                        String tipo_moto;
+            ResultSet results = statement.executeQuery(query);
 
+            int rut;
+            String patente;
+            String marca;
+            String foto;
+            int anyo;
+            int kilometraje;
+            String tipo_bencina;
+            String tipomoto;
             arrayMotos.removeAll(arrayMotos);
-            while (results.next())
-            {
-                                rut_persona = results.getInt("rut_persona");                                
-                                patente = results.getString("patente");
-                                marca = results.getString("marca");
-                                foto= results.getString("foto");
-                                anyo= results.getInt("anyo");
-                                kilometraje = results.getInt("kilometraje");
-                                tipo_bencina = results.getString("tip_bencina");
-                                tipo_moto = results.getString("tipo_moto");
-   
-                               // obj = new Moto(patente, marca, anyo, foto,kilometraje, tipo_bencina,tipo_moto);
-                                arrayMotos.add(obj);
-                                break;    
+            while (results.next()) {
+                patente = results.getString("patente");
+                marca = results.getString("marca");
+                foto = results.getString("foto");
+                anyo = results.getInt("anyo");
+                tipomoto = results.getString("tip_moto");
+                kilometraje = results.getInt("kilometraje");
+                tipo_bencina = results.getString("tip_bencina");
+                rut = results.getInt("rut_persona");
+
+                obj = new Moto(tipomoto, patente, marca, rut, foto, anyo, kilometraje, tipo_bencina);
+                arrayMotos.add(obj);
             }
             connection.close();
 
@@ -125,7 +123,7 @@ public class MotoDAO implements GeneralDAOMoto {
             Statement statement = connection.createStatement();
 
             String agregarSQL = "INSERT INTO vehiculo(patente,marca,rut_persona,foto,anyo,kilometraje,tip_bencina)"
-                    + " VALUES('" + moto.getMarca() + "'," + moto.getRut() + ",'" + moto.getFoto() + "'," + moto.getAnyo() + "," + moto.getKilometraje() + ",'" + moto.getTipo_bencina() + "','"+moto.getPatente() +"')";
+                    + " VALUES('" + moto.getMarca() + "'," + moto.getRut() + ",'" + moto.getFoto() + "'," + moto.getAnyo() + "," + moto.getKilometraje() + ",'" + moto.getTipo_bencina() + "','" + moto.getPatente() + "')";
             int results = statement.executeUpdate(agregarSQL);
             //System.out.println(results);           
             connection.close();
@@ -135,7 +133,7 @@ public class MotoDAO implements GeneralDAOMoto {
             return 0;
         }
     }
-    
+
     @Override
     public int agregarDatosMoto(Moto moto) {
         try {
@@ -143,10 +141,10 @@ public class MotoDAO implements GeneralDAOMoto {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa", "root", "");
 
             Statement statement = connection.createStatement();
-            
-           String  agregarSQL = "INSERT INTO moto(tip_moto, vehiculo_patente)"+
-            " VALUES('"+moto.getTipomoto()+"','"+moto.getPatente()+"')";
-              int results = statement.executeUpdate(agregarSQL);
+
+            String agregarSQL = "INSERT INTO moto(tip_moto, vehiculo_patente)"
+                    + " VALUES('" + moto.getTipomoto() + "','" + moto.getPatente() + "')";
+            int results = statement.executeUpdate(agregarSQL);
 
             connection.close();
             return results;
@@ -193,7 +191,7 @@ public class MotoDAO implements GeneralDAOMoto {
             Statement statement = connection.createStatement();
 
             String agregarSQL = "UPDATE vehiculo SET  foto= '"
-                    + obj.getFoto()+ "',kilometraje = "+obj.getKilometraje()+" where patente='" + obj.getPatente()+ "'";
+                    + obj.getFoto() + "',kilometraje = " + obj.getKilometraje() + " where patente='" + obj.getPatente() + "'";
 
             results = statement.executeUpdate(agregarSQL);
 
@@ -209,29 +207,25 @@ public class MotoDAO implements GeneralDAOMoto {
 
     @Override
     public int eliminarDatosVehiculo(String patente) {
-         try
-        {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();            
-            Connection connection = DriverManager.getConnection
-                          ("jdbc:mysql://localhost:3306/empresa","root","");
-        
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa", "root", "");
+
             Statement statement = connection.createStatement();
-            
+
             //String  query="DELETE FROM usuarios WHERE username='"+usuario+"'";
-            String  query="DELETE FROM vehiculo WHERE patente='"+patente+"'";
-            
+            String query = "DELETE FROM vehiculo WHERE patente='" + patente + "'";
+
             int results = statement.executeUpdate(query);
-            
-             connection.close();
+
+            connection.close();
             System.out.println("valor---> " + results);
-             return results;
-           
-        }
-        catch(java.lang.Exception ex)
-        {
+            return results;
+
+        } catch (java.lang.Exception ex) {
             System.out.println("Error: " + ex);
             return 2;
-        }  
+        }
     }
 
 }

@@ -32,14 +32,8 @@ public class ControladorEstadoVehi extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String opcion = request.getParameter("opcion");
-        switch(opcion){
-            case "Ingresar":
-                //response.sendRedirect("menuPrincipal.jsp");
-                break;
-            case "Atras":
-                response.sendRedirect("index.jsp");
-                break;
-        }
+        
+      
         try  {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -48,6 +42,12 @@ public class ControladorEstadoVehi extends HttpServlet {
             out.println("<title>Servlet ControladorEstadoVehi</title>");            
             out.println("</head>");
             out.println("<body>");
+            switch(opcion){
+            case "Buscar":
+                response.sendRedirect("menuPrincipal.jsp");
+                
+            break;       
+        }
             out.println("<h1>Servlet ControladorEstadoVehi at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");

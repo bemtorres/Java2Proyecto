@@ -32,11 +32,10 @@ public class AutoDAO implements GeneralDAOAuto {
 
             Statement statement = connection.createStatement();
 
-            String consultaSQL = "Select * from vehiculo join auto using(patente);";
+            String query = "Select * from vehiculo join auto using(patente);";
 
-            ResultSet results = statement.executeQuery(consultaSQL);
-            String patente;
-            int rut_persona;
+            ResultSet results = statement.executeQuery(query);
+
             int cantPuertas;
             int cantAsientos;
             String tipoAuto;
@@ -50,31 +49,30 @@ public class AutoDAO implements GeneralDAOAuto {
             int anyo;
             int kilometraje;
             String tipo_bencina;
-
+            String patente;
+            int rut;
+            
             arrayAutos.removeAll(arrayAutos);
             while (results.next()) {
-                rut_persona = results.getInt("rut_persona");
-                patente = results.getString("patente");
                 cantPuertas = results.getInt("cant_puertas");
                 cantAsientos = results.getInt("asientos");
                 tipoAuto = results.getString("tipo_auto");
-                cantAirbags = results.getInt("canti_airbag");
+                cantAirbags = results.getInt("cant_airbag");
                 cambiosAutomaticos = results.getString("camb_automatico");
                 electrico = results.getString("electrico");
                 direccionAsistida = results.getString("dire_asistid");
                 portaEquipaje = results.getString("port_equip");
                 marca = results.getString("marca");
-                rut_persona = results.getInt("rut_persona");
                 foto = results.getString("foto");
                 anyo = results.getInt("anyo");
                 kilometraje = results.getInt("kilometraje");
                 tipo_bencina = results.getString("tip_bencina");
+                patente = results.getString("patente");
+                rut = results.getInt("rut_persona");
 
-                obj = new Auto(cantPuertas, cantAsientos, tipoAuto, cantAirbags, cambiosAutomaticos, electrico, direccionAsistida, portaEquipaje, patente, marca, anyo, foto, anyo, kilometraje, tipo_bencina);
-                arrayAutos.add(obj);
-                break;
+                obj = new Auto(cantPuertas, cantAsientos, tipoAuto, cantAirbags, cambiosAutomaticos, electrico, direccionAsistida, portaEquipaje, patente, marca, rut, foto, anyo, kilometraje, tipo_bencina);
+                arrayAutos.add(obj);                
             }
-
             // Fin de conexi�n
             connection.close();
 

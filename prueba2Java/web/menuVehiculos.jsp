@@ -30,17 +30,15 @@
                 </ul>              
             </div>
         </nav>    
-
         <div class="container">
-            <div class="section">
-                <form action="ControladorMenuVehiculos" method="POST">  
-                    <div class="row">                  
-                        <h3  class="center">Panel Vehiculos</h3>                       
-                        <div class="col s12 center ">                           
-                            <div class="col s6 center ">  
-                                <p  class="center">Agregar vehiculo a un cliente</p>  
-                                <h5 class=" red-text">Ingrese rut</h5> 
-
+            <div class="section">                
+                <div class="row">                  
+                    <h3  class="center">Panel Vehiculos</h3>                       
+                    <div class="col s12 center ">                           
+                        <div class="col s6 center ">  
+                            <p  class="center">Agregar vehiculo a un cliente</p>  
+                            <h5 class=" red-text">Ingrese rut</h5> 
+                            <form action="ControladorMenuVehiculo" method="POST"> 
                                 <div class="row">
                                     <div class="input-field col s8">
                                         <i class="material-icons prefix">portrait</i>                                       
@@ -52,31 +50,25 @@
                                         <label for="dv_">dv</label>                                        
                                     </div>                                       
                                 </div> 
-                                <div class="row">                                   
-                                    <div>
-                                        <input class="btn-large waves-effect waves-light cyan" type="submit" name="opcion" value="Auto">
-                                        <i class="material-icons">directions_car</i>
-                                    </div>
-
-                                    <div>
-                                        <input class="btn-large waves-effect waves-light cyan" type="submit" name="opcion" value="Moto">
-                                        <i class="material-icons ">motorcycle</i>
-                                    </div>
+                                <div class="row">
+                                    <input class="btn-large waves-effect waves-light cyan" type="submit" name="opcion" value="Auto"><i class="material-icons ">directions_car</i>
                                 </div>    
-                            </div>
-                            <div class="col s6 center ">                       
-                                <a href="" class="waves-effect waves-light grey btn"><i class="material-icons left">loop</i></i>listar</a>
-                                <br>
-                                <input class="waves-effect waves-light btn" type="submit" name="opcion" value="Moto"><i class="material-icons right"></i>
-
-                                <input type="submit" value="Auto name="opcion">    
-                            </div>
+                                <div class="row">
+                                    <input class="btn-large waves-effect waves-light cyan" type="submit" name="opcion" value="Moto"><i class="material-icons y">motorcycle</i>
+                                </div>  
+                            </form>
+                        </div>
+                        <div class="col s6 center ">                       
+                            <br>
+                            <br>
+                            <br>
+                            <a href="listarVehiculos.jsp" class="waves-effect waves-light grey btn-large"><i class="material-icons left">loop</i></i>listar</a>
                         </div>
                     </div>
-                </form>
-                <a href="menuPrincipal.jsp" class="waves-effect waves-light red btn"><i class="material-icons left">arrow_back</i>Atrás</a>
-            </div>   
-        </div>
+                    <a href="menuPrincipal.jsp" class="waves-effect waves-light red btn"><i class="material-icons left">arrow_back</i>Atrás</a>
+                </div> 
+            </div>                           
+        </div> 
         <footer class="page-footer grey darken-3">
             <div class="container">
                 <div class="row">

@@ -33,7 +33,7 @@
             Marca: <input type="text" name="marca"><br>
             Tipo de Moto: <input type="text" name="tipoMoto"><br>
             Foto: <input type="text" name="foto"><br>
-            Año: <input type="text" name="anyo"><br>
+            Año: <input type="number" name="anyo"><br>
             Kilometraje: <input type="number" name="kilometraje"><br>
             Tipo de Bencina <input type="text" name="tipoBencina"><br>
             <br>

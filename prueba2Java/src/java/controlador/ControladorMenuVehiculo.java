@@ -32,9 +32,12 @@ public class ControladorMenuVehiculo extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
+        String rut = request.getParameter("rut");
+        String dv = request.getParameter("dv");
         String opcion = request.getParameter("opcion");
 
+        int rut1 = Integer.parseInt(rut);
+        char dv2 = dv.charAt(0);
         try {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -46,28 +49,20 @@ public class ControladorMenuVehiculo extends HttpServlet {
 
             switch (opcion) {
                 case "Moto":
-                    String rut = request.getParameter("rut");
-                    String dv = request.getParameter("dv");
-                    int rut1 = Integer.parseInt(rut);
-                    char dv1 = dv.charAt(0);
-                    Cliente obj1 = new ClienteDAO().buscarDatos(rut1, dv1);                    
+                    Cliente obj1 = new ClienteDAO().buscarDatos(rut1, dv2);
                     if (obj1 != null) {
                         request.setAttribute("rut", rut);
                         request.setAttribute("dv", dv);
                         request.getRequestDispatcher("formularioMoto.jsp").forward(request, response);
                     } else {
-                        out.println("<h1> Errror, no se ha encontrado el cliente 123 "+obj1.toString()+"</h1>");
+                        out.println("<h1> Errror, no se ha encontrado el cliente 123 " + obj1.toString() + "</h1>");
                     }
                     break;
                 case "Auto":
-                    String rut5 = request.getParameter("rut");
-                    String dv5 = request.getParameter("dv");
-                    int rut3 = Integer.parseInt(rut5);
-                    char dv3 = dv5.charAt(0);
-                    Cliente obj = new ClienteDAO().buscarDatos(rut3, dv3);
+                    Cliente obj = new ClienteDAO().buscarDatos(rut1, dv2);
                     if (obj != null) {
-                        request.setAttribute("rut", rut3);
-                        request.setAttribute("dv", dv3);
+                        request.setAttribute("rut", rut);
+                        request.setAttribute("dv", dv);
                         request.getRequestDispatcher("formularioAuto.jsp").forward(request, response);
                     } else {
                         out.println("<h1> Errror, no se ha encontrado el cliente. 123</h1>");
@@ -76,34 +71,29 @@ public class ControladorMenuVehiculo extends HttpServlet {
 
             }
 
-        
+            out.println(
+                    "<h1>Servlet ControladorMenuVehiculo at " + request.getContextPath() + "</h1>");
+            out.println(
+                    "</body>");
+            out.println(
+                    "</html>");
 
-        out.println(
-                "<h1>Servlet ControladorMenuVehiculo at " + request.getContextPath() + "</h1>");
-        out.println(
-                "</body>");
-        out.println(
-                "</html>");
-
+        } finally {
+            out.close();
+        }
     }
-
-    
-        finally {
-             out.close();
-    }
-}
 
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-/**
- * Handles the HTTP <code>GET</code> method.
- *
- * @param request servlet request
- * @param response servlet response
- * @throws ServletException if a servlet-specific error occurs
- * @throws IOException if an I/O error occurs
- */
-@Override
-        protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -117,7 +107,7 @@ public class ControladorMenuVehiculo extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-        protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -128,7 +118,7 @@ public class ControladorMenuVehiculo extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-        public String getServletInfo() {
+    public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 
