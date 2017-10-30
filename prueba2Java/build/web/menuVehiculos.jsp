@@ -40,23 +40,23 @@
                             <h5 class=" red-text">Ingrese rut</h5> 
                             <form action="ControladorMenuVehiculo" method="POST"> 
                                 <div class="row">
-
-                                    <div class="input-field col s8">
-                                        <i class="material-icons prefix">portrait</i>                                       
-                                        <input id="rut_d" name="rut" value="0" type="number"  class="validate">
-                                        <label for="rut_d">Rut Cliente</label>
+                                    <div class="input-field col s6">                                           
+                                    <i class="material-icons prefix">portrait</i> 
+                                        <input id="rut" type="number" name="rut"  value="0" class="validate">
+                                        <label for="last_name">Rut</label>
                                     </div>
-                                    <div class="input-field col s3">
-                                        <input id="dv_" name="dv" maxlength="1" type="text"  class="validate">
-                                        <label for="dv_">dv</label>                                        
-                                    </div>                                       
+                                    <div class="input-field col s2">                               
+                                        <input id="dv" type="text" name="dv" maxlength="1"  class="validate">
+                                        <label for="last_name">Digito</label>
+                                    </div>  
                                 </div> 
                                 <div class="row">
-                                    <input class="btn-large waves-effect waves-light cyan" type="submit" name="opcion" value="AUTO">
+                                    <div class="row">
+                                        <input class="btn-large waves-effect waves-light cyan" type="submit" name="opcion" value="AUTO">
+                                    </div>
                                     <div class="row">
                                         <input class="btn-large waves-effect waves-light cyan" type="submit" name="opcion" value="MOTO">
                                     </div>  
-
                                 </div> 
                             </form>                            
                         </div>
@@ -68,7 +68,7 @@
                 <div>
                     <a href="menuPrincipal.jsp" class="waves-effect waves-light red btn"><i class="material-icons left">arrow_back</i>Atrás</a>
                 </div> 
-                <footer class="page-footer grey darken-3">
+           <footer class="page-footer grey darken-3">     
                     <div class="container">
                         <div class="row">
                             <div class="col l6 s12">

@@ -63,8 +63,6 @@ public class ControladorCrudClientes extends HttpServlet {
                 for (int i = 0; i < miselect.length; i++) {
                     comuna = miselect[i];
                 }
-                
-                
                
                 rut = Integer.parseInt(rutA);
                 telefono = Integer.parseInt(telefono1);

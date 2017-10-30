@@ -21,7 +21,7 @@
         <title>La Tuerca</title>
     </head>
     <body>
-         <nav class="teal darken-3" role="navigation">
+        <nav class="teal darken-3" role="navigation">
             <div class="nav-wrapper container">
                 <a id="logo-container" href="index.jsp" class="brand-logo">La Tuerca</a>
                 <ul class="right hide-on-med-and-down">                                                 
@@ -61,8 +61,26 @@
                 </c:forEach>
         </UL>
 
-      
-             <footer class="page-footer grey darken-3">
+        <h1>Empleados</h1>
+        <sql:query var="empleado">
+            SELECT * FROM empleado;
+        </sql:query>
+
+        <UL>
+            <c:forEach var="row" items="${empleado.rows}">
+                <LI>${row.rut_persona}
+                    ${row.fecha_contra}
+                    ${row.usuario}
+                    ${row.clave}
+                    ${row.hor_trabo}
+                    ${row.val_hora}
+                    $ ${row.sueldo}
+                </c:forEach>
+        </UL>
+        <div class="input-field col s8">
+            <a href="menuPrincipal.jsp" class="waves-effect waves-light red btn"><i class="material-icons left">arrow_back</i>Atrás</a>
+        </div>
+        <footer class="page-footer grey darken-3">
             <div class="container">
                 <div class="row">
                     <div class="col l6 s12">
