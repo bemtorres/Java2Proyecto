@@ -114,29 +114,13 @@ public class ControladorCrudMoto extends HttpServlet {
                 String tipomoto =  request.getParameter("tipoMoto");
                 
                 Moto moto = new Moto(tipomoto, patente, marca, rut, foto, anyo, kilometraje, tipo_bencina);
-                int estado2 = MotoDAO().actualizarDatosMoto(moto);
+                int estado2 =new  MotoDAO().actualizarDatosMoto(moto);
                 if(estado2 > 0)
                 {
                     out.println("<h1>Moto modificado...</h1>");
                 }else {
                     out.println("<h1>Cliente no encontrado...</h1>");
                 }
-                
-            }
-            
-            if(opcion.equals("Cerrar"))
-            {
-                response.sendRedirect("index.jsp");
-            }
-            
-            if(opcion.equals("Listor"))
-            {
-                
-            }
-            
-            if(opcion.equals("Cancelar"))
-            {
-                
             }
             out.println("</body>");
             out.println("</html>");
@@ -184,5 +168,9 @@ public class ControladorCrudMoto extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    private Object MotoDAO() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }
