@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import modelo.Empleado;
 
 /**
@@ -32,12 +33,15 @@ public class ControladorLogin extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        
         String opcion = "";
+        HttpSession sesion = request.getSession();
+        String usuario, clave;
+        
         if (request.getParameter("opcion") != null) {
             opcion = request.getParameter("opcion");
         }
-        String usuario = "", clave = "";
-
+        
         try {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -49,19 +53,22 @@ public class ControladorLogin extends HttpServlet {
             switch (opcion) {
                 case "Ingresar":
                     usuario = request.getParameter("usuario");
-                    clave = request.getParameter("clave");                    
+                    clave = request.getParameter("clave");
                     boolean estado = new EmpleadoDAO().verificarDatos(usuario, clave);
-                    if (estado) {
-                        Empleado emp = new EmpleadoDAO().buscarDatos(usuario);
+                 
+                    if (estado && sesion.getAttribute("usuario") == null) {                   
+                        sesion.setAttribute("usuario", usuario);    
                         
-                      String rutEmpleado = emp.getRut() +"-"+ emp.getDv() + "";
-                        String nombreCompleto = emp.getPrimerNombre()+" " + emp.getSegundoNombre()+" " + emp.getApellidoPaterno()+" " + emp.getApellidoMaterno() + "";
+                        Empleado emp = new EmpleadoDAO().buscarDatos(usuario);
+                        String rutEmpleado = emp.getRut() + "-" + emp.getDv() + "";
+                        String nombreCompleto = emp.getPrimerNombre() + " " + emp.getSegundoNombre() + " " + emp.getApellidoPaterno() + " " + emp.getApellidoMaterno() + "";
                         //   response.sendRedirect("menuPrincipal.jsp");
                         request.setAttribute("rutEmpleado", rutEmpleado);
                         request.setAttribute("nombreCompletoE", nombreCompleto);
                         request.getRequestDispatcher("menuPrincipal.jsp").forward(request, response);
-                       break;
-                    } else {
+                        break;
+                    }
+                     else {
                         response.sendRedirect("errorLogin.jsp");
                     }
             }
@@ -73,7 +80,7 @@ public class ControladorLogin extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
