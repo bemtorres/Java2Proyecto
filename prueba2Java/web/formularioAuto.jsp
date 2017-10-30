@@ -22,7 +22,7 @@
             String dv = (String)request.getAttribute("dv");
             %>
             <h1> el rut es: <%= rut %> - <%= dv %> </h1>
-            Rut: <input type="text" name="usuario" maxlength="8" readonly value="<%= rut %>">-<input type="text" name="usuario" maxlength="1" readonly value="<%= dv %>" >
+            Rut: <input type="text" name="rut" maxlength="8" readonly value="<%= rut %>">-<input type="text" name="dv" maxlength="1" readonly value="<%= dv %>" >
             <br>
             <br>
             <br>
@@ -33,12 +33,12 @@
             Tipo de Auto: <input type="text" name="tipoAuto"><br>
             Foto: <input type="text" name="foto"><br>
             Año: <input type="number" name="anyo" value="2000" maxlength="4"><br>
-            Kilometraje: <input type="number" name="kilometraje"><br>
+            Kilometraje: <input type="number" name="kilometraje" value="0"><br>
             Tipo de Bencina <input type="text" name="tipoBencina"><br>
             <br>
-            Cantidad Puertas: <input type="text" name="cantPuertas" max="5"><br>
-            Total asientos: <input type="text" name="totalAsientos" max="8"><br>
-            Total airbag: <input type="text" name="totalAirbag" max="2"><br>
+            Cantidad Puertas: <input type="number" name="cantPuertas" max="5" value="0"><br>
+            Total asientos: <input type="number" name="totalAsientos" max="8" value="0"><br>
+            Total airbag: <input type="number" name="totalAirbag" max="2" value="0"><br>
             ¿Cambio automatico?: <input type="text" name="cambioAutomatico" ><br>
             ¿Auto electrico? <input type="text" name="autoElectrico"><br>
             ¿Direccion asistida? <input type="text" name="direccionAsistida"><br>

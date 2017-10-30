@@ -59,7 +59,7 @@ public class AutoDAO implements GeneralDAOAuto{
                                 cantPuertas = results.getInt("cant_puertas");
                                 cantAsientos = results.getInt("asientos");
                                 tipoAuto = results.getString("tipo_auto");
-                                cantAirbags = results.getInt("canti_aitbag");
+                                cantAirbags = results.getInt("canti_airbag");
                                 cambiosAutomaticos = results.getString("camb_automatico");
                                 electrico = results.getString("electrico");
                                 direccionAsistida = results.getString("dire_asistid");

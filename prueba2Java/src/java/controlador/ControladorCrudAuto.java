@@ -33,7 +33,6 @@ public class ControladorCrudAuto extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String opcion = request.getParameter("opcion");
-        int anyo = 0, kilometraje = 0, cantPuertas = 0, cantAsientos = 0, cantAirbags = 0;
 
         switch (opcion) {
 
@@ -44,23 +43,23 @@ public class ControladorCrudAuto extends HttpServlet {
             case "Agregar":
                 //editar
 
-                
+                int rut = Integer.parseInt(request.getParameter("rut"));
                 String patente = request.getParameter("patente");
                 String marca = request.getParameter("marca");
                 String foto = request.getParameter("foto");
-                anyo = Integer.parseInt(request.getParameter("anyo"));
-                kilometraje = Integer.parseInt(request.getParameter("kilometraje"));
+                int anyo = Integer.parseInt(request.getParameter("anyo"));
+                int kilometraje = Integer.parseInt(request.getParameter("kilometraje"));
                 String tipo_bencina = request.getParameter("tipoBencina");
-                cantPuertas = Integer.parseInt(request.getParameter("cantPuertas"));
-                cantAsientos = Integer.parseInt(request.getParameter("totalAsiento"));
+                int cantPuertas = Integer.parseInt(request.getParameter("cantPuertas"));
+                int cantAsientos = Integer.parseInt(request.getParameter("totalAsientos"));
                 String tipoAuto = request.getParameter("tipoAuto");
-                cantAirbags = Integer.parseInt(request.getParameter("totalAirbag"));
+                int cantAirbags = Integer.parseInt(request.getParameter("totalAirbag"));
                 String cambiosAutomaticos = request.getParameter("cambioAutomatico");
                 String electrico = request.getParameter("autoElectrico");
                 String direccionAsistida = request.getParameter("direccionAsistida");
                 String portaEquipaje = request.getParameter("portaEquipaje");
-
-                Auto autito = new Auto(cantPuertas, cantAsientos, tipoAuto, cantAirbags, cambiosAutomaticos, electrico, direccionAsistida, portaEquipaje, patente, marca, anyo, foto, anyo, kilometraje, tipo_bencina);
+                
+                Auto autito = new Auto(cantPuertas, cantAsientos, tipoAuto, cantAirbags, cambiosAutomaticos, electrico, direccionAsistida, portaEquipaje, patente, marca, rut, foto, anyo, kilometraje, tipo_bencina);
                 
                 int estado = new AutoDAO().agregarDatosVehiculo(autito);
                     if (estado > 0) {
