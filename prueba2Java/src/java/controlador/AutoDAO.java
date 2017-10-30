@@ -210,7 +210,7 @@ public class AutoDAO implements GeneralDAOAuto{
             Statement statement = connection.createStatement();
             
             //String  query="DELETE FROM usuarios WHERE username='"+usuario+"'";
-            String  query="DELETE FROM autos WHERE patente='"+patente+"'";
+            String  query="DELETE FROM auto WHERE patente='"+patente+"'";
             
             int results = statement.executeUpdate(query);
             
@@ -252,6 +252,33 @@ public class AutoDAO implements GeneralDAOAuto{
         }
         
       return results;  
+    }
+
+    @Override
+    public int eliminarDatosVehiculo(String patente) {
+         try
+        {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();            
+            Connection connection = DriverManager.getConnection
+                          ("jdbc:mysql://localhost:3306/empresa","root","");
+        
+            Statement statement = connection.createStatement();
+            
+            //String  query="DELETE FROM usuarios WHERE username='"+usuario+"'";
+            String  query="DELETE FROM vehiculo WHERE patente='"+patente+"'";
+            
+            int results = statement.executeUpdate(query);
+            
+             connection.close();
+            System.out.println("valor---> " + results);
+             return results;
+           
+        }
+        catch(java.lang.Exception ex)
+        {
+            System.out.println("Error: " + ex);
+            return 2;
+        }  
     }
      
 }

@@ -52,10 +52,17 @@ public class ControladorCrudMoto extends HttpServlet {
            case "Buscar":
                //editar
                
-                //Mato motoB = MotoDAO.Buscar(patenteB);//capta en "motoB"
+               
+               
+               
+               
+             
                
                 response.sendRedirect("index.jsp");
                 break;
+           case "Eliminar":
+               
+               break;
            case "Modificar":
                //editar
                

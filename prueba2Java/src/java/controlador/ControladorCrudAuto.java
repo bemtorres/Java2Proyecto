@@ -35,109 +35,127 @@ public class ControladorCrudAuto extends HttpServlet {
         String opcion = request.getParameter("opcion");
         int anyo = 0, kilometraje = 0, cantPuertas = 0, cantAsientos = 0, cantAirbags = 0;
 
-        switch(opcion){
-            
-           case "Cerrar":
-               //editar
-                response.sendRedirect("index.jsp");
-                break;  
-           case "Agregar":
-               //editar
-               
-               String patente = request.getParameter("patente");
-               String marca = request.getParameter("marca");
-               String foto = request.getParameter("foto");
-               anyo = Integer.parseInt(request.getParameter("anyo"));
-               kilometraje = Integer.parseInt(request.getParameter("kilometraje"));
-               String tipo_bencina = request.getParameter("tipoBencina");
-               cantPuertas = Integer.parseInt(request.getParameter("cantPuertas"));
-               cantAsientos = Integer.parseInt(request.getParameter("totalAsiento"));
-               String tipoAuto = request.getParameter("tipoAuto");
-               cantAirbags = Integer.parseInt(request.getParameter("totalAirbag"));
-               String cambiosAutomaticos = request.getParameter("cambioAutomatico");
-               String electrico = request.getParameter("autoElectrico");
-               String direccionAsistida = request.getParameter("direccionAsistida");
-               String portaEquipaje = request.getParameter("portaEquipaje");
-               
-               
-               Auto autito = new Auto(cantPuertas, cantAsientos, tipoAuto, cantAirbags, cambiosAutomaticos, electrico, direccionAsistida, portaEquipaje, patente, marca, anyo, foto, anyo, kilometraje, tipo_bencina);
-               //agregarlo a "AutoDAO"
-               //AutoDAO.Agregar(autito); 
+        switch (opcion) {
+
+            case "Cerrar":
+                //editar
                 response.sendRedirect("index.jsp");
                 break;
-           case "Buscar":
-               //editar
-               String patenteB= request.getParameter("patente");
-               /*
-                if(opcion.equals("Buscar")){
-                     String rutA = request.getParameter("rut");
-                    char dv = request.getParameter("dv").charAt(0);
+            case "Agregar":
+                //editar
 
-                    rut = Integer.parseInt(rutA);
-                      
-                    if (rut>0) {
-                        Cliente obj =new ClienteDAO().buscarDatos(rut,dv);                        
-                        if (obj!=null) {
-                            out.println("<h1>"+obj.toString()+"Cliente encontrado..</h1>");
-                        }
-                        else{
-                            out.println("<h1>Cliente no encontrado..</h1>");
-                        }                        
+                
+                String patente = request.getParameter("patente");
+                String marca = request.getParameter("marca");
+                String foto = request.getParameter("foto");
+                anyo = Integer.parseInt(request.getParameter("anyo"));
+                kilometraje = Integer.parseInt(request.getParameter("kilometraje"));
+                String tipo_bencina = request.getParameter("tipoBencina");
+                cantPuertas = Integer.parseInt(request.getParameter("cantPuertas"));
+                cantAsientos = Integer.parseInt(request.getParameter("totalAsiento"));
+                String tipoAuto = request.getParameter("tipoAuto");
+                cantAirbags = Integer.parseInt(request.getParameter("totalAirbag"));
+                String cambiosAutomaticos = request.getParameter("cambioAutomatico");
+                String electrico = request.getParameter("autoElectrico");
+                String direccionAsistida = request.getParameter("direccionAsistida");
+                String portaEquipaje = request.getParameter("portaEquipaje");
+
+                Auto autito = new Auto(cantPuertas, cantAsientos, tipoAuto, cantAirbags, cambiosAutomaticos, electrico, direccionAsistida, portaEquipaje, patente, marca, anyo, foto, anyo, kilometraje, tipo_bencina);
+                
+                int estado = new AutoDAO().agregarDatosVehiculo(autito);
+                    if (estado > 0) {
+                        int estado1 = new AutoDAO().agregarDatosAuto(autito);
+                        out.println("<h1>Auto agregado...</h1>");
+                    } else {
+                        out.println("<h1>Auto NO agregado...</h1>");
                     }
-                     else{
+
+                //agregarlo a "AutoDAO"
+                //AutoDAO.Agregar(autito); 
+                response.sendRedirect("index.jsp");
+                break;
+            case "Eliminar":
+                //editar   
+                String patenteE = request.getParameter("patente");
+                int filas1 = new AutoDAO().eliminarDatosVehiculo(patenteE);
+
+                if (filas1 == 1) {
+                    int filas2 = new AutoDAO().eliminarDatos(patenteE);
+                    if (filas2 == 1) {
+                        out.println("<h1>Auto Eliminado existe...</h1>");
+
+                    } else {
+                        out.println("<h1>Auto NO existe 2...</h1>");
+                    }
+                } else {
+                    out.println("<h1>Usuario NO existe " + patenteE + "...</h1>");
+                }
+                break;
+
+            case "Modificar":
+                //editar
+                String patenteM = request.getParameter("patente");
+
+                if(!patenteM.equals(""))
+                {
+                    Auto obj = new AutoDAO().buscarDatos(patenteM);
+                    if(obj != null)
+                    {
+                        out.println("<h1>" + obj.toString() + "Cliente encontrado..</h1>");
+                    }
+                    else
+                    {
                         out.println("<h1>Faltan parametros...</h1>");
                     }
                 }
-               
-               */
-              
-                   
-                 
-                   
-               
-               
-               
-               //AutoDAO.Buscar(patenteB);//se pierde
-               //Auto autoB ;//se declara el "autoB" que es temporal, solo para la accion
-               //Auto autoB = AutoDAO.Buscar(patenteB);//capta en "autoB"
-               
-               
-                response.sendRedirect("index.jsp");
-                break;
                 
                 
-           case "Modificar":
-               //editar
-               String patenteM = request.getParameter("patente");
-               //Auto autoM = AutoDao.Modificar(patenteM);
-               
+                //Auto autoM = AutoDao.Modificar(patenteM);
+
                 response.sendRedirect("index.jsp");
                 break;
+            case "Buscar":
+                String patenteB = request.getParameter("patente");
+                
+                if(!patenteB.equals(""))
+                {
+                    Auto obj = new AutoDAO().buscarDatos(patenteB);
+                    if(obj != null)
+                    {
+                        out.println("<h1>" + obj.toString() + "Cliente encontrado..</h1>");
+                    }else
+                    {
+                        out.println("<h1>Auto no encontrado..</h1>");
+                    }  
+                }else{
+                    out.println("<h1>Faltan parametros...</h1>");
+                }
+                
+                break;               
             case "Listar":
                 //CREAR  "listadoAutos.jsp"
                 response.sendRedirect("listadoAutos.jsp");
-                
-                response.sendRedirect("index.jsp");
+
+                //response.sendRedirect("index.jsp");
                 break;
             case "Cancelar":
                 //editar
                 response.sendRedirect("menuVehiculos.jsp");
                 break;
-               
+
         }
-        try  {
+        try {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ControladorEstadoVehi</title>");            
+            out.println("<title>Servlet ControladorEstadoVehi</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ControladorEstadoVehi at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
-        }
-        finally {            
+        } finally {
             out.close();
         }
     }

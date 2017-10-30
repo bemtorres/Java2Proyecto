@@ -18,4 +18,5 @@ public interface GeneralDAOAuto {
     public abstract int agregarDatosAuto(Auto auto);
     public abstract int eliminarDatos(String patente);
     public abstract int actualizarDatosAuto(Auto obj); 
+    public abstract int eliminarDatosVehiculo(String patente);
 }
