@@ -54,7 +54,7 @@ public class ControladorLogin extends HttpServlet {
                     if (estado) {
                         Empleado emp = new EmpleadoDAO().buscarDatos(usuario);
                         
-                      String rutEmpleado = emp.getRut() + "";
+                      String rutEmpleado = emp.getRut() +"-"+ emp.getDv() + "";
                         String nombreCompleto = emp.getPrimerNombre()+" " + emp.getSegundoNombre()+" " + emp.getApellidoPaterno()+" " + emp.getApellidoMaterno() + "";
                         //   response.sendRedirect("menuPrincipal.jsp");
                         request.setAttribute("rutEmpleado", rutEmpleado);
