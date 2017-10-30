@@ -18,13 +18,13 @@
         <title>La Tuerca</title>
     </head>
     <body>
-        <nav class="teal darken-3" role="navigation">
+         <nav class="teal darken-3" role="navigation">
             <div class="nav-wrapper container">
                 <a id="logo-container" href="index.jsp" class="brand-logo">La Tuerca</a>
                 <ul class="right hide-on-med-and-down">                                                 
                     <li class="input-field col s1">   
                         <form action="ControladorCerrarSesion" method="POST">                             
-                            <input class="waves-effect waves-light btn" type="submit" name="opcion" value="Cerrar"><i class="material-icons right"></i>
+                            <input class="btn waves-effect waves-light btn" type="submit" name="opcion" value="Cerrar"><i class="material-icons right"></i>
                         </form>
                     </li>    
                 </ul>              

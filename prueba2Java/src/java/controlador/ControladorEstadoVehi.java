@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Auto;
 
 /**
  *
@@ -44,7 +45,11 @@ public class ControladorEstadoVehi extends HttpServlet {
             out.println("<body>");
             switch(opcion){
             case "Buscar":
-                response.sendRedirect("menuPrincipal.jsp");
+               String patente = request.getParameter("patente");               
+               request.setAttribute("patente", patente);
+               request.getRequestDispatcher("listarEstadoVehiculo.jsp").forward(request, response);               
+               
+               out.println("<h1>"+patente+"</h1>");
                 
             break;       
         }

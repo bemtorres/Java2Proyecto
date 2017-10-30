@@ -25,7 +25,7 @@
         <title>JSP Page</title>
     </head>
     <body>  
-        <nav class="teal darken-3" role="navigation">
+         <nav class="teal darken-3" role="navigation">
             <div class="nav-wrapper container">
                 <a id="logo-container" href="index.jsp" class="brand-logo">La Tuerca</a>
                 <ul class="right hide-on-med-and-down">                                                 
@@ -36,7 +36,7 @@
                     </li>    
                 </ul>              
             </div>
-        </nav>          
+        </nav>         
         <table id="listadoVehiculos" class="striped">  
             <thead>
             <h1 class="center"> Lista de Autos<i class="material-icons ">directions_car</i></h1>
