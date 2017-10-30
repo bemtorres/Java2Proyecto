@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package controlador;
+
 import java.util.ArrayList;
 import modelo.Auto;
 //importado de "EmpeladoDAO"
@@ -16,160 +17,148 @@ import java.sql.Statement;
  *
  * @author carlos
  */
-public class AutoDAO implements GeneralDAOAuto{
+public class AutoDAO implements GeneralDAOAuto {
+
     private static ArrayList<Auto> arrayAutos = new ArrayList<Auto>();
-    
+
     @Override
     public ArrayList mostrarDatos() {
-        
+
         Auto obj = null;
         try {
-            
-            
-            Class.forName("com.mysql.jdbc.Driver").newInstance();            
-            Connection connection = DriverManager.getConnection
-                          ("jdbc:mysql://localhost:3306/empresa","root","");
-        
+
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa", "root", "");
+
             Statement statement = connection.createStatement();
-            
-            String consultaSQL = "Select * from vehiculo join auto using(patente);" ;
-                                 
+
+            String consultaSQL = "Select * from vehiculo join auto using(patente);";
+
             ResultSet results = statement.executeQuery(consultaSQL);
-                        String patente;
-                        int rut_persona;
-                        int cantPuertas;
-                        int cantAsientos;
-                        String tipoAuto;
-                        int cantAirbags;
-                        String cambiosAutomaticos;
-                        String electrico;
-                        String direccionAsistida;
-                        String portaEquipaje;                       
-                        String marca;
-                        String foto;
-                        int anyo;
-                        int kilometraje;
-                        String tipo_bencina;
+            String patente;
+            int rut_persona;
+            int cantPuertas;
+            int cantAsientos;
+            String tipoAuto;
+            int cantAirbags;
+            String cambiosAutomaticos;
+            String electrico;
+            String direccionAsistida;
+            String portaEquipaje;
+            String marca;
+            String foto;
+            int anyo;
+            int kilometraje;
+            String tipo_bencina;
 
             arrayAutos.removeAll(arrayAutos);
-            while (results.next())
-            { 
-                                rut_persona = results.getInt("rut_persona");                                
-                                patente = results.getString("patente");
-                                cantPuertas = results.getInt("cant_puertas");
-                                cantAsientos = results.getInt("asientos");
-                                tipoAuto = results.getString("tipo_auto");
-                                cantAirbags = results.getInt("canti_airbag");
-                                cambiosAutomaticos = results.getString("camb_automatico");
-                                electrico = results.getString("electrico");
-                                direccionAsistida = results.getString("dire_asistid");
-                                portaEquipaje = results.getString("port_equip");
-                                marca = results.getString("marca");
-                                rut_persona = results.getInt("rut_persona");
-                                foto= results.getString("foto");
-                                anyo= results.getInt("anyo");
-                                kilometraje = results.getInt("kilometraje");
-                                tipo_bencina = results.getString("tip_bencina");
-                                
-                                obj = new Auto(cantPuertas, cantAsientos, tipoAuto, cantAirbags, cambiosAutomaticos, electrico, direccionAsistida, portaEquipaje, patente, marca, anyo, foto, anyo, kilometraje, tipo_bencina);
-                                arrayAutos.add(obj);
-                                break;                                
+            while (results.next()) {
+                rut_persona = results.getInt("rut_persona");
+                patente = results.getString("patente");
+                cantPuertas = results.getInt("cant_puertas");
+                cantAsientos = results.getInt("asientos");
+                tipoAuto = results.getString("tipo_auto");
+                cantAirbags = results.getInt("canti_airbag");
+                cambiosAutomaticos = results.getString("camb_automatico");
+                electrico = results.getString("electrico");
+                direccionAsistida = results.getString("dire_asistid");
+                portaEquipaje = results.getString("port_equip");
+                marca = results.getString("marca");
+                rut_persona = results.getInt("rut_persona");
+                foto = results.getString("foto");
+                anyo = results.getInt("anyo");
+                kilometraje = results.getInt("kilometraje");
+                tipo_bencina = results.getString("tip_bencina");
+
+                obj = new Auto(cantPuertas, cantAsientos, tipoAuto, cantAirbags, cambiosAutomaticos, electrico, direccionAsistida, portaEquipaje, patente, marca, anyo, foto, anyo, kilometraje, tipo_bencina);
+                arrayAutos.add(obj);
+                break;
             }
-          
+
             // Fin de conexi�n
-                            
-                        connection.close();
-                
+            connection.close();
+
         } //catching excepcion
-        catch(java.lang.Exception ex){
+        catch (java.lang.Exception ex) {
             System.out.println("Error: " + ex);
-        }   
+        }
         return arrayAutos;
     }
 
     @Override
     public Auto buscarDatos(String patente) {
-        
-        Auto obj =null;
-          try {
 
-                      Class.forName("com.mysql.jdbc.Driver").newInstance();
+        Auto obj = null;
+        try {
 
-                        Connection connection = DriverManager.getConnection
-                                               ("jdbc:mysql://localhost:3306/empresa","root","");
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
 
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa", "root", "");
 
-                        Statement statement = connection.createStatement();
-                        
-                        String query = "Select * from vehiculo join auto WHERE patente='"+patente+"';" ;
+            Statement statement = connection.createStatement();
 
+            String query = "Select * from vehiculo join auto WHERE patente='" + patente + "';";
 
-                        ResultSet results = statement.executeQuery(query);                       
-                        
-                        int rut_persona;
-                        int cantPuertas;
-                        int cantAsientos;
-                        String tipoAuto;
-                        int cantAirbags;
-                        String cambiosAutomaticos;
-                        String electrico;
-                        String direccionAsistida;
-                        String portaEquipaje;                       
-                        String marca;
-                        String foto;
-                        int anyo;
-                        int kilometraje;
-                        String tipo_bencina;
-                             
-                            while (results.next())
-                            {
-                             
-                                patente = results.getString("patente");
-                                cantPuertas = results.getInt("cant_puertas");
-                                cantAsientos = results.getInt("asientos");
-                                tipoAuto = results.getString("tipo_auto");
-                                cantAirbags = results.getInt("canti_aitbag");
-                                cambiosAutomaticos = results.getString("camb_automatico");
-                                electrico = results.getString("electrico");
-                                direccionAsistida = results.getString("dire_asistid");
-                                portaEquipaje = results.getString("port_equip");
-                                marca = results.getString("marca");
-                                rut_persona = results.getInt("rut_persona");
-                                foto= results.getString("foto");
-                                anyo= results.getInt("anyo");
-                                kilometraje = results.getInt("kilometraje");
-                                tipo_bencina = results.getString("tip_bencina");
-                                
-                                obj = new Auto(cantPuertas, cantAsientos, tipoAuto, cantAirbags, cambiosAutomaticos, electrico, direccionAsistida, portaEquipaje, patente, marca, anyo, foto, anyo, kilometraje, tipo_bencina);
-                            }
-                  connection.close();
-         }
-         catch(java.lang.Exception ex){
+            ResultSet results = statement.executeQuery(query);
+
+            int rut_persona;
+            int cantPuertas;
+            int cantAsientos;
+            String tipoAuto;
+            int cantAirbags;
+            String cambiosAutomaticos;
+            String electrico;
+            String direccionAsistida;
+            String portaEquipaje;
+            String marca;
+            String foto;
+            int anyo;
+            int kilometraje;
+            String tipo_bencina;
+
+            while (results.next()) {
+
+                patente = results.getString("patente");
+                cantPuertas = results.getInt("cant_puertas");
+                cantAsientos = results.getInt("asientos");
+                tipoAuto = results.getString("tipo_auto");
+                cantAirbags = results.getInt("canti_aitbag");
+                cambiosAutomaticos = results.getString("camb_automatico");
+                electrico = results.getString("electrico");
+                direccionAsistida = results.getString("dire_asistid");
+                portaEquipaje = results.getString("port_equip");
+                marca = results.getString("marca");
+                rut_persona = results.getInt("rut_persona");
+                foto = results.getString("foto");
+                anyo = results.getInt("anyo");
+                kilometraje = results.getInt("kilometraje");
+                tipo_bencina = results.getString("tip_bencina");
+
+                obj = new Auto(cantPuertas, cantAsientos, tipoAuto, cantAirbags, cambiosAutomaticos, electrico, direccionAsistida, portaEquipaje, patente, marca, anyo, foto, anyo, kilometraje, tipo_bencina);
+            }
+            connection.close();
+        } catch (java.lang.Exception ex) {
             System.out.println("Error: " + ex);
-         }
- 
-         return obj;
+        }
+
+        return obj;
     }
 
     @Override
     public int agregarDatosVehiculo(Auto auto) {
-        try
-        {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();            
-            Connection connection = DriverManager.getConnection
-                          ("jdbc:mysql://localhost:3306/empresa","root","");
-        
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa", "root", "");
+
             Statement statement = connection.createStatement();
-                          
-           String  agregarSQL = "INSERT INTO vehiculos (marca,rut_persona,foto,anyo,kilometraje,tip_bencina)"+
-                                 " VALUES('"+auto.getMarca()+"',"+auto.getRut()+",'"+auto.getFoto()+"',"+auto.getAnyo()+","+auto.getKilometraje()+",'"+auto.getTipo_bencina()+"')";
-             int results = statement.executeUpdate(agregarSQL);
+
+            String agregarSQL = "INSERT INTO vehiculo (patente, rut_persona,marca,foto,anyo,kilometraje,tip_bencina)"
+                    + " VALUES('" + auto.getPatente() + "'," + auto.getRut() + ",'" + auto.getMarca() + "','" + auto.getFoto() + "'," + auto.getAnyo() + "," + auto.getKilometraje() + ",'" + auto.getTipo_bencina() + "')";
+            int results = statement.executeUpdate(agregarSQL);
             //System.out.println(results);           
             connection.close();
-            return results;   
-        }
-        catch(java.lang.Exception ex)
-        {
+            return results;
+        } catch (java.lang.Exception ex) {
             System.out.println("Error: " + ex);
             return 0;
         }
@@ -177,23 +166,35 @@ public class AutoDAO implements GeneralDAOAuto{
 
     @Override
     public int agregarDatosAuto(Auto auto) {
-        try
-        {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();            
-            Connection connection = DriverManager.getConnection
-                          ("jdbc:mysql://localhost:3306/empresa","root","");
-        
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa", "root", "");
+
             Statement statement = connection.createStatement();
-                          
-           String  agregarSQL = "INSERT INTO auto(cantPuertas,cantAsientos,tipoAuto,cantAirbags,cambiosAutomaticos,electrico,direccionAsistida,portaEqipaje)"+
-    " VALUES('"+auto.getCantPuertas()+"','"+auto.getCantAsientos()+"','"+auto.getTipoAuto()+"','"+auto.getCantAirbags()+"','"+auto.getCambiosAutomaticos()+"','"+auto.getElectrico()+"','"+auto.getDireccionAsistida()+"','"+auto.getPortaEquipaje()+"')";
-              int results = statement.executeUpdate(agregarSQL);
+
+            String agregarSQL = "INSERT INTO auto (patente,"
+                    + " cant_puertas,"
+                    + "asientos,"
+                    + "tipo_auto,"
+                    + "cant_airbag,"
+                    + "camb_automatico,"
+                    + "electrico,"
+                    + "dire_asistid,"
+                    + "port_equip)"
+                    + " VALUES('" + auto.getPatente() + "', "
+                    + auto.getCantPuertas() + ","
+                    + auto.getCantAsientos() + ","
+                    + "'" + auto.getTipoAuto() + "', "
+                    + auto.getCantAirbags() + ","
+                    + "'" + auto.getCambiosAutomaticos() + "',"
+                    + "'" + auto.getElectrico() + "',"
+                    + "'" + auto.getDireccionAsistida() + "',"
+                    + "'" + auto.getPortaEquipaje() + "')";
+            int results = statement.executeUpdate(agregarSQL);
             //System.out.println(results);           
             connection.close();
-            return results; 
-        }
-        catch(java.lang.Exception ex)
-        {
+            return results;
+        } catch (java.lang.Exception ex) {
             System.out.println("Error: " + ex);
             return 0;
         }
@@ -201,84 +202,77 @@ public class AutoDAO implements GeneralDAOAuto{
 
     @Override
     public int eliminarDatos(String patente) {
-        try
-        {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();            
-            Connection connection = DriverManager.getConnection
-                          ("jdbc:mysql://localhost:3306/empresa","root","");
-        
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa", "root", "");
+
             Statement statement = connection.createStatement();
-            
+
             //String  query="DELETE FROM usuarios WHERE username='"+usuario+"'";
-            String  query="DELETE FROM auto WHERE patente='"+patente+"'";
-            
+            String query = "DELETE FROM auto WHERE patente='" + patente + "'";
+
             int results = statement.executeUpdate(query);
-            
-             connection.close();
+
+            connection.close();
             System.out.println("valor---> " + results);
-             return results;
-           
-        }
-        catch(java.lang.Exception ex)
-        {
+            return results;
+
+        } catch (java.lang.Exception ex) {
             System.out.println("Error: " + ex);
             return 2;
-        }  
+        }
     }
 
     @Override
     public int actualizarDatosAuto(Auto obj) {
-        int results=0;
-        
+        int results = 0;
+
         try {
-                   
+
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa","root","");
-        
+
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa", "root", "");
+
             Statement statement = connection.createStatement();
 
-            String  agregarSQL = "UPDATE auto SET  patente='"+
-                                 obj.getPatente()+"' where rut_persona='"+obj.getRut()+"'";
-            
+            String agregarSQL = "UPDATE auto SET  patente='"
+                    + obj.getPatente() + "' where rut_persona='" + obj.getRut() + "'";
+
             results = statement.executeUpdate(agregarSQL);
-                  
+
             connection.close();
-            
-                
+
         } //catching excepcion
-        catch(java.lang.Exception ex){
+        catch (java.lang.Exception ex) {
             System.out.println("Error: " + ex);
         }
-        
-      return results;  
+
+        return results;
     }
 
     @Override
     public int eliminarDatosVehiculo(String patente) {
-        try
-        {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();            
-            Connection connection = DriverManager.getConnection
-                          ("jdbc:mysql://localhost:3306/empresa","root","");
-        
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa", "root", "");
+
+
             Statement statement = connection.createStatement();
-            
+
             //String  query="DELETE FROM usuarios WHERE username='"+usuario+"'";
-            String  query="DELETE FROM vehiculo WHERE patente='"+patente+"'";
-            
+            String query = "DELETE FROM vehiculo WHERE patente='" + patente + "'";
+
             int results = statement.executeUpdate(query);
-            
-             connection.close();
+
+            connection.close();
             System.out.println("valor---> " + results);
-             return results;
-           
-        }
-        catch(java.lang.Exception ex)
-        {
+            return results;
+
+        } catch (java.lang.Exception ex) {
             System.out.println("Error: " + ex);
             return 2;
-        }  
+        }
     }
-     
+
 }

@@ -34,14 +34,15 @@ public class ControladorCrudAuto extends HttpServlet {
         PrintWriter out = response.getWriter();
         String opcion = request.getParameter("opcion");
 
-        switch (opcion) {
-
-            case "Cerrar":
-                //editar
-                response.sendRedirect("index.jsp");
-                break;
-            case "Agregar":
-                //editar
+        try {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ControladorEstadoVehi</title>");
+            out.println("</head>");
+            out.println("<body>");
+            if (opcion.equals("Agregar")) {
 
                 int rut = Integer.parseInt(request.getParameter("rut"));
                 String patente = request.getParameter("patente");
@@ -58,19 +59,21 @@ public class ControladorCrudAuto extends HttpServlet {
                 String electrico = request.getParameter("autoElectrico");
                 String direccionAsistida = request.getParameter("direccionAsistida");
                 String portaEquipaje = request.getParameter("portaEquipaje");
-                
+
                 Auto autito = new Auto(cantPuertas, cantAsientos, tipoAuto, cantAirbags, cambiosAutomaticos, electrico, direccionAsistida, portaEquipaje, patente, marca, rut, foto, anyo, kilometraje, tipo_bencina);
-                
+
                 int estado = new AutoDAO().agregarDatosVehiculo(autito);
-                    if (estado > 0) {
-                        int estado1 = new AutoDAO().agregarDatosAuto(autito);
-                        out.println("<h1>Auto agregado...</h1>");
-                    } else {
-                        out.println("<h1>Auto NO agregado...</h1>");
-                    }
-                break;
-            case "Eliminar":
-                //editar   
+
+                if (estado > 0) {
+                    int estado1 = new AutoDAO().agregarDatosAuto(autito);
+                    out.println("<h1>Auto agregado...</h1>");
+                } else {
+                    out.println("<h1>Auto NO agregado...</h1>");
+                }
+            }
+
+            if (opcion.equals("Elimnar")) {
+
                 String patenteE = request.getParameter("patente");
                 int filas1 = new AutoDAO().eliminarDatosVehiculo(patenteE);
 
@@ -85,63 +88,39 @@ public class ControladorCrudAuto extends HttpServlet {
                 } else {
                     out.println("<h1>Usuario NO existe " + patenteE + "...</h1>");
                 }
-                break;
 
-            case "Modificar":
+            }
+            if (opcion.equals("Modificar")) {
+
                 String patenteM = request.getParameter("patente");
 
-                if(!patenteM.equals(""))
-                {
+                if (!patenteM.equals("")) {
                     Auto obj = new AutoDAO().buscarDatos(patenteM);
-                    if(obj != null)
-                    {
+                    if (obj != null) {
                         out.println("<h1>" + obj.toString() + "Cliente encontrado..</h1>");
-                    }
-                    else
-                    {
+                    } else {
                         out.println("<h1>Faltan parametros...</h1>");
                     }
                 }
-                response.sendRedirect("index.jsp");
-                break;
-            case "Buscar":
+
+
+            }
+            if (opcion.equals("Buscar")) {
+
                 String patenteB = request.getParameter("patente");
-                
-                if(!patenteB.equals(""))
-                {
+
+                if (!patenteB.equals("")) {
                     Auto obj = new AutoDAO().buscarDatos(patenteB);
-                    if(obj != null)
-                    {
+                    if (obj != null) {
                         out.println("<h1>" + obj.toString() + "Cliente encontrado..</h1>");
-                    }else
-                    {
+                    } else {
                         out.println("<h1>Auto no encontrado..</h1>");
-                    }  
-                }else{
+                    }
+                } else {
                     out.println("<h1>Faltan parametros...</h1>");
                 }
-                
-                break;               
-            case "Listar":
-                //CREAR  "listadoAutos.jsp"
-                response.sendRedirect("listadoAutos.jsp");
+            }
 
-                //response.sendRedirect("index.jsp");
-                break;
-            case "Cancelar":
-                //editar
-                response.sendRedirect("menuVehiculos.jsp");
-                break;
-
-        }
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ControladorEstadoVehi</title>");
-            out.println("</head>");
-            out.println("<body>");
             out.println("<h1>Servlet ControladorEstadoVehi at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
@@ -150,7 +129,7 @@ public class ControladorCrudAuto extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

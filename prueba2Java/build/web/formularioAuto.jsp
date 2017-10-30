@@ -45,12 +45,9 @@
             ¿Portaequipaje?: <input type="text" name="portaEquipaje"><br>           
             <br>
             <br>
-            <input type="submit" value="Agregar" name="opcion">    
-            <input type="submit" value="Buscar" name="opcion">           
+            <input type="submit" value="Agregar" name="opcion">            
             <input type="submit" value="Eliminar" name="opcion">    
-            <input type="submit" value="Modificar" name="opcion">          
-            <input type="submit" value="Listar" name="opcion">                
-            <input type="submit" value="Cancelar" name="opcion"> 
+            <input type="submit" value="Modificar" name="opcion">  
         </form>
     </body>
 </html>
