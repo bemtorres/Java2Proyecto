@@ -23,8 +23,8 @@
                 <a id="logo-container" href="index.jsp" class="brand-logo">La Tuerca</a>
                 <ul class="right hide-on-med-and-down">                                                 
                     <li class="input-field col s1">   
-                        <form action="ControladorCerrarSesion" method="POST">                             
-                            <input class="btn waves-effect waves-light btn" type="submit" name="opcion" value="Cerrar"><i class="material-icons right"></i>
+                        <form action="ControladorCerrarSesion" method="POST">  
+                             <button class="btn waves-effect waves-light btn-large" type="submit" name="opcion" value="Cerrar">Cerrar<i class="material-icons right"></i></button>
                         </form>
                     </li>    
                 </ul>              
@@ -52,10 +52,11 @@
                                 </div> 
                                 <div class="row">
                                     <div class="row">
-                                        <input class="btn-large waves-effect waves-light cyan" type="submit" name="opcion" value="AUTO">
-                                    </div>
+                                         <button class="btn-large waves-effect waves-light cyan" type="submit" name="opcion" value="AUTO">AUTO<i class="material-icons right"></i></button>
+                                        
+                                        </div>
                                     <div class="row">
-                                        <input class="btn-large waves-effect waves-light cyan" type="submit" name="opcion" value="MOTO">
+                                         <button class="btn-large waves-effect waves-light cyan" type="submit" name="opcion" value="MOTO">MOTO<i class="material-icons right"></i></button>
                                     </div>  
                                 </div> 
                             </form>                            

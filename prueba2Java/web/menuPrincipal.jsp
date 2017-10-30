@@ -34,7 +34,7 @@
             <div class="section">
                 <div class="row">
                     <div class="col s12 center ">   
-                        <h3>MENU PRINCIPAL</h3>     
+                        <h3>MENU PRINCIPAL</h3>                            
                         <button class="btn-large waves-effect waves-light ">
                             <a href="registroTaller.jsp" class="waves-effect waves-light center deep-orange darken-4 btn"><i class="material-icons left">build</i>Registro Taller</a>
                         </button>   

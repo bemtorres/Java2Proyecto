@@ -42,7 +42,6 @@ public class ControladorMenuVehiculo extends HttpServlet {
             out.println("<title>Servlet ControladorMenuVehiculo</title>");
             out.println("</head>");
             out.println("<body>");
-
             if (opcion.equals("MOTO")) {
                 String rutA = request.getParameter("rut");
                 char dv = request.getParameter("dv").charAt(0);
@@ -51,7 +50,7 @@ public class ControladorMenuVehiculo extends HttpServlet {
                 if (rut > 0) {
                     Cliente obj = new ClienteDAO().buscarDatos(rut, dv);
                     if (obj != null) {
-                        // out.println("<h1>" + obj.toString() + "Cliente encontrado..</h1>");
+                        out.println("<h1>" + obj.toString() + "Cliente encontrado..</h1>");
                         request.setAttribute("rut", rutA);
                         request.setAttribute("dv", dv );
                         request.getRequestDispatcher("formularioMoto.jsp").forward(request, response);
