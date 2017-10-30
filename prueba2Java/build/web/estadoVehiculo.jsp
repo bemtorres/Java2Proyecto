@@ -40,9 +40,9 @@
                                 <label for="icon_prefix">Ingrese pantente del vehiculo</label>
                             </div>                                
                             <div class="input-field col s8">                        
-                                <button class="btn-large waves-effect waves-light cyan">
-                                    <input type="submit" name="opcion" value="Buscar"><i class="material-icons blue-grey"></i>
-                                </button>
+
+                                <input class="btn-large waves-effect waves-light cyan" type="submit" name="opcion" value="Buscar"><i class="material-icons blue-grey"></i>
+
                             </div> 
                         </form>
                         <div class="input-field col s8">

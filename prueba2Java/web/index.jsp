@@ -35,12 +35,11 @@
                             <i class="material-icons prefix">vpn_key</i>
                             <input id="icon_prefix" value=""  type="password" name="clave" >
                             <label for="icon_prefix">Contraseña</label>
-                        </li>        
-                        <li class="input-field col s4">
-                            <button class="btn waves-effect waves-light btn">
-                                <input type="submit" name="opcion" value="Ingresar"><i class="material-icons right"></i>
-                            </button>
                         </li>  
+                         <input class="btn waves-effect waves-light btn-large" type="submit" name="opcion" value="Ingresar"><i class="material-icons right"></i>
+                     
+                        <li class="input-field col s2">                            
+                              </li>  
                     </form> 
                 </ul>              
             </div>

@@ -28,7 +28,7 @@
          Comuna: <input type="text" value="" name="comuna"><br>
          Telefono: <input type="number"  value="0" name="telefono"><br>
          Email: <input type="email" value=""  name="email"><br>
-         
+                     
          <input type="submit" value="Agregar" name="opcion">    
          <input type="submit" value="Buscar" name="opcion">           
          <input type="submit" value="Eliminar" name="opcion">    

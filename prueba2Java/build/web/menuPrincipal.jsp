@@ -24,9 +24,7 @@
                 <ul class="right hide-on-med-and-down">                                                 
                     <li class="input-field col s1">   
                         <form action="ControladorCerrarSesion" method="POST"> 
-                            <button class="btn waves-effect waves-light btn">
-                                <input type="submit" name="opcion" value="Cerrar"><i class="material-icons right"></i>
-                            </button>
+                            <input class="waves-effect waves-light btn" type="submit" name="opcion" value="Cerrar"><i class="material-icons right"></i>
                         </form>
                     </li>    
                 </ul>              
