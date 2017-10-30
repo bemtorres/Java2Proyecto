@@ -68,10 +68,6 @@ public class ControladorCrudAuto extends HttpServlet {
                     } else {
                         out.println("<h1>Auto NO agregado...</h1>");
                     }
-
-                //agregarlo a "AutoDAO"
-                //AutoDAO.Agregar(autito); 
-                response.sendRedirect("index.jsp");
                 break;
             case "Eliminar":
                 //editar   
@@ -92,7 +88,6 @@ public class ControladorCrudAuto extends HttpServlet {
                 break;
 
             case "Modificar":
-                //editar
                 String patenteM = request.getParameter("patente");
 
                 if(!patenteM.equals(""))
@@ -107,10 +102,6 @@ public class ControladorCrudAuto extends HttpServlet {
                         out.println("<h1>Faltan parametros...</h1>");
                     }
                 }
-                
-                
-                //Auto autoM = AutoDao.Modificar(patenteM);
-
                 response.sendRedirect("index.jsp");
                 break;
             case "Buscar":
