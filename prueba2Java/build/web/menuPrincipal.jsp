@@ -36,7 +36,7 @@
             <div class="section">
                 <div class="row">
                     <div class="col s12 center ">   
-                        <h2>MENU PRINCIPAL</h2>     
+                        <h3>MENU PRINCIPAL</h3>     
                         <button class="btn-large waves-effect waves-light ">
                             <a href="registroTaller.jsp" class="waves-effect waves-light center deep-orange darken-4 btn"><i class="material-icons left">build</i>Registro Taller</a>
                         </button>   
@@ -45,7 +45,7 @@
                         </button> 
                         <br>
                         <br>
-                        <h4>Panel administrado</h4>                            
+                        <h4>Panel Administrativo</h4>                            
                         <button class="btn-large waves-effect waves-light">
                             <a href="formularioCliente.jsp" class="waves-effect waves-light grey btn"><i class="material-icons left">account_circle</i>Clientes</a>
                         </button>
@@ -63,7 +63,7 @@
                     </div>
                 </div>
             </div>
-        </div>            
+        </div>                  
         <footer class="page-footer grey darken-3">
             <div class="container">
                 <div class="row">

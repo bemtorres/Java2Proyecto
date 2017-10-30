@@ -32,31 +32,36 @@ public class ControladorLogin extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String opcion = request.getParameter("opcion");
-        String usuario="", clave="";
-        switch(opcion){
+        String usuario = "", clave = "";
+        switch (opcion) {
             case "Ingresar":
-                usuario = request.getParameter("usuario");
-                clave = request.getParameter("clave");                
-                boolean estado =new EmpleadoDAO().verificarDatos(usuario,clave);
+                if (request.getParameter("usuario") != null) {
+                    usuario = request.getParameter("usuario");
+                }
+                if ( request.getParameter("clave") != null) {                   
+                     clave = request.getParameter("clave");
+                }
+               
+               
+                boolean estado = new EmpleadoDAO().verificarDatos(usuario, clave);
                 if (estado) {
                     response.sendRedirect("menuPrincipal.jsp");
-                }
-                else{
+                } else {
                     response.sendRedirect("errorLogin.jsp");
-                }     
+                }
         }
-        try  {
+        try {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ControladorLogin</title>");            
+            out.println("<title>Servlet ControladorLogin</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ControladorLogin at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
-        } finally {            
+        } finally {
             out.close();
         }
     }
