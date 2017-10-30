@@ -32,6 +32,7 @@ public class ControladorEstadoVehi extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String opcion = request.getParameter("opcion");
+        
         switch(opcion){
             case "Ingresar":
                 //response.sendRedirect("menuPrincipal.jsp");

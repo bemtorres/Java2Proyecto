@@ -36,7 +36,7 @@ public class AutoDAO implements GeneralDAOAuto {
 
             ResultSet results = statement.executeQuery(consultaSQL);
             String patente;
-            int rut_persona;
+            int rut;
             int cantPuertas;
             int cantAsientos;
             String tipoAuto;
@@ -53,7 +53,7 @@ public class AutoDAO implements GeneralDAOAuto {
 
             arrayAutos.removeAll(arrayAutos);
             while (results.next()) {
-                rut_persona = results.getInt("rut_persona");
+                rut = results.getInt("rut_persona");
                 patente = results.getString("patente");
                 cantPuertas = results.getInt("cant_puertas");
                 cantAsientos = results.getInt("asientos");
@@ -64,13 +64,13 @@ public class AutoDAO implements GeneralDAOAuto {
                 direccionAsistida = results.getString("dire_asistid");
                 portaEquipaje = results.getString("port_equip");
                 marca = results.getString("marca");
-                rut_persona = results.getInt("rut_persona");
                 foto = results.getString("foto");
                 anyo = results.getInt("anyo");
                 kilometraje = results.getInt("kilometraje");
                 tipo_bencina = results.getString("tip_bencina");
 
-                obj = new Auto(cantPuertas, cantAsientos, tipoAuto, cantAirbags, cambiosAutomaticos, electrico, direccionAsistida, portaEquipaje, patente, marca, anyo, foto, anyo, kilometraje, tipo_bencina);
+                obj = new Auto(cantPuertas, cantAsientos, tipoAuto, cantAirbags, cambiosAutomaticos, electrico, direccionAsistida, portaEquipaje, patente, marca, rut, foto, anyo, kilometraje, tipo_bencina);
+                
                 arrayAutos.add(obj);
                 break;
             }

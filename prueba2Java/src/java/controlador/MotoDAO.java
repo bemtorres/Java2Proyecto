@@ -56,8 +56,8 @@ public class MotoDAO implements GeneralDAOMoto {
                                 tipo_bencina = results.getString("tip_bencina");
                                 tipo_moto = results.getString("tipo_moto");
    
-                               // obj = new Moto(patente, marca, anyo, foto,kilometraje, tipo_bencina,tipo_moto);
-                                arrayMotos.add(obj);
+                               obj = new Moto(tipo_moto, patente, marca, rut_persona, foto, anyo, kilometraje, tipo_bencina);
+                               arrayMotos.add(obj);
                                 break;    
             }
             connection.close();
