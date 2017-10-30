@@ -20,7 +20,7 @@
         <link rel="icon" href="images/favicon-32x32.png" sizes="32x32">
         <title>La Tuerca</title>
     </head>
-    <body>      
+    <body>
         <nav class="teal darken-3" role="navigation">
             <div class="nav-wrapper container">
                 <a id="logo-container" href="index.jsp" class="brand-logo">La Tuerca</a>                
@@ -36,8 +36,8 @@
                             <input id="icon_prefix" value=""  type="password" name="clave" >
                             <label for="icon_prefix">Contraseña</label>
                         </li>  
-                        <button class="btn waves-effect waves-light btn-large" type="submit" name="opcion" value="Ingresar">Ingresar<i class="material-icons right"></i></button>
-                        <li class="input-field col s2">                            
+                        <li class="input-field col s2">   
+                             <button class="btn waves-effect waves-light btn-large" type="submit" name="opcion" value="Ingresar">Ingresar<i class="material-icons right"></i></button>
                         </li>  
                     </form> 
                 </ul>              

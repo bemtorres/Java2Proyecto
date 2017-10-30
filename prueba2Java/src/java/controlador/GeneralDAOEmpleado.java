@@ -17,4 +17,5 @@ public interface GeneralDAOEmpleado {
     public abstract boolean verificarDatos(String usuario, String password);
     public abstract Empleado buscarDatos(int Rut) ;
     public abstract  int actualizarDatos(Empleado obj);
+    public abstract Empleado buscarDatos(String usuario) ;
 }

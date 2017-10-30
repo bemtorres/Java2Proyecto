@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Empleado;
 
 /**
  *
@@ -32,28 +33,11 @@ public class ControladorLogin extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String opcion = "";
-        if (request.getParameter("opcion")!=null) {
-              opcion = request.getParameter("opcion");
+        if (request.getParameter("opcion") != null) {
+            opcion = request.getParameter("opcion");
         }
-       
         String usuario = "", clave = "";
-        switch (opcion) {
-            case "Ingresar":
-                if (request.getParameter("usuario") != null) {
-                    usuario = request.getParameter("usuario");
-                }
-                if ( request.getParameter("clave") != null) {                   
-                     clave = request.getParameter("clave");
-                }
-               
-               
-                boolean estado = new EmpleadoDAO().verificarDatos(usuario, clave);
-                if (estado) {
-                    response.sendRedirect("menuPrincipal.jsp");
-                } else {
-                    response.sendRedirect("errorLogin.jsp");
-                }
-        }
+
         try {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -62,6 +46,25 @@ public class ControladorLogin extends HttpServlet {
             out.println("<title>Servlet ControladorLogin</title>");
             out.println("</head>");
             out.println("<body>");
+            switch (opcion) {
+                case "Ingresar":
+                    usuario = request.getParameter("usuario");
+                    clave = request.getParameter("clave");                    
+                    boolean estado = new EmpleadoDAO().verificarDatos(usuario, clave);
+                    if (estado) {
+                        Empleado emp = new EmpleadoDAO().buscarDatos(usuario);
+                        
+                      String rutEmpleado = emp.getRut() + "";
+                        String nombreCompleto = emp.getPrimerNombre()+" " + emp.getSegundoNombre()+" " + emp.getApellidoPaterno()+" " + emp.getApellidoMaterno() + "";
+                        //   response.sendRedirect("menuPrincipal.jsp");
+                        request.setAttribute("rutEmpleado", rutEmpleado);
+                        request.setAttribute("nombreCompletoE", nombreCompleto);
+                        request.getRequestDispatcher("menuPrincipal.jsp").forward(request, response);
+                       break;
+                    } else {
+                        response.sendRedirect("errorLogin.jsp");
+                    }
+            }
             out.println("<h1>Servlet ControladorLogin at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");

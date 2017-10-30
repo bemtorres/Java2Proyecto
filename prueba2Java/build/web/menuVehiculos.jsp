@@ -52,11 +52,10 @@
                                 </div> 
                                 <div class="row">
                                     <div class="row">
-                                         <button class="btn-large waves-effect waves-light cyan" type="submit" name="opcion" value="AUTO">AUTO<i class="material-icons right"></i></button>
-                                        
-                                        </div>
+                                         <button class="btn-large waves-effect waves-light cyan" type="submit" name="opcion" value="AUTO">AUTO<i class="material-icons right">directions_car</i></button>
+                                   </div>
                                     <div class="row">
-                                         <button class="btn-large waves-effect waves-light cyan" type="submit" name="opcion" value="MOTO">MOTO<i class="material-icons right"></i></button>
+                                         <button class="btn-large waves-effect waves-light cyan" type="submit" name="opcion" value="MOTO">MOTO<i class="material-icons right">motorcycle</i></button>
                                     </div>  
                                 </div> 
                             </form>                            
