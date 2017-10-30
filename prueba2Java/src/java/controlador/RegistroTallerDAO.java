@@ -17,7 +17,7 @@ import modelo.FichaReparacion;
  *
  * @author benja
  */
-public class RegistroTallerDAO implements GeneralDAORegistroTaller{
+public class RegistroTallerDAO implements GeneralDAORegistroTaller {
 
     private ArrayList<FichaReparacion> arrayFichaReparacions = new ArrayList<>();
 
@@ -29,7 +29,7 @@ public class RegistroTallerDAO implements GeneralDAORegistroTaller{
 
             Statement statement = connection.createStatement();
 
-            String consultaSQL = "SELECT * fich_reparacion;";
+            String consultaSQL = "SELECT * FROM fich_reparacion;";
 
             ResultSet results = statement.executeQuery(consultaSQL);
             /*
@@ -53,9 +53,9 @@ public class RegistroTallerDAO implements GeneralDAORegistroTaller{
     private String detalles;
     private int horasTrabajo;
     private int total;
-            */
-            int idFicha,rutPersona, idEstadoFicha, horasTrabajo, total;
-            String patente, fechaIngreso, fechaSalida, motivos, detalles ;
+             */
+            int idFicha, rutPersona, idEstadoFicha, horasTrabajo, total;
+            String patente, fechaIngreso, fechaSalida, motivos, detalles;
 
             arrayFichaReparacions.removeAll(arrayFichaReparacions);
             while (results.next()) {
@@ -70,7 +70,7 @@ public class RegistroTallerDAO implements GeneralDAORegistroTaller{
                 horasTrabajo = results.getInt("hor_trabajo");
                 total = results.getInt("total");
                 //System.out.println(campo1 +"   "+campo2 +"\n");
-                arrayFichaReparacions.add(new FichaReparacion(idFicha, rutPersona, 
+                arrayFichaReparacions.add(new FichaReparacion(idFicha, rutPersona,
                         patente, idEstadoFicha, fechaIngreso, fechaSalida,
                         motivos, detalles, horasTrabajo, total));
             }
@@ -87,7 +87,42 @@ public class RegistroTallerDAO implements GeneralDAORegistroTaller{
 
     @Override
     public FichaReparacion buscarDatosPorPatente(String patente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        FichaReparacion obj = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa", "root", "");
+
+            Statement statement = connection.createStatement();
+
+            String query = "SELECT * FROM fich_reparacion WHERE patente=" + patente + ";";
+
+            ResultSet results = statement.executeQuery(query);
+
+            int idFicha, rutPersona, idEstadoFicha, horasTrabajo, total;
+            String patente1, fechaIngreso, fechaSalida, motivos, detalles;
+
+            while (results.next()) {
+                idFicha = results.getInt("id_ficha");
+                rutPersona = results.getInt("rut_persona");
+                patente1 = results.getString("patente");
+                idEstadoFicha = results.getInt("p_nombre");
+                fechaIngreso = results.getString("fech_ingreso");
+                fechaSalida = results.getString("fech_salida");
+                motivos = results.getString("motivos");
+                detalles = results.getString("detalles");
+                horasTrabajo = results.getInt("hor_trabajo");
+                total = results.getInt("total");
+
+                if (patente == patente1) {
+                    obj = new FichaReparacion(idFicha, rutPersona, patente, idEstadoFicha, fechaIngreso, fechaSalida, motivos, detalles, horasTrabajo, total);
+                    break;
+                }
+            }
+            connection.close();
+        } catch (java.lang.Exception ex) {
+            System.out.println("Error: " + ex);
+        }
+        return obj;
     }
 
     @Override
@@ -97,7 +132,28 @@ public class RegistroTallerDAO implements GeneralDAORegistroTaller{
 
     @Override
     public int agregarDatos(FichaReparacion ficha) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            //Constructor               
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa", "root", "");
+
+            Statement statement = connection.createStatement();
+
+            String agregarSQL = "INSERT INTO fich_reparacion "
+                    + "(rut_persona , patente, id_est_fich, fech_ingreso,fech_salida,motivos,detalles,hor_trabajo,total)"
+                    + "VALUES(" + ficha.getRutPersona() + ", '" + ficha.getPatente() + "','" + ficha.getIdEstadoFicha()
+                    + "','" + ficha.getFechaIngreso() + "','" + ficha.getFechaSalida() + "','" + ficha.getMotivos() + "','" + ficha.getDetalles() + "',"
+                    + ficha.getHorasTrabajo() + "," + ficha.getTotal() + ");";
+            int results = statement.executeUpdate(agregarSQL);
+            //System.out.println(results);           
+            connection.close();
+            return results;
+        } //catching excepcion
+        catch (java.lang.Exception ex) {
+            // System.out.println("Error: " + ex);
+            return 0;
+        }
     }
 
     @Override
@@ -107,7 +163,33 @@ public class RegistroTallerDAO implements GeneralDAORegistroTaller{
 
     @Override
     public int actualizarDatosFicha(FichaReparacion obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+          int results = 0;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa", "root", "");
+            
+                       
+            Statement statement = connection.createStatement();
+            
+            String actualizarSQL ="UPDATE fich_reparacion  SET"
+                    + " id_est_fich="+obj.getIdEstadoFicha()+","
+                    + " fech_salida='"+obj.getFechaSalida()+"',"
+                    + "detalles='"+obj.getDetalles()+"',"
+                    + "hor_trabajo="+obj.getHorasTrabajo()+","
+                    + "total="+obj.getHorasTrabajo()+";";
+                    
+            results = statement.executeUpdate(actualizarSQL);
+
+            connection.close();
+
+        } //catching excepcion
+        catch (java.lang.Exception ex) {
+            System.out.println("Error: " + ex);
+        }
+
+        return results;
     }
-    
+
 }

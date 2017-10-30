@@ -18,6 +18,7 @@ public interface GeneralDAOCliente {
     public Cliente buscarDatos(int rut);
     public abstract int agregarDatosPersona(Cliente cliente);
     public abstract int agregarDatosCliente(Cliente cliente);
-    public abstract int eliminarDatos(int rut, char dv);
+    public abstract int eliminarDatosCliente(int rut);
+     public abstract int eliminarDatosPersona(int rut, char dv);
     public abstract int actualizarDatosPersonaCliente(Cliente obj); 
 }

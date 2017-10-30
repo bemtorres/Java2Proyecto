@@ -133,31 +133,7 @@ public class ClienteDAO implements GeneralDAOCliente {
         }
     }
 
-    @Override
-    public int eliminarDatos(int rut, char dv) {
-        try {
-            //Constructor
-
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa", "root", "");
-            String dv1 = dv + "";
-            Statement statement = connection.createStatement();
-            //Si elimino  a un cliente tambien eliminare todos sus autos
-            String query = "DELETE FROM persona WHERE rut_persona=" + rut + " and dv_per='" + dv + "'";
-
-            int results = statement.executeUpdate(query);
-
-            connection.close();
-            System.out.println("valor---> " + results);
-            return results;
-
-        } //catching excepcion
-        catch (java.lang.Exception ex) {
-            System.out.println("Error: " + ex);
-            return 2;
-        }
-    }
+   
 
     @Override
     public int actualizarDatosPersonaCliente(Cliente obj) {
@@ -245,6 +221,58 @@ public class ClienteDAO implements GeneralDAOCliente {
             System.out.println("Error: " + ex);
         }
         return obj;
+    }
+
+    @Override
+    public int eliminarDatosCliente(int rut) {
+        try {
+            //Constructor
+
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa", "root", "");
+            
+            Statement statement = connection.createStatement();
+            //Si elimino  a un cliente tambien eliminare todos sus autos
+            String query = "DELETE FROM cliente WHERE rut_persona=" + rut;
+            
+            int results = statement.executeUpdate(query);
+                
+            connection.close();
+            System.out.println("valor---> " + results);
+            return results;
+
+        } //catching excepcion
+        catch (java.lang.Exception ex) {
+            System.out.println("Error: " + ex);
+            return 2;
+        }    
+    }
+
+    @Override
+    public int eliminarDatosPersona(int rut, char dv) {
+       try {
+            //Constructor
+
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa", "root", "");
+            String dv1 = dv + "";
+            Statement statement = connection.createStatement();
+            //Si elimino  a un cliente tambien eliminare todos sus autos
+            String query = "DELETE FROM persona WHERE rut_persona=" + rut + " and dv_per='" + dv1 + "'";
+            
+            int results = statement.executeUpdate(query);
+                
+            connection.close();
+            System.out.println("valor---> " + results);
+            return results;
+
+        } //catching excepcion
+        catch (java.lang.Exception ex) {
+            System.out.println("Error: " + ex);
+            return 2;
+        }
     }
 
 }
