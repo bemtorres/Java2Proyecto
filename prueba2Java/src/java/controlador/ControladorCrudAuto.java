@@ -91,19 +91,30 @@ public class ControladorCrudAuto extends HttpServlet {
 
             }
             if (opcion.equals("Modificar")) {
-
-                String patenteM = request.getParameter("patente");
-
-                if (!patenteM.equals("")) {
-                    Auto obj = new AutoDAO().buscarDatos(patenteM);
-                    if (obj != null) {
-                        out.println("<h1>" + obj.toString() + "Cliente encontrado..</h1>");
-                    } else {
-                        out.println("<h1>Faltan parametros...</h1>");
-                    }
+                int rut = Integer.parseInt(request.getParameter("rut"));
+                String patente = request.getParameter("patente");
+                String marca = request.getParameter("marca");
+                String foto = request.getParameter("foto");
+                int anyo = Integer.parseInt(request.getParameter("anyo"));
+                int kilometraje = Integer.parseInt(request.getParameter("kilometraje"));
+                String tipo_bencina = request.getParameter("tipoBencina");
+                int cantPuertas = Integer.parseInt(request.getParameter("cantPuertas"));
+                int cantAsientos = Integer.parseInt(request.getParameter("totalAsientos"));
+                String tipoAuto = request.getParameter("tipoAuto");
+                int cantAirbags = Integer.parseInt(request.getParameter("totalAirbag"));
+                String cambiosAutomaticos = request.getParameter("cambioAutomatico");
+                String electrico = request.getParameter("autoElectrico");
+                String direccionAsistida = request.getParameter("direccionAsistida");
+                String portaEquipaje = request.getParameter("portaEquipaje");
+                
+                Auto autito = new Auto(cantPuertas, cantAsientos, tipoAuto, cantAirbags, cambiosAutomaticos, electrico, direccionAsistida, portaEquipaje, patente, marca, rut, foto, anyo, kilometraje, tipo_bencina);
+                int estado2 = new AutoDAO().actualizarDatosAuto(autito);
+                if(estado2 > 0 )
+                {
+                    out.println("<h1>Cliente modificado...</h1>");
+                }else{
+                    out.println("<h1>Cliente no encontrado...</h1>");
                 }
-
-
             }
             if (opcion.equals("Buscar")) {
 

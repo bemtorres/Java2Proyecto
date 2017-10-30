@@ -22,7 +22,7 @@
             <input type="submit" value="Cerrar" name="opcion">    
         </form>
         <form action="ControladorCrudMoto" method="Post">            
-            Rut: <input type="text" name="usuario" maxlength="8" readonly value="<%= rut%>">-<input type="text" name="usuario" maxlength="1" readonly value="<%= dv%>" >
+            Rut: <input type="text" name="rut" maxlength="8" readonly value="<%= rut%>">-<input type="text" name="dv" maxlength="1" readonly value="<%= dv%>" >
             <input type="submit" value="Buscar" name="opcion"> 
             <br>
             <br>

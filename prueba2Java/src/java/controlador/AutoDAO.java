@@ -235,9 +235,9 @@ public class AutoDAO implements GeneralDAOAuto {
 
             Statement statement = connection.createStatement();
 
-            String agregarSQL = "UPDATE auto SET  patente='"
-                    + obj.getPatente() + "' where rut_persona='" + obj.getRut() + "'";
-
+            String agregarSQL = "UPDATE vehiculo SET  foto= '"
+                    + obj.getFoto()+ "',kilometraje = "+obj.getKilometraje()+" where patente='" + obj.getPatente()+ "'";
+ 
             results = statement.executeUpdate(agregarSQL);
 
             connection.close();

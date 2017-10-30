@@ -124,8 +124,8 @@ public class MotoDAO implements GeneralDAOMoto {
 
             Statement statement = connection.createStatement();
 
-            String agregarSQL = "INSERT INTO vehiculos (marca,rut_persona,foto,anyo,kilometraje,tip_bencina)"
-                    + " VALUES('" + moto.getMarca() + "'," + moto.getRut() + ",'" + moto.getFoto() + "'," + moto.getAnyo() + "," + moto.getKilometraje() + ",'" + moto.getTipo_bencina() + "')";
+            String agregarSQL = "INSERT INTO vehiculo(patente,marca,rut_persona,foto,anyo,kilometraje,tip_bencina)"
+                    + " VALUES('" + moto.getMarca() + "'," + moto.getRut() + ",'" + moto.getFoto() + "'," + moto.getAnyo() + "," + moto.getKilometraje() + ",'" + moto.getTipo_bencina() + "','"+moto.getPatente() +"')";
             int results = statement.executeUpdate(agregarSQL);
             //System.out.println(results);           
             connection.close();
@@ -135,7 +135,7 @@ public class MotoDAO implements GeneralDAOMoto {
             return 0;
         }
     }
-    /////ARREGLAR DE ACA ABAJO
+    
     @Override
     public int agregarDatosMoto(Moto moto) {
         try {
@@ -144,8 +144,8 @@ public class MotoDAO implements GeneralDAOMoto {
 
             Statement statement = connection.createStatement();
             
-           String  agregarSQL = "INSERT INTO moto(tipo_moto)"+
-            " VALUES('"+moto.getTipomoto()+"')";
+           String  agregarSQL = "INSERT INTO moto(tip_moto, vehiculo_patente)"+
+            " VALUES('"+moto.getTipomoto()+"','"+moto.getPatente()+"')";
               int results = statement.executeUpdate(agregarSQL);
 
             connection.close();
@@ -192,8 +192,8 @@ public class MotoDAO implements GeneralDAOMoto {
 
             Statement statement = connection.createStatement();
 
-            String agregarSQL = "UPDATE moto SET  patente='"
-                    + obj.getPatente() + "' where rut_persona='" + obj.getRut() + "'";
+            String agregarSQL = "UPDATE vehiculo SET  foto= '"
+                    + obj.getFoto()+ "',kilometraje = "+obj.getKilometraje()+" where patente='" + obj.getPatente()+ "'";
 
             results = statement.executeUpdate(agregarSQL);
 

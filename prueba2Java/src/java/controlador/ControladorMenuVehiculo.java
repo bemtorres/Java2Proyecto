@@ -33,7 +33,8 @@ public class ControladorMenuVehiculo extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String opcion = request.getParameter("opcion");
-
+        int rut = 0;
+        char dv = 'p';
         try {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -44,8 +45,12 @@ public class ControladorMenuVehiculo extends HttpServlet {
             out.println("<body>");
 
             if (opcion.equals("Moto")) {
-                int rut = Integer.parseInt(request.getParameter("rut"));
-                char dv = request.getParameter("dv").charAt(0);
+                if (request.getParameter("rut") != null) {
+                    rut = Integer.parseInt(request.getParameter("rut"));
+                }
+                if (request.getParameter("dv") != null) {
+                    dv = request.getParameter("dv").charAt(0);
+                }
 
                 Cliente obj = new ClienteDAO().buscarDatos(rut, dv);
                 if (obj != null) {
@@ -61,8 +66,13 @@ public class ControladorMenuVehiculo extends HttpServlet {
             // out.println("<h1> "+obj.toString()+" </h1>");
             //break;
             if (opcion.equals("Moto")) {
-                int rut = Integer.parseInt(request.getParameter("rut"));
-                char dv = request.getParameter("dv").charAt(0);
+
+                if (request.getParameter("rut") != null) {
+                    rut = Integer.parseInt(request.getParameter("rut"));
+                }
+                if (request.getParameter("dv") != null) {
+                    dv = request.getParameter("dv").charAt(0);
+                }
 
                 Cliente obj1 = new ClienteDAO().buscarDatos(rut, dv);
 
