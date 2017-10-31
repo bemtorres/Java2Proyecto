@@ -1,0 +1,328 @@
+package org.apache.jsp;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.jsp.*;
+import java.time.LocalDateTime;
+import controlador.ControladorDAOTaller;
+import controlador.EmpleadoDAO;
+import modelo.Empleado;
+import modelo.Cliente;
+import controlador.ClienteDAO;
+import controlador.ClienteDAO;
+import controlador.AutoDAO;
+import modelo.Auto;
+import controlador.RegistroTallerDAO;
+import modelo.FichaReparacion;
+
+public final class statusAuto_jsp extends org.apache.jasper.runtime.HttpJspBase
+    implements org.apache.jasper.runtime.JspSourceDependent {
+
+  private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
+
+  private static java.util.List<String> _jspx_dependants;
+
+  private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
+
+  public java.util.List<String> getDependants() {
+    return _jspx_dependants;
+  }
+
+  public void _jspService(HttpServletRequest request, HttpServletResponse response)
+        throws java.io.IOException, ServletException {
+
+    PageContext pageContext = null;
+    HttpSession session = null;
+    ServletContext application = null;
+    ServletConfig config = null;
+    JspWriter out = null;
+    Object page = this;
+    JspWriter _jspx_out = null;
+    PageContext _jspx_page_context = null;
+
+    try {
+      response.setContentType("text/html;charset=UTF-8");
+      pageContext = _jspxFactory.getPageContext(this, request, response,
+      			null, true, 8192, true);
+      _jspx_page_context = pageContext;
+      application = pageContext.getServletContext();
+      config = pageContext.getServletConfig();
+      session = pageContext.getSession();
+      out = pageContext.getOut();
+      _jspx_out = out;
+      _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
+
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("<!DOCTYPE html>\r\n");
+      out.write("<html>\r\n");
+      out.write("    <head>\r\n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">       \r\n");
+      out.write("        <!--Import Google Icon Font-->\r\n");
+      out.write("        <link href=\"http://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\r\n");
+      out.write("        <!--Import materialize.css-->\r\n");
+      out.write("        <link type=\"text/css\" rel=\"stylesheet\" href=\"css/materialize.min.css\"\r\n");
+      out.write("              media=\"screen,projection\"/>\r\n");
+      out.write("        <!--Let browser know website is optimized for mobile-->\r\n");
+      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>\r\n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
+      out.write("        <link rel=\"icon\" href=\"images/favicon-32x32.png\" sizes=\"32x32\">\r\n");
+      out.write("        <title>La Tuerca</title>\r\n");
+      out.write("    </head>\r\n");
+      out.write("    <body>\r\n");
+      out.write("        <nav class=\"teal darken-3\" role=\"navigation\">\r\n");
+      out.write("            <div class=\"nav-wrapper container\">\r\n");
+      out.write("                <a id=\"logo-container\" href=\"index.jsp\" class=\"brand-logo\">La Tuerca</a>\r\n");
+      out.write("                <ul class=\"right hide-on-med-and-down\">                                                 \r\n");
+      out.write("                    <li class=\"input-field col s1\">   \r\n");
+      out.write("                        <form action=\"ControladorCerrarSesion\" method=\"POST\">  \r\n");
+      out.write("                            <li class=\"input-field col s2\">   \r\n");
+      out.write("                                <button class=\"btn waves-effect waves-light btn-large\" type=\"submit\" name=\"opcion\" value=\"Cerrar\">Cerrar<i class=\"material-icons right\"></i></button>\r\n");
+      out.write("                            </li> \r\n");
+      out.write("                        </form>\r\n");
+      out.write("                    </li>    \r\n");
+      out.write("                </ul>              \r\n");
+      out.write("            </div>\r\n");
+      out.write("        </nav> \r\n");
+      out.write("        ");
+
+            String patente = (String) request.getAttribute("patente");
+            FichaReparacion ficha = new RegistroTallerDAO().buscarDatosPorPatente(patente);
+            Auto auto = new ControladorDAOTaller().buscarDatosAuto(patente);
+            Cliente cliente = new ClienteDAO().buscarDatos(auto.getRut());
+            Empleado empleado = new EmpleadoDAO().buscarDatos(ficha.getRutPersona());
+            String val_hora = empleado.getValorHora()+ "";
+            //Ficha 
+            String idficha = ficha.getIdFicha() + "";
+            String rutEmplado = ficha.getRutPersona() + "";
+            String fechaIngreso = ficha.getFechaIngreso() + "";
+            String fechaSalida = ficha.getFechaSalida() + "";
+            String motivos = ficha.getMotivos();
+            String detalles = ficha.getDetalles();
+            String horaTrabajo = ficha.getHorasTrabajo() + "";
+            String total = ficha.getTotal() + "";
+            //Auto
+            String cantPuertas = auto.getCantPuertas() + "";
+            String cantAsientos = auto.getCantAsientos() + "";
+            String cantAirbag = auto.getCantAirbags() + "";
+            String cambioAutomatico = auto.getCambiosAutomaticos();
+            String electrico = auto.getElectrico();
+            String direAsistida = auto.getDireccionAsistida();
+            String portaEquipaje = auto.getPortaEquipaje();
+            String marca = auto.getMarca();
+            String foto = auto.getFoto();
+            String anyo = auto.getAnyo() + "";
+            String kilometraje = auto.getKilometraje() + "";
+            String tipobencina = auto.getTipo_bencina();
+            String tipoAuto = auto.getTipoAuto();
+            String dv = cliente.getDv() + "";
+            String rutCliente = cliente.getRut() + "-" + dv;
+
+            String nombreCompleto = cliente.getPrimerNombre() + " " + cliente.getSegundoNombre() + " " + cliente.getApellidoPaterno() + " " + cliente.getApellidoMaterno();
+            String telefono = cliente.getTelefono() + " ";
+            String email = cliente.getEmail();
+        
+      out.write("   \r\n");
+      out.write("        <form action=\"ControladorMenuVehiculo\" method=\"POST\"> \r\n");
+      out.write("            <div class=\"row\">\r\n");
+      out.write("                <div class=\"row\">\r\n");
+      out.write("                    <div class=\"input-field col s2\">\r\n");
+      out.write("                        <p class=\" red-text\">Id Ficha: ");
+      out.print( idficha);
+      out.write(" </p>\r\n");
+      out.write("                    </div>\r\n");
+      out.write("                    <div class=\"input-field col s2\">\r\n");
+      out.write("                        <h5 class=\" red-text\">Rut:</h5><h6>");
+      out.print(  rutCliente);
+      out.write("</h6>\r\n");
+      out.write("                    </div>\r\n");
+      out.write("                    <div class=\"input-field col s2\">\r\n");
+      out.write("                        <h5 class=\" red-text\">Nombre:</h5><h6>");
+      out.print( nombreCompleto);
+      out.write("</h6>\r\n");
+      out.write("                    </div>\r\n");
+      out.write("                    <div class=\"input-field col s2\">\r\n");
+      out.write("                        <h5 class=\" red-text\">Telefono:</h5><h6>");
+      out.print( telefono);
+      out.write("</h6>\r\n");
+      out.write("                    </div>\r\n");
+      out.write("                    <div class=\"input-field col s2\">\r\n");
+      out.write("                        <h5 class=\" red-text\">Email:</h5><h6>");
+      out.print( email);
+      out.write("</h6>\r\n");
+      out.write("                    </div>\r\n");
+      out.write("                    <div class=\"input-field col s2\">\r\n");
+      out.write("                        <h5 class=\" red-text\">Telefono:</h5><h6>");
+      out.print( telefono);
+      out.write("</h6>\r\n");
+      out.write("                    </div>\r\n");
+      out.write("                </div>\r\n");
+      out.write("                <h4 center >AUTO</h4>\r\n");
+      out.write("                <div class=\"row\">                        \r\n");
+      out.write("                    <h5 class=\" red-text\">Patente:<h5> ");
+      out.print( patente);
+      out.write("<h6> </h5>\r\n");
+      out.write("\r\n");
+      out.write("                        <div class=\"input-field col s2\">\r\n");
+      out.write("                            <h5 class=\" red-text\">Tipo Auto:</h5><h6>");
+      out.print(  tipoAuto);
+      out.write("</h6>\r\n");
+      out.write("                        </div>\r\n");
+      out.write("                        <div class=\"input-field col s2\">\r\n");
+      out.write("                            <h5 class=\" red-text\">Año:</h5><input type=\"text\" value=\"");
+      out.print( anyo);
+      out.write("\" readonly name=\"anyo\">\r\n");
+      out.write("                        </div>\r\n");
+      out.write("                        <div class=\"input-field col s2\">\r\n");
+      out.write("                            <h5 class=\" red-text\">Kilometraje:</h5><input type=\"text\" value=\"");
+      out.print( kilometraje);
+      out.write("\" name=\"kilometraje\">\r\n");
+      out.write("                        </div>\r\n");
+      out.write("                        <div class=\"input-field col s2\">\r\n");
+      out.write("                            <h5 class=\" red-text\">Tipo de Bencina</h5><input type=\"text\" value=\"");
+      out.print( tipobencina);
+      out.write("\" readonly name=\"tipoB\">\r\n");
+      out.write("                        </div>\r\n");
+      out.write("                        <div class=\"input-field col s2\">\r\n");
+      out.write("                            <h5 class=\" red-text\">Total asientos:</h5> <input type=\"text\" value=\"");
+      out.print( cantAsientos);
+      out.write("\" readonly name=\"asientos\">\r\n");
+      out.write("                        </div>\r\n");
+      out.write("                </div>\r\n");
+      out.write("                <div class=\"row\">\r\n");
+      out.write("                    <div class=\"input-field col s2\">\r\n");
+      out.write("                        <h5 class=\" red-text\"> Total airbag:</h5> <input type=\"text\" value=\"");
+      out.print( cantAirbag);
+      out.write("\" readonly name=\"air\">\r\n");
+      out.write("                    </div>\r\n");
+      out.write("                    <div class=\"input-field col s2\">\r\n");
+      out.write("                        <h5 class=\" red-text\">¿Cambio automatico?:</h5> <input type=\"text\" value=\"");
+      out.print( cambioAutomatico);
+      out.write("\" readonly name=\"cambioA\">\r\n");
+      out.write("                    </div>\r\n");
+      out.write("                    <div class=\"input-field col s2\">\r\n");
+      out.write("                        <h5 class=\" red-text\"> Total airbag:</h5> <input type=\"text\" value=\"");
+      out.print( cantAirbag);
+      out.write("\" readonly name=\"air\">\r\n");
+      out.write("                    </div>\r\n");
+      out.write("                    <div class=\"input-field col s2\">\r\n");
+      out.write("                        <h5 class=\" red-text\">Total asientos:</h5> <input type=\"text\" value=\"");
+      out.print( cantAsientos);
+      out.write("\" readonly name=\"asientos\">\r\n");
+      out.write("                    </div>\r\n");
+      out.write("                    <div class=\"input-field col s2\">\r\n");
+      out.write("                        <h5 class=\" red-text\">¿Auto electrico?</h5> <input type=\"text\" value=\"");
+      out.print( electrico);
+      out.write("\" readonly name=\"electrico\">\r\n");
+      out.write("                    </div>\r\n");
+      out.write("                    <div class=\"input-field col s2\">\r\n");
+      out.write("                        <h5 class=\" red-text\">¿Direccion asistida?</h5> <input type=\"text\" value=\"");
+      out.print( direAsistida);
+      out.write("\" readonly name=\"asistida\">\r\n");
+      out.write("                    </div>\r\n");
+      out.write("                </div>\r\n");
+      out.write("                <div class=\"row\">\r\n");
+      out.write("                    <div class=\"input-field col s2\">\r\n");
+      out.write("                        <h5 class=\" red-text\"> ¿Portaequipaje?:</h5> <input type=\"text\" value=\"");
+      out.print( portaEquipaje);
+      out.write("\" readonly name=\"porta\">\r\n");
+      out.write("                    </div>\r\n");
+      out.write("                    <div class=\"input-field col s2\">\r\n");
+      out.write("                        <h5 class=\" red-text\">Fecha Ingreso:</h5> <input type=\"date\" name=\"fechaIngreso\" value=\"");
+      out.print( fechaIngreso);
+      out.write("\" readonly ><br> \r\n");
+      out.write("                    </div>                       \r\n");
+      out.write("                </div>\r\n");
+      out.write("                <h4 center >Estado del Vehiculo</h4>\r\n");
+      out.write("                <div class=\"row\">\r\n");
+      out.write("                    ");
+ LocalDateTime ahora = LocalDateTime.now();
+                                                String hoy = (ahora.getYear() + "-" + ahora.getMonthValue() + "-" + ahora.getDayOfMonth());
+      out.write("\r\n");
+      out.write("                    <div class=\"input-field col s2\"> \r\n");
+      out.write("                        <h5 class=\" blue-text\">Fecha Termino:</h5>\r\n");
+      out.write("                        <input type=\"date\" value=\"");
+      out.print( hoy);
+      out.write("\"  required=\"required\" name=\"fechaIngreso\">                            \r\n");
+      out.write("                    </div>\r\n");
+      out.write("                    <div class=\"input-field col s10\"> \r\n");
+      out.write("                        <h5 class=\" blue-text\">Detalles:</h5>\r\n");
+      out.write("                        <input type=\"text\"  name=\"detalles\" placeholder=\"");
+      out.print( detalles);
+      out.write("\" required=\"required\" value=\"\" ><br>                          \r\n");
+      out.write("                    </div>\r\n");
+      out.write("                    <div class=\"input-field col s2\"> \r\n");
+      out.write("                        <h6 class=\" blue-text\">Valor Hora Trabajo</h6>\r\n");
+      out.write("                        <input type=\"number\" name=\"valHoras\" onlyRead value=\"");
+      out.print( val_hora );
+      out.write("\"  >                          \r\n");
+      out.write("                    </div>\r\n");
+      out.write("                    <div class=\"input-field col s2\"> \r\n");
+      out.write("                        <h6 class=\" blue-text\">Horas Trabajadas:</h6>\r\n");
+      out.write("                        <input type=\"number\" name=\"horasTrabajadas\" min=\"0\" max=\"30\" value=\"");
+      out.print( horaTrabajo);
+      out.write("\" required=\"required\" >                          \r\n");
+      out.write("                    </div>\r\n");
+      out.write("                    <div class=\"input-field col s2\"> \r\n");
+      out.write("                        <h6 class=\" blue-text\">Total:</h6>\r\n");
+      out.write("                        <input type=\"number\" name=\"horasTrabajadas\" min=\"0\" value=\"");
+      out.print( total);
+      out.write("\">                          \r\n");
+      out.write("                    </div>\r\n");
+      out.write("                </div>\r\n");
+      out.write("            </div>\r\n");
+      out.write("            <div class=\"row\">\r\n");
+      out.write("                <div class=\"row\">\r\n");
+      out.write("                    <button class=\"btn-large waves-effect waves-light cyan\" type=\"submit\" name=\"opcion\" value=\"Guardar\">Guardar<i class=\"material-icons right\">save</i></button>\r\n");
+      out.write("                </div>                                                  \r\n");
+      out.write("            </div> \r\n");
+      out.write("        </form>\r\n");
+      out.write("        <div>\r\n");
+      out.write("            <a href=\"menuPrincipal.jsp\" class=\"waves-effect waves-light red btn\"><i class=\"material-icons left\">arrow_back</i>Atrás</a>\r\n");
+      out.write("        </div>  \r\n");
+      out.write("        <footer class=\"page-footer grey darken-3\">\r\n");
+      out.write("            <div class=\"container\">\r\n");
+      out.write("                <div class=\"row\">\r\n");
+      out.write("                    <div class=\"col l6 s12\">\r\n");
+      out.write("                        <h5 class=\"white-text\">Acerca de</h5>\r\n");
+      out.write("                        <p class=\"grey-text text-lighten-4\"></p>\r\n");
+      out.write("                    </div>              \r\n");
+      out.write("                </div>\r\n");
+      out.write("            </div>\r\n");
+      out.write("            <div class=\"footer-copyright\">\r\n");
+      out.write("                <div class=\"container\">\r\n");
+      out.write("                    © 2017 prueba de Desarrollo en Java\r\n");
+      out.write("                    <a class=\"grey-text text-lighten-4 right\" href=\"https://bemtorres.github.io\" target=\"_blank\"> Integrantes Carlos Orellana & Benjamin Mora</a>           \r\n");
+      out.write("                </div>\r\n");
+      out.write("            </div>\r\n");
+      out.write("        </footer>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"https://code.jquery.com/jquery-2.1.1.min.js\"></script>\r\n");
+      out.write("        <script type=\"text/javascript\" src=\"js/materialize.min.js\"></script>      \r\n");
+      out.write("    </body>\r\n");
+      out.write("</html>\r\n");
+    } catch (Throwable t) {
+      if (!(t instanceof SkipPageException)){
+        out = _jspx_out;
+        if (out != null && out.getBufferSize() != 0)
+          out.clearBuffer();
+        if (_jspx_page_context != null) _jspx_page_context.handlePageException(t);
+        else throw new ServletException(t);
+      }
+    } finally {
+      _jspxFactory.releasePageContext(_jspx_page_context);
+    }
+  }
+}
