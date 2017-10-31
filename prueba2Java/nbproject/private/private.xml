@@ -12,10 +12,12 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/web/index.jsp</file>
-            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/web/statusAuto.jsp</file>
-            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/src/java/controlador/ControladorLogin.java</file>
-            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/src/java/controlador/EmpleadoDAO.java</file>
+            <file>file:/C:/Users/carlos/Desktop/javaPrueba2/Java2Proyecto/prueba2Java/src/java/controlador/ControladorTallerMoto.java</file>
+            <file>file:/C:/Users/carlos/Desktop/javaPrueba2/Java2Proyecto/prueba2Java/src/java/controlador/ControladorRegistroFicha.java</file>
+            <file>file:/C:/Users/carlos/Desktop/javaPrueba2/Java2Proyecto/prueba2Java/web/tallerMoto.jsp</file>
+            <file>file:/C:/Users/carlos/Desktop/javaPrueba2/Java2Proyecto/prueba2Java/src/java/controlador/RegistroTallerDAO.java</file>
+            <file>file:/C:/Users/carlos/Desktop/javaPrueba2/Java2Proyecto/prueba2Java/web/statusMoto.jsp</file>
+            <file>file:/C:/Users/carlos/Desktop/javaPrueba2/Java2Proyecto/prueba2Java/src/java/controlador/MotoDAO.java</file>
         </group>
     </open-files>
 </project-private>
