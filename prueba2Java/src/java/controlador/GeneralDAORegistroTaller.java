@@ -19,5 +19,6 @@ public interface GeneralDAORegistroTaller {
     public abstract int agregarDatos(FichaReparacion ficha);
     public abstract int eliminarDatos(String patente, int rut, char dv);
     public abstract int actualizarDatosFicha(FichaReparacion obj);
+    public abstract FichaReparacion buscarDatosPorId(int id) ;
     
 }

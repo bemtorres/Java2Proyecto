@@ -171,4 +171,44 @@ public class RegistroTallerDAO implements GeneralDAORegistroTaller {
         return results;
     }
 
+    @Override
+    public FichaReparacion buscarDatosPorId(int id) {
+       FichaReparacion obj = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa", "root", "");
+
+            Statement statement = connection.createStatement();
+
+            String query = "SELECT * FROM fich_reparacion WHERE id_ficha =" + id + ";";
+
+            ResultSet results = statement.executeQuery(query);
+
+            int idFicha, rutPersona, idEstadoFicha, horasTrabajo, total;
+            String patente, fechaIngreso, fechaSalida, motivos, detalles;
+
+            while (results.next()) {
+                idFicha = results.getInt("id_ficha");
+                rutPersona = results.getInt("rut_persona");
+                patente = results.getString("patente");
+                idEstadoFicha = results.getInt("p_nombre");
+                fechaIngreso = results.getString("fech_ingreso");
+                fechaSalida = results.getString("fech_salida");
+                motivos = results.getString("motivos");
+                detalles = results.getString("detalles");
+                horasTrabajo = results.getInt("hor_trabajo");
+                total = results.getInt("total");
+
+                obj = new FichaReparacion(idFicha, rutPersona, patente, idEstadoFicha, fechaIngreso, fechaSalida, motivos, detalles, horasTrabajo, total);
+
+                break;
+                
+            }
+            connection.close();
+        } catch (java.lang.Exception ex) {
+            System.out.println("Error: " + ex);
+        }
+        return obj;
+    }
+
 }

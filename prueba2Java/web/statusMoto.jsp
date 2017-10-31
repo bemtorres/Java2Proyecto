@@ -1,21 +1,19 @@
 <%-- 
-    Document   : statusAuto
-    Created on : 30-10-2017, 18:17:16
+    Document   : statusMoto
+    Created on : 30-10-2017, 21:05:42
     Author     : carlos
 --%>
 
+<%@page import="java.time.LocalDateTime"%>
 <%@page import="controlador.EmpleadoDAO"%>
 <%@page import="modelo.Empleado"%>
+<%@page import="controlador.ClienteDAO"%>
 <%@page import="modelo.Cliente"%>
-<%@page import="controlador.ClienteDAO"%>
-<%@page import="controlador.ClienteDAO"%>
-<%@page import="controlador.AutoDAO"%>
-<%@page import="modelo.Auto"%>
 <%@page import="controlador.RegistroTallerDAO"%>
+<%@page import="modelo.Moto"%>
+<%@page import="controlador.MotoDAO"%>
 <%@page import="modelo.FichaReparacion"%>
-<%@page import="java.time.LocalDateTime"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,7 +24,7 @@
         <form action="ControladorCerrarSesion" method="POST">
             <input type="submit" value="Cerrar" name="opcion">    
         </form>
-        <form action="ControladorTallerAuto" method="Post">
+        <form action="ControladorTallerMoto" method="Post">
             <%    
               String idFicha = (String) request.getAttribute("idFicha"); 
               //String dv = (String) request.getAttribute("dv");
@@ -36,8 +34,8 @@
               int idFicha1 =  Integer.parseInt(idFicha);
               
               FichaReparacion ficha= new RegistroTallerDAO().buscarDatosPorId(idFicha1);
-              Auto auto = new AutoDAO().buscarDatos(ficha.getPatente());
-              Cliente cliente= new ClienteDAO().buscarDatos(auto.getRut());
+              Moto moto = new MotoDAO().buscarDatos(ficha.getPatente());
+              Cliente cliente= new ClienteDAO().buscarDatos(moto.getRut());
               Empleado empleado = new EmpleadoDAO().buscarDatos(ficha.getRutPersona());
             %> 
               
@@ -51,19 +49,14 @@
             AUTO
             <br>
             Patente: <input type="text" name="patente" value="<%= ficha.getPatente() %>" readonly><br>
-            Marca: <input type="text" name="marca" value="<%= auto.getMarca()  %>" readonly><br>
-            Tipo de Auto: <input type="text" name="tipoAuto" value="<%= auto.getTipo_bencina() %>" readonly><br>
-            Foto: <input type="text" name="foto" value="<%= auto.getFoto() %>" readonly  ><br>
-            Año: <input type="text" value="<%= auto.getAnyo() %>" readonly name="anyo"><br>
-            Kilometraje: <input type="text" value="<%= auto.getKilometraje() %>" name="kilometraje"><br>
-            Tipo de Bencina <input type="text" value="<%= auto.getTipo_bencina() %>" readonly name="tipoB"><br>
+            Marca: <input type="text" name="marca" value="<%= moto.getMarca()  %>" readonly><br>
+            Tipo de Moto: <input type="text" name="tipoAuto" value="<%= moto.getTipo_bencina() %>" readonly><br>
+            Foto: <input type="text" name="foto" value="<%= moto.getFoto() %>" readonly  ><br>
+            Año: <input type="text" value="<%= moto.getAnyo() %>" readonly name="anyo"><br>
+            Kilometraje: <input type="text" value="<%= moto.getKilometraje() %>" name="kilometraje"><br>
+            Tipo de Bencina <input type="text" value="<%= moto.getTipo_bencina() %>" readonly name="tipoB"><br>
             <br>
-            Total asientos: <input type="text" value="<%= auto.getCantAsientos() %>" readonly name="asientos"><br>
-            Total airbag: <input type="text" value="<%= auto.getCantAirbags() %>" readonly name="air"><br>
-            ¿Cambio automatico?: <input type="text" value="<%= auto.getCambiosAutomaticos() %>" readonly name="cambioA"><br>
-            ¿Auto electrico? <input type="text" value="<%= auto.getElectrico() %>" readonly name="electrico"><br>
-            ¿Direccion asistida? <input type="text" value="<%= auto.getDireccionAsistida() %>" readonly name="asistida"><br>
-            ¿Portaequipaje?: <input type="text" value="<%= auto.getPortaEquipaje() %>" readonly name="porta"><br>
+            Tipo Moto <input type="text" value="<%= moto.getTipomoto() %>" readonly name="TipoM">
             <br>
             <br>            
             <br>
@@ -80,6 +73,6 @@
             <br>
             <br>
             <input type="submit" value="Guardar" name="opcion">    
-        </form>
+        </form>   
     </body>
 </html>
