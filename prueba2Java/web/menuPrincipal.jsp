@@ -38,6 +38,7 @@
                 rutEmpleado = (String) request.getAttribute("rutEmpleado");
                 nombreCompleto = (String) request.getAttribute("nombreCompletoE");
             } else {
+                
                 response.sendRedirect("index.jsp");
             }
         %>
