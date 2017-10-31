@@ -41,18 +41,17 @@ public class ControladorStatus extends HttpServlet {
         PrintWriter out = response.getWriter();
         String opcion = request.getParameter("opcion");
         String patente = "";
-        switch (opcion) {
-            case "Buscar":
+
+        try {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ControladorLogin</title>");
+            out.println("</head>");
+            out.println("<body>");
+            if (opcion.equals("Buscar")) {
                 patente = request.getParameter("patente");
-                /*     private int idFicha;
-    private Empleado rutPersona;
-    private Vehiculo patente;
-    private EstadoFicha idEstado;
-    private Date fechaIngreso;
-    private Date fechaSalida;
-    private String detalles;
-    private int horasTrabajo;
-    private int total;    */
 
                 //1.- Buscar si hay una ficha de reparacion del auto
                 FichaReparacion fichaReparacion = new RegistroTallerDAO().buscarDatosPorPatente(patente);
@@ -61,80 +60,69 @@ public class ControladorStatus extends HttpServlet {
                     Auto auto = null;
                     Moto moto = null;
                     auto = new ControladorDAOTaller().buscarDatosAuto(patente);
+                    String idFicha = fichaReparacion.getIdFicha() + "";
 
                     if (auto != null) {
                         //3.- Encuentro el auto
-                        Cliente obj = new ClienteDAO().buscarDatos(auto.getRut());
-                        
+                        request.setAttribute("idFicha", idFicha);
+                        request.getRequestDispatcher("statusAuto.jsp").forward(request, response);
+
                     }
                     moto = new ControladorDAOTaller().buscarDatosMoto(patente);
                     if (moto != null) {
                         //3.- Encuentro la moto
-                        Cliente obj = new ClienteDAO().buscarDatos(moto.getRut());
-                        
-                    }
+                        request.setAttribute("idFicha", idFicha);
+                        request.getRequestDispatcher("statusMoto.jsp").forward(request, response);
 
+                    }
                 }
-                else{
-                    //errores
-                }
-                try {
-                    /* TODO output your page here. You may use following sample code. */
-                    out.println("<!DOCTYPE html>");
-                    out.println("<html>");
-                    out.println("<head>");
-                    out.println("<title>Servlet ControladorLogin</title>");
-                    out.println("</head>");
-                    out.println("<body>");
-                    out.println("<h1>Servlet ControladorLogin at " + request.getContextPath() + "</h1>");
-                    out.println("</body>");
-                    out.println("</html>");
-                } finally {
+            }
+                out.println("<h1>Servlet ControladorLogin at " + request.getContextPath() + "</h1>");
+                out.println("</body>");
+                out.println("</html>");
+            }
+            finally {
                     out.close();
                 }
         }
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
     }
-        // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-        /**
-         * Handles the HTTP <code>GET</code> method.
-         *
-         * @param request servlet request
-         * @param response servlet response
-         * @throws ServletException if a servlet-specific error occurs
-         * @throws IOException if an I/O error occurs
-         */
-        @Override
-        protected void doGet
-        (HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-            processRequest(request, response);
-        }
 
-        /**
-         * Handles the HTTP <code>POST</code> method.
-         *
-         * @param request servlet request
-         * @param response servlet response
-         * @throws ServletException if a servlet-specific error occurs
-         * @throws IOException if an I/O error occurs
-         */
-        @Override
-        protected void doPost
-        (HttpServletRequest request, HttpServletResponse response)
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            processRequest(request, response);
-        }
+        processRequest(request, response);
+    }
 
-        /**
-         * Returns a short description of the servlet.
-         *
-         * @return a String containing servlet description
-         */
-        @Override
-        public String getServletInfo
-        
-            () {
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
         return "Short description";
-        }// </editor-fold>
+    }// </editor-fold>
 
-    }
+}
