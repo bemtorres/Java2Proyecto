@@ -17,7 +17,7 @@
             <input type="submit" value="Cerrar" name="opcion">    
         </form>
         <form action="ControladorStatus" method="Post">            
-            Patente: <input type="text" maxlength="6" name="patente">
+            Patente: <input type="text" maxlength="6" required="required" name="patente">
             <input type="submit" value="Buscar" name="opcion">        
         </form>
         <a href='menuPrincipal.jsp'>volver</a>

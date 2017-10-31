@@ -73,29 +73,29 @@ public class RegistroTallerDAO implements GeneralDAORegistroTaller {
 
             Statement statement = connection.createStatement();
 
-            String query = "SELECT * FROM fich_reparacion WHERE patente=" + patente + ";";
+            String query = "SELECT * FROM fich_reparacion WHERE patente= '" + patente + "';";
 
             ResultSet results = statement.executeQuery(query);
 
             int idFicha, rutPersona, idEstadoFicha, horasTrabajo, total;
-            String patente1, fechaIngreso, fechaSalida, motivos, detalles;
+            String  fechaIngreso, fechaSalida, motivos, detalles;
 
             while (results.next()) {
                 idFicha = results.getInt("id_ficha");
                 rutPersona = results.getInt("rut_persona");
-                patente1 = results.getString("patente");
-                idEstadoFicha = results.getInt("p_nombre");
+               
+                idEstadoFicha = results.getInt("id_est_fich");
                 fechaIngreso = results.getString("fech_ingreso");
                 fechaSalida = results.getString("fech_salida");
+                
                 motivos = results.getString("motivos");
                 detalles = results.getString("detalles");
                 horasTrabajo = results.getInt("hor_trabajo");
                 total = results.getInt("total");
-
-                if (patente == patente1) {
-                    obj = new FichaReparacion(idFicha, rutPersona, patente, idEstadoFicha, fechaIngreso, fechaSalida, motivos, detalles, horasTrabajo, total);
-                    break;
-                }
+                
+                obj = new FichaReparacion(idFicha, rutPersona, patente, idEstadoFicha, fechaIngreso, fechaSalida, motivos, detalles, horasTrabajo, total);
+                break;
+                
             }
             connection.close();
         } catch (java.lang.Exception ex) {

@@ -28,17 +28,12 @@
         </form>
         <form action="ControladorTallerAuto" method="Post">
             <%    
-              String idFicha = (String) request.getAttribute("idFicha"); 
-              //String dv = (String) request.getAttribute("dv");
-              //el rut del cliente + dv 
-              
-              
-              int idFicha1 =  Integer.parseInt(idFicha);
-              
-              FichaReparacion ficha= new RegistroTallerDAO().buscarDatosPorId(idFicha1);
-              Auto auto = new AutoDAO().buscarDatos(ficha.getPatente());
+              String patente = (String)request.getAttribute("patente");      
+              FichaReparacion ficha = new  RegistroTallerDAO().buscarDatosPorPatente(patente);
+              Auto auto = new AutoDAO().buscarDatos(patente);  
               Cliente cliente= new ClienteDAO().buscarDatos(auto.getRut());
-              Empleado empleado = new EmpleadoDAO().buscarDatos(ficha.getRutPersona());
+              //Empleado empleado = new EmpleadoDAO().buscarDatos(ficha.getRutPersona());
+                         
             %> 
               
             
