@@ -38,6 +38,7 @@
             <%
                 String patente = (String) request.getAttribute("patente");
                 FichaReparacion ficha = new RegistroTallerDAO().buscarDatosPorPatente(patente);
+                Auto auto = new AutoDAO().buscarDatos(patente);
 
                 //Ficha 
                 String idficha = ficha.getIdFicha() + "";
@@ -49,14 +50,28 @@
                 String horaTrabajo = ficha.getHorasTrabajo() + "";
                 String total = ficha.getTotal() + "";
                 //Auto
-
+                String cantPuertas = auto.getCantPuertas() + "";
+                String cantAsientos = auto.getCantAsientos() + "";
+                String cantAirbag = auto.getCantAirbags() + "";
+                String cambioAutomatico = auto.getCambiosAutomaticos();
+                String electrico = auto.getElectrico();
+                String direAsistida = auto.getDireccionAsistida();
+                String portaEquipaje = auto.getPortaEquipaje();
+                String marca = auto.getMarca();
+                String foto = auto.getFoto();
+                String anyo = auto.getAnyo() + "";
+                String kilometraje = auto.getKilometraje() + "";
+                String tipobencina = auto.getTipo_bencina();
+                String tipoAuto = auto.getTipoAuto();
 
             %> 
 
 
             SERVICIO
             <%= idficha%>
-
+            SERVICIO
+            <br>
+           
             <br>
             <br>           
             <br>
@@ -67,7 +82,9 @@
             Motivos: <input type="text" name="motivos"  value="<%= motivos%>" readonly ><br>
             <br>
 
-
+            AUTO
+            <br>
+            Patente: <input type="text" name="patente" value="<%= patente %>" readonly><br>
             <br>
             <br>            
             <br>              
@@ -77,7 +94,7 @@
             <br>
             Mecanico a cargo: 
             Detalles: <input type="text" name="detalles" required="required" value="<%= detalles%>" ><br>
-            Horas Trabajadas: <input type="number" name="motivos" min="0" max="30" value="<%= horaTrabajo %> "required="required" > <br>
+            Horas Trabajadas: <input type="number" name="motivos" min="0" max="30" value="<%= horaTrabajo%> "required="required" > <br>
             Total: <%= total%>
             <br>
             <br> 
