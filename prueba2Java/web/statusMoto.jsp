@@ -4,6 +4,7 @@
     Author     : carlos
 --%>
 
+<%@page import="modelo.Vehiculo"%>
 <%@page import="java.time.LocalDateTime"%>
 <%@page import="controlador.EmpleadoDAO"%>
 <%@page import="modelo.Empleado"%>
@@ -31,9 +32,32 @@
               Moto moto = new MotoDAO().buscarDatos(patente);
               Cliente cliente= new ClienteDAO().buscarDatos(moto.getRut());
              // Empleado empleado = new EmpleadoDAO().buscarDatos(ficha.getRutPersona());
-            %> 
-              
-            
+             //ficha
+             String idFicha = ficha.getIdFicha()+"";
+             String rutEmpleado = ficha.getRutPersona()+"";
+             String fechaIngreso = ficha.getFechaIngreso()+"";
+             String fechaSalida = ficha.getFechaSalida()+"";
+             String motivos = ficha.getMotivos()+"";
+             String detalles= ficha.getDetalles()+"";
+             String horaTrabajo = ficha.getHorasTrabajo()+"";
+             String total = ficha.getTotal()+"";
+             //moto
+             String tipomoto = moto.getTipomoto()+"";
+             String marca = moto.getMarca()+"";
+             String foto = moto.getFoto()+"";
+             String anyo = moto.getAnyo()+"";
+             String kilometraje = moto.getKilometraje()+"";
+             String tipo_bencina = moto.getTipo_bencina();
+             //cliente
+             String rut = cliente.getRut()+"";
+             String fechaAsociacion = cliente.getFechaAsociacion()+"";
+             String nombreCompleto = cliente.getPrimerNombre()+" "+cliente.getSegundoNombre()+" "+cliente.getApellidoPaterno()+" "+cliente.getApellidoMaterno()+"";
+             String telefono = cliente.getTelefono()+"";
+             String email = cliente.getEmail()+"";
+             
+             
+             
+             
             SERVICIO
             <br>
             Rut: <input type="text" name="rut" value="<%= cliente.getRut() %>" readonly>-<input type="text" value="<%= cliente.getDv() %>" readonly name="dv"> 
