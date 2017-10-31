@@ -39,7 +39,7 @@
                 nombreCompleto = (String) request.getAttribute("nombreCompletoE");
             } else {
                 
-                response.sendRedirect("index.jsp");
+               // response.sendRedirect("index.jsp");
             }
         %>
 
