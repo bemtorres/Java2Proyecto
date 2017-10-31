@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.FichaReparacion;
 
 /**
  *
@@ -33,11 +34,26 @@ public class ControladorTallerMoto extends HttpServlet {
         PrintWriter out = response.getWriter();
         String opcion = request.getParameter("opcion");
         switch(opcion){
-            case "Cerrar":
-                response.sendRedirect("index.jsp");
-                break;   
-                 case "Cancelar":
-                response.sendRedirect("registroTaller.jsp");
+            case "Guardar":
+                int rut_persona = Integer.parseInt(request.getParameter("rut"));
+                String patente = request.getParameter("patente");
+                int id_est_fich = 1;
+                String fechaIngreso = request.getParameter("fechaIngreso");
+                String fechaSalida = request.getParameter("fechaSalida");
+
+                String motivo = request.getParameter("motivos");
+                String detalles = "Cero Observaciones ... ";
+                int hor_trabajo = 0;
+                int total = 0;
+
+                FichaReparacion ficha = new FichaReparacion(0, rut_persona, patente, id_est_fich, fechaIngreso, fechaSalida, motivo ,detalles, hor_trabajo, total);
+                
+                int estado = new RegistroTallerDAO().agregarDatos(ficha);
+                if (estado > 0) {
+                    out.println("<h1>Datos Agregado agregado...</h1>");
+                } else {
+                    out.println("<h1>No Agregado NO agregado...</h1>");
+                }
                 break;
             
         }

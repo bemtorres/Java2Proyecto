@@ -74,9 +74,6 @@
             <br>
             <br>
             <br>
-            <%
-                //ingrsar datos que faltan en ficha 
-            %>
             <br>
             <br>
             <input type="submit" value="Guardar" name="opcion">    
