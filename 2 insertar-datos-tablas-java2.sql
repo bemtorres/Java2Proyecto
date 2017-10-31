@@ -6,15 +6,15 @@ INSERT INTO persona VALUES (15876111,'1','Manuel','Sebasian','Galleros','Salaman
 INSERT INTO persona VALUES (15434215,'8','Manuel','Esteban','Catalan','Gonzales','Los Alerses','Santiago',8581637,'mansa@correo.com'); 
 
 INSERT INTO persona VALUES (18763311,'7','Mohamed','Isaac','Kalexs','Saaers','Los Alerses','Santiago',8581637,'mansa@correo.com'); 
-INSERT INTO persona VALUES (15995431,'5','Miguel','Jose Jesus','Gonzales','Smith','Los Alerses','Santiago',8581637,'mansa@correo.com'); 
-INSERT INTO persona VALUES (16133447,'9','Jose','Jesus','Sandobal','Ramirez','Los Alerses','Santiago',8581637,'mansa@correo.com'); 
-INSERT INTO persona VALUES (15455671,'3','Lionel','Miguel','San Juan','Dolores','Los Alerses','Santiago',8581637,'mansa@correo.com'); 
+INSERT INTO persona VALUES (18875413,'5','Miguel','Jose Jesus','Gonzales','Smith','Los Alerses','Santiago',8581637,'mansa@correo.com'); 
+INSERT INTO persona VALUES (18544128,'9','Jose','Jesus','Sandobal','Ramirez','Los Alerses','Santiago',8581637,'mansa@correo.com'); 
+INSERT INTO persona VALUES (18990123,'3','Lionel','Miguel','San Juan','Dolores','Los Alerses','Santiago',8581637,'mansa@correo.com'); 
 
 INSERT INTO cliente VALUES (15456111,'2017-01-16');
 INSERT INTO cliente VALUES (15456441,'2017-02-13');   
 INSERT INTO cliente VALUES (15454111,'2017-04-01');   
 INSERT INTO cliente VALUES (15876111,'2017-04-01');   
-INSERT INTO cliente VALUES (15434215,'2017-09-12');      
+INSERT INTO cliente VALUES (15434215,'2017-09-12');   
 
 INSERT INTO empleado VALUES (18763311,'2017-01-20','Mohamed','1111',45,3100,139500);
 INSERT INTO empleado VALUES (18875413,'2017-01-20','Miguel','2222',45,3100,139500);
@@ -45,7 +45,8 @@ INSERT INTO repuesto VALUES (16738,'bateria de alta duracion',80990,100,100,'Aut
 
 INSERT INTO estado_ficha VALUES (0,'Terminado');
 INSERT INTO estado_ficha VALUES (1,'Ingresado');  
-INSERT INTO estado_ficha VALUES (2,'En Espera');  
+INSERT INTO estado_ficha VALUES (2,'En Espera');  																			
+                           																										 															
 
 INSERT INTO fich_reparacion (rut_persona,patente,id_est_fich,fech_ingreso,fech_salida,motivos,detalles,hor_trabajo,total) VALUES (18763311,'TH1138','1115','2017-04-04','2017-04-09','problemas de motor','bateria dañada',2,102000);
 INSERT INTO fich_reparacion (rut_persona,patente,id_est_fich,fech_ingreso,fech_salida,motivos,detalles,hor_trabajo,total) VALUES (18875413,'RH4536','1213','2017-03-03','2017-04-09','la caja de cambios no responde','la caja de cambios estaba rota',2,102500);

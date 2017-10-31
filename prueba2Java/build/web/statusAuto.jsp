@@ -53,7 +53,7 @@
             Auto auto = new ControladorDAOTaller().buscarDatosAuto(patente);
             Cliente cliente = new ClienteDAO().buscarDatos(auto.getRut());
             Empleado empleado = new EmpleadoDAO().buscarDatos(ficha.getRutPersona());
-            String val_hora = "3000";
+            String val_hora = empleado.getValorHora()+ "";
             //Ficha 
             String idficha = ficha.getIdFicha() + "";
             String rutEmplado = ficha.getRutPersona() + "";
@@ -160,7 +160,7 @@
                                                 String hoy = (ahora.getYear() + "-" + ahora.getMonthValue() + "-" + ahora.getDayOfMonth());%>
                     <div class="input-field col s2"> 
                         <h5 class=" blue-text">Fecha Termino:</h5>
-                        <input type="date" value="<%= hoy%>"  requiered="requiered" name="fechaIngreso">                            
+                        <input type="date" value="<%= hoy%>"  required="required" name="fechaIngreso">                            
                     </div>
                     <div class="input-field col s10"> 
                         <h5 class=" blue-text">Detalles:</h5>
@@ -168,7 +168,7 @@
                     </div>
                     <div class="input-field col s2"> 
                         <h6 class=" blue-text">Valor Hora Trabajo</h6>
-                        <input type="number" name="valHoras"  min="0" max="300000" value="3000"  >                          
+                        <input type="number" name="valHoras" onlyRead value="<%= val_hora %>"  >                          
                     </div>
                     <div class="input-field col s2"> 
                         <h6 class=" blue-text">Horas Trabajadas:</h6>
@@ -176,7 +176,7 @@
                     </div>
                     <div class="input-field col s2"> 
                         <h6 class=" blue-text">Total:</h6>
-                        <input type="number" name="horasTrabajadas" min="0" max="30" value="<%= total%>" required="required" >                          
+                        <input type="number" name="horasTrabajadas" min="0" value="<%= total%>">                          
                     </div>
                 </div>
             </div>

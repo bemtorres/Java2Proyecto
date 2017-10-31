@@ -36,7 +36,14 @@ public class ControladorTallerAuto extends HttpServlet {
         switch (opcion) {
 
             case "Guardar":
-                int rut_persona = Integer.parseInt(request.getParameter("rut"));
+                String rut="0";
+                //Rut del empleador
+                String[] miselect = request.getParameterValues("empleadoRut");
+                for (int i = 0; i < miselect.length; i++) {
+                    rut = miselect[i];
+                }
+                int rut_persona = Integer.parseInt(rut);
+                //-------
                 String patente = request.getParameter("patente");
                 int id_est_fich = 1;
                 String fechaIngreso = request.getParameter("fechaIngreso");
