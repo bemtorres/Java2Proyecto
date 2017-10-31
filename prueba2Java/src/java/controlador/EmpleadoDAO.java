@@ -65,7 +65,7 @@ public class EmpleadoDAO implements GeneralDAOEmpleado {
 
             Statement statement = connection.createStatement();
 
-            String query = "Select * from persona join emplado using(rut_persona) where rut_persona=" + rut + "';";
+            String query = "Select * from persona join empleado using(rut_persona) where rut_persona=" + rut + ";";
 
             ResultSet results = statement.executeQuery(query);
             Date fechaContrato;
@@ -112,6 +112,61 @@ public class EmpleadoDAO implements GeneralDAOEmpleado {
     @Override
     public int actualizarDatos(Empleado obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Empleado buscarDatos(String usuario) {
+        Empleado obj = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa", "root", "");
+
+            Statement statement = connection.createStatement();
+
+            String query = "Select * from persona join empleado using(rut_persona) where usuario='" + usuario + "';";
+
+            ResultSet results = statement.executeQuery(query);
+            Date fechaContrato;
+            String clave;
+            int horaTrabajo;
+            int valorHora;
+            int sueldo;
+            char dv;
+            String primerNombre;
+            String segundoNombre;
+            String apellidoPaterno;
+            String apellidoMaterno;
+            String direccion;
+            String comuna;
+            int telefono;
+            String email;
+            int rut;
+            while (results.next()) {
+                rut = results.getInt("rut_persona");
+                dv = results.getString("dv_per").charAt(0);
+                primerNombre = results.getString("p_nombre");
+                segundoNombre = results.getString("s_nombre");
+                apellidoPaterno = results.getString("ap_pater");
+                apellidoMaterno = results.getString("ap_mater");
+                direccion = results.getString("direccion");
+                comuna = results.getString("comuna");
+                telefono = results.getInt("telefono");
+                email = results.getString("email");
+                fechaContrato = results.getDate("fech_contra");
+                usuario = results.getString("usuario");
+                clave = results.getString("clave");
+                horaTrabajo = results.getInt("hor_trabo");
+                valorHora = results.getInt("val_hora");
+                sueldo = results.getInt("sueldo");
+
+                obj = new Empleado(fechaContrato, usuario, clave, horaTrabajo, valorHora, sueldo, rut, dv, primerNombre, segundoNombre, apellidoPaterno, apellidoMaterno, direccion, comuna, telefono, email);
+                break;
+            }
+            connection.close();
+        } catch (java.lang.Exception ex) {
+            System.out.println("Error: " + ex);
+        }
+        return obj;
     }
 
 }

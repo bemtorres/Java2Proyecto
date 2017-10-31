@@ -50,9 +50,10 @@ public class ControladorMenuVehiculo extends HttpServlet {
                 if (rut > 0) {
                     Cliente obj = new ClienteDAO().buscarDatos(rut, dv);
                     if (obj != null) {
-                        out.println("<h1>" + obj.toString() + "Cliente encontrado..</h1>");
-                        request.setAttribute("rut", rutA);
-                        request.setAttribute("dv", dv );
+                         String rutS = obj.getRut()+"";
+                        String dvS = obj.getDv()+ "";
+                        request.setAttribute("rut", rutS);
+                        request.setAttribute("dv", dvS);
                         request.getRequestDispatcher("formularioMoto.jsp").forward(request, response);
                     } else {
                         out.println("<h1>Cliente no encontrado..</h1>");
@@ -66,12 +67,13 @@ public class ControladorMenuVehiculo extends HttpServlet {
                 String rutA = request.getParameter("rut");
                 char dv = request.getParameter("dv").charAt(0);
                 rut = Integer.parseInt(rutA);
-
                 if (rut > 0) {
                     Cliente obj = new ClienteDAO().buscarDatos(rut, dv);
                     if (obj != null) {
-                        request.setAttribute("rut", rutA);
-                        request.setAttribute("dv", dv);
+                        String rutS = obj.getRut()+"";
+                        String dvS = obj.getDv()+ "";
+                        request.setAttribute("rut", rutS);
+                        request.setAttribute("dv", dvS);
                         request.getRequestDispatcher("formularioAuto.jsp").forward(request, response);
                     } else {
                         out.println("<h1>Cliente no encontrado..</h1>");

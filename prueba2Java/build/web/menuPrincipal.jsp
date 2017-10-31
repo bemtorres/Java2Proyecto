@@ -23,18 +23,33 @@
                 <a id="logo-container" href="index.jsp" class="brand-logo">La Tuerca</a>
                 <ul class="right hide-on-med-and-down">                                                 
                     <li class="input-field col s1">   
-                        <form action="ControladorCerrarSesion" method="POST">                             
-                            <input class="btn waves-effect waves-light btn" type="submit" name="opcion" value="Cerrar"><i class="material-icons right"></i>
+                        <form action="ControladorCerrarSesion" method="POST">  
+                            <li class="input-field col s2">   
+                                <button class="btn waves-effect waves-light btn-large" type="submit" name="opcion" value="Cerrar">Cerrar<i class="material-icons right"></i></button>
+                            </li> 
                         </form>
                     </li>    
                 </ul>              
             </div>
-        </nav>           
+        </nav>     
+        <%  String rutEmpleado = "";
+            String nombreCompleto = "";
+            if (request.getAttribute("rutEmpleado") != null) {
+                rutEmpleado = (String) request.getAttribute("rutEmpleado");
+                nombreCompleto = (String) request.getAttribute("nombreCompletoE");
+            } else {
+                response.sendRedirect("index.jsp");
+            }
+        %>
+
         <div class="container">
             <div class="section">
                 <div class="row">
                     <div class="col s12 center ">   
-                        <h3>MENU PRINCIPAL</h3>                            
+                        <p>
+                            Sesion Empleado Rut: <%= rutEmpleado%> Nombre Completo <%= nombreCompleto%>
+                        </p>
+                        <h3>MENU PRINCIPAL</h3>  
                         <button class="btn-large waves-effect waves-light ">
                             <a href="registroTaller.jsp" class="waves-effect waves-light center deep-orange darken-4 btn"><i class="material-icons left">build</i>Registro Taller</a>
                         </button>   
