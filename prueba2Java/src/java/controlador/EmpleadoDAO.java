@@ -93,13 +93,13 @@ public class EmpleadoDAO implements GeneralDAOEmpleado {
                 comuna = results.getString("comuna");
                 telefono = results.getInt("telefono");
                 email = results.getString("email");
-                fechaContrato = results.getDate("fech_asociacion");
+                fechaContrato = results.getDate("fech_contra");
                 usuario = results.getString("usuario");
                 clave = results.getString("clave");
                 horaTrabajo = results.getInt("hor_trabo");
                 valorHora = results.getInt("val_hora");
                 sueldo = results.getInt("sueldo");
-
+               
                 obj = new Empleado(fechaContrato, usuario, clave, horaTrabajo, valorHora, sueldo, rut, dv, primerNombre, segundoNombre, apellidoPaterno, apellidoMaterno, direccion, comuna, telefono, email);
             }
             connection.close();

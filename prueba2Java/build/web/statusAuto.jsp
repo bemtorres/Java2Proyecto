@@ -32,8 +32,36 @@
               FichaReparacion ficha = new  RegistroTallerDAO().buscarDatosPorPatente(patente);
               Auto auto = new AutoDAO().buscarDatos(patente);  
               Cliente cliente= new ClienteDAO().buscarDatos(auto.getRut());
-              //Empleado empleado = new EmpleadoDAO().buscarDatos(ficha.getRutPersona());
-                         
+              Empleado empleado = new EmpleadoDAO().buscarDatos(ficha.getRutPersona());
+              
+              //Ficha 
+              String idficha = ficha.getIdFicha()+ "";
+              String rutEmplado = ficha.getRutPersona() + "";
+              String fechaIngreso = ficha.getFechaIngreso()+ "";
+              String fechaSalida = ficha.getFechaSalida()+ "";
+              String motivos = ficha.getMotivos();
+              String detalles = ficha.getDetalles();
+              String horaTrabajo = ficha.getHorasTrabajo() +"";
+              String total = ficha.getTotal() + "" ;
+              //Auto
+              String cantPuertas = auto.getCantPuertas() +"";
+              String cantAsientos = auto.getCantAsientos()+"";
+              String cantAirbag = auto.getCantAirbags()+"";
+              String cambioAutomatico = auto.getCambiosAutomaticos();
+              String electrico = auto.getElectrico();
+              String direAsistida = auto.getDireccionAsistida();
+              String portaEquipaje = auto.getPortaEquipaje();              
+              String marca = auto.getMarca();
+              String foto = auto.getFoto();
+              String anyo = auto.getAnyo()+"";
+              String kilometraje = auto.getKilometraje()+"";
+              String tipo_bencina = auto.getTipo_bencina();
+              //Cliente
+              String rutCliente = cliente.getRut()+"";
+              String dv = cliente.getDv()+"";
+              String nombreCompleto = cliente.getPrimerNombre()+" "+ cliente.getSegundoNombre()+" "+cliente.getApellidoPaterno()+" "+cliente.getApellidoMaterno();
+              String telefono = cliente.getTelefono() + " ";
+              String email = cliente.getEmail();
             %> 
               
             
