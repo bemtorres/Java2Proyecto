@@ -34,8 +34,7 @@
             <div class="section">                
                 <div class="row">                  
                     <h3  class="center">Panel Vehiculos</h3>                       
-                    <div class="col s12 center ">                           
-                        <div class="col s6 center ">  
+                    <div class="col s12 center ">  
                             <p  class="center">Agregar vehiculo a un cliente</p>  
                             <h5 class=" red-text">Ingrese rut</h5> 
                             <form action="ControladorMenuVehiculo" method="POST"> 
@@ -65,9 +64,12 @@
                         </div>                                           
                     </div>                           
                 </div> 
+        </div>
                 <div>
                     <a href="menuPrincipal.jsp" class="waves-effect waves-light red btn"><i class="material-icons left">arrow_back</i>Atrás</a>
                 </div> 
+            
+            
            <footer class="page-footer grey darken-3">     
                     <div class="container">
                         <div class="row">

@@ -4,6 +4,7 @@
     Author     : carlos
 --%>
 
+<%@page import="controlador.ControladorDAOTaller"%>
 <%@page import="controlador.EmpleadoDAO"%>
 <%@page import="modelo.Empleado"%>
 <%@page import="modelo.Cliente"%>
@@ -31,14 +32,28 @@
         <title>La Tuerca</title>
     </head>
     <body>
-        <form action="ControladorCerrarSesion" method="POST">
-            <input type="submit" value="Cerrar" name="opcion">    
-        </form>
+        <nav class="teal darken-3" role="navigation">
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="index.jsp" class="brand-logo">La Tuerca</a>
+                <ul class="right hide-on-med-and-down">                                                 
+                    <li class="input-field col s1">   
+                        <form action="ControladorCerrarSesion" method="POST">  
+                            <li class="input-field col s2">   
+                                <button class="btn waves-effect waves-light btn-large" type="submit" name="opcion" value="Cerrar">Cerrar<i class="material-icons right"></i></button>
+                            </li> 
+                        </form>
+                    </li>    
+                </ul>              
+            </div>
+        </nav> 
         <form action="" method="Post">
+
             <%
                 String patente = (String) request.getAttribute("patente");
                 FichaReparacion ficha = new RegistroTallerDAO().buscarDatosPorPatente(patente);
-                Auto auto = new AutoDAO().buscarDatos(patente);
+                Auto auto = new ControladorDAOTaller().buscarDatosAuto(patente);
+                Cliente cliente = new ClienteDAO().buscarDatos(auto.getRut());
+                Empleado empleado = new EmpleadoDAO().buscarDatos(ficha.getRutPersona());
 
                 //Ficha 
                 String idficha = ficha.getIdFicha() + "";
@@ -63,62 +78,146 @@
                 String kilometraje = auto.getKilometraje() + "";
                 String tipobencina = auto.getTipo_bencina();
                 String tipoAuto = auto.getTipoAuto();
+                String dv = cliente.getDv() + "";
+                String rutCliente = cliente.getRut() + "-" + dv;
 
-            %> 
-
-
-            SERVICIO
-            <%= idficha%>
-            SERVICIO
-            <br>
-           
-            <br>
-            <br>           
-            <br>
-            AUTO
-            <br>
-            Patente: <input type="text" name="patente" value="<%= patente%>" readonly><br>
-            Fecha Ingreso: <input type="date" name="fechaIngreso" value="<%= fechaIngreso%>" readonly ><br>         
-            Motivos: <input type="text" name="motivos"  value="<%= motivos%>" readonly ><br>
-            <br>
-
-            AUTO
-            <br>
-            Patente: <input type="text" name="patente" value="<%= patente %>" readonly><br>
-            <br>
-            <br>            
-            <br>              
-            <br>
-            <br>            
-            Fecha Salida: <input type="date" value=""  name="fechaIngreso">
-            <br>
-            Mecanico a cargo: 
-            Detalles: <input type="text" name="detalles" required="required" value="<%= detalles%>" ><br>
-            Horas Trabajadas: <input type="number" name="motivos" min="0" max="30" value="<%= horaTrabajo%> "required="required" > <br>
-            Total: <%= total%>
-            <br>
-            <br> 
-
-            <br>
-            <input type="submit" value="Guardar" name="opcion">    
-        </form>
-        <footer class="page-footer grey darken-3">
+                String nombreCompleto = cliente.getPrimerNombre() + " " + cliente.getSegundoNombre() + " " + cliente.getApellidoPaterno() + " " + cliente.getApellidoMaterno();
+                String telefono = cliente.getTelefono() + " ";
+                String email = cliente.getEmail();
+            %>   
+            <form action="ControladorMenuVehiculo" method="POST"> 
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s2">
+                            <h5 class=" red-text">Id Ficha: <%= idficha%> </h5>
+                        </div>
+                        <div class="input-field col s2">
+                            <h5 class=" red-text">Rut:</h5><h6><%=  rutCliente%></h6>
+                        </div>
+                        <div class="input-field col s2">
+                            <h5 class=" red-text">Nombre:</h5><h6><%= nombreCompleto%></h6>
+                        </div>
+                        <div class="input-field col s2">
+                            <h5 class=" red-text">Telefono:</h5><h6><%= telefono%></h6>
+                        </div>
+                        <div class="input-field col s2">
+                            <h5 class=" red-text">Email:</h5><h6><%= email%></h6>
+                        </div>
+                        <div class="input-field col s2">
+                            <h5 class=" red-text">Telefono:</h5><h6><%= telefono%></h6>
+                        </div>
+                    </div>
+                        <h4>AUTO</h4>
+                    <div class="row">
+                        <div class="input-field col s2">
+                            <h5 class=" red-text">Patente: <%= patente %> </h5>
+                        </div>
+                        <div class="input-field col s2">
+                            <h5 class=" red-text">Tipo Auto:</h5><h6><%=  tipoAuto %></h6>
+                        </div>
+                        <div class="input-field col s2">
+                            <h5 class=" red-text">Año:</h5><input type="text" value="<%= anyo%>" readonly name="anyo">
+                        </div>
+                        <div class="input-field col s2">
+                            <h5 class=" red-text">Kilometraje:</h5><input type="text" value="<%= kilometraje%>" name="kilometraje">
+                        </div>
+                        <div class="input-field col s2">
+                            <h5 class=" red-text">Email:</h5><h6><%= email%></h6>
+                        </div>
+                        <div class="input-field col s2">
+                            <h5 class=" red-text">Telefono:</h5><h6><%= telefono%></h6>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input disabled value="I am not editable" id="disabled" type="text" class="validate">
+                            <label for="disabled">Disabled</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="password" type="password" class="validate">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="email" type="email" class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            This is an inline input field:
+                            <div class="input-field inline">
+                                <input id="email" type="email" class="validate">
+                                <label for="email" data-error="wrong" data-success="right">Email</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
             <div class="container">
-                <div class="row">
-                    <div class="col l6 s12">
-                        <h5 class="white-text">Acerca de</h5>
-                        <p class="grey-text text-lighten-4"></p>
-                    </div>              
+                <div class="section">
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s6">
+
+                                </div>                               
+                            </div>    
+                            <div class="row">
+                                <div class="col s12">                                    
+                                    <div class="input-field inline">
+                                        <h6><%= nombreCompleto%></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <div class="footer-copyright">
-                <div class="container">
-                    © 2017 prueba de Desarrollo en Java
-                    <a class="grey-text text-lighten-4 right" href="https://bemtorres.github.io" target="_blank"> Integrantes Carlos Orellana & Benjamin Mora</a>           
-                </div>
-            </div>
-        </footer>
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="js/materialize.min.js"></script>      
-    </body>
-</html>
+            </div>                  
+
+         
+                              
+                                <div class="row">
+                                    <div class="row">
+                                        <button class="btn-large waves-effect waves-light cyan" type="submit" name="opcion" value="AUTO">AUTO<i class="material-icons right">directions_car</i></button>
+                                    </div>
+                                    <div class="row">
+                                        <button class="btn-large waves-effect waves-light cyan" type="submit" name="opcion" value="MOTO">MOTO<i class="material-icons right">motorcycle</i></button>
+                                    </div>  
+                                </div> 
+                            </form>                            
+                                          
+                        </div>                           
+                    </div> 
+                    <div>
+                        <a href="menuPrincipal.jsp" class="waves-effect waves-light red btn"><i class="material-icons left">arrow_back</i>Atrás</a>
+                    </div>  
+
+                    
+
+                    <input type="submit" value="Guardar" name="opcion">    
+                    </form>
+                    <footer class="page-footer grey darken-3">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col l6 s12">
+                                    <h5 class="white-text">Acerca de</h5>
+                                    <p class="grey-text text-lighten-4"></p>
+                                </div>              
+                            </div>
+                        </div>
+                        <div class="footer-copyright">
+                            <div class="container">
+                                © 2017 prueba de Desarrollo en Java
+                                <a class="grey-text text-lighten-4 right" href="https://bemtorres.github.io" target="_blank"> Integrantes Carlos Orellana & Benjamin Mora</a>           
+                            </div>
+                        </div>
+                    </footer>
+                    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+                    <script type="text/javascript" src="js/materialize.min.js"></script>      
+                    </body>
+                    </html>

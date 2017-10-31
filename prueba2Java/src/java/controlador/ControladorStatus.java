@@ -66,13 +66,14 @@ public class ControladorStatus extends HttpServlet {
 
                     if (auto != null) {
                         //3.- Encuentro el auto
-                         request.setAttribute("patente", patente);
-                         request.getRequestDispatcher("statusAuto.jsp").forward(request, response);
-                        //out.println("<h1> error chingado " + auto.toString() + "</h1>"); 
+                        request.setAttribute("patente", patente);
+                        request.getRequestDispatcher("statusAuto.jsp").forward(request, response);
+                       // out.println("<h1> error chingado " + auto.toString() + "</h1>"); 
                     }
                     moto = new ControladorDAOTaller().buscarDatosMoto(patente);
                     if (moto != null) {
                         //3.- Encuentro la moto
+                       // out.println("<h1> error chingado " + moto.toString() + "</h1>"); 
                         request.setAttribute("patente", patente);
                         request.getRequestDispatcher("statusMoto.jsp").forward(request, response);
                         //out.println("<h1> error chingado " + moto.toString() + "</h1>");

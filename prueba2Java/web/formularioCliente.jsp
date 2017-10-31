@@ -20,7 +20,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-          <nav class="teal darken-3" role="navigation">
+        <nav class="teal darken-3" role="navigation">
             <div class="nav-wrapper container">
                 <a id="logo-container" href="index.jsp" class="brand-logo">La Tuerca</a>
                 <ul class="right hide-on-med-and-down">                                                 
@@ -104,18 +104,20 @@
                                             </div> 
                                             <div class="input-field col s3">  
                                                 <input class="btn-large waves-effect waves-light red"  type="submit" name="opcion" value="Elimnar">
-                                            <div class="input-field col s12">                             
-                                                <input class="btn-large waves-effect waves-light red" type="submit" name="opcion" value="Listar">
-                                            </div>                                             
-                                        </div>
-                                    </div>                     
+                                                <div class="input-field col s12">                             
+                                                    <input class="btn-large waves-effect waves-light red" type="submit" name="opcion" value="Listar">
+                                                </div>                                             
+                                            </div>
+                                        </div>                     
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> 
             </form>
-        </div>  
+
+        </div>
         <div class="input-field col s8">
             <a href="menuPrincipal.jsp" class="waves-effect waves-light red btn"><i class="material-icons left">arrow_back</i>Atrás</a>
         </div>

@@ -190,7 +190,6 @@ public class ControladorDAOTaller implements GeneralDaoTaller {
                 tipomoto = results.getString("tip_moto");
                 kilometraje = results.getInt("kilometraje");
                 tipo_bencina = results.getString("tip_bencina");
-
                 obj = new Moto(tipomoto, patente, marca, rut, foto, anyo, kilometraje, tipo_bencina);
                 break;
             }
