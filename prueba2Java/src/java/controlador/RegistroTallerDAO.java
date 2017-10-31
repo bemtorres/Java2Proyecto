@@ -92,7 +92,6 @@ public class RegistroTallerDAO implements GeneralDAORegistroTaller {
                 detalles = results.getString("detalles");
                 horasTrabajo = results.getInt("hor_trabajo");
                 total = results.getInt("total");
-                
                 obj = new FichaReparacion(idFicha, rutPersona, patente, idEstadoFicha, fechaIngreso, fechaSalida, motivos, detalles, horasTrabajo, total);
                 break;
                 

@@ -60,9 +60,9 @@ public class ControladorStatus extends HttpServlet {
                 fichaReparacion = new RegistroTallerDAO().buscarDatosPorPatente(patente);
 
                 if (fichaReparacion != null) {                    //2.-Busco al Vehiculo                         
-                    out.println("<h1> error chingado " + fichaReparacion.toString() + "</h1>");
-                    auto = new ControladorDAOTaller().buscarDatosAuto(patente);
-                    String idFicha = fichaReparacion.getIdFicha() + "";
+                    //out.println("<h1> error chingado " + fichaReparacion.toString() + "</h1>");
+                   auto = new ControladorDAOTaller().buscarDatosAuto(patente);
+                   String idFicha = fichaReparacion.getIdFicha() + "";
 
                     if (auto != null) {
                         //3.- Encuentro el auto

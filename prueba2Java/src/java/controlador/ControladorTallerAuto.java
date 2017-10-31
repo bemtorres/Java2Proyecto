@@ -40,7 +40,7 @@ public class ControladorTallerAuto extends HttpServlet {
                 String patente = request.getParameter("patente");
                 int id_est_fich = 1;
                 String fechaIngreso = request.getParameter("fechaIngreso");
-                String fechaSalida = request.getParameter("fechaSalida");
+                String fechaSalida = fechaIngreso;
 
                 String motivo = request.getParameter("motivos");
                 String detalles = "Cero Observaciones ... ";
