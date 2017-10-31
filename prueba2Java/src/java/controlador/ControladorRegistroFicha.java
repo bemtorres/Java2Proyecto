@@ -117,6 +117,9 @@ public class ControladorRegistroFicha extends HttpServlet {
                 }         
 
             }
+            if (opcion.equals("Actualizar")) {
+                
+            }
             out.println("</body>");
             out.println("</html>");
         } finally {
