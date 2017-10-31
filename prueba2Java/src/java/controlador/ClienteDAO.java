@@ -275,4 +275,45 @@ public class ClienteDAO implements GeneralDAOCliente {
         }
     }
 
+    @Override
+    public Cliente buscarDatosS(String rut, String dv) {
+       Cliente obj = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresa", "root", "");
+
+            Statement statement = connection.createStatement();
+           
+            String query = "Select * from persona join cliente using(rut_persona) where rut_persona=" + rut + " and dv_per='" + dv + "';";
+
+            ResultSet results = statement.executeQuery(query);
+
+            int campo1, campo9;
+            String campo2, campo3, campo4, campo5, campo6, campo7, campo8, campo10, campo11, campo12;
+
+            while (results.next()) {
+                campo1 = results.getInt("rut_persona");
+                campo2 = results.getString("dv_per");
+                campo3 = results.getString("p_nombre");
+                campo4 = results.getString("s_nombre");
+                campo5 = results.getString("ap_pater");
+                campo6 = results.getString("ap_mater");
+                campo7 = results.getString("direccion");
+                campo8 = results.getString("comuna");
+                campo9 = results.getInt("telefono");
+                campo10 = results.getString("email");
+                campo11 = results.getString("fech_asociacion");
+                char dvNuevo = campo2.charAt(0);
+                if (rut.equals(campo1+"") ) {
+                    obj = new Cliente(campo11, campo1, dvNuevo, campo3, campo4, campo5, campo6, campo7, campo8, campo9, campo10);
+                    break;
+                }
+            }
+            connection.close();
+        } catch (java.lang.Exception ex) {
+            System.out.println("Error: " + ex);
+        }   
+        return obj;
+    }
+
 }

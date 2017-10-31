@@ -1,6 +1,6 @@
 /*
  * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template file, choose Tools  Templates
  * and open the template in the editor.
  */
 package controlador;
@@ -31,7 +31,11 @@ public class ControladorLogin extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        String opcion = request.getParameter("opcion");
+        String opcion = "";
+        if (request.getParameter("opcion")!=null) {
+              opcion = request.getParameter("opcion");
+        }
+       
         String usuario = "", clave = "";
         switch (opcion) {
             case "Ingresar":

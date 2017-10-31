@@ -48,7 +48,7 @@ public class ControladorCrudClientes extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
 
-            if (opcion.equals("Agregar")) {
+            if (opcion.equals("Guardar")) {
                 String rutA = request.getParameter("rut");
                 char dv = request.getParameter("dv").charAt(0);
                 String pNombre = request.getParameter("pNombre");
@@ -56,10 +56,14 @@ public class ControladorCrudClientes extends HttpServlet {
                 String apPaterno = request.getParameter("apPaterno");
                 String apMaterno = request.getParameter("apMaterno");
                 String direccion = request.getParameter("direccion");
-                String comuna = request.getParameter("comuna");
+                String comuna ="Santiago";
                 String email = request.getParameter("email");
                 String telefono1 = request.getParameter("telefono");
-
+                String[] miselect = request.getParameterValues("comuna");
+                for (int i = 0; i < miselect.length; i++) {
+                    comuna = miselect[i];
+                }
+               
                 rut = Integer.parseInt(rutA);
                 telefono = Integer.parseInt(telefono1);
 
@@ -76,7 +80,7 @@ public class ControladorCrudClientes extends HttpServlet {
                         int estado1 = new ClienteDAO().agregarDatosCliente(nuevoCliente);
                         out.println("<h1>Cliente agregado...</h1>");
                     } else {
-                        out.println("<h1>Cliente NO agregado...</h1>");
+                        out.println("<h1>Cliente NO agregado" + nuevoCliente.toString() + "...</h1>");
                     }
                 } else {
                     out.println("<h1>Ingrese datos...</h1>");
@@ -107,9 +111,15 @@ public class ControladorCrudClientes extends HttpServlet {
                 String apPaterno = request.getParameter("apPaterno");
                 String apMaterno = request.getParameter("apMaterno");
                 String direccion = request.getParameter("direccion");
-                String comuna = request.getParameter("comuna");
+                String comuna = "";
                 String email = request.getParameter("email");
                 String telefono1 = request.getParameter("telefono");
+
+               String[] miselect = request.getParameterValues("comuna");
+                for (int i = 0; i < miselect.length; i++) {
+                    comuna = miselect[i];
+                }
+                
 
                 rut = Integer.parseInt(rutA);
                 telefono = Integer.parseInt(telefono1);
@@ -138,7 +148,7 @@ public class ControladorCrudClientes extends HttpServlet {
                         out.println("<h1>Usuario NO existe 2...</h1>");
                     }
                 } else {
-                    out.println("<h1>Usuario NO existe "+rutA +"...</h1>");
+                    out.println("<h1>Usuario NO existe " + rutA + "...</h1>");
                 }
 
             }

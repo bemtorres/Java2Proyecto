@@ -15,10 +15,11 @@ import modelo.Cliente;
 public interface GeneralDAOCliente {
     public abstract ArrayList mostrarDatos();
     public abstract Cliente buscarDatos(int rut, char dv) ;
+    public abstract Cliente buscarDatosS(String rut, String dv) ;
     public Cliente buscarDatos(int rut);
     public abstract int agregarDatosPersona(Cliente cliente);
     public abstract int agregarDatosCliente(Cliente cliente);
     public abstract int eliminarDatosCliente(int rut);
-     public abstract int eliminarDatosPersona(int rut, char dv);
+    public abstract int eliminarDatosPersona(int rut, char dv);
     public abstract int actualizarDatosPersonaCliente(Cliente obj); 
 }

@@ -52,6 +52,10 @@
         <servlet-name>ControladorStatus</servlet-name>
         <servlet-class>controlador.ControladorStatus</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorMenuVehiculos</servlet-name>
+        <servlet-class>controlador.ControladorMenuVehiculos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorLogin</servlet-name>
         <url-pattern>/ControladorLogin</url-pattern>
@@ -103,6 +107,10 @@
     <servlet-mapping>
         <servlet-name>ControladorStatus</servlet-name>
         <url-pattern>/ControladorStatus</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorMenuVehiculos</servlet-name>
+        <url-pattern>/ControladorMenuVehiculos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

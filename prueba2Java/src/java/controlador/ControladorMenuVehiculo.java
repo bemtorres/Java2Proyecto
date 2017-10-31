@@ -32,9 +32,8 @@ public class ControladorMenuVehiculo extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        String opcion = request.getParameter("opcion");
         int rut = 0;
-        char dv = 'p';
+        String opcion = request.getParameter("opcion");
         try {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -43,49 +42,44 @@ public class ControladorMenuVehiculo extends HttpServlet {
             out.println("<title>Servlet ControladorMenuVehiculo</title>");
             out.println("</head>");
             out.println("<body>");
+            if (opcion.equals("MOTO")) {
+                String rutA = request.getParameter("rut");
+                char dv = request.getParameter("dv").charAt(0);
+                rut = Integer.parseInt(rutA);
 
-            if (opcion.equals("Moto")) {
-                if (request.getParameter("rut") != null) {
-                    rut = Integer.parseInt(request.getParameter("rut"));
-                }
-                if (request.getParameter("dv") != null) {
-                    dv = request.getParameter("dv").charAt(0);
-                }
+                if (rut > 0) {
+                    Cliente obj = new ClienteDAO().buscarDatos(rut, dv);
+                    if (obj != null) {
+                        out.println("<h1>" + obj.toString() + "Cliente encontrado..</h1>");
+                        request.setAttribute("rut", rutA);
+                        request.setAttribute("dv", dv );
+                        request.getRequestDispatcher("formularioMoto.jsp").forward(request, response);
+                    } else {
+                        out.println("<h1>Cliente no encontrado..</h1>");
 
-                Cliente obj = new ClienteDAO().buscarDatos(rut, dv);
-                if (obj != null) {
-                    String rut0 = obj.getRut() + "";
-                    String dv0 = obj.getDv() + "";
-                    request.setAttribute("rut", rut0);
-                    request.setAttribute("dv", dv0);
-                    request.getRequestDispatcher("formularioAuto.jsp").forward(request, response);
+                    }
                 } else {
-                    out.println("<h1> Errror, no se ha encontrado el cliente.</h1>");
+                    out.println("<h1>Faltan parametros...</h1>");
                 }
             }
-            // out.println("<h1> "+obj.toString()+" </h1>");
-            //break;
-            if (opcion.equals("Moto")) {
+            if (opcion.equals("AUTO")) {
+                String rutA = request.getParameter("rut");
+                char dv = request.getParameter("dv").charAt(0);
+                rut = Integer.parseInt(rutA);
 
-                if (request.getParameter("rut") != null) {
-                    rut = Integer.parseInt(request.getParameter("rut"));
-                }
-                if (request.getParameter("dv") != null) {
-                    dv = request.getParameter("dv").charAt(0);
-                }
-
-                Cliente obj1 = new ClienteDAO().buscarDatos(rut, dv);
-
-                if (obj1 != null) {
-                    String rut1 = obj1.getRut() + "";
-                    String dv1 = obj1.getDv() + "";
-                    request.setAttribute("rut", rut1);
-                    request.setAttribute("dv", dv1);
-                    request.getRequestDispatcher("formularioMoto.jsp").forward(request, response);
+                if (rut > 0) {
+                    Cliente obj = new ClienteDAO().buscarDatos(rut, dv);
+                    if (obj != null) {
+                        request.setAttribute("rut", rutA);
+                        request.setAttribute("dv", dv);
+                        request.getRequestDispatcher("formularioAuto.jsp").forward(request, response);
+                    } else {
+                        out.println("<h1>Cliente no encontrado..</h1>");
+                    }
                 } else {
-                    out.println("<h1> Errror, no se ha encontrado el cliente.</h1>");
-
+                    out.println("<h1>Faltan parametros...</h1>");
                 }
+
             }
 
             out.println(

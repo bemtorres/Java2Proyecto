@@ -1,18 +1,19 @@
 <%-- 
-    Document   : ListarVehiculos
-    Created on : 30-10-2017, 1:10:38
-    Author     : carlos
+    Document   : listarEstadoVehiculo
+    Created on : 30-oct-2017, 4:08:23
+    Author     : benja
 --%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="controlador.AutoDAO"%>
-<%@page import="controlador.MotoDAO"%>
+
+<%@page import="modelo.FichaReparacion"%>
 <%@page import="modelo.Auto"%>
+<%@page import="controlador.MotoDAO"%>
 <%@page import="modelo.Moto"%>
-<%@page import="modelo.Vehiculo"%>
+<%@page import="controlador.AutoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
+        <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">       
         <!--Import Google Icon Font-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -24,7 +25,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>  
+    <body>
          <nav class="teal darken-3" role="navigation">
             <div class="nav-wrapper container">
                 <a id="logo-container" href="index.jsp" class="brand-logo">La Tuerca</a>
@@ -36,7 +37,7 @@
                     </li>    
                 </ul>              
             </div>
-        </nav>         
+        </nav>        
         <table id="listadoVehiculos" class="striped">  
             <thead>
             <h1 class="center"> Lista de Autos<i class="material-icons ">directions_car</i></h1>
@@ -55,9 +56,14 @@
         </thead> 
         <tbody>
 
-            <% ArrayList<Auto> arrayAutos = new ArrayList(); %>
-            <% arrayAutos = new AutoDAO().mostrarDatos();
-                for (Auto auto : arrayAutos) {%>
+            <% 
+             String patente =(String)request.getAttribute("patente");
+             Auto auto = new AutoDAO().buscarDatos(patente);
+             Moto moto = new MotoDAO().buscarDatos(patente);
+             
+            FichaReparacion ficha = new FichaReparacion
+             
+            for (Auto auto : arrayAutos) {%>
             <tr>                 
                 <td><%= auto.getPatente()%></td>
                 <td><%= auto.getMarca()%></td>
@@ -77,58 +83,29 @@
             }
         %> 
     </table>
-
-    <table id="listadoVehiculosMoto" class="striped">        
-        <thead>
-        <h1 class="center">Lista de Motos<i class="material-icons y">motorcycle</i></h1>
-        <th> Patente </th>
-        <th> Marca </th> 
-        <th> Rut </th> 
-        <th> Foto </th> 
-        <th> Año </th> 
-        <th> Kilometraje </th>
-        <th> Tipo Bencina </th>
-        <th> Tipo Moto </th>
-    </thead> 
-    <tbody>
-        <% ArrayList<Moto> arrayMotos = new ArrayList(); %>
-        <% arrayMotos = new MotoDAO().mostrarDatos();
-            for (Moto moto : arrayMotos) {%>
-        <tr>                 
-            <td><%= moto.getPatente()%></td>
-            <td><%= moto.getMarca()%></td>
-            <td><%= moto.getRut()%></td>
-            <td><%= moto.getFoto()%></td>
-            <td><%= moto.getAnyo()%></td>
-            <td><%= moto.getKilometraje()%></td>
-            <td><%= moto.getTipo_bencina()%></td>
-            <td><%= moto.getTipomoto()%></td>
-        </tr>       
-    </tbody>
-    <%
-        }
-    %> 
-</table>    
-<div class="input-field col s8">
-    <a href="menuVehiculos.jsp" class="waves-effect waves-light red btn"><i class="material-icons left">arrow_back</i>Atrás</a>
-</div>
-<footer class="page-footer grey darken-3">
-    <div class="container">
-        <div class="row">
-            <div class="col l6 s12">
-                <h5 class="white-text">Acerca de</h5>
-                <p class="grey-text text-lighten-4"></p>
-            </div>              
+        
+        
+        
+        <div class="input-field col s8">
+            <a href="menuVehiculos.jsp" class="waves-effect waves-light red btn"><i class="material-icons left">arrow_back</i>Atrás</a>
         </div>
-    </div>
-    <div class="footer-copyright">
-        <div class="container">
-            © 2017 prueba de Desarrollo en Java
-            <a class="grey-text text-lighten-4 right" href="https://bemtorres.github.io" target="_blank"> Integrantes Carlos Orellana & Benjamin Mora</a>           
-        </div>
-    </div>
-</footer>
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script> 
-</body>
+        <footer class="page-footer grey darken-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Acerca de</h5>
+                        <p class="grey-text text-lighten-4"></p>
+                    </div>              
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2017 prueba de Desarrollo en Java
+                    <a class="grey-text text-lighten-4 right" href="https://bemtorres.github.io" target="_blank"> Integrantes Carlos Orellana & Benjamin Mora</a>           
+                </div>
+            </div>
+        </footer>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>     
+    </body>
 </html>

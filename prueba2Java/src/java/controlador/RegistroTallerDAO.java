@@ -32,28 +32,7 @@ public class RegistroTallerDAO implements GeneralDAORegistroTaller {
             String consultaSQL = "SELECT * FROM fich_reparacion;";
 
             ResultSet results = statement.executeQuery(consultaSQL);
-            /*
-             id_ficha    INT NOT NULL AUTO_INCREMENT,
-            rut_persona INT NOT NULL ,
-            patente VARCHAR (10) NOT NULL ,
-            id_est_fich  INT NOT NULL ,
-            fech_ingreso DATE NOT NULL ,
-            fech_salida  DATE NOT NULL ,
-            motivos VARCHAR (250) NOT NULL ,
-            detalles VARCHAR (250) NOT NULL ,
-            hor_trabajo INT NOT NULL ,
-            total       INT NOT NULL,
            
-             private int idFicha;
-    private int rutPersona;
-    private String patente;
-    private int idEstadoFicha;
-    private String fechaIngreso;
-    private String fechaSalida;
-    private String detalles;
-    private int horasTrabajo;
-    private int total;
-             */
             int idFicha, rutPersona, idEstadoFicha, horasTrabajo, total;
             String patente, fechaIngreso, fechaSalida, motivos, detalles;
 

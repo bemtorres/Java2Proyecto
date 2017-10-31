@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Auto;
 
 /**
  *
@@ -33,14 +34,7 @@ public class ControladorEstadoVehi extends HttpServlet {
         PrintWriter out = response.getWriter();
         String opcion = request.getParameter("opcion");
         
-        switch(opcion){
-            case "Ingresar":
-                //response.sendRedirect("menuPrincipal.jsp");
-                break;
-            case "Atras":
-                response.sendRedirect("index.jsp");
-                break;
-        }
+      
         try  {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -49,6 +43,16 @@ public class ControladorEstadoVehi extends HttpServlet {
             out.println("<title>Servlet ControladorEstadoVehi</title>");            
             out.println("</head>");
             out.println("<body>");
+            switch(opcion){
+            case "Buscar":
+               String patente = request.getParameter("patente");               
+               request.setAttribute("patente", patente);
+               request.getRequestDispatcher("listarEstadoVehiculo.jsp").forward(request, response);               
+               
+               out.println("<h1>"+patente+"</h1>");
+                
+            break;       
+        }
             out.println("<h1>Servlet ControladorEstadoVehi at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
