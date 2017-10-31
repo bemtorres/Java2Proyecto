@@ -4,6 +4,7 @@
     Author     : carlos
 --%>
 
+<%@page import="controlador.ControladorDAOTaller"%>
 <%@page import="modelo.Vehiculo"%>
 <%@page import="java.time.LocalDateTime"%>
 <%@page import="controlador.EmpleadoDAO"%>
@@ -28,7 +29,8 @@
         <form action="" method="Post">
             <%    
               String patente = (String)request.getAttribute("patente");      
-              FichaReparacion ficha = new  RegistroTallerDAO().buscarDatosPorPatente(patente);  
+              FichaReparacion ficha = new  RegistroTallerDAO().buscarDatosPorPatente(patente);
+              Moto moto = new ControladorDAOTaller().buscarDatosMoto(patente);
              // Empleado empleado = new EmpleadoDAO().buscarDatos(ficha.getRutPersona());
              //ficha
              String idFicha = ficha.getIdFicha()+"";
@@ -40,6 +42,12 @@
              String horaTrabajo = ficha.getHorasTrabajo()+"";
              String total = ficha.getTotal()+"";
              //moto
+             String tipomoto = moto.getTipomoto()+"";
+             String marca = moto.getMarca()+"";
+             String foto = moto.getFoto()+"";
+             String anyo = moto.getAnyo()+"";
+             String kilometraje = moto.getKilometraje()+"";
+             String tipo_bencina = moto.getTipo_bencina();
              %>
             SERVICIO
             <br>
@@ -47,12 +55,17 @@
             <br>
             MOTO
             <br>
-            Patente: <input type="text" name="patente" value="<%= patente %>" readonly><br>
+            Patente: <%= patente %>
             <br>
-            Fecha Ingreso: <input type="date" value="<%= fechaIngreso  %>" readonly name="fechaIngreso"><br>  
-            
+            Fecha Ingreso: <input type="date" value="<%= fechaIngreso  %>" readonly name="fechaIngreso"><br>    
             Motivos: <input type="text" name="motivos" value="<%= motivos %>" readonly><br>
             <br>
+            Marca: <input type="text" name="marca" value="<%= marca  %>" readonly><br>
+            Foto: <input type="text" name="foto" value="<%= foto %>" readonly  ><br>
+            Año: <input type="text" value="<%= anyo %>" readonly name="anyo"><br>
+            Kilometraje: <input type="text" value="<%= kilometraje %>" name="kilometraje"><br>
+            Tipo de Bencina <input type="text" value="<%= tipo_bencina %>" readonly name="tipoB"><br>
+            Tipo Moto <input type="text" value="<%= tipomoto %>" readonly name="TipoM">
             <br>
             <br>            
             <br>
