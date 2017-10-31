@@ -44,6 +44,8 @@ public class ControladorTallerAuto extends HttpServlet {
 
                 String motivo = request.getParameter("motivos");
                 String detalles = "Cero Observaciones ... ";
+                
+                
                 int hor_trabajo = 0;
                 int total = 0;
 
@@ -56,6 +58,8 @@ public class ControladorTallerAuto extends HttpServlet {
                     out.println("<h1>No Agregado NO agregado...</h1>");
                 }
                 break;
+           
+                    
         }
         try {
             /* TODO output your page here. You may use following sample code. */

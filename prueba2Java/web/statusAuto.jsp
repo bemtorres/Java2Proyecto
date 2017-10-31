@@ -13,7 +13,6 @@
 <%@page import="modelo.Auto"%>
 <%@page import="controlador.RegistroTallerDAO"%>
 <%@page import="modelo.FichaReparacion"%>
-<%@page import="java.time.LocalDateTime"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -26,13 +25,13 @@
         <form action="ControladorCerrarSesion" method="POST">
             <input type="submit" value="Cerrar" name="opcion">    
         </form>
-        <form action="ControladorTallerAuto" method="Post">
+        <form action="" method="Post">
             <%    
               String patente = (String)request.getAttribute("patente");      
               FichaReparacion ficha = new  RegistroTallerDAO().buscarDatosPorPatente(patente);
               Auto auto = new AutoDAO().buscarDatos(patente);  
               Cliente cliente= new ClienteDAO().buscarDatos(auto.getRut());
-              Empleado empleado = new EmpleadoDAO().buscarDatos(ficha.getRutPersona());
+             // Empleado empleado = new EmpleadoDAO().buscarDatos(ficha.getRutPersona());
               
               //Ficha 
               String idficha = ficha.getIdFicha()+ "";
@@ -55,49 +54,60 @@
               String foto = auto.getFoto();
               String anyo = auto.getAnyo()+"";
               String kilometraje = auto.getKilometraje()+"";
-              String tipo_bencina = auto.getTipo_bencina();
+              String tipobencina = auto.getTipo_bencina();
+              String tipoAuto = auto.getTipoAuto();
               //Cliente
               String rutCliente = cliente.getRut()+"";
               String dv = cliente.getDv()+"";
               String nombreCompleto = cliente.getPrimerNombre()+" "+ cliente.getSegundoNombre()+" "+cliente.getApellidoPaterno()+" "+cliente.getApellidoMaterno();
               String telefono = cliente.getTelefono() + " ";
               String email = cliente.getEmail();
-            %> 
+           %> 
               
             
             SERVICIO
             <br>
-            Rut: <input type="text" name="rut" value="<%= cliente.getRut() %>" readonly>-<input type="text" value="<%= cliente.getDv() %>" readonly name="dv"> 
+            Rut: <input type="text" name="rut" value="<%= rutCliente %>" readonly>-<input type="text" value="<%= dv %>" readonly name="dv"> 
+            Nombre Cliente: <%= nombreCompleto %>
+            Telefono:  <%= telefono %>
+            Email:  <%= email %>
             <br>
-            <br>
+            <br>           
             <br>
             AUTO
             <br>
-            Patente: <input type="text" name="patente" value="<%= ficha.getPatente() %>" readonly><br>
-            Marca: <input type="text" name="marca" value="<%= auto.getMarca()  %>" readonly><br>
-            Tipo de Auto: <input type="text" name="tipoAuto" value="<%= auto.getTipo_bencina() %>" readonly><br>
-            Foto: <input type="text" name="foto" value="<%= auto.getFoto() %>" readonly  ><br>
-            Año: <input type="text" value="<%= auto.getAnyo() %>" readonly name="anyo"><br>
-            Kilometraje: <input type="text" value="<%= auto.getKilometraje() %>" name="kilometraje"><br>
-            Tipo de Bencina <input type="text" value="<%= auto.getTipo_bencina() %>" readonly name="tipoB"><br>
+            Patente: <input type="text" name="patente" value="<%= patente %>" readonly><br>
+            Fecha Ingreso: <input type="date" value="<%= fechaIngreso  %>" readonly name="fechaIngreso"><br>         
+            Motivos: <input type="text" name="motivos" readonly values="<%= motivos %>" ><br>
             <br>
-            Total asientos: <input type="text" value="<%= auto.getCantAsientos() %>" readonly name="asientos"><br>
-            Total airbag: <input type="text" value="<%= auto.getCantAirbags() %>" readonly name="air"><br>
-            ¿Cambio automatico?: <input type="text" value="<%= auto.getCambiosAutomaticos() %>" readonly name="cambioA"><br>
-            ¿Auto electrico? <input type="text" value="<%= auto.getElectrico() %>" readonly name="electrico"><br>
-            ¿Direccion asistida? <input type="text" value="<%= auto.getDireccionAsistida() %>" readonly name="asistida"><br>
-            ¿Portaequipaje?: <input type="text" value="<%= auto.getPortaEquipaje() %>" readonly name="porta"><br>
+           
+            Marca: <input type="text" name="marca" value="<%= marca  %>" readonly><br>
+            Tipo de Auto: <input type="text" name="tipoAuto" value="<%= tipoAuto %>" readonly><br>
+            Foto: <input type="text" name="foto" value="<%= foto %>" readonly  ><br>
+            Año: <input type="text" value="<%= anyo %>" readonly name="anyo"><br>
+            Kilometraje: <input type="text" value="<%= kilometraje %>" name="kilometraje"><br>
+            Tipo de Bencina <input type="text" value="<%= tipobencina %>" readonly name="tipoB"><br>
+            <br>
+            Total asientos: <input type="text" value="<%= cantAsientos %>" readonly name="asientos"><br>
+            Total airbag: <input type="text" value="<%= cantAirbag %>" readonly name="air"><br>
+            ¿Cambio automatico?: <input type="text" value="<%= cambioAutomatico %>" readonly name="cambioA"><br>
+            ¿Auto electrico? <input type="text" value="<%= electrico %>" readonly name="electrico"><br>
+            ¿Direccion asistida? <input type="text" value="<%= direAsistida  %>" readonly name="asistida"><br>
+            ¿Portaequipaje?: <input type="text" value="<%= portaEquipaje %>" readonly name="porta"><br>
             <br>
             <br>            
+            <br>              
             <br>
-            <% LocalDateTime ahora = LocalDateTime.now();                    
-                    String hoy = (ahora.getYear()+"-"+ahora.getMonthValue()+"-"+ahora.getDayOfMonth());   %>
-            Fecha Ingreso: <input type="date" value="<%= hoy  %>" readonly name="fechaIngreso"><br>         
-            Motivos: <input type="text" name="motivos" readonly values="<%= ficha.getMotivos() %>" ><br>
+            <br>            
+            Fecha Salida: <input type="date" value=""  name="fechaIngreso">
+            <br>
+            Mecanico a cargo: 
+            Detalles: <input type="text" name="motivos" readonly values="<%= detalles %>" ><br>
+            Horas Trabajadas: <input type="text" name="motivos" readonly values="<%= horaTrabajo %>" ><br>
+            Total: <%= total %>
             <br>
             <br>
-            <br>
-            <br>
+            
             <br>
             <input type="submit" value="Guardar" name="opcion">    
         </form>
