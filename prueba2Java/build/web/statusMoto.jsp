@@ -25,7 +25,7 @@
         <form action="ControladorCerrarSesion" method="POST">
             <input type="submit" value="Cerrar" name="opcion">    
         </form>
-        <form action="ControladorTallerMoto" method="Post">
+        <form action="" method="Post">
             <%    
               String patente = (String)request.getAttribute("patente");      
               FichaReparacion ficha = new  RegistroTallerDAO().buscarDatosPorPatente(patente);
@@ -54,35 +54,41 @@
              String nombreCompleto = cliente.getPrimerNombre()+" "+cliente.getSegundoNombre()+" "+cliente.getApellidoPaterno()+" "+cliente.getApellidoMaterno()+"";
              String telefono = cliente.getTelefono()+"";
              String email = cliente.getEmail()+"";
+             String dv = cliente.getDv()+"";
+             //empleado
              
              
              
-             
+             %>
             SERVICIO
             <br>
-            Rut: <input type="text" name="rut" value="<%= cliente.getRut() %>" readonly>-<input type="text" value="<%= cliente.getDv() %>" readonly name="dv"> 
+            Rut: <input type="text" name="rut" value="<%= rut %>" readonly>-<input type="text" value="<%= dv %>" readonly name="dv"> 
+            Nombre Cliente: <%= nombreCompleto %>
+            Telefono: <%= telefono %>
+            E-Mail: <%= email %>
             <br>
             <br>
+            MOTO
             <br>
-            AUTO
+            Patente: <input type="text" name="patente" value="<%= patente %>" readonly><br>
             <br>
-            Patente: <input type="text" name="patente" value="<%= ficha.getPatente() %>" readonly><br>
-            Marca: <input type="text" name="marca" value="<%= moto.getMarca()  %>" readonly><br>
-            Tipo de Moto: <input type="text" name="tipoAuto" value="<%= moto.getTipo_bencina() %>" readonly><br>
-            Foto: <input type="text" name="foto" value="<%= moto.getFoto() %>" readonly  ><br>
-            Año: <input type="text" value="<%= moto.getAnyo() %>" readonly name="anyo"><br>
-            Kilometraje: <input type="text" value="<%= moto.getKilometraje() %>" name="kilometraje"><br>
-            Tipo de Bencina <input type="text" value="<%= moto.getTipo_bencina() %>" readonly name="tipoB"><br>
+            Fecha Ingreso: <input type="date" value="<%= fechaIngreso  %>" readonly name="fechaIngreso"><br>         
+            Motivos: <input type="text" name="motivos" readonly values="<%= motivos %>" ><br>
             <br>
-            Tipo Moto <input type="text" value="<%= moto.getTipomoto() %>" readonly name="TipoM">
+            Marca: <input type="text" name="marca" value="<%= marca  %>" readonly><br>
+            Foto: <input type="text" name="foto" value="<%= foto %>" readonly  ><br>
+            Año: <input type="text" value="<%= anyo %>" readonly name="anyo"><br>
+            Kilometraje: <input type="text" value="<%= kilometraje %>" name="kilometraje"><br>
+            Tipo de Bencina <input type="text" value="<%= tipo_bencina %>" readonly name="tipoB"><br>
+            <br>
+            Tipo Moto <input type="text" value="<%= tipomoto %>" readonly name="TipoM">
             <br>
             <br>            
             <br>
-            <% LocalDateTime ahora = LocalDateTime.now();                    
-                    String hoy = (ahora.getYear()+"-"+ahora.getMonthValue()+"-"+ahora.getDayOfMonth());   %>
-            Fecha Ingreso: <input type="date" value="<%= hoy  %>" readonly name="fechaIngreso"><br>         
-            Motivos: <input type="text" name="motivos" readonly values="<%= ficha.getMotivos() %>" ><br>
-            <br>
+            Detalles: <input type="text" name="detalles" readonly="<%= detalles %>"><br>
+            Hora Trabajadas: <%= horaTrabajo %>
+            Total: <%= total %>
+            <br> 
             <br>
             <br>
             <br>
