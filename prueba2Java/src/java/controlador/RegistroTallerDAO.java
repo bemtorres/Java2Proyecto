@@ -154,9 +154,9 @@ public class RegistroTallerDAO implements GeneralDAORegistroTaller {
             String actualizarSQL ="UPDATE fich_reparacion  SET"
                     + " id_est_fich="+obj.getIdEstadoFicha()+","
                     + " fech_salida='"+obj.getFechaSalida()+"',"
-                    + "detalles='"+obj.getDetalles()+"',"
-                    + "hor_trabajo="+obj.getHorasTrabajo()+","
-                    + "total="+obj.getHorasTrabajo()+";";
+                    + " detalles='"+obj.getDetalles()+"',"                  
+                    + " hor_trabajo="+obj.getHorasTrabajo()+","
+                    + " total="+obj.getTotal()+" WHERE patente='"+obj.getPatente()+"';";
                     
             results = statement.executeUpdate(actualizarSQL);
 

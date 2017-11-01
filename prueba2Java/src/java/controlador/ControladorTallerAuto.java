@@ -33,6 +33,7 @@ public class ControladorTallerAuto extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String opcion = request.getParameter("opcion");
+        String detalles, motivo, patente, fechaSalida, fechaIngreso;
         switch (opcion) {
 
             case "Guardar":
@@ -44,13 +45,13 @@ public class ControladorTallerAuto extends HttpServlet {
                 }
                 int rut_persona = Integer.parseInt(rut);
                 //-------
-                String patente = request.getParameter("patente");
+                patente = request.getParameter("patente");
                 int id_est_fich = 1;
-                String fechaIngreso = request.getParameter("fechaIngreso");
-                String fechaSalida = fechaIngreso;
+                fechaIngreso = request.getParameter("fechaIngreso");
+                fechaSalida = fechaIngreso;
 
-                String motivo = request.getParameter("motivos");
-                String detalles = "Cero Observaciones ... ";
+                motivo = request.getParameter("motivos");
+                detalles = "";
                 
                 
                 int hor_trabajo = 0;
@@ -67,19 +68,21 @@ public class ControladorTallerAuto extends HttpServlet {
                 break;
            
             case "Actualizar":
-                int rut_persona1 = Integer.parseInt(request.getParameter("rut"));
-                String patente1 = request.getParameter("patente");
-                int id_est_fich1 = 2;
-                String fechaIngreso1 = request.getParameter("fechaIngreso");
-                String fechaSalida1 = request.getParameter("fechaTermino");
-
-                String motivo1 = request.getParameter("motivos");
-                String detalles1 = request.getParameter("detalles");
+                patente = request.getParameter("patente");
+                int id_est_fich1 = 2;              
+                fechaSalida = request.getParameter("fechaTermino");                
+                detalles = request.getParameter("detalles");
+                String horasTrabajo = request.getParameter("horasTrabajadas");
+                int valHoras = Integer.parseInt(request.getParameter("valHoras"));
+                hor_trabajo = Integer.parseInt(horasTrabajo);
+                total = hor_trabajo * valHoras;
                 
-               //FichaReparacion ficha2 = new FichaReparacion(0, rut_persona, patente, id_est_fich, fechaIngreso, fechaSalida, motivo ,detalles, hor_trabajo, total);
+                FichaReparacion ficha2 = new FichaReparacion(0, 0, patente, id_est_fich1, "", fechaSalida,"", detalles, hor_trabajo, total);
+    
+                int estado1 = new RegistroTallerDAO().actualizarDatosFicha(ficha2);
                 
-              //  int estado = new RegistroTallerDAO().actualizarDatosFicha(ficha2);
-                
+                request.setAttribute("patente",patente);
+                request.getRequestDispatcher("statusAuto.jsp").forward(request, response);
                 break;
         }
         try {

@@ -85,12 +85,13 @@
             String email = cliente.getEmail();
         %>   
         <div class="container">
-            <form action="ControladorMenuVehiculo" method="POST"> 
+            <form action="ControladorTallerAuto" method="POST"> 
                 <div class="row">
                     <div class="row">
                         <div class="input-field col s2">
-                            <p class=" red-text">Id Ficha: <%= idficha%> </p>
-                        </div>
+                             <h5 class=" red-text">Patente:<input type="text" value="<%= idficha %>" readonly name="idFicha"> </h5>
+
+                          </div>
                         <div class="input-field col s2">
                             <h5 class=" red-text">Rut:</h5><h6><%=  rutCliente%></h6>
                         </div>
@@ -109,7 +110,7 @@
                     </div>
                     <h4 center >AUTO</h4>
                     <div class="row">                        
-                        <h5 class=" red-text">Patente:<h5> <%= patente%><h6> </h5>
+                        <h5 class=" red-text">Patente:<input type="text" value="<%= patente %>" readonly name="patente"> </h5>
 
                             <div class="input-field col s2">
                                 <h5 class=" red-text">Tipo Auto:</h5><h6><%=  tipoAuto%></h6>
@@ -182,35 +183,38 @@
                             String hoy = (ahora.getYear() + "-" + ahora.getMonthValue() + "-" + ahora.getDayOfMonth());%>
                         <div class="input-field col s2"> 
                             <h5 class=" blue-text">Fecha Termino:</h5>
-                            <input type="date" value="<%= hoy%>"  required="required" name="fechaIngreso">                            
+                            <input type="date" value="<%= hoy%>"  required="required" name="fechaTermino">                            
                         </div>
-                        <div class="input-field col s10"> 
+                        <div class="input-field col s12"> 
                             <h5 class=" red-text">Motivos:</h5>
-                            <input type="text"  name="motivos" OnlyRead value="<%= motivos%>" ><br>                          
+                            <input type="text"  name="motivos" readonly value="<%= motivos%>" ><br>                          
                         </div>
-                        <div class="input-field col s10"> 
+                        <div class="input-field col s12"> 
                             <h5 class=" blue-text">Detalles:</h5>
-                            <input type="text"  name="detalles" placeholder="<%= detalles%>" required="required" value="" ><br>                          
+                            <input type="text"  name="detalles" equired="required" value="<%= detalles%>" ><br>                          
                         </div>
                         <div class="input-field col s2"> 
                             <h6 class=" blue-text">Valor Hora Trabajo</h6>
-                            <input type="number" name="valHoras" onlyRead value="<%= val_hora%>"  >                          
+                            <input type="number" name="valHoras" value="<%= val_hora%>" readonly >                          
                         </div>
                         <div class="input-field col s2"> 
                             <h6 class=" blue-text">Horas Trabajadas:</h6>
-                            <input type="number" name="horasTrabajadas" min="0" max="30" value="<%= horaTrabajo%>" required="required" >                          
-
-                        </div>                                    
+                            <input type="number" name="horasTrabajadas" min="0" max="30" value="<%= horaTrabajo%>" required="required" >                         
+                        </div>   
+                         <div class="input-field col s2"> 
+                            <h6 class=" blue-text">Total:</h6>
+                            <input type="number" name="total" min="0" max="30" value="<%= total%>" readonly >                         
+                        </div> 
                     </div>
                     <div class="row">
                         <div class="row">
-                            <button class="btn-large waves-effect waves-light cyan" type="submit" name="opcion" value="Guardar">Guardar<i class="material-icons right">save</i></button>
+                            <button class="btn-large waves-effect waves-light cyan" type="submit" name="opcion" value="Actualizar">Actualizar<i class="material-icons right">save</i></button>
                         </div>                                                  
                     </div>  </div> 
             </form>
         </div>                 
         <div>
-            <a href="menuPrincipal.jsp" class="waves-effect waves-light red btn"><i class="material-icons left">arrow_back</i>Atrás</a>
+            <a href="menuPrincipal.jsp" class="waves-effect waves-light red btn"><i class="material-icons left">arrow_back</i>Volve Menu Principal</a>
         </div>  
         <footer class="page-footer grey darken-3">
             <div class="container">
