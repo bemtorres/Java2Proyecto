@@ -5,22 +5,23 @@
             <url>src/java/controlador/RegistroTallerDAO.java</url>
             <bookmark id="1">
                 <name/>
-                <line>179</line>
+                <line>180</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/web/menuVehiculos.jsp</file>
-            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/web/registroStatus.jsp</file>
-            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/web/index.jsp</file>
-            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/web/menuPrincipal.jsp</file>
-            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/web/statusAuto.jsp</file>
-            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/web/registroTaller.jsp</file>
-            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/src/java/controlador/ControladorTallerAuto.java</file>
-            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/src/java/controlador/ControladorStatus.java</file>
-            <file>file:/C:/Users/benja/Desktop/Java2Proyecto/prueba2Java/src/java/controlador/ControladorRegistroFicha.java</file>
+            <file>file:/C:/Users/carlos/Desktop/javaPrueba2/Java2Proyecto/prueba2Java/web/registroTaller.jsp</file>
+            <file>file:/C:/Users/carlos/Desktop/javaPrueba2/Java2Proyecto/prueba2Java/src/java/controlador/ControladorMenuVehiculo.java</file>
+            <file>file:/C:/Users/carlos/Desktop/javaPrueba2/Java2Proyecto/prueba2Java/src/java/controlador/ControladorRegistroFicha.java</file>
+            <file>file:/C:/Users/carlos/Desktop/javaPrueba2/Java2Proyecto/prueba2Java/web/statusAuto.jsp</file>
+            <file>file:/C:/Users/carlos/Desktop/javaPrueba2/Java2Proyecto/prueba2Java/web/estadoVehiculo.jsp</file>
+            <file>file:/C:/Users/carlos/Desktop/javaPrueba2/Java2Proyecto/prueba2Java/src/java/controlador/ClienteDAO.java</file>
+            <file>file:/C:/Users/carlos/Desktop/javaPrueba2/Java2Proyecto/prueba2Java/web/menuVehiculos.jsp</file>
+            <file>file:/C:/Users/carlos/Desktop/javaPrueba2/Java2Proyecto/prueba2Java/web/statusMoto.jsp</file>
+            <file>file:/C:/Users/carlos/Desktop/javaPrueba2/Java2Proyecto/prueba2Java/web/registroStatus.jsp</file>
+            <file>file:/C:/Users/carlos/Desktop/javaPrueba2/Java2Proyecto/prueba2Java/web/menuPrincipal.jsp</file>
         </group>
     </open-files>
 </project-private>
