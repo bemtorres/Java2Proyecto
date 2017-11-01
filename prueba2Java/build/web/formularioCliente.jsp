@@ -116,12 +116,10 @@
                     </div>
                 </div> 
             </form>
-
-        </div>
+        </div>        
         <div class="input-field col s8">
             <a href="menuPrincipal.jsp" class="waves-effect waves-light red btn"><i class="material-icons left">arrow_back</i>Atrás</a>
         </div>
-
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <script>

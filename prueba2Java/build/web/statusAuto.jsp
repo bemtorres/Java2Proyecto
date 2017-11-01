@@ -149,13 +149,13 @@
                 <div class="row">
                     <div class="input-field col s2">
                         <h5 class=" red-text"> ¿Portaequipaje?:</h5> <input type="text" value="<%= portaEquipaje%>" readonly name="porta">
-                    </div>
-                    <div class="input-field col s2">
-                        <h5 class=" red-text">Fecha Ingreso:</h5> <input type="date" name="fechaIngreso" value="<%= fechaIngreso%>" readonly ><br> 
-                    </div>                       
+                    </div>                                        
                 </div>
                 <h4 center >Estado del Vehiculo Taller</h4>
                 <div class="row">
+                     <div class="input-field col s2">
+                        <h5 class=" red-text">Fecha Ingreso:</h5> <input type="date" name="fechaIngreso" value="<%= fechaIngreso%>" readonly ><br> 
+                    </div>  
                     <% LocalDateTime ahora = LocalDateTime.now();
                                                 String hoy = (ahora.getYear() + "-" + ahora.getMonthValue() + "-" + ahora.getDayOfMonth());%>
                     <div class="input-field col s2"> 
@@ -163,7 +163,7 @@
                         <input type="date" value="<%= hoy%>"  required="required" name="fechaIngreso">                            
                     </div>
                      <div class="input-field col s10"> 
-                        <h5 class=" blue-text">Detalles:</h5>
+                        <h5 class=" blue-text">Motivod:</h5>
                         <input type="text"  name="motivos" OnlyRead value="<%= motivos %>" ><br>                          
                     </div>
                     <div class="input-field col s10"> 

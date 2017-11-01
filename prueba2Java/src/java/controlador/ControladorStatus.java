@@ -45,6 +45,7 @@ public class ControladorStatus extends HttpServlet {
         FichaReparacion fichaReparacion = null;
         Auto auto = null;
         Moto moto = null;
+        String estado;
         try {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -78,6 +79,11 @@ public class ControladorStatus extends HttpServlet {
                         request.getRequestDispatcher("statusMoto.jsp").forward(request, response);
                         //out.println("<h1> error chingado " + moto.toString() + "</h1>");
                     }
+                }
+                else{
+                    estado = "*Patente no encontrada";
+                    request.setAttribute("estado", estado);
+                    request.getRequestDispatcher("registroStatus.jsp").forward(request, response);
                 }
             }
 

@@ -42,15 +42,27 @@
                         <h4>Estado Vehiculo</h4> 
                     </div>
                     <div class="col s12">
-                        <br>
+                        <br>                        
                         <h5>Busque su vehiculo</h5>
                         <form action="ControladorStatus" method="Post">
+                             <% 
+                                 String estado = "";
+                                 if ((String)request.getAttribute("estado")==null) {
+                                         estado = "*Ingrese patente";
+                                 }
+                                 else{
+                                     estado = (String)request.getAttribute("estado");
+                                 }
+                                 
+                             %>
                             <div class="input-field col s8">
                                 <i class="material-icons prefix">directions_car</i>
-                                <input type="text" maxlength="6" required="required" name="patente">
-                                
+                                <input type="text" maxlength="6" required="required" name="patente">                                
                                 <label for="icon_prefix">Ingrese pantente del vehiculo</label>
-                            </div>                              
+                                 <h6 class="red-text" ><%= estado %></h6>
+                            </div>
+                           
+                           
                             <div class="row">
                                     <div class="row">
                                          <button class="btn-large waves-effect waves-light cyan" type="submit" name="opcion" value="Buscar">Buscar<i class="material-icons right">motorcycle</i></button>

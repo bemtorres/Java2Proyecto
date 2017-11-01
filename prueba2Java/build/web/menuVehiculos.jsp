@@ -38,6 +38,15 @@
                             <p  class="center">Agregar vehiculo a un cliente</p>  
                             <h5 class=" red-text">Ingrese rut</h5> 
                             <form action="ControladorMenuVehiculo" method="POST"> 
+                                                             <% 
+                                 String estado = "";
+                                 if ((String)request.getAttribute("estado")==null) {
+                                         estado = "*Ingrese patente";
+                                 }
+                                 else{
+                                     estado = (String)request.getAttribute("estado");
+                                 }                                 
+                             %>
                                 <div class="row">
                                     <div class="input-field col s6">                                           
                                     <i class="material-icons prefix">portrait</i> 
