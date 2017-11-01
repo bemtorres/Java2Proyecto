@@ -13,10 +13,33 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">       
+        <!--Import Google Icon Font-->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"
+              media="screen,projection"/>
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="icon" href="images/favicon-32x32.png" sizes="32x32">
+        <title>La Tuerca</title>
     </head>
     <body>
+        <nav class="teal darken-3" role="navigation">
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="index.jsp" class="brand-logo">La Tuerca</a>
+                <ul class="right hide-on-med-and-down">                                                 
+                    <li class="input-field col s1">   
+                        <form action="ControladorCerrarSesion" method="POST">  
+                            <li class="input-field col s2">   
+                                <button class="btn waves-effect waves-light btn-large" type="submit" name="opcion" value="Cerrar">Cerrar<i class="material-icons right"></i></button>
+                            </li> 
+                        </form>
+                    </li>    
+                </ul>              
+            </div>
+        </nav> 
         <h1>Taller Auto</h1>
         <form action="ControladorCerrarSesion" method="POST">
             <input type="submit" value="Cerrar" name="opcion">    
@@ -51,25 +74,36 @@
                     <option value="" disabled selected>Empleado a cargo</option>                    
                     <%
                         ArrayList<Empleado> arrayEmpleados = new ArrayList();
-                        arrayEmpleados =new EmpleadoDAO().mostrarDatos();
-                        for (Empleado emp : arrayEmpleados) {     
-                   %>                    
-                    <option value="<%= emp.getRut() %>" ><%= emp.getPrimerNombre() %>  <%= emp.getRut() %>-<%= emp.getDv()%> </option>                    
-                               
-                <%   } 
-                %>
+                        arrayEmpleados = new EmpleadoDAO().mostrarDatos();
+                        for (Empleado emp : arrayEmpleados) {
+                    %>                    
+                    <option value="<%= emp.getRut()%>" ><%= emp.getPrimerNombre()%>  <%= emp.getRut()%>-<%= emp.getDv()%> </option>                    
+
+                    <%   }
+                    %>
                 </select>                
             </div>
             <br>
             AUTO
             <br>
-            Patente: <input type="text" name="patente" value="<%= patente%>" readonly><br>
-            Marca: <input type="text" name="marca" value="<%= marca%>" readonly><br>
-            Tipo de Auto: <input type="text" name="tipoAuto" value="<%= tipoA%>" readonly><br>
-            Foto: <input type="text" name="foto" value="<%= foto%>" readonly  ><br>
-            Año: <input type="text" value="<%= anuo%>" readonly name="anyo"><br>
-            Kilometraje: <input type="text" value="<%= kilo%>" name="kilometraje"><br>
-            Tipo de Bencina <input type="text" value="<%= tipoB%>" readonly name="tipoB"><br>
+                <div class="input-field col s2">
+                                <p class=" red-text">Patente: <%= patente %> </p>
+                            </div>
+                            <div class="input-field col s2">
+                                <h5 class=" red-text">Marca:</h5><h6><%=  marca%></h6>
+                            </div>
+                            <div class="input-field col s2">
+                                <h5 class=" red-text">Tipo Auto:</h5><h6><%= tipoA%></h6>
+                            </div>
+                            <div class="input-field col s2">
+                                <h5 class=" red-text">Toto:</h5><h6><%= foto%></h6>
+                            </div>
+                            <div class="input-field col s2">
+                                <h5 class=" red-text">Kilometraje:</h5><h6><%= kilo%></h6>
+                            </div>
+                            <div class="input-field col s2">
+                                <h5 class=" red-text">Tipo de Bencina:</h5><h6><%= tipoB%></h6>
+                            </div>
             <br>
             Total asientos: <input type="text" value="<%= canA%>" readonly name="asientos"><br>
             Total airbag: <input type="text" value="<%= canAir%>" readonly name="air"><br>
@@ -90,7 +124,24 @@
             <br>
             <br>
             <input type="submit" value="Guardar" name="opcion">    
-        </form>      
+        </form> 
+
         <a href="registroTaller.jsp">volver</a>
+        <footer class="page-footer grey darken-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Acerca de</h5>
+                        <p class="grey-text text-lighten-4"></p>
+                    </div>              
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2017 prueba de Desarrollo en Java
+                    <a class="grey-text text-lighten-4 right" href="https://bemtorres.github.io" target="_blank"> Integrantes Carlos Orellana & Benjamin Mora</a>           
+                </div>
+            </div>
+        </footer>
     </body>
 </html>
