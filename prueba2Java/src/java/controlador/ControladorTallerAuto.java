@@ -36,7 +36,14 @@ public class ControladorTallerAuto extends HttpServlet {
         switch (opcion) {
 
             case "Guardar":
-                int rut_persona = Integer.parseInt(request.getParameter("rut"));
+                String rut="0";
+                //Rut del empleador
+                String[] miselect = request.getParameterValues("empleadoRut");
+                for (int i = 0; i < miselect.length; i++) {
+                    rut = miselect[i];
+                }
+                int rut_persona = Integer.parseInt(rut);
+                //-------
                 String patente = request.getParameter("patente");
                 int id_est_fich = 1;
                 String fechaIngreso = request.getParameter("fechaIngreso");
@@ -59,7 +66,21 @@ public class ControladorTallerAuto extends HttpServlet {
                 }
                 break;
            
-                    
+            case "Actualizar":
+                int rut_persona1 = Integer.parseInt(request.getParameter("rut"));
+                String patente1 = request.getParameter("patente");
+                int id_est_fich1 = 2;
+                String fechaIngreso1 = request.getParameter("fechaIngreso");
+                String fechaSalida1 = request.getParameter("fechaTermino");
+
+                String motivo1 = request.getParameter("motivos");
+                String detalles1 = request.getParameter("detalles");
+                
+               //FichaReparacion ficha2 = new FichaReparacion(0, rut_persona, patente, id_est_fich, fechaIngreso, fechaSalida, motivo ,detalles, hor_trabajo, total);
+                
+              //  int estado = new RegistroTallerDAO().actualizarDatosFicha(ficha2);
+                
+                break;
         }
         try {
             /* TODO output your page here. You may use following sample code. */
