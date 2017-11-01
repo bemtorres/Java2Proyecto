@@ -33,6 +33,7 @@ public class ControladorMenuVehiculo extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         int rut = 0;
+        String estado;
         String opcion = request.getParameter("opcion");
         try {
             /* TODO output your page here. You may use following sample code. */
@@ -56,11 +57,15 @@ public class ControladorMenuVehiculo extends HttpServlet {
                         request.setAttribute("dv", dvS);
                         request.getRequestDispatcher("formularioMoto.jsp").forward(request, response);
                     } else {
-                        out.println("<h1>Cliente no encontrado..</h1>");
+                        estado = "*El Cliente no existe";
+                         request.setAttribute("estado", estado);
+                        request.getRequestDispatcher("menuVehiculos.jsp").forward(request, response);
 
                     }
                 } else {
-                    out.println("<h1>Faltan parametros...</h1>");
+                     estado = "*Rellene con los datos indicados";
+                         request.setAttribute("estado", estado);
+                        request.getRequestDispatcher("menuVehiculos.jsp").forward(request, response);
                 }
             }
             if (opcion.equals("AUTO")) {
@@ -76,10 +81,14 @@ public class ControladorMenuVehiculo extends HttpServlet {
                         request.setAttribute("dv", dvS);
                         request.getRequestDispatcher("formularioAuto.jsp").forward(request, response);
                     } else {
-                        out.println("<h1>Cliente no encontrado..</h1>");
+                         estado = "*El Cliente no existe";
+                         request.setAttribute("estado", estado);
+                        request.getRequestDispatcher("menuVehiculos.jsp").forward(request, response);
                     }
                 } else {
-                    out.println("<h1>Faltan parametros...</h1>");
+                   estado = "*Rellene con los datos indicados";
+                         request.setAttribute("estado", estado);
+                        request.getRequestDispatcher("menuVehiculos.jsp").forward(request, response);
                 }
 
             }

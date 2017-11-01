@@ -146,80 +146,46 @@
                         <div class="input-field col s2">
                             <h5 class=" red-text">¿Direccion asistida?</h5> <input type="text" value="<%= direAsistida%>" readonly name="asistida">
                         </div>
-<<<<<<< HEAD
-                </div>
-                <div class="row">
-                    <div class="input-field col s2">
-                        <h5 class=" red-text"> Total airbag:</h5> <input type="text" value="<%= cantAirbag%>" readonly name="air">
+
                     </div>
-                    <div class="input-field col s2">
-                        <h5 class=" red-text">¿Cambio automatico?:</h5> <input type="text" value="<%= cambioAutomatico%>" readonly name="cambioA">
-                    </div>
-                    <div class="input-field col s2">
-                        <h5 class=" red-text"> Total airbag:</h5> <input type="text" value="<%= cantAirbag%>" readonly name="air">
-                    </div>
-                    <div class="input-field col s2">
-                        <h5 class=" red-text">Total asientos:</h5> <input type="text" value="<%= cantAsientos%>" readonly name="asientos">
-                    </div>
-                    <div class="input-field col s2">
-                        <h5 class=" red-text">¿Auto electrico?</h5> <input type="text" value="<%= electrico%>" readonly name="electrico">
-                    </div>
-                    <div class="input-field col s2">
-                        <h5 class=" red-text">¿Direccion asistida?</h5> <input type="text" value="<%= direAsistida%>" readonly name="asistida">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s2">
-                        <h5 class=" red-text"> ¿Portaequipaje?:</h5> <input type="text" value="<%= portaEquipaje%>" readonly name="porta">
-                    </div>                                        
-                </div>
-                <h4 center >Estado del Vehiculo Taller</h4>
-                <div class="row">
-                     <div class="input-field col s2">
-                        <h5 class=" red-text">Fecha Ingreso:</h5> <input type="date" name="fechaIngreso" value="<%= fechaIngreso%>" readonly ><br> 
-                    </div>  
-                    <% LocalDateTime ahora = LocalDateTime.now();
-                                                String hoy = (ahora.getYear() + "-" + ahora.getMonthValue() + "-" + ahora.getDayOfMonth());%>
-                    <div class="input-field col s2"> 
-                        <h5 class=" blue-text">Fecha Termino:</h5>
-                        <input type="date" value="<%= hoy%>"  required="required" name="fechaIngreso">                            
-                    </div>
-                     <div class="input-field col s10"> 
-                        <h5 class=" blue-text">Motivod:</h5>
-                        <input type="text"  name="motivos" OnlyRead value="<%= motivos %>" ><br>                          
-                    </div>
-                    <div class="input-field col s10"> 
-                        <h5 class=" blue-text">Detalles:</h5>
-                        <input type="text"  name="detalles" placeholder="<%= detalles%>" required="required" value="" ><br>                          
-                    </div>
-                    <div class="input-field col s2"> 
-                        <h6 class=" blue-text">Valor Hora Trabajo</h6>
-                        <input type="number" name="valHoras" onlyRead value="<%= val_hora %>"  >                          
-                    </div>
-                    <div class="input-field col s2"> 
-                        <h6 class=" blue-text">Horas Trabajadas:</h6>
-                        <input type="number" name="horasTrabajadas" min="0" max="30" value="<%= horaTrabajo%>" required="required" >                          
-=======
->>>>>>> a4527d152bfdbb3fa232e0b7b03b2d320d315d3f
+                    <div class="row">
+                        <div class="input-field col s2">
+                            <h5 class=" red-text"> Total airbag:</h5> <input type="text" value="<%= cantAirbag%>" readonly name="air">
+                        </div>
+                        <div class="input-field col s2">
+                            <h5 class=" red-text">¿Cambio automatico?:</h5> <input type="text" value="<%= cambioAutomatico%>" readonly name="cambioA">
+                        </div>
+                        <div class="input-field col s2">
+                            <h5 class=" red-text"> Total airbag:</h5> <input type="text" value="<%= cantAirbag%>" readonly name="air">
+                        </div>
+                        <div class="input-field col s2">
+                            <h5 class=" red-text">Total asientos:</h5> <input type="text" value="<%= cantAsientos%>" readonly name="asientos">
+                        </div>
+                        <div class="input-field col s2">
+                            <h5 class=" red-text">¿Auto electrico?</h5> <input type="text" value="<%= electrico%>" readonly name="electrico">
+                        </div>
+                        <div class="input-field col s2">
+                            <h5 class=" red-text">¿Direccion asistida?</h5> <input type="text" value="<%= direAsistida%>" readonly name="asistida">
+                        </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s2">
                             <h5 class=" red-text"> ¿Portaequipaje?:</h5> <input type="text" value="<%= portaEquipaje%>" readonly name="porta">
-                        </div>
-                        <div class="input-field col s2">
-                            <h5 class=" red-text">Fecha Ingreso:</h5> <input type="date" name="fechaIngreso" value="<%= fechaIngreso%>" readonly ><br> 
-                        </div>                       
+                        </div>                                        
                     </div>
                     <h4 center >Estado del Vehiculo Taller</h4>
                     <div class="row">
+                        <div class="input-field col s2">
+                            <h5 class=" red-text">Fecha Ingreso:</h5> <input type="date" name="fechaIngreso" value="<%= fechaIngreso%>" readonly ><br> 
+                        </div>  
                         <% LocalDateTime ahora = LocalDateTime.now();
-                        String hoy = (ahora.getYear() + "-" + ahora.getMonthValue() + "-" + ahora.getDayOfMonth());%>
+                            String hoy = (ahora.getYear() + "-" + ahora.getMonthValue() + "-" + ahora.getDayOfMonth());%>
                         <div class="input-field col s2"> 
                             <h5 class=" blue-text">Fecha Termino:</h5>
                             <input type="date" value="<%= hoy%>"  required="required" name="fechaIngreso">                            
                         </div>
                         <div class="input-field col s10"> 
-                            <h5 class=" blue-text">Detalles:</h5>
+                            <h5 class=" red-text">Motivos:</h5>
                             <input type="text"  name="motivos" OnlyRead value="<%= motivos%>" ><br>                          
                         </div>
                         <div class="input-field col s10"> 
@@ -233,18 +199,14 @@
                         <div class="input-field col s2"> 
                             <h6 class=" blue-text">Horas Trabajadas:</h6>
                             <input type="number" name="horasTrabajadas" min="0" max="30" value="<%= horaTrabajo%>" required="required" >                          
-                        </div>
-                        <div class="input-field col s2"> 
-                            <h6 class=" blue-text">Total:</h6>
-                            <input type="number" name="horasTrabajadas" min="0" value="<%= total%>">                          
-                        </div>
+
+                        </div>                                    
                     </div>
-                </div>
-                <div class="row">
                     <div class="row">
-                        <button class="btn-large waves-effect waves-light cyan" type="submit" name="opcion" value="Guardar">Guardar<i class="material-icons right">save</i></button>
-                    </div>                                                  
-                </div> 
+                        <div class="row">
+                            <button class="btn-large waves-effect waves-light cyan" type="submit" name="opcion" value="Guardar">Guardar<i class="material-icons right">save</i></button>
+                        </div>                                                  
+                    </div>  </div> 
             </form>
         </div>                 
         <div>
