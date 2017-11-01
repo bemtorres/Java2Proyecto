@@ -127,7 +127,7 @@
                         <h4 center >Estado del Vehiculo</h4>
                         <div class="row">
                             <% LocalDateTime ahora = LocalDateTime.now();
-                            String hoy = (ahora.getYear() + "-" + ahora.getMonthValue() + "-" + ahora.getDayOfMonth());%>
+                                String hoy = (ahora.getYear() + "-" + ahora.getMonthValue() + "-" + ahora.getDayOfMonth());%>
                             <div class="input-field col s2"> 
                                 <h5 class=" blue-text">Fecha Termino:</h5>
                                 <input type="date" value="<%= hoy%>"  required="required" name="fechaIngreso">                            
@@ -135,6 +135,10 @@
                             <div class="input-field col s10"> 
                                 <h5 class=" blue-text">Detalles:</h5>
                                 <input type="text"  name="detalles" placeholder="<%= detalles%>" required="required" value="" ><br>                          
+                            </div>
+                            <div class="input-field col s10"> 
+                                <h5 class=" blue-text">Motivos:</h5>
+                                <input type="text"  name="detalles" placeholder="<%= motivos %>" required="required" value="" ><br>                          
                             </div>
                             <div class="input-field col s2"> 
                                 <h6 class=" blue-text">Valor Hora Trabajo</h6>
