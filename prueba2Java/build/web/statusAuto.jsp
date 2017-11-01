@@ -89,7 +89,7 @@
                 <div class="row">
                     <div class="row">
                         <div class="input-field col s2">
-                             <h5 class=" red-text">Patente:<input type="text" value="<%= idficha %>" readonly name="idFicha"> </h5>
+                             <h5 class=" red-text">Id Ficha:<input type="text" value="<%= idficha %>" readonly name="idFicha"> </h5>
 
                           </div>
                         <div class="input-field col s2">

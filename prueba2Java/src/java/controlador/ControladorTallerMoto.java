@@ -33,7 +33,7 @@ public class ControladorTallerMoto extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String opcion = request.getParameter("opcion");
-        switch(opcion){
+        switch (opcion) {
             case "Guardar":
                 int rut_persona = Integer.parseInt(request.getParameter("rut"));
                 String patente = request.getParameter("patente");
@@ -43,14 +43,12 @@ public class ControladorTallerMoto extends HttpServlet {
 
                 String motivo = request.getParameter("motivos");
                 String detalles = "Cero Observaciones ... ";
-                
-                
-                
+
                 int hor_trabajo = 0;
                 int total = 0;
 
-                FichaReparacion ficha = new FichaReparacion(0, rut_persona, patente, id_est_fich, fechaIngreso, fechaSalida, motivo ,detalles, hor_trabajo, total);
-                
+                FichaReparacion ficha = new FichaReparacion(0, rut_persona, patente, id_est_fich, fechaIngreso, fechaSalida, motivo, detalles, hor_trabajo, total);
+
                 int estado = new RegistroTallerDAO().agregarDatos(ficha);
                 if (estado > 0) {
                     out.println("<h1>Datos Agregado agregado...</h1>");
@@ -58,20 +56,36 @@ public class ControladorTallerMoto extends HttpServlet {
                     out.println("<h1>No Agregado NO agregado...</h1>");
                 }
                 break;
+            case "Actualizar":
+                patente = request.getParameter("patente");
+                int id_est_fich1 = 2;
+                fechaSalida = request.getParameter("fechaTermino");
+                detalles = request.getParameter("detalles");
+                String horasTrabajo = request.getParameter("horasTrabajadas");
+                int valHoras = Integer.parseInt(request.getParameter("valHoras"));
+                hor_trabajo = Integer.parseInt(horasTrabajo);
+                total = hor_trabajo * valHoras;
+
+                FichaReparacion ficha2 = new FichaReparacion(0, 0, patente, id_est_fich1, "", fechaSalida, "", detalles, hor_trabajo, total);
+
+                int estado1 = new RegistroTallerDAO().actualizarDatosFicha(ficha2);
+
+                request.setAttribute("patente", patente);
+                request.getRequestDispatcher("statusMoto.jsp").forward(request, response);
+                break;
         }
         try {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ControladorRegistro</title>");            
+            out.println("<title>Servlet ControladorRegistro</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ControladorRegistro at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
-        }
-        finally {            
+        } finally {
             out.close();
         }
     }

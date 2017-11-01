@@ -104,7 +104,8 @@
                         </div>
                         <h4 center >MOTO</h4>
                         <div class="row">                        
-                            <h5 class=" red-text">Patente:<h5> <%= patente%><h6> </h5>
+                            <h5 class=" red-text">Patente:<input type="text" value="<%= patente %>" readonly name="patente"> </h5>
+
 
                                 <div class="input-field col s2">
                                     <h5 class=" red-text">Tipo Moto:</h5><h6><%=  tipomoto%></h6>
@@ -118,27 +119,26 @@
                                 <div class="input-field col s2">
                                     <h5 class=" red-text">Tipo de Bencina</h5><input type="text" value="<%= tipo_bencina%>" readonly name="tipoB">
                                 </div>
-                        </div>
+                        </div>                       
+                        <h4 center >Estado del Vehiculo</h4>
                         <div class="row">
                             <div class="input-field col s2">
                                 <h5 class=" red-text">Fecha Ingreso:</h5> <input type="date" name="fechaIngreso" value="<%= fechaIngreso%>" readonly ><br> 
-                            </div>                       
-                        </div>
-                        <h4 center >Estado del Vehiculo</h4>
-                        <div class="row">
+                            </div>   
                             <% LocalDateTime ahora = LocalDateTime.now();
                                 String hoy = (ahora.getYear() + "-" + ahora.getMonthValue() + "-" + ahora.getDayOfMonth());%>
                             <div class="input-field col s2"> 
                                 <h5 class=" blue-text">Fecha Termino:</h5>
                                 <input type="date" value="<%= hoy%>"  required="required" name="fechaIngreso">                            
                             </div>
-                            <div class="input-field col s10"> 
+                            
+                            <div class="input-field col s12"> 
                                 <h5 class=" blue-text">Detalles:</h5>
-                                <input type="text"  name="detalles" placeholder="<%= detalles%>" required="required" value="" ><br>                          
+                                <input type="text"  name="detalles" readonly   value="<%= detalles%>" ><br>                          
                             </div>
-                            <div class="input-field col s10"> 
+                            <div class="input-field col s12"> 
                                 <h5 class=" blue-text">Motivos:</h5>
-                                <input type="text"  name="detalles" placeholder="<%= motivos %>" required="required" value="" ><br>                          
+                                <input type="text"  name="motivos"  required="required"  value="<%= motivos %>" ><br>                          
                             </div>
                             <div class="input-field col s2"> 
                                 <h6 class=" blue-text">Valor Hora Trabajo</h6>
@@ -150,7 +150,7 @@
                             </div>
                             <div class="input-field col s2"> 
                                 <h6 class=" blue-text">Total:</h6>
-                                <input type="number" name="horasTrabajadas" min="0" value="<%= total%>">                          
+                                <input type="number" name="horasTrabajadas" min="0" readonly  value="<%= total%>">                          
                             </div>
                         </div>
                     </div>
